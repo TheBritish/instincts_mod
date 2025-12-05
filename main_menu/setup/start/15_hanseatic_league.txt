@@ -2,7 +2,8 @@
 	add_international_organization = {
 		type = hanseatic_league
 		creation_date = 1337.1.1
-		members = { LUB }
+		leader = HSA
+		members = { HSA LUB }
 		areas = {
 			north_sea_coast_area
 			baltic_coast_area
