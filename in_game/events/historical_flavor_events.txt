@@ -386,13 +386,6 @@ historical_flavor.2019 = {
 
     mean_time_to_happen = { months = 12 }
 
-    immediate = {
-        set_global_variable = {
-            name = jacobite_rising_active
-            value = yes
-        }
-    }
-
     option = {
         name = historical_flavor.2019.a
         add_country_modifier = {

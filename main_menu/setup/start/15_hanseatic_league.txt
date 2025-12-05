@@ -1,2 +1,14 @@
-﻿# This file is intentionally empty - Hanseatic League is initialized via on_action
-# See: in_game/common/on_action/hanseatic_league_setup.txt
+﻿international_organization_manager = {
+	add_international_organization = {
+		type = hanseatic_league
+		creation_date = 1337.1.1
+		map_color = hsv360 { 0 60 80 }
+		members = { 
+			HSA
+			LUB
+			HAM
+			BRM
+		}
+		leader = HSA
+	}
+}

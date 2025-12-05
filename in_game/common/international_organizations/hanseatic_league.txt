@@ -23,7 +23,7 @@ hanseatic_league = {
 	}
 	
 	create_visible_trigger = {
-		always = no
+		always = yes
 	}
 
 	invite_visible_trigger = {
