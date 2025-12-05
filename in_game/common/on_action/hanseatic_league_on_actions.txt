@@ -1,0 +1,9 @@
+# Game start initialization for Hanseatic League members
+on_game_start = {
+	# This fires for every country at the very start of the game
+	# We use it to add HAM and BRM to the Hanseatic League
+	first_valid = {
+		hanseatic_league_events.hanseatic_league_init
+		hanseatic_league_events.hanseatic_league_init_brm
+	}
+}

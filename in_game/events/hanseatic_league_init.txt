@@ -1,0 +1,48 @@
+# Hanseatic League setup events
+hanseatic_league_events = {
+	# Initialize Hanseatic League members after game start
+	# This avoids overwriting the massive vanilla IO setup file
+	# HAM and BRM can't join during setup (HRE conflict), so we add them via event
+	hanseatic_league_init = {
+		type = country_event
+		title = "hanseatic_league_init.t"
+		desc = "hanseatic_league_init.d"
+		
+		trigger = {
+			tag = HAM
+			game_start_date = 1400.1.1
+			NOT = { is_member_of_international_organization = international_organization:hanseatic_league }
+		}
+		
+		immediate = {
+			# Add HAM to Hanseatic League
+			join_international_organization = international_organization:hanseatic_league
+		}
+		
+		option = {
+			name = "hanseatic_league_init.a"
+		}
+	}
+	
+	# Add BRM to Hanseatic League
+	hanseatic_league_init_brm = {
+		type = country_event
+		title = "hanseatic_league_init.t"
+		desc = "hanseatic_league_init.d"
+		
+		trigger = {
+			tag = BRM
+			game_start_date = 1400.1.1
+			NOT = { is_member_of_international_organization = international_organization:hanseatic_league }
+		}
+		
+		immediate = {
+			# Add BRM to Hanseatic League
+			join_international_organization = international_organization:hanseatic_league
+		}
+		
+		option = {
+			name = "hanseatic_league_init.a"
+		}
+	}
+}
