@@ -1,0 +1,14 @@
+[04:30:18][systemsettings.cpp:215]: CPU Model: AMD Ryzen 7 5800X 8-Core Processor             
+[04:30:18][systemsettings.cpp:216]: CPU Speed: 3800MHz
+[04:30:18][systemsettings.cpp:217]: CPU Physical Cores: 8
+[04:30:18][systemsettings.cpp:218]: CPU Logical Cores: 16
+[04:30:18][systemsettings.cpp:219]: RAM Total: 32694
+[04:30:18][systemsettings.cpp:220]: RAM Free: 17024
+[04:30:18][systemsettings.cpp:221]: Swap Total: 51321
+[04:30:18][systemsettings.cpp:222]: Swap Free: 27161
+[04:30:18][systemsettings.cpp:223]: OS Version: Windows 11 (Build 26200)
+[04:30:18][systemsettings.cpp:224]: OS Language: en
+[04:30:20][contextowner.cpp:955]: GPU Name: NVIDIA GeForce RTX 2060
+[04:30:20][contextowner.cpp:956]: GPU Vendor: nVidia
+[04:30:20][contextowner.cpp:957]: GPU Id: 7817
+[04:30:20][contextowner.cpp:958]: GPU Dedicated Memory: 5945

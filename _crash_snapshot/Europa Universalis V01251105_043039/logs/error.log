@@ -1,0 +1,390 @@
+[04:30:25][pdx_persistent_reader.cpp:289]: Error: "Unknown trigger type: year, near line: 11" in file: "events/historical_flavor_events.txt" near line: 12
+[04:30:25][jomini_dynamicdescription.cpp:67]: Unrecognized loc key historical_flavor.2008.title. events/historical_flavor_events.txt:31
+[04:30:25][jomini_dynamicdescription.cpp:67]: Unrecognized loc key historical_flavor.2008.desc. events/historical_flavor_events.txt:32
+[04:30:25][event.cpp:250]: unknown illustration tag 'soldiers' (cf. gfx/illustrations/database for valid list of tags) events/historical_flavor_events.txt:42
+[04:30:25][jomini_eventtarget.cpp:749]: Failed to find a valid event target link 'gold_threshold_moderate' at events/historical_flavor_events.txt:51
+[04:30:25][jomini_scriptvalue.h:730]: Cannot read [gold_threshold_moderate] as a script value
+[04:30:25][jomini_scriptvalue.h:438]: Badly read script value gold_threshold_moderate at events/historical_flavor_events.txt:51
+[04:30:25][pdx_persistent_reader.cpp:289]: Error: "Unknown trigger type: government_rank, near line: 50
+Unknown trigger type: military_power, near line: 54
+Unknown trigger type: has_technology_group, near line: 55" in file: "events/historical_flavor_events.txt" near line: 56
+[04:30:25][jomini_eventtarget.cpp:749]: Failed to find a valid event target link 'stability_threshold_very_weak' at events/historical_flavor_events.txt:59
+[04:30:25][jomini_scriptvalue.h:730]: Cannot read [stability_threshold_very_weak] as a script value
+[04:30:25][jomini_scriptvalue.h:438]: Badly read script value stability_threshold_very_weak at events/historical_flavor_events.txt:59
+[04:30:25][pdx_persistent_reader.cpp:289]: Error: "Unknown trigger type: is_at_war, near line: 58" in file: "events/historical_flavor_events.txt" near line: 60
+[04:30:25][jomini_dynamicdescription.cpp:67]: Unrecognized loc key historical_flavor.2008.a. CEventOptionDesc:172
+[04:30:25][jomini_eventtarget.cpp:749]: Failed to find a valid event target link 'army_tradition_minor_bonus' at events/historical_flavor_events.txt:64
+[04:30:25][jomini_scriptvalue.h:730]: Cannot read [army_tradition_minor_bonus] as a script value
+[04:30:25][jomini_scriptvalue.h:438]: Badly read script value army_tradition_minor_bonus at events/historical_flavor_events.txt:64
+[04:30:25][jomini_effect.cpp:556]: Unknown effect add_military_power at events/historical_flavor_events.txt:65
+[04:30:25][jomini_dynamicdescription.cpp:67]: Unrecognized loc key historical_flavor.2008.b. CEventOptionDesc:172
+[04:30:25][jomini_effect.cpp:556]: Unknown effect add_military_power at events/historical_flavor_events.txt:70
+[04:30:25][jomini_dynamicdescription.cpp:67]: Unrecognized loc key historical_flavor.2009.title. events/historical_flavor_events.txt:77
+[04:30:25][jomini_dynamicdescription.cpp:67]: Unrecognized loc key historical_flavor.2009.desc. events/historical_flavor_events.txt:78
+[04:30:25][event.cpp:250]: unknown illustration tag 'merchants' (cf. gfx/illustrations/database for valid list of tags) events/historical_flavor_events.txt:88
+[04:30:25][event.cpp:250]: unknown illustration tag 'wealth' (cf. gfx/illustrations/database for valid list of tags) events/historical_flavor_events.txt:89
+[04:30:25][pdx_persistent_reader.cpp:289]: Error: "Unknown trigger type: capital_location, near line: 94
+Unknown trigger type: location_development, near line: 97" in file: "events/historical_flavor_events.txt" near line: 98
+[04:30:25][jomini_trigger.cpp:805]: has_estate: Inconsistent trigger scopes (country vs. character) at events/historical_flavor_events.txt:105
+[04:30:25][pdx_persistent_reader.cpp:289]: Error: "Unknown trigger type: location:augsburg.state, near line: 99
+Unknown trigger type: trade_efficiency, near line: 104" in file: "events/historical_flavor_events.txt" near line: 106
+[04:30:25][jomini_dynamicdescription.cpp:67]: Unrecognized loc key historical_flavor.2009.a. CEventOptionDesc:172
+[04:30:25][jomini_eventtarget.cpp:749]: Failed to find a valid event target link 'gold_very_large_reward' at events/historical_flavor_events.txt:111
+[04:30:25][jomini_scriptvalue.h:730]: Cannot read [gold_very_large_reward] as a script value
+[04:30:25][jomini_scriptvalue.h:438]: Badly read script value gold_very_large_reward at events/historical_flavor_events.txt:111
+[04:30:25][jomini_effect.cpp:556]: Unknown effect location:augsburg.state at events/historical_flavor_events.txt:112
+[04:30:25][jomini_eventtarget.cpp:749]: Failed to find a valid event target link 'development_moderate_bonus' at events/historical_flavor_events.txt:117
+[04:30:25][jomini_scriptvalue.h:730]: Cannot read [development_moderate_bonus] as a script value
+[04:30:25][jomini_scriptvalue.h:438]: Badly read script value development_moderate_bonus at events/historical_flavor_events.txt:117
+[04:30:25][jomini_dynamicdescription.cpp:67]: Unrecognized loc key historical_flavor.2009.b. CEventOptionDesc:172
+[04:30:25][jomini_eventtarget.cpp:749]: Failed to find a valid event target link 'gold_large_reward' at events/historical_flavor_events.txt:144
+[04:30:25][jomini_scriptvalue.h:730]: Cannot read [gold_large_reward] as a script value
+[04:30:25][jomini_scriptvalue.h:438]: Badly read script value gold_large_reward at events/historical_flavor_events.txt:144
+[04:30:25][jomini_eventtarget.cpp:749]: Failed to find a valid event target link 'prestige_moderate_bonus' at events/historical_flavor_events.txt:145
+[04:30:25][jomini_scriptvalue.h:730]: Cannot read [prestige_moderate_bonus] as a script value
+[04:30:25][jomini_scriptvalue.h:438]: Badly read script value prestige_moderate_bonus at events/historical_flavor_events.txt:145
+[04:30:25][jomini_dynamicdescription.cpp:67]: Unrecognized loc key historical_flavor.2010.title. events/historical_flavor_events.txt:156
+[04:30:25][jomini_dynamicdescription.cpp:67]: Unrecognized loc key historical_flavor.2010.desc. events/historical_flavor_events.txt:157
+[04:30:25][event.cpp:250]: unknown illustration tag 'battle' (cf. gfx/illustrations/database for valid list of tags) events/historical_flavor_events.txt:167
+[04:30:25][event.cpp:250]: unknown illustration tag 'soldiers' (cf. gfx/illustrations/database for valid list of tags) events/historical_flavor_events.txt:168
+[04:30:25][pdx_persistent_reader.cpp:289]: Error: "Unknown trigger type: is_war_enemy_of, near line: 178
+Unknown trigger type: capital_location, near line: 179" in file: "events/historical_flavor_events.txt" near line: 180
+[04:30:25][pdx_persistent_reader.cpp:289]: Error: "Unknown trigger type: military_power, near line: 184" in file: "events/historical_flavor_events.txt" near line: 185
+[04:30:25][jomini_dynamicdescription.cpp:67]: Unrecognized loc key historical_flavor.2010.a. CEventOptionDesc:172
+[04:30:25][jomini_effect.cpp:556]: Unknown effect add_military_power at events/historical_flavor_events.txt:189
+[04:30:25][jomini_dynamicdescription.cpp:67]: Unrecognized loc key historical_flavor.2010.b. CEventOptionDesc:172
+[04:30:25][jomini_eventtarget.cpp:749]: Failed to find a valid event target link 'prestige_large_bonus' at events/historical_flavor_events.txt:215
+[04:30:25][jomini_scriptvalue.h:730]: Cannot read [prestige_large_bonus] as a script value
+[04:30:25][jomini_scriptvalue.h:438]: Badly read script value prestige_large_bonus at events/historical_flavor_events.txt:215
+[04:30:25][jomini_eventtarget.cpp:749]: Failed to find a valid event target link 'army_tradition_minor_bonus' at events/historical_flavor_events.txt:216
+[04:30:25][jomini_scriptvalue.h:730]: Cannot read [army_tradition_minor_bonus] as a script value
+[04:30:25][jomini_scriptvalue.h:438]: Badly read script value army_tradition_minor_bonus at events/historical_flavor_events.txt:216
+[04:30:25][jomini_dynamicdescription.cpp:67]: Unrecognized loc key historical_flavor.2011.title. events/historical_flavor_events.txt:223
+[04:30:25][jomini_dynamicdescription.cpp:67]: Unrecognized loc key historical_flavor.2011.desc. events/historical_flavor_events.txt:224
+[04:30:25][event.cpp:250]: unknown illustration tag 'soldiers' (cf. gfx/illustrations/database for valid list of tags) events/historical_flavor_events.txt:234
+[04:30:25][pdx_persistent_reader.cpp:289]: Error: "Unknown trigger type: any_owned_state, near line: 246" in file: "events/historical_flavor_events.txt" near line: 251
+[04:30:25][pdx_persistent_reader.cpp:289]: Error: "Unknown trigger type: is_at_war, near line: 255
+Unknown trigger type: has_rival, near line: 257" in file: "events/historical_flavor_events.txt" near line: 258
+[04:30:25][jomini_dynamicdescription.cpp:67]: Unrecognized loc key historical_flavor.2011.a. CEventOptionDesc:172
+[04:30:25][jomini_effect.cpp:556]: Unknown effect add_military_power at events/historical_flavor_events.txt:264
+[04:30:25][jomini_dynamicdescription.cpp:67]: Unrecognized loc key historical_flavor.2011.b. CEventOptionDesc:172
+[04:30:25][jomini_eventtarget.cpp:749]: Failed to find a valid event target link 'prestige_moderate_bonus' at events/historical_flavor_events.txt:290
+[04:30:25][jomini_scriptvalue.h:730]: Cannot read [prestige_moderate_bonus] as a script value
+[04:30:25][jomini_scriptvalue.h:438]: Badly read script value prestige_moderate_bonus at events/historical_flavor_events.txt:290
+[04:30:25][jomini_eventtarget.cpp:749]: Failed to find a valid event target link 'legitimacy_minor_bonus' at events/historical_flavor_events.txt:291
+[04:30:25][jomini_scriptvalue.h:730]: Cannot read [legitimacy_minor_bonus] as a script value
+[04:30:25][jomini_scriptvalue.h:438]: Badly read script value legitimacy_minor_bonus at events/historical_flavor_events.txt:291
+[04:30:25][jomini_effect.cpp:556]: Unknown effect add_military_power at events/historical_flavor_events.txt:292
+[04:30:25][jomini_dynamicdescription.cpp:67]: Unrecognized loc key historical_flavor.2012.title. events/historical_flavor_events.txt:299
+[04:30:25][jomini_dynamicdescription.cpp:67]: Unrecognized loc key historical_flavor.2012.desc. events/historical_flavor_events.txt:300
+[04:30:25][event.cpp:250]: unknown illustration tag 'writing' (cf. gfx/illustrations/database for valid list of tags) events/historical_flavor_events.txt:310
+[04:30:25][pdx_persistent_reader.cpp:289]: Error: "Unknown trigger type: capital_location, near line: 316
+Unknown trigger type: location_development, near line: 319" in file: "events/historical_flavor_events.txt" near line: 320
+[04:30:25][pdx_persistent_reader.cpp:289]: Error: "Unknown trigger type: has_innovation_institution, near line: 324" in file: "events/historical_flavor_events.txt" near line: 325
+[04:30:25][jomini_eventtarget.cpp:749]: Failed to find a valid event target link 'stability_threshold_very_weak' at events/historical_flavor_events.txt:327
+[04:30:25][jomini_scriptvalue.h:730]: Cannot read [stability_threshold_very_weak] as a script value
+[04:30:25][jomini_scriptvalue.h:438]: Badly read script value stability_threshold_very_weak at events/historical_flavor_events.txt:327
+[04:30:25][jomini_dynamicdescription.cpp:67]: Unrecognized loc key historical_flavor.2012.a. CEventOptionDesc:172
+[04:30:25][jomini_eventtarget.cpp:749]: Failed to find a valid event target link 'research_progress_moderate_bonus' at events/historical_flavor_events.txt:332
+[04:30:25][jomini_scriptvalue.h:730]: Cannot read [research_progress_moderate_bonus] as a script value
+[04:30:25][jomini_scriptvalue.h:438]: Badly read script value research_progress_moderate_bonus at events/historical_flavor_events.txt:332
+[04:30:25][jomini_effect.cpp:556]: Unknown effect location:nurnberg.state at events/historical_flavor_events.txt:333
+[04:30:25][jomini_eventtarget.cpp:749]: Failed to find a valid event target link 'prestige_moderate_bonus' at events/historical_flavor_events.txt:340
+[04:30:25][jomini_scriptvalue.h:730]: Cannot read [prestige_moderate_bonus] as a script value
+[04:30:25][jomini_scriptvalue.h:438]: Badly read script value prestige_moderate_bonus at events/historical_flavor_events.txt:340
+[04:30:25][jomini_dynamicdescription.cpp:67]: Unrecognized loc key historical_flavor.2012.b. CEventOptionDesc:172
+[04:30:25][jomini_eventtarget.cpp:749]: Failed to find a valid event target link 'legitimacy_minor_bonus' at events/historical_flavor_events.txt:362
+[04:30:25][jomini_scriptvalue.h:730]: Cannot read [legitimacy_minor_bonus] as a script value
+[04:30:25][jomini_scriptvalue.h:438]: Badly read script value legitimacy_minor_bonus at events/historical_flavor_events.txt:362
+[04:30:25][jomini_effect.cpp:556]: Unknown effect add_administrative_power at events/historical_flavor_events.txt:363
+[04:30:25][jomini_dynamicdescription.cpp:67]: Unrecognized loc key historical_flavor.2013.title. events/historical_flavor_events.txt:371
+[04:30:25][jomini_dynamicdescription.cpp:67]: Unrecognized loc key historical_flavor.2013.desc. events/historical_flavor_events.txt:372
+[04:30:25][event.cpp:250]: unknown illustration tag 'battle' (cf. gfx/illustrations/database for valid list of tags) events/historical_flavor_events.txt:382
+[04:30:25][pdx_persistent_reader.cpp:289]: Error: "Unknown trigger type: IF, near line: 393
+Unknown trigger type: IF, near line: 406" in file: "events/historical_flavor_events.txt" near line: 415
+[04:30:25][jomini_dynamicdescription.cpp:67]: Unrecognized loc key historical_flavor.2013.a. CEventOptionDesc:172
+[04:30:25][jomini_eventtarget.cpp:749]: Failed to find a valid event target link 'prestige_very_large_bonus' at events/historical_flavor_events.txt:425
+[04:30:25][jomini_scriptvalue.h:730]: Cannot read [prestige_very_large_bonus] as a script value
+[04:30:25][jomini_scriptvalue.h:438]: Badly read script value prestige_very_large_bonus at events/historical_flavor_events.txt:425
+[04:30:25][jomini_eventtarget.cpp:749]: Failed to find a valid event target link 'legitimacy_moderate_bonus' at events/historical_flavor_events.txt:426
+[04:30:25][jomini_scriptvalue.h:730]: Cannot read [legitimacy_moderate_bonus] as a script value
+[04:30:25][jomini_scriptvalue.h:438]: Badly read script value legitimacy_moderate_bonus at events/historical_flavor_events.txt:426
+[04:30:25][jomini_dynamicdescription.cpp:67]: Unrecognized loc key historical_flavor.2013.b. CEventOptionDesc:172
+[04:30:25][jomini_eventtarget.cpp:749]: Failed to find a valid event target link 'prestige_large_penalty' at events/historical_flavor_events.txt:432
+[04:30:25][jomini_scriptvalue.h:730]: Cannot read [prestige_large_penalty] as a script value
+[04:30:25][jomini_scriptvalue.h:438]: Badly read script value prestige_large_penalty at events/historical_flavor_events.txt:432
+[04:30:25][jomini_eventtarget.cpp:749]: Failed to find a valid event target link 'legitimacy_moderate_penalty' at events/historical_flavor_events.txt:433
+[04:30:25][jomini_scriptvalue.h:730]: Cannot read [legitimacy_moderate_penalty] as a script value
+[04:30:25][jomini_scriptvalue.h:438]: Badly read script value legitimacy_moderate_penalty at events/historical_flavor_events.txt:433
+[04:30:25][jomini_dynamicdescription.cpp:67]: Unrecognized loc key historical_flavor.2013.c. CEventOptionDesc:172
+[04:30:25][jomini_effect.cpp:556]: Unknown effect add_military_power at events/historical_flavor_events.txt:438
+[04:30:25][jomini_dynamicdescription.cpp:67]: Unrecognized loc key historical_flavor.2014.title. events/historical_flavor_events.txt:445
+[04:30:25][jomini_dynamicdescription.cpp:67]: Unrecognized loc key historical_flavor.2014.desc. events/historical_flavor_events.txt:446
+[04:30:25][event.cpp:250]: unknown illustration tag 'burning_city' (cf. gfx/illustrations/database for valid list of tags) events/historical_flavor_events.txt:456
+[04:30:25][pdx_persistent_reader.cpp:289]: Error: "Unknown trigger type: capital_location, near line: 462" in file: "events/historical_flavor_events.txt" near line: 467
+[04:30:25][jomini_eventtarget.cpp:749]: Failed to find a valid event target link 'war_exhaustion_threshold_moderate' at events/historical_flavor_events.txt:470
+[04:30:25][jomini_scriptvalue.h:730]: Cannot read [war_exhaustion_threshold_moderate] as a script value
+[04:30:25][jomini_scriptvalue.h:438]: Badly read script value war_exhaustion_threshold_moderate at events/historical_flavor_events.txt:470
+[04:30:25][pdx_persistent_reader.cpp:289]: Error: "Unknown trigger type: is_at_war, near line: 469" in file: "events/historical_flavor_events.txt" near line: 471
+[04:30:25][jomini_dynamicdescription.cpp:67]: Unrecognized loc key historical_flavor.2014.a. CEventOptionDesc:172
+[04:30:25][jomini_effect.cpp:556]: Unknown effect location:magdeburg.state at events/historical_flavor_events.txt:491
+[04:30:25][jomini_eventtarget.cpp:749]: Failed to find a valid event target link 'development_catastrophic_penalty' at events/historical_flavor_events.txt:496
+[04:30:25][jomini_scriptvalue.h:730]: Cannot read [development_catastrophic_penalty] as a script value
+[04:30:25][jomini_scriptvalue.h:438]: Badly read script value development_catastrophic_penalty at events/historical_flavor_events.txt:496
+[04:30:25][jomini_eventtarget.cpp:749]: Failed to find a valid event target link 'prestige_large_penalty' at events/historical_flavor_events.txt:498
+[04:30:25][jomini_scriptvalue.h:730]: Cannot read [prestige_large_penalty] as a script value
+[04:30:25][jomini_scriptvalue.h:438]: Badly read script value prestige_large_penalty at events/historical_flavor_events.txt:498
+[04:30:25][jomini_eventtarget.cpp:749]: Failed to find a valid event target link 'war_exhaustion_moderate_bonus' at events/historical_flavor_events.txt:499
+[04:30:25][jomini_scriptvalue.h:730]: Cannot read [war_exhaustion_moderate_bonus] as a script value
+[04:30:25][jomini_scriptvalue.h:438]: Badly read script value war_exhaustion_moderate_bonus at events/historical_flavor_events.txt:499
+[04:30:25][jomini_dynamicdescription.cpp:67]: Unrecognized loc key historical_flavor.2014.b. CEventOptionDesc:172
+[04:30:25][jomini_effect.cpp:556]: Unknown effect location:magdeburg.state at events/historical_flavor_events.txt:509
+[04:30:25][jomini_eventtarget.cpp:749]: Failed to find a valid event target link 'prestige_moderate_penalty' at events/historical_flavor_events.txt:517
+[04:30:25][jomini_scriptvalue.h:730]: Cannot read [prestige_moderate_penalty] as a script value
+[04:30:25][jomini_scriptvalue.h:438]: Badly read script value prestige_moderate_penalty at events/historical_flavor_events.txt:517
+[04:30:25][jomini_dynamicdescription.cpp:67]: Unrecognized loc key historical_flavor.2015.title. events/historical_flavor_events.txt:524
+[04:30:25][jomini_dynamicdescription.cpp:67]: Unrecognized loc key historical_flavor.2015.desc. events/historical_flavor_events.txt:525
+[04:30:25][event.cpp:250]: unknown illustration tag 'writing' (cf. gfx/illustrations/database for valid list of tags) events/historical_flavor_events.txt:535
+[04:30:25][pdx_persistent_reader.cpp:289]: Error: "Unknown trigger type: location_development, near line: 544" in file: "events/historical_flavor_events.txt" near line: 545
+[04:30:25][pdx_persistent_reader.cpp:289]: Error: "Unknown trigger type: location:napoli.state, near line: 549" in file: "events/historical_flavor_events.txt" near line: 552
+[04:30:25][jomini_eventtarget.cpp:749]: Failed to find a valid event target link 'gold_threshold_moderate' at events/historical_flavor_events.txt:554
+[04:30:25][jomini_scriptvalue.h:730]: Cannot read [gold_threshold_moderate] as a script value
+[04:30:25][jomini_scriptvalue.h:438]: Badly read script value gold_threshold_moderate at events/historical_flavor_events.txt:554
+[04:30:25][jomini_eventtarget.cpp:749]: Failed to find a valid event target link 'prestige_threshold_weak' at events/historical_flavor_events.txt:555
+[04:30:25][jomini_scriptvalue.h:730]: Cannot read [prestige_threshold_weak] as a script value
+[04:30:25][jomini_scriptvalue.h:438]: Badly read script value prestige_threshold_weak at events/historical_flavor_events.txt:555
+[04:30:25][jomini_dynamicdescription.cpp:67]: Unrecognized loc key historical_flavor.2015.a. CEventOptionDesc:172
+[04:30:25][jomini_effect.cpp:556]: Unknown effect location:napoli.state at events/historical_flavor_events.txt:560
+[04:30:25][jomini_eventtarget.cpp:749]: Failed to find a valid event target link 'research_progress_moderate_bonus' at events/historical_flavor_events.txt:567
+[04:30:25][jomini_scriptvalue.h:730]: Cannot read [research_progress_moderate_bonus] as a script value
+[04:30:25][jomini_scriptvalue.h:438]: Badly read script value research_progress_moderate_bonus at events/historical_flavor_events.txt:567
+[04:30:25][jomini_eventtarget.cpp:749]: Failed to find a valid event target link 'prestige_moderate_bonus' at events/historical_flavor_events.txt:568
+[04:30:25][jomini_scriptvalue.h:730]: Cannot read [prestige_moderate_bonus] as a script value
+[04:30:25][jomini_scriptvalue.h:438]: Badly read script value prestige_moderate_bonus at events/historical_flavor_events.txt:568
+[04:30:25][jomini_dynamicdescription.cpp:67]: Unrecognized loc key historical_flavor.2015.b. CEventOptionDesc:172
+[04:30:25][jomini_effect.cpp:556]: Unknown effect add_administrative_power at events/historical_flavor_events.txt:590
+[04:30:25][jomini_dynamicdescription.cpp:67]: Unrecognized loc key historical_flavor.2016.title. events/historical_flavor_events.txt:598
+[04:30:25][jomini_dynamicdescription.cpp:67]: Unrecognized loc key historical_flavor.2016.desc. events/historical_flavor_events.txt:599
+[04:30:25][event.cpp:250]: unknown illustration tag 'battle' (cf. gfx/illustrations/database for valid list of tags) events/historical_flavor_events.txt:609
+[04:30:25][event.cpp:250]: unknown illustration tag 'soldiers' (cf. gfx/illustrations/database for valid list of tags) events/historical_flavor_events.txt:610
+[04:30:25][jomini_eventtarget.cpp:749]: Failed to find a valid event target link 'army_size_threshold_large' at events/historical_flavor_events.txt:616
+[04:30:25][jomini_scriptvalue.h:730]: Cannot read [army_size_threshold_large] as a script value
+[04:30:25][jomini_scriptvalue.h:438]: Badly read script value army_size_threshold_large at events/historical_flavor_events.txt:616
+[04:30:25][pdx_persistent_reader.cpp:289]: Error: "Unknown trigger type: military_power, near line: 617
+Unknown trigger type: is_at_war, near line: 620
+Unknown trigger type: capital_location, near line: 623" in file: "events/historical_flavor_events.txt" near line: 624
+[04:30:25][pdx_persistent_reader.cpp:289]: Error: "Unknown trigger type: army_professionalism, near line: 629
+Unknown trigger type: military_technology, near line: 630" in file: "events/historical_flavor_events.txt" near line: 631
+[04:30:25][jomini_dynamicdescription.cpp:67]: Unrecognized loc key historical_flavor.2016.a. CEventOptionDesc:172
+[04:30:25][jomini_effect.cpp:556]: Unknown effect add_military_power at events/historical_flavor_events.txt:636
+[04:30:25][jomini_eventtarget.cpp:749]: Failed to find a valid event target link 'prestige_large_bonus' at events/historical_flavor_events.txt:637
+[04:30:25][jomini_scriptvalue.h:730]: Cannot read [prestige_large_bonus] as a script value
+[04:30:25][jomini_scriptvalue.h:438]: Badly read script value prestige_large_bonus at events/historical_flavor_events.txt:637
+[04:30:25][jomini_eventtarget.cpp:749]: Failed to find a valid event target link 'army_tradition_moderate_bonus' at events/historical_flavor_events.txt:638
+[04:30:25][jomini_scriptvalue.h:730]: Cannot read [army_tradition_moderate_bonus] as a script value
+[04:30:25][jomini_scriptvalue.h:438]: Badly read script value army_tradition_moderate_bonus at events/historical_flavor_events.txt:638
+[04:30:25][jomini_dynamicdescription.cpp:67]: Unrecognized loc key historical_flavor.2016.b. CEventOptionDesc:172
+[04:30:25][jomini_eventtarget.cpp:749]: Failed to find a valid event target link 'legitimacy_moderate_bonus' at events/historical_flavor_events.txt:664
+[04:30:25][jomini_scriptvalue.h:730]: Cannot read [legitimacy_moderate_bonus] as a script value
+[04:30:25][jomini_scriptvalue.h:438]: Badly read script value legitimacy_moderate_bonus at events/historical_flavor_events.txt:664
+[04:30:25][jomini_eventtarget.cpp:749]: Failed to find a valid event target link 'gold_moderate_reward' at events/historical_flavor_events.txt:665
+[04:30:25][jomini_scriptvalue.h:730]: Cannot read [gold_moderate_reward] as a script value
+[04:30:25][jomini_scriptvalue.h:438]: Badly read script value gold_moderate_reward at events/historical_flavor_events.txt:665
+[04:30:25][jomini_effect.cpp:556]: Unknown effect add_military_power at events/historical_flavor_events.txt:666
+[04:30:25][jomini_dynamicdescription.cpp:67]: Unrecognized loc key historical_flavor.2017.title. events/historical_flavor_events.txt:673
+[04:30:25][jomini_dynamicdescription.cpp:67]: Unrecognized loc key historical_flavor.2017.desc. events/historical_flavor_events.txt:674
+[04:30:25][event.cpp:250]: unknown illustration tag 'angry_mob' (cf. gfx/illustrations/database for valid list of tags) events/historical_flavor_events.txt:684
+[04:30:25][pdx_persistent_reader.cpp:289]: Error: "Unknown trigger type: any_owned_state, near line: 697" in file: "events/historical_flavor_events.txt" near line: 705
+[04:30:25][pdx_persistent_reader.cpp:289]: Error: "Unknown trigger type: has_rival, near line: 710
+Unknown trigger type: has_rival, near line: 711" in file: "events/historical_flavor_events.txt" near line: 711
+[04:30:25][jomini_eventtarget.cpp:749]: Failed to find a valid event target link 'stability_threshold_weak' at events/historical_flavor_events.txt:712
+[04:30:25][jomini_scriptvalue.h:730]: Cannot read [stability_threshold_weak] as a script value
+[04:30:25][jomini_scriptvalue.h:438]: Badly read script value stability_threshold_weak at events/historical_flavor_events.txt:712
+[04:30:25][jomini_dynamicdescription.cpp:67]: Unrecognized loc key historical_flavor.2017.a. CEventOptionDesc:172
+[04:30:25][jomini_eventtarget.cpp:749]: Failed to find a valid event target link 'stability_minor_penalty' at events/historical_flavor_events.txt:718
+[04:30:25][jomini_scriptvalue.h:730]: Cannot read [stability_minor_penalty] as a script value
+[04:30:25][jomini_scriptvalue.h:438]: Badly read script value stability_minor_penalty at events/historical_flavor_events.txt:718
+[04:30:25][jomini_dynamicdescription.cpp:67]: Unrecognized loc key historical_flavor.2017.b. CEventOptionDesc:172
+[04:30:25][jomini_eventtarget.cpp:749]: Failed to find a valid event target link 'legitimacy_moderate_penalty' at events/historical_flavor_events.txt:724
+[04:30:25][jomini_scriptvalue.h:730]: Cannot read [legitimacy_moderate_penalty] as a script value
+[04:30:25][jomini_scriptvalue.h:438]: Badly read script value legitimacy_moderate_penalty at events/historical_flavor_events.txt:724
+[04:30:25][jomini_dynamicdescription.cpp:67]: Unrecognized loc key historical_flavor.2018.title. events/historical_flavor_events.txt:732
+[04:30:25][jomini_dynamicdescription.cpp:67]: Unrecognized loc key historical_flavor.2018.desc. events/historical_flavor_events.txt:733
+[04:30:25][event.cpp:250]: unknown illustration tag 'council' (cf. gfx/illustrations/database for valid list of tags) events/historical_flavor_events.txt:743
+[04:30:25][pdx_persistent_reader.cpp:289]: Error: "Unknown trigger type: capital_location, near line: 750" in file: "events/historical_flavor_events.txt" near line: 754
+[04:30:25][jomini_eventtarget.cpp:749]: Failed to find a valid event target link 'stability_threshold_very_weak' at events/historical_flavor_events.txt:766
+[04:30:25][jomini_scriptvalue.h:730]: Cannot read [stability_threshold_very_weak] as a script value
+[04:30:25][jomini_scriptvalue.h:438]: Badly read script value stability_threshold_very_weak at events/historical_flavor_events.txt:766
+[04:30:25][pdx_persistent_reader.cpp:289]: Error: "Unknown trigger type: any_owned_state, near line: 757" in file: "events/historical_flavor_events.txt" near line: 767
+[04:30:25][jomini_dynamicdescription.cpp:67]: Unrecognized loc key historical_flavor.2018.a. CEventOptionDesc:172
+[04:30:25][jomini_eventtarget.cpp:749]: Failed to find a valid event target link 'estate_satisfaction_moderate_bonus' at events/historical_flavor_events.txt:771
+[04:30:25][jomini_scriptvalue.h:730]: Cannot read [estate_satisfaction_moderate_bonus] as a script value
+[04:30:25][jomini_scriptvalue.h:438]: Badly read script value estate_satisfaction_moderate_bonus at events/historical_flavor_events.txt:771
+[04:30:25][jomini_eventtarget.cpp:749]: Failed to find a valid event target link 'stability_minor_bonus' at events/historical_flavor_events.txt:773
+[04:30:25][jomini_scriptvalue.h:730]: Cannot read [stability_minor_bonus] as a script value
+[04:30:25][jomini_scriptvalue.h:438]: Badly read script value stability_minor_bonus at events/historical_flavor_events.txt:773
+[04:30:25][jomini_dynamicdescription.cpp:67]: Unrecognized loc key historical_flavor.2018.b. CEventOptionDesc:172
+[04:30:25][jomini_effect.cpp:556]: Unknown effect add_administrative_power at events/historical_flavor_events.txt:779
+[04:30:25][jomini_dynamicdescription.cpp:67]: Unrecognized loc key historical_flavor.2019.title. events/historical_flavor_events.txt:786
+[04:30:25][jomini_dynamicdescription.cpp:67]: Unrecognized loc key historical_flavor.2019.desc. events/historical_flavor_events.txt:787
+[04:30:25][event.cpp:250]: unknown illustration tag 'merchants' (cf. gfx/illustrations/database for valid list of tags) events/historical_flavor_events.txt:797
+[04:30:25][event.cpp:250]: unknown illustration tag 'port' (cf. gfx/illustrations/database for valid list of tags) events/historical_flavor_events.txt:798
+[04:30:25][pdx_persistent_reader.cpp:289]: Error: "Unknown trigger type: location_development, near line: 807" in file: "events/historical_flavor_events.txt" near line: 808
+[04:30:25][jomini_trigger.cpp:805]: has_estate: Inconsistent trigger scopes (country vs. character) at events/historical_flavor_events.txt:815
+[04:30:25][pdx_persistent_reader.cpp:289]: Error: "Unknown trigger type: location:barcelona.state, near line: 809
+Unknown trigger type: trade_efficiency, near line: 814
+Unknown trigger type: any_owned_state, near line: 816" in file: "events/historical_flavor_events.txt" near line: 821
+[04:30:25][jomini_dynamicdescription.cpp:67]: Unrecognized loc key historical_flavor.2019.a. CEventOptionDesc:172
+[04:30:25][jomini_effect.cpp:556]: Unknown effect location:barcelona.state at events/historical_flavor_events.txt:830
+[04:30:25][jomini_eventtarget.cpp:749]: Failed to find a valid event target link 'gold_moderate_reward' at events/historical_flavor_events.txt:833
+[04:30:25][jomini_scriptvalue.h:730]: Cannot read [gold_moderate_reward] as a script value
+[04:30:25][jomini_scriptvalue.h:438]: Badly read script value gold_moderate_reward at events/historical_flavor_events.txt:833
+[04:30:25][jomini_dynamicdescription.cpp:67]: Unrecognized loc key historical_flavor.2019.b. CEventOptionDesc:172
+[04:30:25][jomini_eventtarget.cpp:749]: Failed to find a valid event target link 'prestige_moderate_bonus' at events/historical_flavor_events.txt:838
+[04:30:25][jomini_scriptvalue.h:730]: Cannot read [prestige_moderate_bonus] as a script value
+[04:30:25][jomini_scriptvalue.h:438]: Badly read script value prestige_moderate_bonus at events/historical_flavor_events.txt:838
+[04:30:25][jomini_dynamicdescription.cpp:67]: Unrecognized loc key historical_flavor.2020.title. events/historical_flavor_events.txt:846
+[04:30:25][jomini_dynamicdescription.cpp:67]: Unrecognized loc key historical_flavor.2020.desc. events/historical_flavor_events.txt:847
+[04:30:25][event.cpp:250]: unknown illustration tag 'merchants' (cf. gfx/illustrations/database for valid list of tags) events/historical_flavor_events.txt:857
+[04:30:25][event.cpp:250]: unknown illustration tag 'market' (cf. gfx/illustrations/database for valid list of tags) events/historical_flavor_events.txt:858
+[04:30:25][jomini_eventtarget.cpp:749]: Failed to find a valid event target link 'war_exhaustion_threshold_weak' at events/historical_flavor_events.txt:867
+[04:30:25][jomini_scriptvalue.h:730]: Cannot read [war_exhaustion_threshold_weak] as a script value
+[04:30:25][jomini_scriptvalue.h:438]: Badly read script value war_exhaustion_threshold_weak at events/historical_flavor_events.txt:867
+[04:30:25][pdx_persistent_reader.cpp:289]: Error: "Unknown trigger type: is_at_war, near line: 866" in file: "events/historical_flavor_events.txt" near line: 871
+[04:30:25][pdx_persistent_reader.cpp:289]: Error: "Unknown trigger type: capital_location, near line: 878" in file: "events/historical_flavor_events.txt" near line: 879
+[04:30:25][pdx_persistent_reader.cpp:289]: Error: "Unknown trigger type: trade_efficiency, near line: 880" in file: "events/historical_flavor_events.txt" near line: 881
+[04:30:25][jomini_dynamicdescription.cpp:67]: Unrecognized loc key historical_flavor.2020.a. CEventOptionDesc:172
+[04:30:25][jomini_effect.cpp:556]: Unknown effect location:troyes.state at events/historical_flavor_events.txt:886
+[04:30:25][jomini_eventtarget.cpp:749]: Failed to find a valid event target link 'gold_weak_penalty' at events/historical_flavor_events.txt:889
+[04:30:25][jomini_scriptvalue.h:730]: Cannot read [gold_weak_penalty] as a script value
+[04:30:25][jomini_scriptvalue.h:438]: Badly read script value gold_weak_penalty at events/historical_flavor_events.txt:889
+[04:30:25][jomini_dynamicdescription.cpp:67]: Unrecognized loc key historical_flavor.2020.b. CEventOptionDesc:172
+[04:30:25][jomini_effect.cpp:556]: Unknown effect location:troyes.state at events/historical_flavor_events.txt:894
+[04:30:25][jomini_eventtarget.cpp:749]: Failed to find a valid event target link 'prestige_minor_penalty' at events/historical_flavor_events.txt:897
+[04:30:25][jomini_scriptvalue.h:730]: Cannot read [prestige_minor_penalty] as a script value
+[04:30:25][jomini_scriptvalue.h:438]: Badly read script value prestige_minor_penalty at events/historical_flavor_events.txt:897
+[04:30:25][jomini_dynamicdescription.cpp:67]: Unrecognized loc key historical_flavor.2021.title. events/historical_flavor_events.txt:904
+[04:30:25][jomini_dynamicdescription.cpp:67]: Unrecognized loc key historical_flavor.2021.desc. events/historical_flavor_events.txt:905
+[04:30:25][event.cpp:250]: unknown illustration tag 'merchants' (cf. gfx/illustrations/database for valid list of tags) events/historical_flavor_events.txt:915
+[04:30:25][event.cpp:250]: unknown illustration tag 'market' (cf. gfx/illustrations/database for valid list of tags) events/historical_flavor_events.txt:916
+[04:30:25][jomini_trigger.cpp:805]: has_estate: Inconsistent trigger scopes (country vs. character) at events/historical_flavor_events.txt:922
+[04:30:25][jomini_eventtarget.cpp:749]: Failed to find a valid event target link 'stability_threshold_moderate' at events/historical_flavor_events.txt:924
+[04:30:25][jomini_scriptvalue.h:730]: Cannot read [stability_threshold_moderate] as a script value
+[04:30:25][jomini_scriptvalue.h:438]: Badly read script value stability_threshold_moderate at events/historical_flavor_events.txt:924
+[04:30:25][pdx_persistent_reader.cpp:289]: Error: "Unknown trigger type: capital_location, near line: 921
+Unknown trigger type: any_owned_state, near line: 923
+Unknown trigger type: is_at_war, near line: 924" in file: "events/historical_flavor_events.txt" near line: 924
+[04:30:25][jomini_dynamicdescription.cpp:67]: Unrecognized loc key historical_flavor.2021.a. CEventOptionDesc:172
+[04:30:25][jomini_eventtarget.cpp:749]: Failed to find a valid event target link 'development_large_bonus' at events/historical_flavor_events.txt:929
+[04:30:25][jomini_scriptvalue.h:730]: Cannot read [development_large_bonus] as a script value
+[04:30:25][jomini_scriptvalue.h:438]: Badly read script value development_large_bonus at events/historical_flavor_events.txt:929
+[04:30:25][jomini_eventtarget.cpp:749]: Failed to find a valid event target link 'gold_very_large_reward' at events/historical_flavor_events.txt:930
+[04:30:25][jomini_scriptvalue.h:730]: Cannot read [gold_very_large_reward] as a script value
+[04:30:25][jomini_scriptvalue.h:438]: Badly read script value gold_very_large_reward at events/historical_flavor_events.txt:930
+[04:30:25][jomini_eventtarget.cpp:749]: Failed to find a valid event target link 'societal_value_moderate_move_to_right' at events/historical_flavor_events.txt:933
+[04:30:25][jomini_scriptvalue.h:730]: Cannot read [societal_value_moderate_move_to_right] as a script value
+[04:30:25][jomini_scriptvalue.h:438]: Badly read script value societal_value_moderate_move_to_right at events/historical_flavor_events.txt:933
+[04:30:25][jomini_dynamicdescription.cpp:67]: Unrecognized loc key historical_flavor.2021.b. CEventOptionDesc:172
+[04:30:25][jomini_eventtarget.cpp:749]: Failed to find a valid event target link 'prestige_large_bonus' at events/historical_flavor_events.txt:956
+[04:30:25][jomini_scriptvalue.h:730]: Cannot read [prestige_large_bonus] as a script value
+[04:30:25][jomini_scriptvalue.h:438]: Badly read script value prestige_large_bonus at events/historical_flavor_events.txt:956
+[04:30:25][jomini_eventtarget.cpp:749]: Failed to find a valid event target link 'gold_large_reward' at events/historical_flavor_events.txt:957
+[04:30:25][jomini_scriptvalue.h:730]: Cannot read [gold_large_reward] as a script value
+[04:30:25][jomini_scriptvalue.h:438]: Badly read script value gold_large_reward at events/historical_flavor_events.txt:957
+[04:30:25][jomini_eventtarget.cpp:749]: Failed to find a valid event target link 'development_moderate_bonus' at events/historical_flavor_events.txt:959
+[04:30:25][jomini_scriptvalue.h:730]: Cannot read [development_moderate_bonus] as a script value
+[04:30:25][jomini_scriptvalue.h:438]: Badly read script value development_moderate_bonus at events/historical_flavor_events.txt:959
+[04:30:25][jomini_dynamicdescription.cpp:67]: Unrecognized loc key historical_flavor.2022.title. events/historical_flavor_events.txt:967
+[04:30:25][jomini_dynamicdescription.cpp:67]: Unrecognized loc key historical_flavor.2022.desc. events/historical_flavor_events.txt:968
+[04:30:25][event.cpp:250]: unknown illustration tag 'writing' (cf. gfx/illustrations/database for valid list of tags) events/historical_flavor_events.txt:978
+[04:30:25][event.cpp:250]: unknown illustration tag 'diplomacy' (cf. gfx/illustrations/database for valid list of tags) events/historical_flavor_events.txt:979
+[04:30:25][jomini_eventtarget.cpp:749]: Failed to find a valid event target link 'liberty_desire_threshold_moderate' at events/historical_flavor_events.txt:989
+[04:30:25][jomini_scriptvalue.h:730]: Cannot read [liberty_desire_threshold_moderate] as a script value
+[04:30:25][jomini_scriptvalue.h:438]: Badly read script value liberty_desire_threshold_moderate at events/historical_flavor_events.txt:989
+[04:30:25][jomini_trigger.cpp:805]: has_estate: Inconsistent trigger scopes (country vs. character) at events/historical_flavor_events.txt:993
+[04:30:25][jomini_dynamicdescription.cpp:67]: Unrecognized loc key historical_flavor.2022.a. CEventOptionDesc:172
+[04:30:25][jomini_eventtarget.cpp:749]: Failed to find a valid event target link 'legitimacy_large_bonus' at events/historical_flavor_events.txt:1005
+[04:30:25][jomini_scriptvalue.h:730]: Cannot read [legitimacy_large_bonus] as a script value
+[04:30:25][jomini_scriptvalue.h:438]: Badly read script value legitimacy_large_bonus at events/historical_flavor_events.txt:1005
+[04:30:25][jomini_eventtarget.cpp:749]: Failed to find a valid event target link 'prestige_very_large_bonus' at events/historical_flavor_events.txt:1006
+[04:30:25][jomini_scriptvalue.h:730]: Cannot read [prestige_very_large_bonus] as a script value
+[04:30:25][jomini_scriptvalue.h:438]: Badly read script value prestige_very_large_bonus at events/historical_flavor_events.txt:1006
+[04:30:25][jomini_effect.cpp:918]: Failed to read 'value' for 'add_opinion' at events/historical_flavor_events.txt:1016
+[04:30:25][jomini_dynamicdescription.cpp:67]: Unrecognized loc key historical_flavor.2022.b. CEventOptionDesc:172
+[04:30:25][jomini_eventtarget.cpp:749]: Failed to find a valid event target link 'prestige_large_bonus' at events/historical_flavor_events.txt:1022
+[04:30:25][jomini_scriptvalue.h:730]: Cannot read [prestige_large_bonus] as a script value
+[04:30:25][jomini_scriptvalue.h:438]: Badly read script value prestige_large_bonus at events/historical_flavor_events.txt:1022
+[04:30:25][jomini_eventtarget.cpp:749]: Failed to find a valid event target link 'prestige_large_bonus' at events/historical_flavor_events.txt:1023
+[04:30:25][jomini_scriptvalue.h:730]: Cannot read [prestige_large_bonus] as a script value
+[04:30:25][jomini_scriptvalue.h:438]: Badly read script value prestige_large_bonus at events/historical_flavor_events.txt:1023
+[04:30:25][jomini_eventtarget.cpp:749]: Failed to find a valid event target link 'estate_satisfaction_moderate_bonus' at events/historical_flavor_events.txt:1024
+[04:30:25][jomini_scriptvalue.h:730]: Cannot read [estate_satisfaction_moderate_bonus] as a script value
+[04:30:25][jomini_scriptvalue.h:438]: Badly read script value estate_satisfaction_moderate_bonus at events/historical_flavor_events.txt:1024
+[04:30:25][jomini_dynamicdescription.cpp:67]: Unrecognized loc key historical_flavor.2022.c. CEventOptionDesc:172
+[04:30:25][jomini_eventtarget.cpp:749]: Failed to find a valid event target link '{' at events/historical_flavor_events.txt:1034
+[04:30:25][jomini_effect.cpp:556]: Unknown effect target at events/historical_flavor_events.txt:1034
+[04:30:25][pdx_persistent_reader.cpp:289]: Error: "Unexpected token: add_prestige, near line: 1036" in file: "events/historical_flavor_events.txt" near line: 1036
+[04:30:25][pdx_persistent_reader.cpp:289]: Error: "Unexpected token: add_army_tradition, near line: 1037" in file: "events/historical_flavor_events.txt" near line: 1037
+[04:30:25][jomini_eventmanager.cpp:583]: Namespace '}' used in event '}' (file: events/historical_flavor_events.txt) is not defined in this file - it might not load properly.
+[04:30:25][jomini_eventmanager.cpp:136]: '}' is not a valid event ID, can't be <= 0
+[04:30:25][pdx_persistent_reader.cpp:289]: Error: "Unexpected token: =, near line: 1042" in file: "events/historical_flavor_events.txt" near line: 1104
+[04:30:25][pdx_persistent_reader.cpp:289]: Error: "Unexpected token: historical_flavor.2024, near line: 1107" in file: "events/historical_flavor_events.txt" near line: 1180
+[04:30:25][pdx_persistent_reader.cpp:289]: Error: "Unexpected token: historical_flavor.2025, near line: 1183" in file: "events/historical_flavor_events.txt" near line: 1239
+[04:30:25][pdx_persistent_reader.cpp:289]: Error: "Unexpected token: historical_flavor.2026, near line: 1242" in file: "events/historical_flavor_events.txt" near line: 1294
+[04:30:25][pdx_persistent_reader.cpp:289]: Error: "Unexpected token: historical_flavor.2027, near line: 1297" in file: "events/historical_flavor_events.txt" near line: 1353
+[04:30:25][pdx_persistent_reader.cpp:289]: Error: "Unexpected token: historical_flavor.2028, near line: 1356" in file: "events/historical_flavor_events.txt" near line: 1413
+[04:30:25][pdx_persistent_reader.cpp:289]: Error: "Unexpected token: historical_flavor.2029, near line: 1416" in file: "events/historical_flavor_events.txt" near line: 1482
+[04:30:25][pdx_persistent_reader.cpp:289]: Error: "Unexpected token: historical_flavor.2030, near line: 1485" in file: "events/historical_flavor_events.txt" near line: 1566
+[04:30:25][pdx_persistent_reader.cpp:289]: Error: "Unexpected token: historical_flavor.2031, near line: 1569" in file: "events/historical_flavor_events.txt" near line: 1640
+[04:30:25][pdx_persistent_reader.cpp:289]: Error: "Unexpected token: historical_flavor.2032, near line: 1643" in file: "events/historical_flavor_events.txt" near line: 1701
+[04:30:25][pdx_persistent_reader.cpp:289]: Error: "Unexpected token: historical_flavor.2032_fra, near line: 1704" in file: "events/historical_flavor_events.txt" near line: 1754
+[04:30:25][pdx_persistent_reader.cpp:289]: Error: "Unexpected token: historical_flavor.2033, near line: 1757" in file: "events/historical_flavor_events.txt" near line: 1818
+[04:30:25][pdx_persistent_reader.cpp:289]: Error: "Unexpected token: historical_flavor.2033_ally, near line: 1821" in file: "events/historical_flavor_events.txt" near line: 1868
+[04:30:30][pdx_persistent_reader.cpp:289]: Error: "Failed to read key reference: idea_group_limit_3: idea_group_limit_3, near line: 3
+Failed to read key reference: iv2_innovation_points_limit_1: iv2_innovation_points_limit_1, near line: 3
+Failed to read key reference: iv2_generic_conquest_cb_1: iv2_generic_conquest_cb_1, near line: 3
+Failed to read key reference: iv2_rule_ig_buildings_1: iv2_rule_ig_buildings_1, near line: 3
+Failed to read key reference: iv2_rule_guard_units_1: iv2_rule_guard_units_1, near line: 3
+Failed to read key reference: iv2_rule_exploration_ideas_3: iv2_rule_exploration_ideas_3, near line: 3
+Failed to read key reference: historical_timur_conquests: historical_timur_conquests, near line: 3
+Failed to read key reference: historical_turkomen: historical_turkomen, near line: 3
+Failed to read key reference: historical_safavids: historical_safavids, near line: 3" in file: "" near line: 3
+[04:30:39][pdx_persistent_reader.cpp:289]: Error: "Unknown trigger type: current_later_age_3_renaissance_trigger, near line: 107" in file: "common/scripted_triggers/game_triggers.txt" near line: 107
+[04:30:39][pdx_persistent_reader.cpp:289]: Error: "Failed to read key reference: idea_group_limit_3: idea_group_limit_3, near line: 3
+Failed to read key reference: iv2_innovation_points_limit_1: iv2_innovation_points_limit_1, near line: 3
+Failed to read key reference: iv2_generic_conquest_cb_1: iv2_generic_conquest_cb_1, near line: 3
+Failed to read key reference: iv2_rule_ig_buildings_1: iv2_rule_ig_buildings_1, near line: 3
+Failed to read key reference: iv2_rule_guard_units_1: iv2_rule_guard_units_1, near line: 3
+Failed to read key reference: iv2_rule_exploration_ideas_3: iv2_rule_exploration_ideas_3, near line: 3
+Failed to read key reference: historical_timur_conquests: historical_timur_conquests, near line: 3
+Failed to read key reference: historical_turkomen: historical_turkomen, near line: 3
+Failed to read key reference: historical_safavids: historical_safavids, near line: 3" in file: "" near line: 3
+[04:30:39][localization_util.cpp:103]: incompetent_fool_die_desc: "TODO : Write a desc"
+[04:30:39][localization_util.cpp:103]: cursed_ruler_die_desc: "TODO : Write a desc"
+[04:30:39][localization_util.cpp:103]: plague_carrier_die_desc: "TODO : Write a desc"
+[04:30:39][localization_util.cpp:103]: tyrant_despot_die_desc: "TODO : Write a desc"
+[04:30:39][localization_util.cpp:103]: economically_ruined_die_desc: "TODO : Write a desc"
+[04:30:39][localization_util.cpp:103]: chronic_gambler_die_desc: "TODO : Write a desc"
+[04:30:39][localization_util.cpp:103]: paranoid_schemer_die_desc: "TODO : Write a desc"
+[04:30:39][localization_util.cpp:103]: weak_willed_die_desc: "TODO : Write a desc"
+[04:30:39][localization_util.cpp:103]: siege_incompetent_die_desc: "TODO : Write a desc"
+[04:30:39][localization_util.cpp:103]: ambitious_but_weak_die_desc: "TODO : Write a desc"
+[04:30:39][localization_util.cpp:103]: reckless_spender_die_desc: "TODO : Write a desc"
+[04:30:39][localization_util.cpp:103]: lucky_merchant_die_desc: "TODO : Write a desc"
+[04:30:39][localization_util.cpp:103]: battle_hardened_die_desc: "TODO : Write a desc"
+[04:30:39][localization_util.cpp:103]: diplomatic_genius_die_desc: "TODO : Write a desc"
+[04:30:39][localization_util.cpp:103]: strategic_mind_die_desc: "TODO : Write a desc"
+[04:30:39][localization_util.cpp:103]: naval_supremacist_die_desc: "TODO : Write a desc"
+[04:30:39][localization_util.cpp:103]: absolute_authority_die_desc: "TODO : Write a desc"
+[04:30:39][localization_util.cpp:103]: economic_titan_die_desc: "TODO : Write a desc"
+[04:30:39][localization_util.cpp:103]: conquerer_supreme_die_desc: "TODO : Write a desc"
+[04:30:39][localization_util.cpp:103]: hl_trade_regulations_desc: "TODO : Write a desc"
+[04:30:39][localization_util.cpp:103]: godlike_ruler_die_desc: "TODO : Write a desc"
+[04:30:39][localization_util.cpp:103]: hl_kontor_privileges_desc: "TODO : Write a desc"
+[04:30:39][localization_util.cpp:103]: hl_membership_policy_desc: "TODO : Write a desc"
+[04:30:39][localization_util.cpp:103]: hl_naval_defense_desc: "TODO : Write a desc"
+[04:30:39][localization_util.cpp:103]: hl_economic_cooperation_desc: "TODO : Write a desc"
+[04:30:39][localization_util.cpp:103]: hl_dispute_resolution_desc: "TODO : Write a desc"
+[04:30:39][localization_util.cpp:103]: hl_profit_distribution_desc: "TODO : Write a desc"
+[04:30:39][localization_util.cpp:103]: hl_tagfahrt_frequency_desc: "TODO : Write a desc"
+[04:30:39][localization_util.cpp:103]: hl_foreign_policy_desc: "TODO : Write a desc"

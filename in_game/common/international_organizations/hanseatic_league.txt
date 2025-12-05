@@ -1,0 +1,170 @@
+﻿# Hanseatic Trade Network - represents the economic/cultural union
+# Works alongside HSA vassal overlord system in vanilla
+# Enhanced with valid EU5 modifiers from official wiki
+hanseatic_league = {
+	has_target = no
+	unique = yes
+	expel_members_who_are_targets_of_other_members = no
+
+	has_leader_country = yes
+	leader_title_key = "HANSEATIC_LEAGUE_LEADER"
+	leader_type = country
+	show_on_diplomatic_map = yes
+	leader_color = define:NMapColors|INTERNATIONAL_ORGANIZATION_LEADER_COLOR
+	leader_change_trigger_type = none
+	leader_change_method = none
+	disband_if_no_leader = no
+	months_between_leader_changes = 60	# Tagfahrt (Hanseatic Diet) typically met irregularly
+
+	leader = {
+		leader_country ?= {
+			add_to_list = leaders
+		}
+	}
+	
+	create_visible_trigger = {
+		always = no
+	}
+
+	invite_visible_trigger = {
+		# root = potential inviter (member wanting to invite someone)
+		is_member_of_international_organization = scope:recipient
+	}
+
+	can_initiate_policy_votes = {
+		# root = country, recipient = IO
+		is_member_of_international_organization = scope:recipient
+	}
+
+	can_declare_war = {
+		always = yes
+	}
+
+	gives_military_access_to_all_when_at_war = yes
+	subject_limited = no  # Allow hanseatic_member vassals to join
+	
+	# Hanseatic cities generally respected each other's trading privileges
+	antagonism_modifier_for_taking_land_from_fellow_member = 1.0
+	
+	# Base benefits for all members: trade network, merchant cooperation, naval coordination
+	modifier = {
+		trade_efficiency = 0.05
+		global_merchant_capacity_modifier = 0.05
+		global_fish_output_modifier = 0.05
+		global_salt_output_modifier = 0.05
+		tolerance_heretic = 1
+		diplomatic_capacity = 1
+	}
+	
+	# Leaders (HSA) get additional benefits for coordinating the league
+	leader_modifier = {
+		diplomatic_capacity = 2
+		global_merchant_capacity_modifier = 0.10
+		global_burghers_desired_pop = 0.05
+	}
+	
+	can_join_trigger = {
+		OR = {
+			tag = HSA
+			is_subject = no
+		}
+	}
+	
+	can_leave_trigger = {
+		always = yes
+	}
+	
+	auto_leave_trigger = {
+		OR = {
+			# Lost independence (unless HSA)
+			AND = {
+				is_subject = yes
+				NOT = { tag = HSA }
+			}
+		}
+	}
+
+	auto_disband_trigger = {
+		total_members < 3
+	}
+
+	on_joined = {
+		custom_tooltip = "HANSEATIC_LEAGUE_JOINED_TT"
+	}
+
+	on_left = {
+		custom_tooltip = "HANSEATIC_LEAGUE_LEFT_TT"
+	}
+
+	ai_desire_to_join = {
+		add = {
+			desc = "WE_ARE_A_TRADING_CITY"
+			value = 30
+		}
+	}
+	
+	ai_desire_to_allow_new_member = {
+		add = {
+			desc = "EXPAND_TRADE_NETWORK"
+			value = 25
+		}
+	}
+	
+	ai_issue_voting_bias = {
+		add = {
+			desc = "INERTIA"
+			value = -1
+		}
+		
+		add = {
+			desc = "POLICY_BIAS_LEADER_ALWAYS_WANTS"
+			if = {
+				limit = {
+					scope:recipient.leader_country ?= {
+						this = scope:actor
+					}
+				}
+				if = {
+					limit = {
+						is_set = scope:vote
+					}
+					value = 1
+				}
+				else = {
+					value = -1
+				}
+				multiply = 20
+			}
+		}
+		
+		add = {
+			desc = "POLICY_BIAS_OPINION_OF_IO_LEADER"
+			if = {
+				limit = {
+					scope:recipient = {
+						NOT = { leader_type = none }
+						international_organization_has_leader = yes
+					}
+					not = { scope:actor = scope:recipient.leader_country }
+				}
+				scope:recipient = {
+					leader_country = {
+						if = {
+							limit = {
+								is_set = scope:vote
+							}
+							value = 1
+						}
+						else = {
+							value = -1
+						}
+						multiply = {
+							value = "scope:actor.opinion(scope:recipient.leader_country)"
+							multiply = 0.1
+						}
+					}
+				}
+			}
+		}
+	}
+}

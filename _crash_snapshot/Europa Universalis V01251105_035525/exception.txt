@@ -1,0 +1,19 @@
+Application: Europa Universalis V 
+Version: 1.0.9 
+Date/Time: 2025-12-05 03:55:25
+
+Unhandled Exception C0000005 (EXCEPTION_ACCESS_VIOLATION) at address 0x00007FF7DC4FA293
+
+Stack Trace: 
+  1    eu5.exe                  AK::WriteBytesMem::Size (+ 30506995)
+  2    eu5.exe                  AK::WriteBytesMem::Size (+ 15940310)
+  3    eu5.exe                  AK::WriteBytesMem::Size (+ 15622783)
+  4    eu5.exe                  AK::WriteBytesMem::Size (+ 15319946)
+  5    eu5.exe                  AK::WriteBytesMem::Size (+ 15633680)
+  6    eu5.exe                  AK::WriteBytesMem::Size (+ 15626424)
+  7    eu5.exe                  AK::WriteBytesMem::Size (+ 15635390)
+  8    eu5.exe                  AK::WriteBytesMem::Size (+ 16094162)
+  9    eu5.exe                  NVSDK_NGX_D3D12_Shutdown1 (+ 2055820)
+  10   KERNEL32.DLL             BaseThreadInitThunk (+ 23)
+  11   ntdll.dll                RtlUserThreadStart (+ 44)
+  12   ntdll.dll                RtlUserThreadStart (+ 44)

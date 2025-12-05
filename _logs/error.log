@@ -1,0 +1,208 @@
+[04:22:15][lexer.cpp:444]: File 'common/defines/instinct_defines.txt' should be in utf8-bom encoding (will try to use it anyways)
+[04:22:16][lexer.cpp:444]: File 'common/static_modifiers/anypopgrowth.txt' should be in utf8-bom encoding (will try to use it anyways)
+[04:22:16][gamedatabase.h:391]: Duplicated key integration_core will not be created from file: common/static_modifiers/integration.txt:31
+[04:22:16][gamedatabase.h:391]: Duplicated key total_population will not be created from file: common/static_modifiers/location.txt:492
+[04:22:19][lexer.cpp:444]: File 'common/static_modifiers/anypopgrowth.txt' should be in utf8-bom encoding (will try to use it anyways)
+[04:22:19][gamedatabase.h:391]: Duplicated key integration_core will not be created from file: common/static_modifiers/integration.txt:31
+[04:22:19][gamedatabase.h:391]: Duplicated key total_population will not be created from file: common/static_modifiers/location.txt:492
+[04:22:19][lexer.cpp:444]: File 'common/auto_modifiers/instinct_river_adjustment.txt' should be in utf8-bom encoding (will try to use it anyways)
+[04:22:25][pdx_persistent_reader.cpp:289]: Error: "Failed to read key reference: idea_group_limit_3: idea_group_limit_3, near line: 3
+Failed to read key reference: iv2_innovation_points_limit_1: iv2_innovation_points_limit_1, near line: 3
+Failed to read key reference: iv2_generic_conquest_cb_1: iv2_generic_conquest_cb_1, near line: 3
+Failed to read key reference: iv2_rule_ig_buildings_1: iv2_rule_ig_buildings_1, near line: 3
+Failed to read key reference: iv2_rule_guard_units_1: iv2_rule_guard_units_1, near line: 3
+Failed to read key reference: iv2_rule_exploration_ideas_3: iv2_rule_exploration_ideas_3, near line: 3
+Failed to read key reference: historical_timur_conquests: historical_timur_conquests, near line: 3
+Failed to read key reference: historical_turkomen: historical_turkomen, near line: 3
+Failed to read key reference: historical_safavids: historical_safavids, near line: 3" in file: "" near line: 3
+[04:22:35][pdx_persistent_reader.cpp:289]: Error: "Failed to read key reference: idea_group_limit_3: idea_group_limit_3, near line: 3
+Failed to read key reference: iv2_innovation_points_limit_1: iv2_innovation_points_limit_1, near line: 3
+Failed to read key reference: iv2_generic_conquest_cb_1: iv2_generic_conquest_cb_1, near line: 3
+Failed to read key reference: iv2_rule_ig_buildings_1: iv2_rule_ig_buildings_1, near line: 3
+Failed to read key reference: iv2_rule_guard_units_1: iv2_rule_guard_units_1, near line: 3
+Failed to read key reference: iv2_rule_exploration_ideas_3: iv2_rule_exploration_ideas_3, near line: 3
+Failed to read key reference: historical_timur_conquests: historical_timur_conquests, near line: 3
+Failed to read key reference: historical_turkomen: historical_turkomen, near line: 3
+Failed to read key reference: historical_safavids: historical_safavids, near line: 3" in file: "" near line: 3
+[04:23:46][pdx_persistent_reader.cpp:289]: Error: "Unexpected token: member_modifier, near line: 10" in file: "common/laws/22_hanseatic_league.txt" near line: 10
+[04:23:46][pdx_persistent_reader.cpp:289]: Error: "Unexpected token: member_modifier, near line: 19" in file: "common/laws/22_hanseatic_league.txt" near line: 19
+[04:23:46][pdx_persistent_reader.cpp:289]: Error: "Unexpected token: member_modifier, near line: 30" in file: "common/laws/22_hanseatic_league.txt" near line: 30
+[04:23:46][pdx_persistent_reader.cpp:289]: Error: "Unknown modifier type: improve_relations_cost. It is either invalid, or a potential dynamic modifier type definition missing from the database.: improve_relations_cost, near line: 38" in file: "common/laws/22_hanseatic_league.txt" near line: 38
+[04:23:46][pdx_persistent_reader.cpp:289]: Error: "Unexpected token: member_modifier, near line: 49" in file: "common/laws/22_hanseatic_league.txt" near line: 49
+[04:23:46][pdx_persistent_reader.cpp:289]: Error: "Unexpected token: member_modifier, near line: 58" in file: "common/laws/22_hanseatic_league.txt" near line: 58
+[04:23:46][pdx_persistent_reader.cpp:289]: Error: "Unexpected token: member_modifier, near line: 69" in file: "common/laws/22_hanseatic_league.txt" near line: 69
+[04:23:46][pdx_persistent_reader.cpp:289]: Error: "Unexpected token: member_modifier, near line: 77" in file: "common/laws/22_hanseatic_league.txt" near line: 77
+[04:23:46][pdx_persistent_reader.cpp:289]: Error: "Unknown modifier type: tax_income. It is either invalid, or a potential dynamic modifier type definition missing from the database.: tax_income, near line: 87" in file: "common/laws/22_hanseatic_league.txt" near line: 87
+[04:23:46][pdx_persistent_reader.cpp:289]: Error: "Unknown modifier type: tax_income. It is either invalid, or a potential dynamic modifier type definition missing from the database.: tax_income, near line: 95" in file: "common/laws/22_hanseatic_league.txt" near line: 95
+[04:23:46][pdx_persistent_reader.cpp:289]: Error: "Unexpected token: member_modifier, near line: 96" in file: "common/laws/22_hanseatic_league.txt" near line: 96
+[04:23:46][pdx_persistent_reader.cpp:289]: Error: "Unknown modifier type: improve_relations_cost. It is either invalid, or a potential dynamic modifier type definition missing from the database.: improve_relations_cost, near line: 106" in file: "common/laws/22_hanseatic_league.txt" near line: 106
+[04:23:46][pdx_persistent_reader.cpp:289]: Error: "Unknown modifier type: improve_relations_cost. It is either invalid, or a potential dynamic modifier type definition missing from the database.: improve_relations_cost, near line: 110" in file: "common/laws/22_hanseatic_league.txt" near line: 110
+[04:23:46][pdx_persistent_reader.cpp:289]: Error: "Unexpected token: member_modifier, near line: 114" in file: "common/laws/22_hanseatic_league.txt" near line: 114
+[04:23:46][pdx_persistent_reader.cpp:289]: Error: "Unexpected token: member_modifier, near line: 125" in file: "common/laws/22_hanseatic_league.txt" near line: 125
+[04:23:46][pdx_persistent_reader.cpp:289]: Error: "Unknown modifier type: tax_income. It is either invalid, or a potential dynamic modifier type definition missing from the database.: tax_income, near line: 129" in file: "common/laws/22_hanseatic_league.txt" near line: 129
+[04:23:46][pdx_persistent_reader.cpp:289]: Error: "Unexpected token: member_modifier, near line: 134" in file: "common/laws/22_hanseatic_league.txt" near line: 134
+[04:23:46][pdx_persistent_reader.cpp:289]: Error: "Unexpected token: member_modifier, near line: 145" in file: "common/laws/22_hanseatic_league.txt" near line: 145
+[04:23:46][pdx_persistent_reader.cpp:289]: Error: "Unexpected token: member_modifier, near line: 154" in file: "common/laws/22_hanseatic_league.txt" near line: 154
+[04:23:46][pdx_persistent_reader.cpp:289]: Error: "Unexpected token: member_modifier, near line: 165" in file: "common/laws/22_hanseatic_league.txt" near line: 165
+[04:23:46][pdx_persistent_reader.cpp:289]: Error: "Unexpected token: member_modifier, near line: 174" in file: "common/laws/22_hanseatic_league.txt" near line: 174
+[04:23:47][jomini_eventmanager.cpp:136]: '0000' is not a valid event ID, can't be <= 0
+[04:23:47][jomini_dynamicdescription.cpp:67]: Unrecognized loc key historical_flavor.0000.title. events/historical_flavor_events.txt:8
+[04:23:47][jomini_dynamicdescription.cpp:67]: Unrecognized loc key historical_flavor.0000.desc. events/historical_flavor_events.txt:9
+[04:23:47][jomini_dynamicdescription.cpp:67]: Unrecognized loc key historical_flavor.0000.a. CEventOptionDesc:172
+[04:23:47][pdx_persistent_reader.cpp:289]: Error: "Unknown trigger type: year, near line: 23" in file: "events/historical_flavor_events.txt" near line: 24
+[04:23:47][jomini_eventmanager.cpp:583]: Namespace '﻿' used in event '﻿' (file: events/historical_flavor_events.txt) is not defined in this file - it might not load properly.
+[04:23:47][jomini_eventmanager.cpp:136]: '﻿' is not a valid event ID, can't be <= 0
+[04:23:47][pdx_persistent_reader.cpp:289]: Error: "Unexpected token: =, near line: 42" in file: "events/historical_flavor_events.txt" near line: 42
+[04:23:47][pdx_persistent_reader.cpp:289]: Error: "Unexpected token: historical_flavor.0000, near line: 45" in file: "events/historical_flavor_events.txt" near line: 56
+[04:23:47][pdx_persistent_reader.cpp:289]: Error: "Unexpected token: namespace, near line: 59" in file: "events/historical_flavor_events.txt" near line: 59
+[04:23:47][pdx_persistent_reader.cpp:289]: Error: "Unexpected token: historical_flavor.0000, near line: 62" in file: "events/historical_flavor_events.txt" near line: 73
+[04:23:47][pdx_persistent_reader.cpp:289]: Error: "Unexpected token: historical_flavor.2008, near line: 77" in file: "events/historical_flavor_events.txt" near line: 120
+[04:23:47][pdx_persistent_reader.cpp:289]: Error: "Unexpected token: historical_flavor.2009, near line: 123" in file: "events/historical_flavor_events.txt" near line: 199
+[04:23:47][pdx_persistent_reader.cpp:289]: Error: "Unexpected token: historical_flavor.2010, near line: 202" in file: "events/historical_flavor_events.txt" near line: 266
+[04:23:47][pdx_persistent_reader.cpp:289]: Error: "Unexpected token: historical_flavor.2011, near line: 269" in file: "events/historical_flavor_events.txt" near line: 342
+[04:23:47][pdx_persistent_reader.cpp:289]: Error: "Unexpected token: historical_flavor.2012, near line: 345" in file: "events/historical_flavor_events.txt" near line: 414
+[04:23:47][pdx_persistent_reader.cpp:289]: Error: "Unexpected token: historical_flavor.2013, near line: 417" in file: "events/historical_flavor_events.txt" near line: 488
+[04:23:47][pdx_persistent_reader.cpp:289]: Error: "Unexpected token: historical_flavor.2014, near line: 491" in file: "events/historical_flavor_events.txt" near line: 567
+[04:23:47][pdx_persistent_reader.cpp:289]: Error: "Unexpected token: historical_flavor.2015, near line: 570" in file: "events/historical_flavor_events.txt" near line: 641
+[04:23:47][pdx_persistent_reader.cpp:289]: Error: "Unexpected token: historical_flavor.2016, near line: 644" in file: "events/historical_flavor_events.txt" near line: 716
+[04:23:47][pdx_persistent_reader.cpp:289]: Error: "Unexpected token: historical_flavor.2017, near line: 719" in file: "events/historical_flavor_events.txt" near line: 775
+[04:23:47][pdx_persistent_reader.cpp:289]: Error: "Unexpected token: historical_flavor.2018, near line: 778" in file: "events/historical_flavor_events.txt" near line: 829
+[04:23:47][pdx_persistent_reader.cpp:289]: Error: "Unexpected token: historical_flavor.2019, near line: 832" in file: "events/historical_flavor_events.txt" near line: 889
+[04:23:47][pdx_persistent_reader.cpp:289]: Error: "Unexpected token: historical_flavor.2020, near line: 892" in file: "events/historical_flavor_events.txt" near line: 947
+[04:23:47][pdx_persistent_reader.cpp:289]: Error: "Unexpected token: historical_flavor.2021, near line: 950" in file: "events/historical_flavor_events.txt" near line: 1010
+[04:23:47][pdx_persistent_reader.cpp:289]: Error: "Unexpected token: historical_flavor.2022, near line: 1013" in file: "events/historical_flavor_events.txt" near line: 1087
+[04:23:47][pdx_persistent_reader.cpp:289]: Error: "Unexpected token: historical_flavor.2023, near line: 1090" in file: "events/historical_flavor_events.txt" near line: 1152
+[04:23:47][pdx_persistent_reader.cpp:289]: Error: "Unexpected token: historical_flavor.2024, near line: 1155" in file: "events/historical_flavor_events.txt" near line: 1228
+[04:23:47][pdx_persistent_reader.cpp:289]: Error: "Unexpected token: historical_flavor.2025, near line: 1231" in file: "events/historical_flavor_events.txt" near line: 1287
+[04:23:47][pdx_persistent_reader.cpp:289]: Error: "Unexpected token: historical_flavor.2026, near line: 1290" in file: "events/historical_flavor_events.txt" near line: 1342
+[04:23:47][pdx_persistent_reader.cpp:289]: Error: "Unexpected token: historical_flavor.2027, near line: 1345" in file: "events/historical_flavor_events.txt" near line: 1401
+[04:23:47][pdx_persistent_reader.cpp:289]: Error: "Unexpected token: historical_flavor.2028, near line: 1404" in file: "events/historical_flavor_events.txt" near line: 1461
+[04:23:47][pdx_persistent_reader.cpp:289]: Error: "Unexpected token: historical_flavor.2029, near line: 1464" in file: "events/historical_flavor_events.txt" near line: 1530
+[04:23:47][pdx_persistent_reader.cpp:289]: Error: "Unexpected token: historical_flavor.2030, near line: 1533" in file: "events/historical_flavor_events.txt" near line: 1614
+[04:23:47][pdx_persistent_reader.cpp:289]: Error: "Unexpected token: historical_flavor.2031, near line: 1617" in file: "events/historical_flavor_events.txt" near line: 1688
+[04:23:47][pdx_persistent_reader.cpp:289]: Error: "Unexpected token: historical_flavor.2032, near line: 1691" in file: "events/historical_flavor_events.txt" near line: 1749
+[04:23:47][pdx_persistent_reader.cpp:289]: Error: "Unexpected token: historical_flavor.2032_fra, near line: 1752" in file: "events/historical_flavor_events.txt" near line: 1802
+[04:23:47][pdx_persistent_reader.cpp:289]: Error: "Unexpected token: historical_flavor.2033, near line: 1805" in file: "events/historical_flavor_events.txt" near line: 1866
+[04:23:47][pdx_persistent_reader.cpp:289]: Error: "Unexpected token: historical_flavor.2033_ally, near line: 1869" in file: "events/historical_flavor_events.txt" near line: 1916
+[04:23:47][jomini_eventmanager.cpp:440]: Duplicated event ID 'historical_flavor.0000' found. New Location: 'events/historical_flavor_events.txt:6', Previous Location: 'events/historical_flavor_events.txt:42'
+[04:23:53][pdx_persistent_reader.cpp:289]: Error: "Failed to read key reference: idea_group_limit_3: idea_group_limit_3, near line: 3
+Failed to read key reference: iv2_innovation_points_limit_1: iv2_innovation_points_limit_1, near line: 3
+Failed to read key reference: iv2_generic_conquest_cb_1: iv2_generic_conquest_cb_1, near line: 3
+Failed to read key reference: iv2_rule_ig_buildings_1: iv2_rule_ig_buildings_1, near line: 3
+Failed to read key reference: iv2_rule_guard_units_1: iv2_rule_guard_units_1, near line: 3
+Failed to read key reference: iv2_rule_exploration_ideas_3: iv2_rule_exploration_ideas_3, near line: 3
+Failed to read key reference: historical_timur_conquests: historical_timur_conquests, near line: 3
+Failed to read key reference: historical_turkomen: historical_turkomen, near line: 3
+Failed to read key reference: historical_safavids: historical_safavids, near line: 3" in file: "" near line: 3
+[04:24:03][pdx_persistent_reader.cpp:289]: Error: "Failed to read key reference: idea_group_limit_3: idea_group_limit_3, near line: 3
+Failed to read key reference: iv2_innovation_points_limit_1: iv2_innovation_points_limit_1, near line: 3
+Failed to read key reference: iv2_generic_conquest_cb_1: iv2_generic_conquest_cb_1, near line: 3
+Failed to read key reference: iv2_rule_ig_buildings_1: iv2_rule_ig_buildings_1, near line: 3
+Failed to read key reference: iv2_rule_guard_units_1: iv2_rule_guard_units_1, near line: 3
+Failed to read key reference: iv2_rule_exploration_ideas_3: iv2_rule_exploration_ideas_3, near line: 3
+Failed to read key reference: historical_timur_conquests: historical_timur_conquests, near line: 3
+Failed to read key reference: historical_turkomen: historical_turkomen, near line: 3
+Failed to read key reference: historical_safavids: historical_safavids, near line: 3" in file: "" near line: 3
+[04:24:03][localization_util.cpp:103]: incompetent_fool_die_desc: "TODO : Write a desc"
+[04:24:03][localization_util.cpp:103]: cursed_ruler_die_desc: "TODO : Write a desc"
+[04:24:03][localization_util.cpp:103]: plague_carrier_die_desc: "TODO : Write a desc"
+[04:24:03][localization_util.cpp:103]: tyrant_despot_die_desc: "TODO : Write a desc"
+[04:24:03][localization_util.cpp:103]: economically_ruined_die_desc: "TODO : Write a desc"
+[04:24:03][localization_util.cpp:103]: chronic_gambler_die_desc: "TODO : Write a desc"
+[04:24:03][localization_util.cpp:103]: paranoid_schemer_die_desc: "TODO : Write a desc"
+[04:24:03][localization_util.cpp:103]: weak_willed_die_desc: "TODO : Write a desc"
+[04:24:03][localization_util.cpp:103]: siege_incompetent_die_desc: "TODO : Write a desc"
+[04:24:03][localization_util.cpp:103]: ambitious_but_weak_die_desc: "TODO : Write a desc"
+[04:24:03][localization_util.cpp:103]: reckless_spender_die_desc: "TODO : Write a desc"
+[04:24:03][localization_util.cpp:103]: lucky_merchant_die_desc: "TODO : Write a desc"
+[04:24:03][localization_util.cpp:103]: battle_hardened_die_desc: "TODO : Write a desc"
+[04:24:03][localization_util.cpp:103]: diplomatic_genius_die_desc: "TODO : Write a desc"
+[04:24:03][localization_util.cpp:103]: strategic_mind_die_desc: "TODO : Write a desc"
+[04:24:03][localization_util.cpp:103]: naval_supremacist_die_desc: "TODO : Write a desc"
+[04:24:03][localization_util.cpp:103]: absolute_authority_die_desc: "TODO : Write a desc"
+[04:24:03][localization_util.cpp:103]: economic_titan_die_desc: "TODO : Write a desc"
+[04:24:03][localization_util.cpp:103]: conquerer_supreme_die_desc: "TODO : Write a desc"
+[04:24:03][localization_util.cpp:103]: godlike_ruler_die_desc: "TODO : Write a desc"
+[04:24:04][localization_util.cpp:103]: hl_trade_regulations_desc: "TODO : Write a desc"
+[04:24:04][localization_util.cpp:103]: hl_kontor_privileges_desc: "TODO : Write a desc"
+[04:24:04][localization_util.cpp:103]: hl_membership_policy_desc: "TODO : Write a desc"
+[04:24:04][localization_util.cpp:103]: hl_naval_defense_desc: "TODO : Write a desc"
+[04:24:04][localization_util.cpp:103]: hl_economic_cooperation_desc: "TODO : Write a desc"
+[04:24:04][localization_util.cpp:103]: hl_dispute_resolution_desc: "TODO : Write a desc"
+[04:24:04][localization_util.cpp:103]: hl_profit_distribution_desc: "TODO : Write a desc"
+[04:24:04][localization_util.cpp:103]: hl_tagfahrt_frequency_desc: "TODO : Write a desc"
+[04:24:04][localization_util.cpp:103]: hl_foreign_policy_desc: "TODO : Write a desc"
+[04:24:04][jomini_script_system.cpp:248]: Script system error!
+  Error: Invalid region key! Key: 'low_countries_region'
+  Script location: common/international_organizations/hanseatic_league.txt:74
+
+[04:24:04][jomini_script_system.cpp:248]: Script system error!
+  Error: Invalid region key! Key: 'scandinavia_region'
+  Script location: common/international_organizations/hanseatic_league.txt:77
+
+[04:24:04][jomini_script_system.cpp:248]: Script system error!
+  Error: Invalid region key! Key: 'russia_region'
+  Script location: common/international_organizations/hanseatic_league.txt:79
+
+[04:24:04][jomini_script_system.cpp:248]: Script system error!
+  Error: Invalid region key! Key: 'britain_region'
+  Script location: common/international_organizations/hanseatic_league.txt:80
+
+[04:24:04][jomini_script_system.cpp:248]: Script system error!
+  Error: has_trait trigger [ Invalid database object 'rich_merchant' ]
+  Script location: common/traits/00_extreme_traits.txt:101
+
+[04:24:04][jomini_trigger.cpp:269]: PostValidate of trigger 'has_trait' returned false at common/traits/00_extreme_traits.txt:101
+[04:24:04][jomini_script_system.cpp:248]: Script system error!
+  Error: has_trait trigger [ Invalid database object 'fiscal_conservative' ]
+  Script location: common/traits/00_extreme_traits.txt:124
+
+[04:24:04][jomini_trigger.cpp:269]: PostValidate of trigger 'has_trait' returned false at common/traits/00_extreme_traits.txt:124
+[04:24:04][jomini_script_system.cpp:248]: Script system error!
+  Error: has_trait trigger [ Invalid database object 'trusting_soul' ]
+  Script location: common/traits/00_extreme_traits.txt:143
+
+[04:24:04][jomini_trigger.cpp:269]: PostValidate of trigger 'has_trait' returned false at common/traits/00_extreme_traits.txt:143
+[04:24:04][jomini_script_system.cpp:248]: Script system error!
+  Error: has_trait trigger [ Invalid database object 'iron_will' ]
+  Script location: common/traits/00_extreme_traits.txt:163
+
+[04:24:04][jomini_trigger.cpp:269]: PostValidate of trigger 'has_trait' returned false at common/traits/00_extreme_traits.txt:163
+[04:24:04][jomini_script_system.cpp:248]: Script system error!
+  Error: has_trait trigger [ Invalid database object 'siege_master' ]
+  Script location: common/traits/00_extreme_traits.txt:182
+
+[04:24:04][jomini_trigger.cpp:269]: PostValidate of trigger 'has_trait' returned false at common/traits/00_extreme_traits.txt:182
+[04:24:04][jomini_script_system.cpp:248]: Script system error!
+  Error: has_trait trigger [ Invalid database object 'humble_servant' ]
+  Script location: common/traits/00_extreme_traits.txt:203
+
+[04:24:04][jomini_trigger.cpp:269]: PostValidate of trigger 'has_trait' returned false at common/traits/00_extreme_traits.txt:203
+[04:24:04][jomini_eventmanager.cpp:376]: Event historical_flavor.0000 is orphaned
+[04:24:04][jomini_eventmanager.cpp:376]: Event historical_flavor.2001 is orphaned
+[04:24:04][jomini_eventmanager.cpp:376]: Event random_event.1001 is orphaned
+[04:24:04][jomini_eventmanager.cpp:376]: Event random_event.1002 is orphaned
+[04:24:04][jomini_eventmanager.cpp:376]: Event random_event.1003 is orphaned
+[04:24:09][pdx_persistent_reader.cpp:289]: Error: "Unexpected token: ﻿international_organization_manager, near line: 6" in file: "setup/start/15_hanseatic_league.txt" near line: 71
+[04:24:20][static_modifier.cpp:447]: Modifier 'leipzig_trade_fair_prestige' was not used by the script or code but exists in the database, this is a waste
+[04:24:20][static_modifier.cpp:447]: Modifier 'fugger_banking_partnership' was not used by the script or code but exists in the database, this is a waste
+[04:24:20][static_modifier.cpp:447]: Modifier 'english_longbow_tradition' was not used by the script or code but exists in the database, this is a waste
+[04:24:20][static_modifier.cpp:447]: Modifier 'hussite_wagon_fort_tactics' was not used by the script or code but exists in the database, this is a waste
+[04:24:20][static_modifier.cpp:447]: Modifier 'nuremberg_chronicles_fame' was not used by the script or code but exists in the database, this is a waste
+[04:24:20][static_modifier.cpp:447]: Modifier 'magdeburg_sack_trauma' was not used by the script or code but exists in the database, this is a waste
+[04:24:20][static_modifier.cpp:447]: Modifier 'neapolitan_renaissance_patronage' was not used by the script or code but exists in the database, this is a waste
+[04:24:20][static_modifier.cpp:447]: Modifier 'swedish_military_supremacy' was not used by the script or code but exists in the database, this is a waste
+[04:24:20][static_modifier.cpp:447]: Modifier 'flemish_cloth_monopoly' was not used by the script or code but exists in the database, this is a waste
+[04:24:20][static_modifier.cpp:447]: Modifier 'auld_alliance_war_spirit' was not used by the script or code but exists in the database, this is a waste
+[04:24:20][static_modifier.cpp:447]: Modifier 'gaelic_league_mobilization' was not used by the script or code but exists in the database, this is a waste
+[04:24:20][static_modifier.cpp:447]: Modifier 'scottish_independence_spirit' was not used by the script or code but exists in the database, this is a waste
+[04:24:20][static_modifier.cpp:447]: Modifier 'st_andrews_university_prestige' was not used by the script or code but exists in the database, this is a waste
+[04:24:20][static_modifier.cpp:447]: Modifier 'lordship_isles_rebellion' was not used by the script or code but exists in the database, this is a waste
+[04:24:20][static_modifier.cpp:447]: Modifier 'book_of_kells_prestige' was not used by the script or code but exists in the database, this is a waste
+[04:24:20][static_modifier.cpp:447]: Modifier 'statutes_of_iona' was not used by the script or code but exists in the database, this is a waste
+[04:24:20][static_modifier.cpp:447]: Modifier 'irish_bardic_tradition' was not used by the script or code but exists in the database, this is a waste
+[04:24:20][static_modifier.cpp:447]: Modifier 'eisteddfod_tradition' was not used by the script or code but exists in the database, this is a waste
+[04:24:20][static_modifier.cpp:447]: Modifier 'highland_clearances_trauma' was not used by the script or code but exists in the database, this is a waste
+[04:24:20][static_modifier.cpp:447]: Modifier 'flight_of_earls_trauma' was not used by the script or code but exists in the database, this is a waste
+[04:24:20][static_modifier.cpp:447]: Modifier 'scottish_enlightenment' was not used by the script or code but exists in the database, this is a waste
+[04:24:20][static_modifier.cpp:447]: Modifier 'halley_comet_seen_mod' was not used by the script or code but exists in the database, this is a waste

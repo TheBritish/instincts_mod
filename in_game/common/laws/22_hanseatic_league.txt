@@ -1,0 +1,164 @@
+﻿# Hanseatic League laws rebuilt for EU5
+
+hl_trade_regulations = {
+    type = international_organization
+    law_category = socioeconomic
+    potential = { international_organization_type = international_organization_type:hanseatic_league }
+
+    hl_strict_regulations = {
+        international_organization_modifier = { trade_efficiency = 0.05 }
+    }
+
+    hl_moderate_regulations = {
+        international_organization_modifier = { trade_efficiency = 0.03 }
+    }
+
+    hl_minimal_regulations = {
+        international_organization_modifier = { trade_efficiency = 0.00 }
+    }
+}
+
+hl_kontor_privileges = {
+    type = international_organization
+    law_category = diplomatic
+    potential = { international_organization_type = international_organization_type:hanseatic_league }
+
+    hl_exclusive_kontors = {
+        international_organization_modifier = { trade_efficiency = 0.04 }
+    }
+
+    hl_negotiated_kontors = {
+        international_organization_modifier = { trade_efficiency = 0.02 }
+    }
+
+    hl_open_kontors = {
+        international_organization_modifier = { diplomatic_reputation = 0.05 }
+    }
+}
+
+hl_membership_policy = {
+    type = international_organization
+    law_category = governance
+    potential = { international_organization_type = international_organization_type:hanseatic_league }
+
+    hl_exclusive_membership = {
+        international_organization_modifier = { diplomatic_reputation = 1 }
+    }
+
+    hl_selective_membership = {
+        international_organization_modifier = { diplomatic_reputation = 0.5 }
+    }
+
+    hl_open_membership = {
+        international_organization_modifier = { diplomatic_reputation = -0.25 }
+    }
+}
+
+hl_naval_defense = {
+    type = international_organization
+    law_category = military
+    potential = { international_organization_type = international_organization_type:hanseatic_league }
+
+    hl_unified_fleet = {
+                international_organization_modifier = { naval_morale = 0.05 }
+    }
+
+    hl_coordinated_patrols = {
+                international_organization_modifier = { naval_morale = 0.02 }
+    }
+
+    hl_independent_defense = {
+                international_organization_modifier = { naval_morale = -0.01 }
+    }
+}
+
+hl_economic_cooperation = {
+    type = international_organization
+    law_category = socioeconomic
+    potential = { international_organization_type = international_organization_type:hanseatic_league }
+
+    hl_common_currency = {
+        international_organization_modifier = { trade_efficiency = 0.02 }
+    }
+
+    hl_shared_standards = {
+        international_organization_modifier = { trade_efficiency = 0.02 }
+    }
+
+    hl_independent_economies = {
+        international_organization_modifier = { trade_efficiency = -0.01 }
+    }
+}
+
+hl_dispute_resolution = {
+    type = international_organization
+    law_category = governance
+    potential = { international_organization_type = international_organization_type:hanseatic_league }
+
+    hl_binding_arbitration = {
+                international_organization_modifier = { diplomatic_reputation = 0.10 }
+    }
+
+    hl_mediation = {
+                international_organization_modifier = { diplomatic_reputation = 0.05 }
+    }
+
+    hl_member_autonomy = {
+                international_organization_modifier = { diplomatic_capacity = 1 }
+    }
+}
+
+hl_profit_distribution = {
+    type = international_organization
+    law_category = socioeconomic
+    potential = { international_organization_type = international_organization_type:hanseatic_league }
+
+    hl_proportional_shares = {
+        international_organization_modifier = { trade_efficiency = 0.03  diplomatic_capacity = 1 }
+    }
+
+    hl_equal_distribution = {
+        international_organization_modifier = { diplomatic_reputation = 0.05 }
+    }
+
+    hl_merit_based = {
+        international_organization_modifier = { trade_efficiency = 0.02  diplomatic_capacity = 1 }
+    }
+}
+
+hl_tagfahrt_frequency = {
+    type = international_organization
+    law_category = governance
+    potential = { international_organization_type = international_organization_type:hanseatic_league }
+
+    hl_frequent_tagfahrt = {
+        international_organization_modifier = { diplomatic_reputation = 0.25  diplomatic_capacity = -1 }
+    }
+
+    hl_regular_tagfahrt = {
+        international_organization_modifier = { diplomatic_reputation = 0.10 }
+    }
+
+    hl_infrequent_tagfahrt = {
+        international_organization_modifier = { diplomatic_reputation = -0.10  diplomatic_capacity = 1 }
+    }
+}
+
+hl_foreign_policy = {
+    type = international_organization
+    law_category = diplomatic
+    potential = { international_organization_type = international_organization_type:hanseatic_league }
+
+    hl_unified_diplomacy = {
+        international_organization_modifier = { diplomatic_reputation = 1 }
+    }
+
+    hl_coordinated_diplomacy = {
+        international_organization_modifier = { diplomatic_reputation = 0.5 }
+    }
+
+    hl_independent_diplomacy = {
+        international_organization_modifier = { diplomatic_reputation = -0.25 }
+        international_organization_modifier = { diplomatic_capacity = 1 }
+    }
+}

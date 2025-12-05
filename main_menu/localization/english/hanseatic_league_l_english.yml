@@ -1,0 +1,139 @@
+﻿l_english:
+ # Hanseatic League International Organization
+ hanseatic_league: "Hanseatic League"
+ hanseatic_league_adj: "Hanseatic"
+ hanseatic_league_desc: "The Hanseatic League is a commercial and defensive confederation of merchant guilds and market towns in Northwestern and Central Europe. Growing from a few North German towns in the late 12th century, the league came to dominate Baltic maritime trade for three centuries. The Hansa established kontors (trading posts) in foreign cities to expand their trade network, including major bases in London, Bruges, Bergen, and Novgorod. Member cities enjoy mutual protection, shared trading privileges, and collective diplomatic power far exceeding what any single city could achieve alone."
+ 
+ HANSEATIC_LEAGUE_LEADER: "Hanseatic Leader"
+ HANSEATIC_LEAGUE_LEADER_desc: "The leading city of the Hanseatic League, typically Lübeck, which hosts the Tagfahrt (Hanseatic Diet) and coordinates league policy. While the league operates as a loose confederation, the leader city holds significant prestige and influence over trade regulations."
+ 
+ HANSEATIC_LEAGUE_JOINED_TT: "This city has joined the Hanseatic League and now enjoys the protection and trading privileges of the confederation."
+ HANSEATIC_LEAGUE_LEFT_TT: "This city has left the Hanseatic League and no longer benefits from its trade network and mutual defense."
+ 
+ # Biases and diplomatic status
+ io_opinion_hanseatic_league: "Fellow Hanseatic Member"
+ io_trust_hanseatic_league: "Hanseatic Trust"
+ diplomatic_status_hanseatic_league_name: "Hanseatic League Member"
+ diplomatic_status_hanseatic_league_tooltip: "This country is a member of the Hanseatic League"
+ hanseatic_league_list_who_tt: "Hanseatic League Members"
+ 
+ # AI reasoning
+ WE_ARE_A_TRADING_CITY: "We are a trading city"
+ TRADE_PROTECTION: "Seek trade protection"
+ EXPAND_TRADE_NETWORK: "Expand trade network"
+ SHARE_CULTURE: "Shared culture"
+ AGGRESSIVE_TRADE: "Pursue aggressive trade policies"
+ STRONG_ECONOMY: "Strong trading economy"
+ DIPLOMATIC_APPROACH: "Prefer diplomatic approach"
+ PROTECT_PRIVILEGES: "Protect league privileges"
+ NAVAL_FOCUS: "Focus on naval power"
+ PREFER_INDEPENDENCE: "Prefer independence"
+ STABLE_ECONOMY: "Maintain stable economy"
+ DIPLOMATIC_FOCUS: "Focus on diplomacy"
+ EXPAND_NETWORK: "Expand our network"
+ WEALTHY_CITY: "Wealthy trading city"
+ BALANCED_APPROACH: "Prefer balanced policies"
+ SMALL_MEMBER: "Small city-state"
+ LEADER_PREFERENCE: "Leader city preference"
+ MODERATE_SIZE: "Medium-sized city"
+ WEAK_POSITION: "Economically vulnerable"
+ ACTIVE_DIPLOMACY: "Active in diplomacy"
+ DISTANT_MEMBER: "Geographically distant from core"
+ UNDER_THREAT: "Facing external threats"
+ AMBITIOUS_CITY: "Expansionist ambitions"
+ LARGE_TRADER: "Major trading power"
+ EQUALITY_PRINCIPLE: "Believe in equal rights"
+ ACTIVE_TRADER: "Active merchant network"
+ PROPOSE_LEADER_CONSOLIDATE: "Leader wants to strengthen control"
+ 
+ ## Laws
+ # Trade Regulations
+ hl_trade_regulations: "Trade Regulations"
+ hl_strict_regulations: "Strict Standards"
+ hl_strict_regulations_desc: "Enforce rigorous quality controls and trade practices across all Hanseatic kontors. While this increases costs, it ensures the league's reputation for reliable commerce."
+ HL_STRICT_REGULATIONS_EFFECT: "All Hanseatic cities must adhere to strict trade standards"
+ hl_moderate_regulations: "Moderate Standards"
+ hl_moderate_regulations_desc: "Maintain reasonable trade standards while allowing individual cities flexibility in their commercial practices."
+ hl_minimal_regulations: "Minimal Standards"
+ hl_minimal_regulations_desc: "Allow each city maximum autonomy in setting trade standards, reducing costs but potentially harming the league's unified commercial power."
+ 
+ # Kontor Privileges
+ hl_kontor_privileges: "Kontor Privileges"
+ hl_exclusive_kontors: "Exclusive Rights"
+ hl_exclusive_kontors_desc: "Demand exclusive trading privileges in foreign kontors, preventing non-Hanseatic merchants from competing. This maximizes profits but strains diplomatic relations."
+ hl_negotiated_kontors: "Negotiated Rights"
+ hl_negotiated_kontors_desc: "Negotiate favorable but not exclusive trading rights, balancing commercial advantage with diplomatic goodwill."
+ hl_open_kontors: "Shared Rights"
+ hl_open_kontors_desc: "Accept shared trading rights with local merchants, prioritizing good relations over commercial dominance."
+ 
+ # Membership Policy
+ hl_membership_policy: "Membership Policy"
+ hl_exclusive_membership: "Exclusive Admission"
+ hl_exclusive_membership_desc: "Strictly limit membership to established trading cities with proven records. This preserves the league's elite status but limits growth."
+ hl_selective_membership: "Selective Admission"
+ hl_selective_membership_desc: "Carefully evaluate prospective members based on their trading potential and geographic position."
+ hl_open_membership: "Open Admission"
+ hl_open_membership_desc: "Welcome any qualifying city to join the league, rapidly expanding the trade network but diluting exclusivity."
+ 
+ # Naval Defense
+ hl_naval_defense: "Naval Defense"
+ hl_unified_fleet: "Unified Fleet"
+ hl_unified_fleet_desc: "Maintain a common Hanseatic fleet to protect trade routes and project power. This requires significant investment but provides strong protection."
+ hl_coordinated_patrols: "Coordinated Patrols"
+ hl_coordinated_patrols_desc: "Coordinate naval patrols between member cities, sharing the burden of protecting trade routes while allowing individual autonomy."
+ hl_independent_defense: "Independent Defense"
+ hl_independent_defense_desc: "Each city maintains its own naval forces, providing maximum flexibility but reducing collective strength."
+ 
+ # Economic Cooperation
+ hl_economic_cooperation: "Economic Cooperation"
+ hl_common_currency: "Common Currency"
+ hl_common_currency_desc: "Adopt standardized currency and weights across all Hanseatic cities, facilitating trade but requiring economic coordination."
+ hl_shared_standards: "Shared Standards"
+ hl_shared_standards_desc: "Agree on common standards for weights, measures, and currency exchange rates while maintaining local coinage."
+ hl_independent_economies: "Independent Economies"
+ hl_independent_economies_desc: "Each city maintains complete economic independence, allowing local flexibility but complicating inter-league trade."
+ 
+ # Dispute Resolution
+ hl_dispute_resolution: "Dispute Resolution"
+ hl_binding_arbitration: "Binding Arbitration"
+ hl_binding_arbitration_desc: "Disputes between members must be resolved by league arbitration, with all parties bound to accept the decision."
+ hl_mediation: "Mediation"
+ hl_mediation_desc: "The league offers mediation services for disputes, but members retain the right to reject proposed settlements."
+ hl_member_autonomy: "Member Autonomy"
+ hl_member_autonomy_desc: "Members resolve disputes independently, with the league only intervening if both parties request assistance."
+ 
+ # Profit Distribution
+ hl_profit_distribution: "Profit Distribution"
+ hl_proportional_shares: "Proportional Shares"
+ hl_proportional_shares_desc: "Trade profits distributed based on each city's contribution to league commerce. Larger trading centers receive greater shares, potentially causing resentment among smaller members."
+ hl_equal_distribution: "Equal Distribution"
+ hl_equal_distribution_desc: "All member cities receive equal shares of league profits regardless of size or trading volume, embodying republican principles of equality."
+ hl_merit_based: "Merit-Based Distribution"
+ hl_merit_based_desc: "Profits distributed based on active participation in league trade activities. Cities that maintain more merchants and trade routes earn larger shares."
+ HL_PROPORTIONAL_SHARES_EFFECT: "Larger trading cities gain more from league commerce"
+ HL_MERIT_BASED_EFFECT: "Cities with active merchant networks receive greater rewards"
+ 
+ # Tagfahrt Frequency
+ hl_tagfahrt_frequency: "Tagfahrt Frequency"
+ hl_frequent_tagfahrt: "Frequent Assemblies"
+ hl_frequent_tagfahrt_desc: "Hold the Hanseatic Diet regularly to quickly address policy matters. Requires significant diplomatic effort but allows rapid adaptation to changing circumstances."
+ hl_regular_tagfahrt: "Regular Assemblies"
+ hl_regular_tagfahrt_desc: "Convene the Tagfahrt at traditional intervals, balancing responsiveness with diplomatic burden."
+ hl_infrequent_tagfahrt: "Rare Assemblies"
+ hl_infrequent_tagfahrt_desc: "Minimize formal gatherings of the league, preserving member autonomy but slowing collective decision-making."
+ HL_FREQUENT_TAGFAHRT_EFFECT: "Policies can be changed more rapidly"
+ 
+ # Foreign Policy Coordination
+ hl_foreign_policy: "Foreign Policy"
+ hl_unified_diplomacy: "Unified Diplomacy"
+ hl_unified_diplomacy_desc: "Member cities must coordinate all major diplomatic actions through league channels. Presents a united front to foreign powers but restricts individual initiative."
+ hl_coordinated_diplomacy: "Coordinated Diplomacy"
+ hl_coordinated_diplomacy_desc: "Members consult with the league on important diplomatic matters while retaining ultimate autonomy."
+ hl_independent_diplomacy: "Independent Diplomacy"
+ hl_independent_diplomacy_desc: "Each city conducts its own foreign policy independently, allowing maximum flexibility but potentially fragmenting league influence."
+ HL_UNIFIED_DIPLOMACY_EFFECT: "Major diplomatic decisions require league coordination"
+ 
+ # Custom Tooltips
+ HL_EXCLUSIVE_KONTORS_EFFECT: "Foreign powers may resent Hanseatic trade privileges"
+ HL_UNIFIED_FLEET_EFFECT: "A common fleet will protect all Hanseatic trade routes"
+ HL_EXCLUSIVE_MEMBERSHIP_TT: "Only traditional trading cities of the Baltic and North Sea may join"

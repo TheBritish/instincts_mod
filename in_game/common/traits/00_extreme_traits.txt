@@ -1,0 +1,415 @@
+﻿# Extreme Traits - Lucky Donation Mod
+# 20 traits ranging from catastrophic to godlike
+
+###################################
+# TIER 1: ABSOLUTELY TERRIBLE TRAITS
+###################################
+
+incompetent_fool = {
+	allow = {
+		NOT = { has_trait = godlike_ruler }
+		NOT = { has_trait = well_advised }
+		NOT = { has_trait = well_connected }
+	}
+
+	category = ruler
+	flavor = personality
+	
+	modifier = {
+		stability_cost = 1.0
+		war_declaration_stab_hit_tolerance = -50
+		monthly_legitimacy = -0.5
+		tax_income_efficiency = -0.5
+		army_movement_speed = -0.5
+		navy_movement_speed = -0.5
+		siege_ability = -0.5
+		military_tactics = -0.3
+		peace_offer_negotiation_power = -0.75
+		research_speed_modifier = -0.5
+		bias_for_militarist_policies = -100
+	}
+}
+
+cursed_ruler = {
+	allow = {
+		NOT = { has_trait = godlike_ruler }
+		NOT = { has_trait = benevolent }
+		NOT = { has_trait = well_advised }
+	}
+
+	category = ruler
+	flavor = personality
+	
+	modifier = {
+		global_monthly_prosperity = -0.01
+		monthly_legitimacy = -0.75
+		stability_importance_modifier = -0.75
+		prestige_from_land_battle = -1.0
+		land_unit_attrition = 1.0
+		naval_damage_taken = 0.5
+		war_declaration_war_exhaustion_tolerance = -5
+		aggressiveness_modifier = -0.5
+		carefulness_modifier = -0.5
+		antagonism_tolerance = -50
+	}
+}
+
+plague_carrier = {
+	allow = {
+		NOT = { has_trait = godlike_ruler }
+		NOT = { has_trait = benevolent }
+		NOT = { has_trait = kind_hearted }
+	}
+
+	category = ruler
+	flavor = personality
+	
+	modifier = {
+		stability_cost = 0.75
+		subject_loyalty = -25
+		monthly_devotion = -0.25
+		monthly_war_exhaustion = 0.5
+		global_estate_target_satisfaction = -50
+		tax_income_efficiency = -0.75
+		army_movement_speed = -0.75
+	}
+}
+
+tyrant_despot = {
+	allow = {
+		NOT = { has_trait = benevolent }
+		NOT = { has_trait = godlike_ruler }
+	}
+
+	category = ruler
+	flavor = personality
+	
+	modifier = {
+		subject_loyalty = -50
+		monthly_towards_serfdom = -0.5
+		control_importance_modifier = 0.75
+		peace_offer_negotiation_power = -1.0
+		antagonism_received_modifier = 0.5
+		war_declaration_stab_hit_tolerance = 30
+		aggressiveness_modifier = 0.75
+		bias_for_militarist_policies = 50
+	}
+}
+
+economically_ruined = {
+	allow = { always = yes }
+	
+	category = ruler
+	flavor = government_approach
+	
+	modifier = {
+		tax_income_efficiency = -1.0
+		court_spending_cost = 2.0
+		global_monthly_prosperity = -0.01
+		stability_cost = 0.5
+		monthly_legitimacy = -0.25
+		peace_offer_negotiation_power = -0.5
+	}
+}
+
+###################################
+# TIER 2: VERY BAD TRAITS
+###################################
+
+chronic_gambler = {
+	allow = { always = yes }
+	
+	category = ruler
+	flavor = personality
+	
+	modifier = {
+		stability_cost = 0.5
+		tax_income_efficiency = -0.4
+		war_declaration_stab_hit_tolerance = -25
+		monthly_legitimacy = -0.15
+		court_spending_cost = 0.5
+		peace_offer_negotiation_power = -0.25
+	}
+}
+
+paranoid_schemer = {
+	allow = { always = yes }
+	
+	category = ruler
+	flavor = personality
+	
+	modifier = {
+		subject_loyalty = -15
+		antagonism_received_modifier = 0.3
+		antagonism_tolerance = 50
+		monthly_towards_belligerent = 0.25
+		war_declaration_stab_hit_tolerance = 15
+		peace_offer_negotiation_power = -0.3
+	}
+}
+
+weak_willed = {
+	allow = { always = yes }
+	
+	category = ruler
+	flavor = personality
+	
+	modifier = {
+		monthly_legitimacy = -0.1
+		war_declaration_stab_hit_tolerance = -20
+		stability_importance_modifier = -0.25
+		carefulness_modifier = -0.15
+		research_speed_modifier = -0.15
+	}
+}
+
+siege_incompetent = {
+	allow = { always = yes }
+	
+	category = ruler
+	flavor = government_approach
+	
+	modifier = {
+		siege_ability = -0.75
+		military_tactics = -0.5
+		army_movement_speed = -0.25
+		land_unit_attrition = 0.3
+	}
+}
+
+###################################
+# TIER 3: BAD TRAITS
+###################################
+
+ambitious_but_weak = {
+	allow = { always = yes }
+	
+	category = ruler
+	flavor = personality
+	
+	modifier = {
+		war_declaration_stab_hit_tolerance = 25
+		antagonism_received_modifier = 0.15
+		military_tactics = -0.1
+		stability_cost = 0.15
+		aggressiveness_modifier = 0.2
+	}
+}
+
+reckless_spender = {
+	allow = {
+		NOT = { has_trait = midas_touched }
+		NOT = { has_trait = incorruptible }
+	}
+	
+	category = ruler
+	flavor = government_approach
+	
+	modifier = {
+		court_spending_cost = 1.0
+		tax_income_efficiency = -0.25
+		global_monthly_prosperity = -0.002
+		stability_cost = 0.1
+	}
+}
+
+###################################
+# TIER 4: GOOD TRAITS
+###################################
+
+lucky_merchant = {
+	allow = {
+		NOT = { has_trait = economically_ruined }
+		NOT = { has_trait = embezzler }
+	}
+	
+	category = ruler
+	flavor = education
+	
+	modifier = {
+		tax_income_efficiency = 0.3
+		court_spending_cost = -0.2
+		global_monthly_prosperity = 0.002
+		peace_offer_negotiation_power = 0.15
+		bias_for_capitalist_policies = 20
+	}
+}
+
+battle_hardened = {
+	allow = {
+		NOT = { has_trait = siege_incompetent }
+		NOT = { has_trait = craven }
+	}
+	
+	category = ruler
+	flavor = government_approach
+	
+	modifier = {
+		prestige_from_land_battle = 0.5
+		army_tradition_from_battle = 0.5
+		military_tactics = 0.2
+		army_movement_speed = 0.2
+		land_unit_attrition = -0.1
+	}
+}
+
+diplomatic_genius = {
+	allow = {
+		NOT = { has_trait = tyrant_despot }
+		NOT = { has_trait = babbling_buffoon }
+		DIP >= 40
+	}
+	
+	category = ruler
+	flavor = government_approach
+	
+	modifier = {
+		peace_offer_negotiation_power = 0.5
+		subject_loyalty = 10
+		monthly_towards_conciliatory = 0.2
+		antagonism_received_modifier = -0.15
+		bias_for_diplomat_policies = 40
+	}
+}
+
+strategic_mind = {
+	allow = {
+		NOT = { has_trait = weak_willed }
+		ADM >= 45
+	}
+	
+	category = ruler
+	flavor = education
+	
+	modifier = {
+		military_tactics = 0.3
+		war_declaration_stab_hit_tolerance = 15
+		siege_ability = 0.3
+		research_speed_modifier = 0.15
+		stability_importance_modifier = 0.1
+	}
+}
+
+###################################
+# TIER 5: VERY GOOD TRAITS
+###################################
+
+naval_supremacist = {
+	allow = {
+		NOT = { has_trait = plague_carrier }
+	}
+	
+	category = ruler
+	flavor = government_approach
+	
+	modifier = {
+		navy_movement_speed = 0.4
+		naval_damage_done = 0.3
+		naval_damage_taken = -0.2
+		blockade_efficiency = 0.5
+		navy_maintenance_cost = -0.15
+		prestige_from_naval_battle = 0.75
+		navy_tradition_from_battle = 0.75
+	}
+}
+
+absolute_authority = {
+	allow = {
+		NOT = { has_trait = ambitious_but_weak }
+		NOT = { has_trait = benevolent }
+	}
+	
+	category = ruler
+	flavor = government_approach
+	
+	modifier = {
+		monthly_legitimacy = 0.3
+		subject_loyalty = 25
+		antagonism_tolerance = 25
+		stability_cost = -0.15
+		control_importance_modifier = 0.2
+	}
+}
+
+economic_titan = {
+	allow = {
+		NOT = { has_trait = chronic_gambler }
+		NOT = { has_trait = embezzler }
+		NOT = { has_trait = greedy }
+		ADM >= 50
+	}
+	
+	category = ruler
+	flavor = education
+	
+	modifier = {
+		tax_income_efficiency = 0.5
+		global_monthly_prosperity = 0.003
+		court_spending_cost = -0.3
+		monthly_legitimacy = 0.15
+		research_speed_modifier = 0.1
+	}
+}
+
+###################################
+# TIER 6: OVERPOWERED TRAITS
+###################################
+
+conquerer_supreme = {
+	allow = {
+		NOT = { has_trait = weak_willed }
+		NOT = { has_trait = cursed_ruler }
+		NOT = { has_trait = craven }
+		MIL >= 50
+	}
+	
+	category = ruler
+	flavor = government_approach
+	
+	modifier = {
+		siege_ability = 0.75
+		military_tactics = 0.5
+		prestige_from_land_battle = 1.0
+		army_tradition_from_battle = 1.0
+		army_movement_speed = 0.5
+		land_unit_attrition = -0.3
+		army_cavalry_power = 0.2
+		army_infantry_power = 0.2
+		war_declaration_stab_hit_tolerance = 50
+	}
+}
+
+godlike_ruler = {
+	allow = {
+		NOT = { has_trait = incompetent_fool }
+		NOT = { has_trait = cursed_ruler }
+		NOT = { has_trait = embezzler }
+		NOT = { has_trait = drunkard }
+		NOT = { has_trait = greedy }
+		ADM >= 60
+		DIP >= 60
+		MIL >= 60
+	}
+	
+	category = ruler
+	flavor = personality
+	
+	modifier = {
+		monthly_legitimacy = 0.5
+		stability_cost = -0.5
+		tax_income_efficiency = 0.75
+		peace_offer_negotiation_power = 0.75
+		research_speed_modifier = 0.5
+		military_tactics = 0.5
+		prestige_from_land_battle = 1.5
+		army_tradition_from_battle = 1.5
+		prestige_from_naval_battle = 1.5
+		navy_tradition_from_battle = 1.5
+		subject_loyalty = 50
+		stability_importance_modifier = 0.25
+		control_importance_modifier = 0.25
+		bias_for_balanced_policies = 50
+		monthly_war_exhaustion = -0.1
+		aggressiveness_modifier = 0.1
+	}
+}

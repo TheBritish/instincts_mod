@@ -1,0 +1,10 @@
+﻿{
+	"name": "Lucky Donation",
+	"id": "lucky_donation",
+	"version": "1.0",
+	"supported_game_version": "1.*",
+	"short_description": "Random event that grants 200 ducats between 1400-1500 with a multi-step investigation chain involving neighboring countries",
+	"tags": ["Gameplay", "Events", "Economy"],
+	"relationships": [],
+	"game_custom_data": {}
+}

@@ -1,0 +1,37 @@
+﻿# Lucky Donation Event Tracking Modifiers
+# These modifiers are used to track event chain state (replacing EU4-style flags)
+
+received_random_gift_mod = {
+	game_data = {
+		category = country
+	}
+	# No gameplay effect - just tracks that this country has received the donation
+}
+
+gift_accepted_mod = {
+	game_data = {
+		category = country
+	}
+	# No gameplay effect - tracks that player accepted the gift
+}
+
+donation_followup_decline_shown = {
+	game_data = {
+		category = country
+	}
+	# No gameplay effect - tracks that decline follow-up has been shown
+}
+
+donation_followup_investigate_shown = {
+	game_data = {
+		category = country
+	}
+	# No gameplay effect - tracks that investigation has been shown
+}
+
+halley_comet_seen_mod = {
+	game_data = {
+		category = country
+	}
+	# No gameplay effect - tracks Halley comet event firing
+}

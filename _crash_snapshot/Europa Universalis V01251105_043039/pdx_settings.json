@@ -1,0 +1,71 @@
+{
+	"Accessibility":	{
+},
+	"Account":	{
+},
+	"Audio":	{
+		"volume.bus:/":	1,
+		"volume.vca:/MUSIC":	0,
+		"volume.vca:/UI":	1,
+		"volume.vca:/UI_CLOCK":	1,
+		"volume.vca:/SFX":	1,
+		"volume.vca:/AMBIENT_MAP":	1,
+		"volume.vca:/ARMIES":	1,
+		"volume.vca:/AMBIENT_MAP_BACKGROUND":	1,
+		"volume.vca:/AMBIENT_OBJECTS":	1,
+		"volume.vca:/AMBIENT_PANEL":	1,
+		"volume.vca:/MUSIC_DENSITY":	0.200000,
+		"audio_device_profile":	"PDX_Speakers",
+		"disabled_categories":	"",
+		"disabled_tracks":	""
+	},
+	"Game":	{
+		"save_when_exiting":	false,
+		"skip_welcome_new_game":	true,
+		"first_time_playing":	false,
+		"num_game_times_opened":	10,
+		"player_proficiency":	"SETTING_PLAYER_PROFICIENCY_EXPERT",
+		"game_speed_on_unit_select":	"3",
+		"debug_saves":	2,
+		"game_speed_on_war":	"3"
+	},
+	"Graphics":	{
+		"blur_quality":	"low",
+		"unit_coa_resolution_size":	"32 x 32",
+		"portraits_ssao":	false,
+		"mapobject_quality":	"low",
+		"bloom_quality":	"low",
+		"renderer":	"DX12",
+		"mesh_lod_bias":	"low",
+		"shadowmap_resolution":	"1024x1024",
+		"texture_quality":	"low",
+		"maximize_tick_speed":	true,
+		"upscale":	"DISABLED",
+		"upscale_quality":	"off",
+		"anti_aliasing":	"DISABLED",
+		"portrait_multi_sampling":	"x2",
+		"anisotropic_filtering":	"x16"
+	},
+	"GUI":	{
+},
+	"Interface":	{
+		"skip_agenda":	true
+	},
+	"Map":	{
+		"flatmap_mode":	"in_fog_of_war",
+		"flatmap_water_color":	"brown_water",
+		"subjects_use_overlord_name":	"YES",
+		"io_show_as_overlords":	"YES"
+	},
+	"Notifications":	{
+},
+	"System":	{
+		"user_bindings":	"user_bindings/user.bindings",
+		"clock_type":	"clock_12h"
+	},
+	"Terrain":	{
+		"triplanar_uv_quality":	"high"
+	},
+	"Tools":	{
+}
+}
