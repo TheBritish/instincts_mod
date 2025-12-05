@@ -9,6 +9,6 @@
 			HAM
 			BRM
 		}
-		leader = HSA
+		leader = LUB
 	}
 }

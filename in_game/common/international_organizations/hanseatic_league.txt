@@ -64,10 +64,7 @@ hanseatic_league = {
 	}
 	
 	can_join_trigger = {
-		OR = {
-			tag = HSA
-			is_subject = no
-		}
+		always = yes
 	}
 	
 	can_leave_trigger = {
