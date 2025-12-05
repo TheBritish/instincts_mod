@@ -64,6 +64,8 @@ hanseatic_league = {
 	}
 	
 	can_join_trigger = {
+		# Allow countries to join even if HRE members
+		# HRE and Hanseatic League can coexist for Baltic/German states
 		always = yes
 	}
 	
