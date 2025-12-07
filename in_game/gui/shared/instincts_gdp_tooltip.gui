@@ -29,15 +29,16 @@ template instincts_gdp_tooltip
 					text = "INSTINCTS_GDP_TOOLTIP_EXPLAIN"
 				}
 			}
+			
 			TooltipTextBlock = {
 				blockoverride "text" {
 					text = "INSTINCTS_GDP_TOOLTIP_TOP10"
 				}
 			}
-			TooltipTextBlock = {
-				blockoverride "text" {
-					text = "INSTINCTS_GDP_TOP10_UNAVAILABLE"
-				}
+			
+			TooltipScrolledStringPairList = {
+				blockoverride "block_scrollarea" { maximumsize = { -1 300 } }
+				textcontext = "[GetAllPlayersRankedByEstimatedMonthlyIncome]"
 			}
 		}
 	}
