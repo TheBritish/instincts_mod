@@ -93,14 +93,12 @@ hanseatic_league = {
 
 	ai_desire_to_join = {
 		add = {
-			desc = "WE_ARE_A_TRADING_CITY"
 			value = 30
 		}
 	}
 	
 	ai_desire_to_allow_new_member = {
 		add = {
-			desc = "EXPAND_TRADE_NETWORK"
 			value = 25
 		}
 	}
