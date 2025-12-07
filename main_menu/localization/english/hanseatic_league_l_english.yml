@@ -46,9 +46,9 @@
  ACTIVE_TRADER: "Active merchant network"
  PROPOSE_LEADER_CONSOLIDATE: "Leader wants to strengthen control"
  
- ## Laws
  # Trade Regulations
  hl_trade_regulations: "Trade Regulations"
+ hl_trade_regulations_desc: "The strictness of quality controls and trade standards enforced across all Hanseatic kontors and member cities."
  hl_strict_regulations: "Strict Standards"
  hl_strict_regulations_desc: "Enforce rigorous quality controls and trade practices across all Hanseatic kontors. While this increases costs, it ensures the league's reputation for reliable commerce."
  HL_STRICT_REGULATIONS_EFFECT: "All Hanseatic cities must adhere to strict trade standards"
@@ -59,6 +59,7 @@
  
  # Kontor Privileges
  hl_kontor_privileges: "Kontor Privileges"
+ hl_kontor_privileges_desc: "The level of exclusive trading rights demanded by Hanseatic merchants in foreign kontors, balancing commercial advantage against diplomatic relations."
  hl_exclusive_kontors: "Exclusive Rights"
  hl_exclusive_kontors_desc: "Demand exclusive trading privileges in foreign kontors, preventing non-Hanseatic merchants from competing. This maximizes profits but strains diplomatic relations."
  hl_negotiated_kontors: "Negotiated Rights"
@@ -68,6 +69,7 @@
  
  # Membership Policy
  hl_membership_policy: "Membership Policy"
+ hl_membership_policy_desc: "The criteria and standards for admitting new cities to the Hanseatic League, from strict exclusivity to open acceptance."
  hl_exclusive_membership: "Exclusive Admission"
  hl_exclusive_membership_desc: "Strictly limit membership to established trading cities with proven records. This preserves the league's elite status but limits growth."
  hl_selective_membership: "Selective Admission"
@@ -77,24 +79,27 @@
  
  # Naval Defense
  hl_naval_defense: "Naval Defense"
+ hl_naval_defense_desc: "How the Hanseatic League coordinates its naval forces for the protection of trade routes and defense against pirates and hostile powers."
  hl_unified_fleet: "Unified Fleet"
- hl_unified_fleet_desc: "Maintain a common Hanseatic fleet to protect trade routes and project power. This requires significant investment but provides strong protection."
- hl_coordinated_patrols: "Coordinated Patrols"
- hl_coordinated_patrols_desc: "Coordinate naval patrols between member cities, sharing the burden of protecting trade routes while allowing individual autonomy."
- hl_independent_defense: "Independent Defense"
- hl_independent_defense_desc: "Each city maintains its own naval forces, providing maximum flexibility but reducing collective strength."
+ hl_unified_fleet_desc: "Maintain a common Hanseatic fleet to protect trade routes and project power. This requires significant investment but provides strong protection, and reduces costs for building naval infrastructure."
+ hl_coordinated_fleet: "Coordinated Fleet"
+ hl_coordinated_fleet_desc: "Coordinate naval patrols between member cities, sharing the burden of protecting trade routes while allowing individual autonomy."
+ hl_independent_fleet: "Independent Defense"
+ hl_independent_fleet_desc: "Each city maintains its own naval forces, providing maximum flexibility but reducing collective strength."
  
  # Economic Cooperation
  hl_economic_cooperation: "Economic Cooperation"
- hl_common_currency: "Common Currency"
- hl_common_currency_desc: "Adopt standardized currency and weights across all Hanseatic cities, facilitating trade but requiring economic coordination."
- hl_shared_standards: "Shared Standards"
- hl_shared_standards_desc: "Agree on common standards for weights, measures, and currency exchange rates while maintaining local coinage."
+ hl_economic_cooperation_desc: "The degree to which Hanseatic cities standardize their economic systems, weights, measures, and currencies to facilitate trade."
+ hl_common_standards: "Common Standards"
+ hl_common_standards_desc: "Adopt standardized currency, weights, and measures across all Hanseatic cities. This facilitates trade, reduces construction costs through standardized practices, and improves economic stability."
+ hl_cooperative_trade: "Cooperative Trade"
+ hl_cooperative_trade_desc: "Agree on common standards for weights, measures, and currency exchange rates while maintaining local coinage and some economic independence."
  hl_independent_economies: "Independent Economies"
- hl_independent_economies_desc: "Each city maintains complete economic independence, allowing local flexibility but complicating inter-league trade."
+ hl_independent_economies_desc: "Each city maintains complete economic independence, allowing local flexibility but complicating inter-league trade and potentially reducing stability."
  
  # Dispute Resolution
  hl_dispute_resolution: "Dispute Resolution"
+ hl_dispute_resolution_desc: "How the Hanseatic League mediates conflicts between member cities, from trade disputes to territorial disagreements."
  hl_binding_arbitration: "Binding Arbitration"
  hl_binding_arbitration_desc: "Disputes between members must be resolved by league arbitration, with all parties bound to accept the decision."
  hl_mediation: "Mediation"
@@ -104,6 +109,7 @@
  
  # Profit Distribution
  hl_profit_distribution: "Profit Distribution"
+ hl_profit_distribution_desc: "How trade profits and league revenues are distributed among member cities, from strict equality to merit-based shares."
  hl_proportional_shares: "Proportional Shares"
  hl_proportional_shares_desc: "Trade profits distributed based on each city's contribution to league commerce. Larger trading centers receive greater shares, potentially causing resentment among smaller members."
  hl_equal_distribution: "Equal Distribution"
@@ -115,6 +121,7 @@
  
  # Tagfahrt Frequency
  hl_tagfahrt_frequency: "Tagfahrt Frequency"
+ hl_tagfahrt_frequency_desc: "How often the Hanseatic Diet (Tagfahrt) convenes to discuss league policy, trade regulations, and collective decisions."
  hl_frequent_tagfahrt: "Frequent Assemblies"
  hl_frequent_tagfahrt_desc: "Hold the Hanseatic Diet regularly to quickly address policy matters. Requires significant diplomatic effort but allows rapid adaptation to changing circumstances."
  hl_regular_tagfahrt: "Regular Assemblies"
@@ -125,6 +132,7 @@
  
  # Foreign Policy Coordination
  hl_foreign_policy: "Foreign Policy"
+ hl_foreign_policy_desc: "The degree to which Hanseatic cities coordinate their diplomatic relations with foreign powers, from complete unity to full independence."
  hl_unified_diplomacy: "Unified Diplomacy"
  hl_unified_diplomacy_desc: "Member cities must coordinate all major diplomatic actions through league channels. Presents a united front to foreign powers but restricts individual initiative."
  hl_coordinated_diplomacy: "Coordinated Diplomacy"

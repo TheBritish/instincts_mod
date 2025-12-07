@@ -1,0 +1,10 @@
+﻿instincts_gdp_annual = {
+    desc = "INSTINCTS_GDP_LABEL"
+    value = monthly_income_trade_and_tax
+    multiply = 12
+}
+
+instincts_gdp_monthly = {
+    desc = "INSTINCTS_GDP_MONTHLY"
+    value = monthly_income_trade_and_tax
+}

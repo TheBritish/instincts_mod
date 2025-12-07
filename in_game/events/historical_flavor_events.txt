@@ -12,17 +12,16 @@ historical_flavor.2001 = {
         current_date <= 1457.12.31
     }
 
-    mean_time_to_happen = { months = 24 }
 
     option = {
         name = historical_flavor.2001.a
         add_stability = stability_mild_bonus
-        add_prestige = prestige_mild_bonus
+        add_prestige = 5
     }
 
     option = {
         name = historical_flavor.2001.b
-        add_prestige = prestige_mild_bonus
+        add_prestige = 5
         change_gold_effect = { scale = 2 }
     }
 }
@@ -41,7 +40,6 @@ historical_flavor.2008 = {
         owns = location:moscow
     }
 
-    mean_time_to_happen = { months = 12 }
 
     option = {
         name = historical_flavor.2008.a
@@ -50,13 +48,13 @@ historical_flavor.2008 = {
             months = 12
         }
         add_army_tradition = army_tradition_mild_bonus
-        add_prestige = prestige_mild_bonus
+        add_prestige = 5
     }
 
     option = {
         name = historical_flavor.2008.b
         change_gold_effect = { scale = 3 }
-        add_prestige = prestige_mild_bonus
+        add_prestige = 5
     }
 }
 
@@ -73,7 +71,6 @@ historical_flavor.2009 = {
         current_date <= 1510.12.31
     }
 
-    mean_time_to_happen = { months = 12 }
 
     option = {
         name = historical_flavor.2009.a
@@ -82,13 +79,13 @@ historical_flavor.2009 = {
             months = 12
         }
         change_gold_effect = { scale = 5 }
-        add_prestige = prestige_mild_bonus
+        add_prestige = 5
     }
 
     option = {
         name = historical_flavor.2009.b
-        add_prestige = prestige_mild_bonus
-        change_monthly_income_effect = { value = 10 }
+        add_prestige = 5
+        change_gold_effect = { scale = 10 }
     }
 }
 
@@ -105,7 +102,6 @@ historical_flavor.2010 = {
         current_date <= 1347.12.31
     }
 
-    mean_time_to_happen = { months = 6 }
 
     option = {
         name = historical_flavor.2010.a
@@ -113,13 +109,12 @@ historical_flavor.2010 = {
             modifier = crecy_battlefield_innovations
             months = 12
         }
-        add_military_power = military_power_mild_bonus
         add_army_tradition = army_tradition_mild_bonus
     }
 
     option = {
         name = historical_flavor.2010.b
-        add_prestige = prestige_large_bonus
+        add_prestige = 10
     }
 }
 
@@ -139,7 +134,6 @@ historical_flavor.2011 = {
         current_date <= 1435.12.31
     }
 
-    mean_time_to_happen = { months = 12 }
 
     option = {
         name = historical_flavor.2011.a
@@ -147,13 +141,12 @@ historical_flavor.2011 = {
             modifier = hussite_wagon_fort_tactics
             months = 12
         }
-        add_military_power = military_power_mild_bonus
-        add_prestige = prestige_mild_bonus
+        add_prestige = 5
     }
 
     option = {
         name = historical_flavor.2011.b
-        add_prestige = prestige_large_bonus
+        add_prestige = 10
         add_army_tradition = army_tradition_weak_bonus
     }
 }
@@ -171,7 +164,6 @@ historical_flavor.2012 = {
         current_date <= 1498.12.31
     }
 
-    mean_time_to_happen = { months = 12 }
 
     option = {
         name = historical_flavor.2012.a
@@ -179,7 +171,7 @@ historical_flavor.2012 = {
             modifier = leipzig_trade_fair_prestige
             months = 12
         }
-        add_prestige = prestige_mild_bonus
+        add_prestige = 5
     }
 
     option = {
@@ -201,7 +193,6 @@ historical_flavor.2013 = {
         current_date <= 1381.12.31
     }
 
-    mean_time_to_happen = { months = 12 }
 
     option = {
         name = historical_flavor.2013.a
@@ -209,12 +200,12 @@ historical_flavor.2013 = {
             modifier = english_longbow_tradition
             months = 12
         }
-        add_military_power = military_power_mild_bonus
+        add_army_tradition = army_tradition_mild_bonus
     }
 
     option = {
         name = historical_flavor.2013.b
-        add_prestige = prestige_large_bonus
+        add_prestige = 10
     }
 }
 
@@ -231,7 +222,6 @@ historical_flavor.2014 = {
         current_date <= 1494.12.31
     }
 
-    mean_time_to_happen = { months = 12 }
 
     option = {
         name = historical_flavor.2014.a
@@ -239,7 +229,7 @@ historical_flavor.2014 = {
             modifier = nuremberg_chronicles_fame
             months = 12
         }
-        add_prestige = prestige_mild_bonus
+        add_prestige = 5
     }
 
     option = {
@@ -261,7 +251,6 @@ historical_flavor.2015 = {
         current_date <= 1631.6.30
     }
 
-    mean_time_to_happen = { months = 1 }
 
     option = {
         name = historical_flavor.2015.a
@@ -273,7 +262,7 @@ historical_flavor.2015 = {
 
     option = {
         name = historical_flavor.2015.b
-        add_prestige = prestige_mild_bonus
+        add_prestige = 5
         add_stability = stability_mild_bonus
     }
 }
@@ -291,7 +280,6 @@ historical_flavor.2016 = {
         current_date <= 1550.12.31
     }
 
-    mean_time_to_happen = { months = 12 }
 
     option = {
         name = historical_flavor.2016.a
@@ -299,13 +287,13 @@ historical_flavor.2016 = {
             modifier = irish_bardic_tradition
             months = 12
         }
-        add_prestige = prestige_mild_bonus
+        add_prestige = 5
     }
 
     option = {
         name = historical_flavor.2016.b
         change_gold_effect = { scale = 2 }
-        add_prestige = prestige_weak_bonus
+        add_prestige = 3
     }
 }
 
@@ -322,7 +310,6 @@ historical_flavor.2017 = {
         current_date <= 1800.12.31
     }
 
-    mean_time_to_happen = { months = 24 }
 
     option = {
         name = historical_flavor.2017.a
@@ -336,7 +323,7 @@ historical_flavor.2017 = {
     option = {
         name = historical_flavor.2017.b
         add_stability = stability_mild_bonus
-        add_prestige = prestige_mild_bonus
+        add_prestige = 5
     }
 }
 
@@ -353,7 +340,6 @@ historical_flavor.2018 = {
         current_date <= 1760.12.31
     }
 
-    mean_time_to_happen = { months = 12 }
 
     option = {
         name = historical_flavor.2018.a
@@ -361,12 +347,12 @@ historical_flavor.2018 = {
             modifier = scottish_enlightenment_modifier
             months = 12
         }
-        add_prestige = prestige_large_bonus
+        add_prestige = 10
     }
 
     option = {
         name = historical_flavor.2018.b
-        add_prestige = prestige_mild_bonus
+        add_prestige = 5
         change_gold_effect = { scale = 3 }
     }
 }
@@ -384,7 +370,6 @@ historical_flavor.2019 = {
         current_date <= 1746.12.31
     }
 
-    mean_time_to_happen = { months = 12 }
 
     option = {
         name = historical_flavor.2019.a
@@ -392,39 +377,13 @@ historical_flavor.2019 = {
             modifier = jacobite_rising_unrest
             months = 8
         }
-        # Trigger event for England/Great Britain
-        every_country = {
-            limit = {
-                OR = {
-                    tag = c:ENG
-                    tag = c:GBR
-                }
-            }
-            trigger_event = {
-                id = historical_flavor.2020
-                days = 30
-            }
-        }
     }
 
     option = {
         name = historical_flavor.2019.b
         add_stability = stability_mild_bonus
-        add_prestige = prestige_mild_bonus
+        add_prestige = 5
         change_gold_effect = { scale = 3 }
-        # Still trigger the reaction event
-        every_country = {
-            limit = {
-                OR = {
-                    tag = c:ENG
-                    tag = c:GBR
-                }
-            }
-            trigger_event = {
-                id = historical_flavor.2020
-                days = 30
-            }
-        }
     }
 }
 
@@ -442,13 +401,13 @@ historical_flavor.2020 = {
             modifier = jacobite_rising_unrest
             months = 6
         }
-        add_military_power = military_power_mild_bonus
+        add_army_tradition = army_tradition_weak_bonus
     }
 
     option = {
         name = historical_flavor.2020.b
         add_stability = stability_mild_bonus
         change_gold_effect = { scale = 5 }
-        add_prestige = prestige_mild_bonus
+        add_prestige = 5
     }
 }

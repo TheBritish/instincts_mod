@@ -914,6 +914,27 @@ lateralview = {
 											using = layoutpolicy_expanding
 											spacing = 5
 
+							# GDP overview (annual with monthly hint)
+							budget_card = {
+								layoutpolicy_horizontal = expanding
+								size = { -1 30 }
+
+								tooltipwidget = {
+									using = instincts_gdp_tooltip
+								}
+
+								blockoverride "icon_texture" {
+									texture = "gfx/interface/icons/resources/gold.dds"
+								}
+
+								blockoverride "label" {
+									text = "INSTINCTS_GDP_LABEL"
+								}
+
+								blockoverride "income_text" {
+									raw_text = "[Multiply_CFixedPoint(Add_CFixedPoint(Add_CFixedPoint(Add_CFixedPoint(Add_CFixedPoint(Add_CFixedPoint(Add_CFixedPoint(Add_CFixedPoint(EconomyView.GetIncome('trade'), EconomyView.GetIncome('interest')), EconomyView.GetIncome('food')), EconomyView.GetIncome('diplomacy')), EconomyView.GetIncome('io_payments')), EconomyView.GetIncome('mercenary')), EconomyView.GetIncome('foreign')), EconomyView.GetIncome('other')), '(CFixedPoint)12')|0+=]@gold!"
+								}
+							}
 											#minting
 											adjustable_budget_card = {
 												name = mint_slider

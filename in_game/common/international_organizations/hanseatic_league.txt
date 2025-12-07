@@ -45,6 +45,9 @@ hanseatic_league = {
 	
 	# Hanseatic cities generally respected each other's trading privileges
 	antagonism_modifier_for_taking_land_from_fellow_member = 1.0
+
+	# Land ownership rules for IO-controlled territories
+	land_ownership_rule = hanseatic_league_land_ownership
 	
 	# Base benefits for all members: trade network, merchant cooperation, naval coordination
 	modifier = {
@@ -66,6 +69,10 @@ hanseatic_league = {
 	can_join_trigger = {
 		# Allow countries to join even if HRE members
 		# HRE and Hanseatic League can coexist for Baltic/German states
+		always = yes
+	}
+	
+	can_lead_trigger = {
 		always = yes
 	}
 	

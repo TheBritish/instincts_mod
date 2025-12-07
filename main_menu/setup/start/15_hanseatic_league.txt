@@ -2,8 +2,8 @@ international_organization_manager = {
 	add_international_organization = {
 		type = hanseatic_league
 		creation_date = 1337.1.1
-		leader = LUB
-		members = { LUB HAM BRM }
+		members = { HSA LUB HAM BRM }
+		leader = HSA
 		areas = {
 			lower_saxony_area
 			holstein_area
