@@ -74,13 +74,9 @@ hanseatic_league = {
 	}
 	
 	auto_leave_trigger = {
-		OR = {
-			# Lost independence (unless HSA)
-			AND = {
-				is_subject = yes
-				NOT = { tag = HSA }
-			}
-		}
+		# Hanseatic League members stay even as vassals
+		# (historical Hanseatic merchants maintained trading privileges as subjects)
+		always = no
 	}
 
 	auto_disband_trigger = {
