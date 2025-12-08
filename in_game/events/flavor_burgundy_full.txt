@@ -92,16 +92,19 @@ flavor_burgundy.101 = {
 
 		# Create Philip the Bold as the first Valois Duke of Burgundy
 		create_character = {
+			name = "Philip"
+			dynasty = house:valois
 			age = 35
 			culture = burgundian
 			religion = catholic
-			adm = 5
-			dip = 6
-			mil = 5
+			adm = 70
+			dip = 75
+			mil = 65
 			birth_location = capital_scope
 			traits = {
 				ambitious
 				diplomatic
+				shrewd
 			}
 		}
 
