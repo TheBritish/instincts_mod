@@ -41,6 +41,10 @@ flavor_burgundy.2 = {
 	option = {
 		name = flavor_burgundy.2.a
 		add_casus_belli = { target = c:LOR type = casus_belli:cb_conquest }
+		every_location = {
+			limit = { region = region:lorraine_region }
+			add_core = root
+		}
 		add_country_modifier = { name = burgundy_war_taxes duration = 3650 }
 	}
 }
