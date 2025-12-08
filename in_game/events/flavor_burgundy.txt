@@ -1,19 +1,15 @@
 ﻿namespace = flavor_burgundy
 
 # Phase I - The Golden Age
-country_event = {
-	id = flavor_burgundy.1
+flavor_burgundy.1 = {
+	type = country_event
 	title = flavor_burgundy.1.t
 	desc = flavor_burgundy.1.d
-	picture = MILITARY_COURT_scene
 	fire_only_once = yes
 
 	trigger = {
 		tag = BUR
-		OR = {
-			current_date >= 1380.1.1
-			ruler = { has_personality = militarist_personality }
-		}
+		current_date >= 1380.1.1
 		OR = {
 			any_owned_province = { region = region:low_countries_region }
 			any_subject_country = { any_owned_province = { region = region:low_countries_region } }
@@ -24,93 +20,82 @@ country_event = {
 		name = flavor_burgundy.1.a
 		add_country_modifier = { name = middle_kingdom_diplomacy duration = 18250 }
 		if = {
-			limit = { FRA = { exists = yes is_rival = yes } }
-			add_historical_friend = ENG
+			limit = { c:FRA = { exists = yes is_rival_of = root } }
+			add_opinion = { target = c:ENG value = 100 }
 		}
 	}
 }
 
 # Phase I follow-up - Connecting the Lands
-country_event = {
-	id = flavor_burgundy.2
+flavor_burgundy.2 = {
+	type = country_event
 	title = flavor_burgundy.2.t
 	desc = flavor_burgundy.2.d
-	picture = MILITARY_COURT_scene
 	fire_only_once = yes
 
 	trigger = {
 		tag = BUR
-		OR = {
-			ruler = { has_personality = militarist_personality }
-			current_date >= 1460.1.1
-		}
+		current_date >= 1460.1.1
 	}
 
 	option = {
 		name = flavor_burgundy.2.a
-		add_permanent_claim = { region = region:lorraine_region }
+		add_casus_belli = { target = c:LOR type = casus_belli:cb_conquest }
 		add_country_modifier = { name = burgundy_war_taxes duration = 3650 }
 	}
 }
 
 # Phase II - The Catastrophe of 1477
-country_event = {
-	id = flavor_burgundy.10
+flavor_burgundy.10 = {
+	type = country_event
 	title = flavor_burgundy.10.t
 	desc = flavor_burgundy.10.d
-	picture = DYNASTY_scene
 	fire_only_once = yes
 
 	trigger = {
 		tag = BUR
-		is_at_war = yes
-		OR = {
-			any_war = { limit = { is_current = yes } war_score < -25 }
-			has_country_flag = burgundy_duke_died_in_battle
-		}
+		current_date >= 1477.1.1
+		any_owned_province = { region = region:france_region }
 	}
 
 	immediate = {
 		if = {
-			limit = { FRA = { exists = yes } }
+			limit = { c:FRA = { exists = yes } }
 			every_owned_province = {
 				limit = { region = region:france_region }
-				cede_province = FRA
+				change_location_owner = c:FRA
 			}
 		}
-		# Move capital to a northern Low Countries province
-		random_owned_province = {
-			limit = { region = region:low_countries_region is_capital = no }
-			set_capital = THIS
+		if = {
+			limit = { capital = { region = region:france_region } }
+			random_owned_province = {
+				limit = { region = region:low_countries_region is_capital = no }
+				set_capital = THIS
+			}
 		}
 	}
 
 	option = {
-		name = flavor_burgundy.10.a # The Habsburg Marriage (Historical)
+		name = flavor_burgundy.10.a
 		if = {
-			limit = { HAB = { exists = yes } }
-			become_subject = { type = personal_union overlord = HAB }
+			limit = { c:HAB = { exists = yes } }
+			make_subject_of = { target = c:HAB type = subject_type:personal_union }
 		}
 		add_country_modifier = { name = imperial_protection duration = 3650 }
 	}
 
 	option = {
-		name = flavor_burgundy.10.b # The Duchess Stands Alone
-		add_opinion = { who = FRA value = -150 }
-		add_opinion = { who = HAB value = -150 }
-		every_owned_province = {
-			limit = { region = region:low_countries_region }
-			spawn_rebels = { type = dutch_patriots size = 2 }
-		}
+		name = flavor_burgundy.10.b
+		add_opinion = { target = c:FRA value = -150 }
+		add_opinion = { target = c:HAB value = -150 }
 	}
 }
 
 # Phase III - The Burgundian Circle
-country_event = {
-	id = flavor_burgundy.20
+flavor_burgundy.20 = {
+	type = country_event
 	title = flavor_burgundy.20.t
 	desc = flavor_burgundy.20.d
-	picture = ADMINISTRATION_scene
 	fire_only_once = yes
 
 	trigger = {
@@ -121,11 +106,6 @@ country_event = {
 
 	option = {
 		name = flavor_burgundy.20.a
-		# Integrate remaining vassals in the Low Countries
-		every_subject_country = {
-			limit = { any_owned_province = { region = region:low_countries_region } }
-			inherit = ROOT
-		}
 		add_country_modifier = { name = burgundy_pragmatic_sanction duration = -1 }
 		every_owned_province = {
 			limit = { region = region:low_countries_region }
@@ -135,11 +115,10 @@ country_event = {
 }
 
 # Phase IV - The Spanish Split
-country_event = {
-	id = flavor_burgundy.30
+flavor_burgundy.30 = {
+	type = country_event
 	title = flavor_burgundy.30.t
 	desc = flavor_burgundy.30.d
-	picture = DYNASTY_scene
 	fire_only_once = yes
 
 	trigger = {
@@ -151,8 +130,8 @@ country_event = {
 	option = {
 		name = flavor_burgundy.30.a
 		if = {
-			limit = { SPA = { exists = yes } }
-			become_subject = { type = personal_union overlord = SPA }
+			limit = { c:SPA = { exists = yes } }
+			make_subject_of = { target = c:SPA type = subject_type:personal_union }
 		}
 		set_country_flag = dutch_revolt_brewing
 	}
