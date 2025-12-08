@@ -6,10 +6,10 @@ namespace = flavor_burgundy
 ######################################
 
 # Prologue Event 1: The Plague of 1361 - Succession Crisis
-flavor_burgundy_prologue.1 = {
+flavor_burgundy.100 = {
 	type = country_event
-	title = flavor_burgundy_prologue.1.t
-	desc = flavor_burgundy_prologue.1.d
+	title = flavor_burgundy.100.t
+	desc = flavor_burgundy.100.d
 	fire_only_once = yes
 
 	trigger = {
@@ -32,12 +32,12 @@ flavor_burgundy_prologue.1 = {
 	}
 
 	option = {
-		name = flavor_burgundy_prologue.1.a
+		name = flavor_burgundy.100.a
 		ai_chance = { base = 75 }
 		
 		# The duchy legally reverts to France
 		custom_description = {
-			text = flavor_burgundy_prologue.1.a.tooltip
+			text = flavor_burgundy.100.a.tooltip
 			c:FRA = {
 				inherit = root
 			}
@@ -46,7 +46,7 @@ flavor_burgundy_prologue.1 = {
 		# Trigger immediate follow-up for player swap
 		if = {
 			limit = { is_human = yes }
-			trigger_event = { id = flavor_burgundy_prologue.2 days = 1 }
+			trigger_event = { id = flavor_burgundy.101 days = 1 }
 		}
 		else = {
 			# AI stays as France
@@ -59,19 +59,19 @@ flavor_burgundy_prologue.1 = {
 	}
 
 	option = {
-		name = flavor_burgundy_prologue.1.b
+		name = flavor_burgundy.100.b
 		ai_chance = { base = 25 }
 		
 		# Reject French overlordship
-		trigger_event = { id = flavor_burgundy_prologue.1.b.follow_up days = 5 }
+		trigger_event = { id = flavor_burgundy.100.b.follow_up days = 5 }
 	}
 }
 
 # Prologue Follow-up to Event 1 Option B: Rebellion and Reconquest
-flavor_burgundy_prologue.1.b.follow_up = {
+flavor_burgundy.100.b.follow_up = {
 	type = country_event
-	title = flavor_burgundy_prologue.1.b.title
-	desc = flavor_burgundy_prologue.1.b.desc
+	title = flavor_burgundy.100.b.title
+	desc = flavor_burgundy.100.b.desc
 	fire_only_once = yes
 
 	immediate = {
@@ -82,7 +82,7 @@ flavor_burgundy_prologue.1.b.follow_up = {
 	}
 
 	option = {
-		name = flavor_burgundy_prologue.1.b.a
+		name = flavor_burgundy.100.b.a
 		
 		add_opinion = { target = c:FRA value = -150 }
 		c:FRA = {
@@ -95,10 +95,10 @@ flavor_burgundy_prologue.1.b.follow_up = {
 }
 
 # Prologue Event 2: The Gift of King Jean - Valois Dynasty Granted
-flavor_burgundy_prologue.2 = {
+flavor_burgundy.101 = {
 	type = country_event
-	title = flavor_burgundy_prologue.2.t
-	desc = flavor_burgundy_prologue.2.d
+	title = flavor_burgundy.101.t
+	desc = flavor_burgundy.101.d
 	fire_only_once = yes
 	is_triggered_only = yes
 
@@ -111,7 +111,7 @@ flavor_burgundy_prologue.2 = {
 	}
 
 	option = {
-		name = flavor_burgundy_prologue.2.a
+		name = flavor_burgundy.101.a
 		
 		# Create Philip the Bold as ruler via character creation
 		create_character = {
@@ -150,10 +150,10 @@ flavor_burgundy_prologue.2 = {
 }
 
 # Prologue Event 3: The Wedding in Ghent (1369) - Securing Flanders Alliance
-flavor_burgundy_prologue.3 = {
+flavor_burgundy.102 = {
 	type = country_event
-	title = flavor_burgundy_prologue.3.t
-	desc = flavor_burgundy_prologue.3.d
+	title = flavor_burgundy.102.t
+	desc = flavor_burgundy.102.d
 	fire_only_once = yes
 
 	trigger = {
@@ -175,7 +175,7 @@ flavor_burgundy_prologue.3 = {
 	}
 
 	option = {
-		name = flavor_burgundy_prologue.3.a
+		name = flavor_burgundy.102.a
 		
 		# Form marriage alliance with Flanders
 		if = {
