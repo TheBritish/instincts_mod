@@ -1,0 +1,22 @@
+﻿middle_kingdom_diplomacy = {
+fort_defense = 0.20
+diplomatic_relations = 2
+mercenary_manpower = 0.10
+}
+
+imperial_protection = {
+fort_defense = 0.15
+diplomatic_reputation = 1
+}
+
+burgundy_war_taxes = {
+war_taxes_cost = -0.25
+}
+
+burgundian_circle = {
+local_autonomy = -0.20
+}
+
+burgundy_pragmatic_sanction = {
+administrative_efficiency = 0.05
+}
