@@ -12,6 +12,11 @@ flavor_burgundy.100 = {
 	desc = flavor_burgundy.100.d
 	fire_only_once = yes
 
+	trigger = {
+		tag = BUR
+		current_date >= 1361.1.1
+	}
+
 	immediate = {
 		hidden_effect = {
 			save_scope_as = burgundy_country
@@ -103,6 +108,11 @@ flavor_burgundy.102 = {
 	desc = flavor_burgundy.102.d
 	fire_only_once = yes
 
+	trigger = {
+		tag = BUR
+		current_date >= 1369.1.1
+	}
+
 	option = {
 		name = flavor_burgundy.102.a
 
@@ -132,6 +142,11 @@ flavor_burgundy.1 = {
 	desc = flavor_burgundy.1.d
 	fire_only_once = yes
 
+	trigger = {
+		tag = BUR
+		current_date >= 1380.1.1
+	}
+
 	option = {
 		name = flavor_burgundy.1.a
 		add_country_modifier = { modifier = middle_kingdom_diplomacy duration = 5475 }
@@ -149,6 +164,11 @@ flavor_burgundy.2 = {
 	title = flavor_burgundy.2.t
 	desc = flavor_burgundy.2.d
 	fire_only_once = yes
+
+	trigger = {
+		tag = BUR
+		current_date >= 1460.1.1
+	}
 
 	option = {
 		name = flavor_burgundy.2.a
@@ -172,6 +192,11 @@ flavor_burgundy.10 = {
 	title = flavor_burgundy.10.t
 	desc = flavor_burgundy.10.d
 	fire_only_once = yes
+
+	trigger = {
+		tag = BUR
+		current_date >= 1477.1.1
+	}
 
 	option = {
 		name = flavor_burgundy.10.a
@@ -203,6 +228,11 @@ flavor_burgundy.20 = {
 	desc = flavor_burgundy.20.d
 	fire_only_once = yes
 
+	trigger = {
+		tag = BUR
+		current_date >= 1500.1.1
+	}
+
 	option = {
 		name = flavor_burgundy.20.a
 		add_country_modifier = { modifier = burgundy_pragmatic_sanction duration = 10950 }
@@ -215,6 +245,11 @@ flavor_burgundy.30 = {
 	title = flavor_burgundy.30.t
 	desc = flavor_burgundy.30.d
 	fire_only_once = yes
+
+	trigger = {
+		tag = BUR
+		current_date >= 1550.1.1
+	}
 
 	option = {
 		name = flavor_burgundy.30.a
