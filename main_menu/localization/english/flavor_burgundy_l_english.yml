@@ -1,0 +1,87 @@
+﻿l_english:
+ # ===== PROLOGUE EVENT CHAIN (1363-1369) =====
+ # Event 100: Death of John II
+ flavor_burgundy.100.t: "Death of John II"
+ flavor_burgundy.100.d: "A terrible plague sweeps across our lands, carrying away the great and the humble alike. Our beloved Duke has succumbed to the pestilence, leaving behind no direct heir.\n\nWith the death of our Duke, the ancient line of Burgundy faces extinction. By the laws of France, the Duchy legally reverts to the Crown. King Jean II awaits our answer.\n\nShall we accept the inevitable and return to French control, trusting in the Crown's promises? Or do we resist, and claim that Burgundy's independence is not so easily surrendered?"
+ flavor_burgundy.100.a: "Return to the Crown (Historical)"
+ flavor_burgundy.100.a.tooltip: "The Duchy is inherited by France. A succession event will follow."
+ flavor_burgundy.100.b: "Resist the Reversion (Alt-History)"
+ flavor_burgundy.100.b.tooltip: "Break free from French control and resist their armies. Consequences will follow."
+
+ # Event 103: French Reconquest Follow-up (Option B from Event 100)
+ flavor_burgundy.103.t: "French Reconquest"
+ flavor_burgundy.103.d: "Our resistance to French overlordship has provoked King Jean. He declares us rebels and sends his armies to reclaim what he believes is rightfully his. Meanwhile, French loyalists within our own territories rise up against our government.\n\nWe stand alone against the greatest kingdom in Christendom. The coming years will test our resolve."
+ flavor_burgundy.103.a: "We Will Not Bend"
+ flavor_burgundy.103.a.tooltip: "Stand firm against French reconquest and face the consequences of rebellion."
+
+ # Event 101: The Gift of King Jean (Valois Dynasty)
+ flavor_burgundy.101.t: "The Gift of King Jean"
+ flavor_burgundy.101.d: "A royal messenger arrives bearing momentous news. King Jean II, the Good, has looked favorably upon our family's plight. In recognition of our loyal service and to reward the ambitious vigor of his son, the King grants the Duchy of Burgundy as an appanage to Philip, Duke of Touraine.\n\nPhilip the Bold, as he shall be known, is now Duke of Burgundy. A new chapter begins for our land. We are no longer merely a dying dynasty clinging to fading glory—we are the rising house of Valois, granted new purpose and fresh opportunities.\n\nThe Low Countries await. The wealth of Flanders calls to us. The age of Burgundy as a great power is about to begin."
+ flavor_burgundy.101.a: "Embrace the Valois Future"
+ flavor_burgundy.101.a.tooltip: "Accept the new Valois dynasty and secure Burgundy's position under royal favor."
+
+ # Event 102: The Wedding in Ghent (Flanders Marriage)
+ flavor_burgundy.102.t: "The Wedding in Ghent"
+ flavor_burgundy.102.d: "The Count of Flanders, hard-pressed by English pressure and needing a powerful ally, seeks our hand through matrimony. Our Duke Philip has accepted a marriage proposal with Margaret of Dampierre, the Count's daughter.\n\nThis union is more than mere romance—it is a political masterpiece. Through this marriage, we gain influence in Flanders, one of the richest regions in Christendom. The paths to eventual inheritance are opening before us.\n\nThe Low Countries, once fragments, begin to coalesce around our house. Our destiny is in motion."
+ flavor_burgundy.102.a: "Seal the Ghent Marriage"
+ flavor_burgundy.102.a.tooltip: "Formalize the marriage alliance with Flanders and secure a path to the Low Countries."
+
+ # ===== MAIN EVENT CHAIN (1380-1550) =====
+ # Event 1: The Golden Age (1380+)
+ flavor_burgundy.1.t: "The Rise of Burgundy"
+ flavor_burgundy.1.d: "Under our skilled leadership, Burgundy stands at the threshold of greatness. With control of the prosperous Low Countries, we have the potential to become a major power rivaling even France and the Holy Roman Empire.\n\nOur diplomatic strength and military might present an opportunity to assert ourselves on the European stage. The Low Countries are becoming the jewel of Christendom."
+ flavor_burgundy.1.a: "Assert Our Dominance"
+ flavor_burgundy.1.a.tooltip: "Seize the opportunity to establish Burgundy as a major European power."
+
+ # Event 2: The Lorraine Question (1460+)
+ flavor_burgundy.2.t: "The Lorraine Question"
+ flavor_burgundy.2.d: "Our growing power in the Low Countries has given us the confidence to look eastward. The Duchy of Lorraine, strategically positioned between our lands and the Rhine, represents both a prize and a barrier.\n\nShould we press our claims and expand our territory, we could create a continuous realm from the North Sea to the heart of Europe. The moment to act is now."
+ flavor_burgundy.2.a: "Declare Our Rights to Lorraine"
+ flavor_burgundy.2.a.tooltip: "Press claims on Lorraine and unite the Low Countries with the Rhinelands."
+
+ # Event 10: The Catastrophe of 1477
+ flavor_burgundy.10.t: "The Catastrophe"
+ flavor_burgundy.10.d: "Disaster has struck our realm. In a disastrous military campaign, our ruler has fallen in battle. The great and terrible Duke Charles is no more. With his death, the fortunes of Burgundy have crumbled like autumn leaves.\n\nOur French territories are slipping from our grasp as King Louis claims them for the Crown. The future of Burgundy itself hangs in the balance. We must decide our fate—seek protection within the Habsburg sphere through dynastic union, or stand alone against the world?"
+ flavor_burgundy.10.a: "Seek Habsburg Protection"
+ flavor_burgundy.10.a.tooltip: "Enter into a personal union with Austria to secure protection from France."
+ flavor_burgundy.10.b: "Stand Alone Against the World"
+ flavor_burgundy.10.b.tooltip: "Reject foreign overlordship and fight for independence despite the odds."
+
+ # Event 20: The Burgundian Circle (1521+)
+ flavor_burgundy.20.t: "The Burgundian Circle"
+ flavor_burgundy.20.d: "After decades of struggle and adaptation, Burgundy has consolidated its position in the Low Countries. Our lands have become a bastion of culture, commerce, and political intrigue within the fragmented landscape of northern Europe.\n\nWith the Pragmatic Sanction securing our succession rights, we can now fully integrate our diverse territories and establish the Burgundian Circle as a formidable cultural and political power. The Low Countries flourish under our rule."
+ flavor_burgundy.20.a: "Consolidate Our Circle"
+ flavor_burgundy.20.a.tooltip: "Integrate the Low Countries and establish the Burgundian Circle as a cultural and political power."
+
+ # Event 30: The Spanish Succession (1568+)
+ flavor_burgundy.30.t: "The Spanish Succession"
+ flavor_burgundy.30.d: "A new dynastic tide sweeps across Europe. The Spanish crown, now reaching the height of its power, seeks to bring the Low Countries under its umbrella through union. For Burgundy, this represents both an opportunity for protection and security under a powerful overlord, and the end of our independent trajectory.\n\nHowever, the seeds of revolt are already being planted among our people. The Dutch grow restless under distant Spanish rule, and rebellion stirs in the streets of Amsterdam and other great cities."
+ flavor_burgundy.30.a: "Accept the Spanish Union"
+ flavor_burgundy.30.a.tooltip: "Join in personal union with Spain and secure stability under Habsburg rule."
+
+ # ===== MODIFIERS =====
+ # Prologue Modifiers
+ loyal_appanage: "Loyal Appanage"
+ loyal_appanage_desc: "Burgundy is granted as a royal appanage by the King of France. Though independent in governance, we remain loyal subjects of the Crown, enjoying its protection and prestige."
+ 
+ succession_crisis_modifier: "Succession Crisis"
+ succession_crisis_modifier_desc: "The death of our Duke has thrown the realm into chaos. Plague, rebellion, and uncertainty plague our lands."
+ 
+ flanders_marriage_alliance: "Flanders Marriage Alliance"
+ flanders_marriage_alliance_desc: "Through marriage to the Count of Flanders' daughter, we have secured a powerful alliance. The path to the Low Countries succession is now clear."
+
+ # Main Chain Modifiers
+ middle_kingdom_diplomacy: "Middle Kingdom Diplomacy"
+ middle_kingdom_diplomacy_desc: "Burgundy asserts itself as a power in its own right, commanding respect from the great powers of Europe."
+ 
+ imperial_protection: "Imperial Protection"
+ imperial_protection_desc: "Burgundy is protected by the Habsburg crown, granting us stability and security at the cost of our independence."
+ 
+ burgundy_war_taxes: "War Taxation"
+ burgundy_war_taxes_desc: "War taxes are imposed to fund our military expansion and territorial claims against Lorraine."
+ 
+ burgundy_pragmatic_sanction: "Pragmatic Sanction"
+ burgundy_pragmatic_sanction_desc: "The Pragmatic Sanction establishes our succession rights and integrates our diverse territories into a unified realm under imperial oversight."
+ 
+ burgundian_circle: "Burgundian Circle"
+ burgundian_circle_desc: "The Low Countries form the heart of the Burgundian Circle, a united and prosperous region at the crossroads of Europe."

@@ -5,25 +5,28 @@
 # Capetian to Valois Transition
 ######################################
 
-# Prologue Event 1: The Plague of 1361 - Succession Crisis
-flavor_burgundy.100 = {
-	type = country_event
-	title = flavor_burgundy.100.t
-	desc = flavor_burgundy.100.d
-	fire_only_once = yes
+	# Prologue Event 1: Death of John II - Valois Inheritance (1363)
+	flavor_burgundy.100 = {
+		type = country_event
+		title = flavor_burgundy.100.t
+		desc = flavor_burgundy.100.d
+		fire_only_once = yes
 
 	trigger = {
 		tag = BUR
-		current_date >= 1361.1.1
+		current_date >= 1363.1.1
 	}
 
 	immediate = {
 		hidden_effect = {
 			save_scope_as = burgundy_country
+			# Kill the current ruler (John II dies historically)
+			if = {
+				limit = { has_ruler = yes }
+				kill_character = scope:root.GetRuler
+			}
 		}
-	}
-
-	option = {
+	}	option = {
 		name = flavor_burgundy.100.a
 		ai_chance = { factor = 75 }
 
@@ -109,7 +112,11 @@ flavor_burgundy.101 = {
 				diplomatic
 				shrewd
 			}
+			save_scope_as = philip_the_bold
 		}
+
+		# Make Philip the Bold the ruler of Burgundy
+		set_character_as_ruler = scope:philip_the_bold
 
 		# Grant loyalty modifier as French appanage
 		add_country_modifier = {
@@ -137,16 +144,22 @@ flavor_burgundy.102 = {
 	option = {
 		name = flavor_burgundy.102.a
 
-		# Administrative reward representing Flanders influence
-		add_country_modifier = {
-			modifier = flanders_marriage_alliance
-			duration = 1825
-		}
-
-		# Diplomatic bonus to Flanders if it exists
+		# Historically, Philip the Bold gained control of Flanders through marriage
 		if = {
 			limit = { c:FLA = { exists = yes } }
+			# Add opinion before absorbing Flanders
 			add_opinion = { target = c:FLA modifier = opinion_allied }
+			# Absorb Flanders into Burgundy
+			c:FLA = {
+				every_owned_location = {
+					change_location_owner = root
+				}
+			}
+			# Administrative reward representing Flanders integration
+			add_country_modifier = {
+				modifier = flanders_marriage_alliance
+				duration = 1825
+			}
 		}
 	}
 }
@@ -166,6 +179,10 @@ flavor_burgundy.1 = {
 	trigger = {
 		tag = BUR
 		current_date >= 1380.1.1
+		OR = {
+			any_owned_location = { region = region:low_countries_region }
+			any_subject_country = { any_owned_location = { region = region:low_countries_region } }
+		}
 	}
 
 	option = {
@@ -174,7 +191,7 @@ flavor_burgundy.1 = {
 
 		if = {
 			limit = { c:FRA = { exists = yes } }
-			add_opinion = { target = c:ENG modifier = opinion_allied }
+			add_opinion = { target = c:FRA modifier = opinion_allied }
 		}
 	}
 }
@@ -203,81 +220,125 @@ flavor_burgundy.2 = {
 			}
 		}
 
+		# Add core claims to Lorraine territories
+		every_location = {
+			limit = { region = region:lorraine_region }
+			add_core = root
+		}
+
 		add_country_modifier = { modifier = burgundy_war_taxes duration = 1095 }
 	}
 }
 
-# Phase II - The Catastrophe of 1477
-flavor_burgundy.10 = {
-	type = country_event
-	title = flavor_burgundy.10.t
-	desc = flavor_burgundy.10.d
-	fire_only_once = yes
+	# Phase II - The Catastrophe of 1477
+	flavor_burgundy.10 = {
+		type = country_event
+		title = flavor_burgundy.10.t
+		desc = flavor_burgundy.10.d
+		fire_only_once = yes
 
-	trigger = {
-		tag = BUR
-		current_date >= 1477.1.1
-	}
-
-	option = {
-		name = flavor_burgundy.10.a
-
-		add_country_modifier = { modifier = imperial_protection duration = 1095 }
-
-		if = {
-			limit = { c:HAB = { exists = yes } }
-			add_opinion = { target = c:HAB modifier = opinion_allied }
+		trigger = {
+			tag = BUR
+			current_date >= 1477.1.1
+			is_subject = no
+			any_owned_location = { region = region:low_countries_region }
 		}
-	}
 
-	option = {
-		name = flavor_burgundy.10.b
+		option = {
+			name = flavor_burgundy.10.a
+			
+			# Transfer only French territories back to France
+			if = {
+				limit = { c:FRA = { exists = yes } }
+				every_location = {
+					limit = { region = region:france_region }
+					change_location_owner = c:FRA
+				}
+			}
+			
+			# Burgundy keeps Low Countries and core lands but enters personal union under Austria
+			add_country_modifier = { modifier = imperial_protection duration = 1095 }
 
-		add_opinion = { target = c:FRA modifier = opinion_insulted }
-
-		if = {
-			limit = { c:HAB = { exists = yes } }
-			add_opinion = { target = c:HAB modifier = opinion_insulted }
+			if = {
+				limit = { c:AUS = { exists = yes } }
+				add_opinion = { target = c:AUS modifier = opinion_allied }
+				# Burgundy enters personal union under Austria (keeps its remaining lands)
+				create_personal_union = {
+					subject = root
+					overlord = c:AUS
+				}
+			}
 		}
-	}
+
+		option = {
+			name = flavor_burgundy.10.b
+			
+			# Transfer only French territories back to France
+			if = {
+				limit = { c:FRA = { exists = yes } }
+				every_location = {
+					limit = { region = region:france_region }
+					change_location_owner = c:FRA
+				}
+			}
+			
+			# Burgundy keeps all remaining lands (Low Countries, Burgundy, Rhine)
+			add_opinion = { target = c:FRA modifier = opinion_insulted }
+
+			if = {
+				limit = { c:AUS = { exists = yes } }
+				add_opinion = { target = c:AUS modifier = opinion_insulted }
+			}
+		}
 }
 
-# Phase III - The Burgundian Circle (1500+)
-flavor_burgundy.20 = {
-	type = country_event
-	title = flavor_burgundy.20.t
-	desc = flavor_burgundy.20.d
-	fire_only_once = yes
+	# Phase III - The Burgundian Circle (1521+)
+	flavor_burgundy.20 = {
+		type = country_event
+		title = flavor_burgundy.20.t
+		desc = flavor_burgundy.20.d
+		fire_only_once = yes
 
-	trigger = {
-		tag = BUR
-		current_date >= 1500.1.1
+		trigger = {
+			tag = BUR
+			current_date >= 1521.1.1
+		any_owned_location = { region = region:low_countries_region }
 	}
 
 	option = {
 		name = flavor_burgundy.20.a
 		add_country_modifier = { modifier = burgundy_pragmatic_sanction duration = 10950 }
+		# Apply province modifiers to Low Countries
+		every_location = {
+			limit = { region = region:low_countries_region }
+			add_location_modifier = { modifier = burgundian_circle duration = 10950 }
+		}
 	}
 }
 
-# Phase IV - The Spanish Split (1550+)
-flavor_burgundy.30 = {
-	type = country_event
-	title = flavor_burgundy.30.t
-	desc = flavor_burgundy.30.d
-	fire_only_once = yes
+	# Phase IV - The Spanish Split / Dutch Revolt (1568+)
+	flavor_burgundy.30 = {
+		type = country_event
+		title = flavor_burgundy.30.t
+		desc = flavor_burgundy.30.d
+		fire_only_once = yes
 
-	trigger = {
-		tag = BUR
-		current_date >= 1550.1.1
-	}
+		trigger = {
+			tag = BUR
+			current_date >= 1568.1.1
+			any_owned_location = { region = region:low_countries_region }
+			is_subject_of = c:SPA
+		}
 
-	option = {
+		option = {
 		name = flavor_burgundy.30.a
 
 		if = {
 			limit = { c:SPA = { exists = yes } }
 			add_opinion = { target = c:SPA modifier = opinion_allied }
 		}
+
+		# Set flag for future Dutch Revolt events
+		set_country_flag = dutch_revolt_brewing
 	}
 }
