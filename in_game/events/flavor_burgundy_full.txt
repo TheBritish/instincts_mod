@@ -47,19 +47,24 @@ title = flavor_burgundy.103.t
 desc = flavor_burgundy.103.d
 fire_only_once = yes
 
+immediate = {
+hidden_effect = {
+if = {
+limit = { c:FRA = { exists = yes } }
+c:FRA = {
+add_casus_belli = {
+target = root
+type = casus_belli:cb_fabricated_conquer_province
+}
+}
+}
+}
+}
+
 option = {
 name = flavor_burgundy.103.a
 
 add_opinion = { target = c:FRA modifier = opinion_insulted }
-
-# Claim fabricated right to rebel territories
-if = {
-limit = { c:FRA = { exists = yes } }
-add_casus_belli = {
-target = c:FRA
-type = casus_belli:cb_fabricated_conquer_province
-}
-}
 
 # War taxes due to crisis
 add_country_modifier = { 
@@ -148,12 +153,12 @@ fire_only_once = yes
 option = {
 name = flavor_burgundy.2.a
 
-# Burgundy claims the gaps between its territories
+# Burgundy claims Lorraine as the bridge between Low Countries and Rhineland
 if = {
-limit = { c:FRA = { exists = yes } }
+limit = { c:LOR = { exists = yes } }
 add_casus_belli = {
-target = c:FRA
-type = casus_belli:cb_fabricated_conquer_province
+target = c:LOR
+type = casus_belli:cb_conquest
 }
 }
 
@@ -176,10 +181,6 @@ add_country_modifier = { modifier = imperial_protection duration = 1095 }
 if = {
 limit = { c:HAB = { exists = yes } }
 add_opinion = { target = c:HAB modifier = opinion_allied }
-add_casus_belli = {
-target = c:FRA
-type = casus_belli:cb_fabricated_conquer_province
-}
 }
 }
 
@@ -187,12 +188,6 @@ option = {
 name = flavor_burgundy.10.b
 
 add_opinion = { target = c:FRA modifier = opinion_insulted }
-
-# Standing against France alone
-add_casus_belli = {
-target = c:FRA
-type = casus_belli:cb_fabricated_conquer_province
-}
 
 if = {
 limit = { c:HAB = { exists = yes } }
