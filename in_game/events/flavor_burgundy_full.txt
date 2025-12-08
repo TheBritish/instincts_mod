@@ -104,20 +104,9 @@ flavor_burgundy_prologue.2 = {
 
 	immediate = {
 		hidden_effect = {
-			# Release and recreate BUR as a new country
-			if = {
-				limit = { tag = FRA }
-				release_subject = {
-					country = BUR
-					release_base_nation = yes
-				}
-			}
-			
-			# Set to released BUR if player was France
-			if = {
-				limit = { is_human = yes }
-				switch_to_country = c:BUR
-			}
+			# This event should fire for BUR after being recreated as French subject
+			# The inheritance in prologue.1 transfers to France, then France should recreate BUR via setup or manual release
+			# For gameplay purposes, this event represents BUR receiving its new Valois dynasty
 		}
 	}
 
@@ -198,9 +187,9 @@ flavor_burgundy_prologue.3 = {
 		set_country_flag = burgundian_succession_secured
 		
 		# Administrative reward representing Flanders influence
-		add_ruler_modifier = {
-			modifier = flanders_marriage_alliance
-			years = 15
+		add_country_modifier = {
+			name = flanders_marriage_alliance
+			duration = 5475
 		}
 		
 		# Diplomatic bonus

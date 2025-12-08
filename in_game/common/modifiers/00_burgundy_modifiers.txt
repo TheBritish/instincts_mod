@@ -1,22 +1,42 @@
-﻿middle_kingdom_diplomacy = {
-fort_defense = 0.20
-diplomatic_relations = 2
-mercenary_manpower = 0.10
+﻿# Prologue Modifiers (1361-1369)
+succession_crisis_modifier = {
+	stability_cost = 0.25
+	local_unrest = 2
+	manpower_recovery = -0.15
+}
+
+loyal_appanage = {
+	diplomatic_reputation = 1
+	liberty_desire = -25
+	vassal_income = 0.10
+}
+
+flanders_marriage_alliance = {
+	diplomatic_relations = 1
+	improve_relations = 0.15
+	diplomatic_reputation = 1
+}
+
+# Main Event Chain Modifiers (1380-1550)
+middle_kingdom_diplomacy = {
+	fort_defense = 0.20
+	diplomatic_relations = 2
+	mercenary_manpower = 0.10
 }
 
 imperial_protection = {
-fort_defense = 0.15
-diplomatic_reputation = 1
+	fort_defense = 0.15
+	diplomatic_reputation = 1
 }
 
 burgundy_war_taxes = {
-war_taxes_cost = -0.25
+	war_taxes_cost = -0.25
 }
 
 burgundian_circle = {
-local_autonomy = -0.20
+	local_autonomy = -0.20
 }
 
 burgundy_pragmatic_sanction = {
-administrative_efficiency = 0.05
+	administrative_efficiency = 0.05
 }
