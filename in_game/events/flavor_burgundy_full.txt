@@ -7,117 +7,117 @@
 
 # Prologue Event 1: The Plague of 1361 - Succession Crisis
 flavor_burgundy.100 = {
-type = country_event
-title = flavor_burgundy.100.t
-desc = flavor_burgundy.100.d
-fire_only_once = yes
+	type = country_event
+	title = flavor_burgundy.100.t
+	desc = flavor_burgundy.100.d
+	fire_only_once = yes
 
-immediate = {
-hidden_effect = {
-save_scope_as = burgundy_country
-}
-}
+	immediate = {
+		hidden_effect = {
+			save_scope_as = burgundy_country
+		}
+	}
 
-option = {
-name = flavor_burgundy.100.a
-ai_chance = { factor = 75 }
+	option = {
+		name = flavor_burgundy.100.a
+		ai_chance = { factor = 75 }
 
-# The duchy legally reverts to France
-custom_tooltip = {
-text = flavor_burgundy.100.a.tooltip
-}
+		# The duchy legally reverts to France
+		custom_tooltip = {
+			text = flavor_burgundy.100.a.tooltip
+		}
 
-# Trigger next event for player who takes France
-trigger_event = { id = flavor_burgundy.101 days = 1 }
-}
+		# Trigger next event for player who takes France
+		trigger_event = { id = flavor_burgundy.101 days = 1 }
+	}
 
-option = {
-name = flavor_burgundy.100.b
-ai_chance = { factor = 25 }
+	option = {
+		name = flavor_burgundy.100.b
+		ai_chance = { factor = 25 }
 
-# Reject French overlordship - triggers follow-up
-trigger_event = { id = flavor_burgundy.103 days = 5 }
-}
+		# Reject French overlordship - triggers follow-up
+		trigger_event = { id = flavor_burgundy.103 days = 5 }
+	}
 }
 
 # Prologue Follow-up to Event 1 Option B: Rebellion and Reconquest
 flavor_burgundy.103 = {
-type = country_event
-title = flavor_burgundy.103.t
-desc = flavor_burgundy.103.d
-fire_only_once = yes
+	type = country_event
+	title = flavor_burgundy.103.t
+	desc = flavor_burgundy.103.d
+	fire_only_once = yes
 
-immediate = {
-hidden_effect = {
-if = {
-limit = { c:FRA = { exists = yes } }
-c:FRA = {
-add_casus_belli = {
-target = root
-type = casus_belli:cb_fabricated_conquer_province
-}
-}
-}
-}
-}
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = { c:FRA = { exists = yes } }
+				c:FRA = {
+					add_casus_belli = {
+						target = root
+						type = casus_belli:cb_fabricated_conquer_province
+					}
+				}
+			}
+		}
+	}
 
-option = {
-name = flavor_burgundy.103.a
+	option = {
+		name = flavor_burgundy.103.a
 
-add_opinion = { target = c:FRA modifier = opinion_insulted }
+		add_opinion = { target = c:FRA modifier = opinion_insulted }
 
-# War taxes due to crisis
-add_country_modifier = { 
-modifier = succession_crisis_modifier 
-duration = 1095 
-}
-}
+		# War taxes due to crisis
+		add_country_modifier = { 
+			modifier = succession_crisis_modifier 
+			duration = 1095 
+		}
+	}
 }
 
 # Prologue Event 2: The Gift of King Jean - Valois Dynasty Granted
 flavor_burgundy.101 = {
-type = country_event
-title = flavor_burgundy.101.t
-desc = flavor_burgundy.101.d
-fire_only_once = yes
-is_triggered_only = yes
+	type = country_event
+	title = flavor_burgundy.101.t
+	desc = flavor_burgundy.101.d
+	fire_only_once = yes
+	is_triggered_only = yes
 
-option = {
-name = flavor_burgundy.101.a
+	option = {
+		name = flavor_burgundy.101.a
 
-# Grant loyalty modifier as French appanage
-add_country_modifier = {
-modifier = loyal_appanage
-duration = 2190
-}
+		# Grant loyalty modifier as French appanage
+		add_country_modifier = {
+			modifier = loyal_appanage
+			duration = 2190
+		}
 
-# Improve relations with overlord
-add_opinion = { target = c:FRA modifier = opinion_allied }
-}
+		# Improve relations with overlord
+		add_opinion = { target = c:FRA modifier = opinion_allied }
+	}
 }
 
 # Prologue Event 3: The Wedding in Ghent (1369) - Securing Flanders Alliance
 flavor_burgundy.102 = {
-type = country_event
-title = flavor_burgundy.102.t
-desc = flavor_burgundy.102.d
-fire_only_once = yes
+	type = country_event
+	title = flavor_burgundy.102.t
+	desc = flavor_burgundy.102.d
+	fire_only_once = yes
 
-option = {
-name = flavor_burgundy.102.a
+	option = {
+		name = flavor_burgundy.102.a
 
-# Administrative reward representing Flanders influence
-add_country_modifier = {
-modifier = flanders_marriage_alliance
-duration = 1825
-}
+		# Administrative reward representing Flanders influence
+		add_country_modifier = {
+			modifier = flanders_marriage_alliance
+			duration = 1825
+		}
 
-# Diplomatic bonus to Flanders if it exists
-if = {
-limit = { c:FLA = { exists = yes } }
-add_opinion = { target = c:FLA modifier = opinion_allied }
-}
-}
+		# Diplomatic bonus to Flanders if it exists
+		if = {
+			limit = { c:FLA = { exists = yes } }
+			add_opinion = { target = c:FLA modifier = opinion_allied }
+		}
+	}
 }
 
 ######################################
@@ -127,101 +127,101 @@ add_opinion = { target = c:FLA modifier = opinion_allied }
 
 # Phase I - The Golden Age (1380+)
 flavor_burgundy.1 = {
-type = country_event
-title = flavor_burgundy.1.t
-desc = flavor_burgundy.1.d
-fire_only_once = yes
+	type = country_event
+	title = flavor_burgundy.1.t
+	desc = flavor_burgundy.1.d
+	fire_only_once = yes
 
-option = {
-name = flavor_burgundy.1.a
-add_country_modifier = { modifier = middle_kingdom_diplomacy duration = 5475 }
+	option = {
+		name = flavor_burgundy.1.a
+		add_country_modifier = { modifier = middle_kingdom_diplomacy duration = 5475 }
 
-if = {
-limit = { c:FRA = { exists = yes } }
-add_opinion = { target = c:ENG modifier = opinion_allied }
-}
-}
+		if = {
+			limit = { c:FRA = { exists = yes } }
+			add_opinion = { target = c:ENG modifier = opinion_allied }
+		}
+	}
 }
 
 # Phase I follow-up - Connecting the Lands (1460+)
 flavor_burgundy.2 = {
-type = country_event
-title = flavor_burgundy.2.t
-desc = flavor_burgundy.2.d
-fire_only_once = yes
+	type = country_event
+	title = flavor_burgundy.2.t
+	desc = flavor_burgundy.2.d
+	fire_only_once = yes
 
-option = {
-name = flavor_burgundy.2.a
+	option = {
+		name = flavor_burgundy.2.a
 
-# Burgundy claims Lorraine as the bridge between Low Countries and Rhineland
-if = {
-limit = { c:LOR = { exists = yes } }
-add_casus_belli = {
-target = c:LOR
-type = casus_belli:cb_conquest
-}
-}
+		# Burgundy claims Lorraine as the bridge between Low Countries and Rhineland
+		if = {
+			limit = { c:LOR = { exists = yes } }
+			add_casus_belli = {
+				target = c:LOR
+				type = casus_belli:cb_conquest
+			}
+		}
 
-add_country_modifier = { modifier = burgundy_war_taxes duration = 1095 }
-}
+		add_country_modifier = { modifier = burgundy_war_taxes duration = 1095 }
+	}
 }
 
 # Phase II - The Catastrophe of 1477
 flavor_burgundy.10 = {
-type = country_event
-title = flavor_burgundy.10.t
-desc = flavor_burgundy.10.d
-fire_only_once = yes
+	type = country_event
+	title = flavor_burgundy.10.t
+	desc = flavor_burgundy.10.d
+	fire_only_once = yes
 
-option = {
-name = flavor_burgundy.10.a
+	option = {
+		name = flavor_burgundy.10.a
 
-add_country_modifier = { modifier = imperial_protection duration = 1095 }
+		add_country_modifier = { modifier = imperial_protection duration = 1095 }
 
-if = {
-limit = { c:HAB = { exists = yes } }
-add_opinion = { target = c:HAB modifier = opinion_allied }
-}
-}
+		if = {
+			limit = { c:HAB = { exists = yes } }
+			add_opinion = { target = c:HAB modifier = opinion_allied }
+		}
+	}
 
-option = {
-name = flavor_burgundy.10.b
+	option = {
+		name = flavor_burgundy.10.b
 
-add_opinion = { target = c:FRA modifier = opinion_insulted }
+		add_opinion = { target = c:FRA modifier = opinion_insulted }
 
-if = {
-limit = { c:HAB = { exists = yes } }
-add_opinion = { target = c:HAB modifier = opinion_insulted }
-}
-}
+		if = {
+			limit = { c:HAB = { exists = yes } }
+			add_opinion = { target = c:HAB modifier = opinion_insulted }
+		}
+	}
 }
 
 # Phase III - The Burgundian Circle (1500+)
 flavor_burgundy.20 = {
-type = country_event
-title = flavor_burgundy.20.t
-desc = flavor_burgundy.20.d
-fire_only_once = yes
+	type = country_event
+	title = flavor_burgundy.20.t
+	desc = flavor_burgundy.20.d
+	fire_only_once = yes
 
-option = {
-name = flavor_burgundy.20.a
-add_country_modifier = { modifier = burgundy_pragmatic_sanction duration = 10950 }
-}
+	option = {
+		name = flavor_burgundy.20.a
+		add_country_modifier = { modifier = burgundy_pragmatic_sanction duration = 10950 }
+	}
 }
 
 # Phase IV - The Spanish Split (1550+)
 flavor_burgundy.30 = {
-type = country_event
-title = flavor_burgundy.30.t
-desc = flavor_burgundy.30.d
-fire_only_once = yes
+	type = country_event
+	title = flavor_burgundy.30.t
+	desc = flavor_burgundy.30.d
+	fire_only_once = yes
 
-option = {
-name = flavor_burgundy.30.a
+	option = {
+		name = flavor_burgundy.30.a
 
-if = {
-limit = { c:SPA = { exists = yes } }
-add_opinion = { target = c:SPA modifier = opinion_allied }
-}
-}
+		if = {
+			limit = { c:SPA = { exists = yes } }
+			add_opinion = { target = c:SPA modifier = opinion_allied }
+		}
+	}
 }
