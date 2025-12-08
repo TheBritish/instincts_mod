@@ -7,10 +7,10 @@
  flavor_burgundy.100.a.tooltip: "The Duchy is inherited by France. A succession event will follow."
  flavor_burgundy.100.b: "Resist the Reversion (Alt-History)"
 
- # Event 1 Follow-up: French Reconquest (Option B)
- flavor_burgundy.100.b.title: "French Reconquest"
- flavor_burgundy.100.b.desc: "Our resistance to French overlordship has provoked King Jean. He declares us rebels and sends his armies to reclaim what he believes is rightfully his. Meanwhile, French loyalists within our own territories rise up against our government.\n\nWe stand alone against the greatest kingdom in Christendom. The coming years will test our resolve."
- flavor_burgundy.100.b.a: "We Will Not Bend"
+ # Event 103: French Reconquest Follow-up (Option B from Event 100)
+ flavor_burgundy.103.t: "French Reconquest"
+ flavor_burgundy.103.d: "Our resistance to French overlordship has provoked King Jean. He declares us rebels and sends his armies to reclaim what he believes is rightfully his. Meanwhile, French loyalists within our own territories rise up against our government.\n\nWe stand alone against the greatest kingdom in Christendom. The coming years will test our resolve."
+ flavor_burgundy.103.a: "We Will Not Bend"
 
  # Event 2: The Gift of King Jean
  flavor_burgundy.101.t: "The Gift of King Jean"

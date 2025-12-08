@@ -1,4 +1,4 @@
-namespace = flavor_burgundy
+﻿namespace = flavor_burgundy
 
 ######################################
 # PROLOGUE EVENT CHAIN (1361-1369)
@@ -63,15 +63,15 @@ flavor_burgundy.100 = {
 		ai_chance = { base = 25 }
 		
 		# Reject French overlordship
-		trigger_event = { id = flavor_burgundy.100.b.follow_up days = 5 }
+		trigger_event = { id = flavor_burgundy.103 days = 5 }
 	}
 }
 
 # Prologue Follow-up to Event 1 Option B: Rebellion and Reconquest
-flavor_burgundy.100.b.follow_up = {
+flavor_burgundy.103 = {
 	type = country_event
-	title = flavor_burgundy.100.b.title
-	desc = flavor_burgundy.100.b.desc
+	title = flavor_burgundy.103.t
+	desc = flavor_burgundy.103.d
 	fire_only_once = yes
 
 	immediate = {
@@ -82,7 +82,7 @@ flavor_burgundy.100.b.follow_up = {
 	}
 
 	option = {
-		name = flavor_burgundy.100.b.a
+		name = flavor_burgundy.103.a
 		
 		add_opinion = { target = c:FRA value = -150 }
 		c:FRA = {
