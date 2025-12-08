@@ -90,6 +90,21 @@ flavor_burgundy.101 = {
 	option = {
 		name = flavor_burgundy.101.a
 
+		# Create Philip the Bold as the first Valois Duke of Burgundy
+		create_character = {
+			age = 35
+			culture = burgundian
+			religion = catholic
+			adm = 5
+			dip = 6
+			mil = 5
+			birth_location = capital_scope
+			traits = {
+				ambitious
+				diplomatic
+			}
+		}
+
 		# Grant loyalty modifier as French appanage
 		add_country_modifier = {
 			modifier = loyal_appanage
