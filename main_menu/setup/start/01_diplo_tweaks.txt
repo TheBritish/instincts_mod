@@ -1,10 +1,12 @@
 diplomacy_manager = {
 	
-	#Castile guarantees Portugal to prevent early war between them
-    scripted_oneway = { first = CAS second = POR type = guarantee }
-	# Hundred Years War setup England has Flanders as a vassal and France has Brittany as a tributary
+	# Castile guarantees Portugal to prevent early war between them
+	scripted_oneway = { first = CAS second = POR type = guarantee }
+	
+	# Hundred Years War setup: England has Flanders as a vassal, France has Brittany as a tributary
 	dependency = { first = ENG second = FLA subject_type = vassal }
 	dependency = { first = FRA second = BRI subject_type = tributary }
+	
 	# Historical alliances
 	scripted_mutual = { first = HAI second = ENG type = alliance }
 
