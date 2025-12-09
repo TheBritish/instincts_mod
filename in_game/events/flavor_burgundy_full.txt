@@ -142,13 +142,7 @@ flavor_burgundy.101 = {
 				}
 			}
 		}
-		
-		scope:philip_the_bold = {
-			move_country = root
-		}
-		
-		set_new_ruler = scope:philip_the_bold
-		
+
 		if = {
 			limit = { 
 				is_subject_of = c:FRA
@@ -160,6 +154,12 @@ flavor_burgundy.101 = {
 			}
 		}
 		
+		scope:philip_the_bold = {
+			move_country = root
+		}
+		
+		set_new_ruler = scope:philip_the_bold
+
 		add_prestige = 25
 		add_legitimacy = 15
 		
@@ -522,9 +522,18 @@ flavor_burgundy.106 = {
 			}
 		}
 		
-		add_country_modifier = {
-			modifier = religious_tensions
-			years = 10
+		every_owned_location = {
+			limit = {
+				OR = {
+					location_region = region:brabant_region
+					location_region = region:flanders_region
+				}
+			}
+			add_location_modifier = {
+				modifier = religious_tensions
+				years = 10
+				mode = add_and_extend
+			}
 		}
 		add_stability = 1
 		if = {
