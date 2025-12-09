@@ -1,12 +1,6 @@
 namespace = flavor_burgundy
 
-######################################
-# BURGUNDY HISTORICAL EVENT CHAIN
-# EU5 Compliant Implementation
-######################################
-
 # Event 100: The Capetian Extinction (1361)
-# The death of Philip of Rouvres splits the Burgundian inheritance
 flavor_burgundy.100 = {
 	type = country_event
 	title = flavor_burgundy.100.t
@@ -24,24 +18,11 @@ flavor_burgundy.100 = {
 		tag = c:BUR
 		is_subject_of = c:FRA
 		c:FRA = { exists = yes }
-		# Only trigger if we own Franche-Comté lands
-		any_owned_location = {
-			region = franche_comte_region
-		}
 	}
 	
 	immediate = {
 		hidden_effect = {
 			save_scope_as = burgundy_country
-			# Transfer Franche-Comté lands to c:FCB if it exists
-			if = {
-				limit = { c:FCB = { exists = yes } }
-				every_owned_location = {
-					limit = { region = franche_comte_region }
-					change_location_owner = c:FCB
-					add_core = c:FCB
-				}
-			}
 		}
 	}
 	
@@ -57,11 +38,9 @@ flavor_burgundy.100 = {
 				is_subject_of = c:FRA
 				c:FRA = { exists = yes }
 			}
-			c:FRA = {
-				make_subject_of = {
-					target = root
-					type = subject_type:fiefdom
-				}
+			make_subject_of = {
+				target = c:FRA
+				type = subject_type:fiefdom
 			}
 		}
 		
@@ -104,7 +83,6 @@ flavor_burgundy.100 = {
 }
 
 # Event 101: The Valois Appanage (1363)
-# King Jean II of France grants Burgundy to his son Philip
 flavor_burgundy.101 = {
 	type = country_event
 	title = flavor_burgundy.101.t
@@ -115,8 +93,6 @@ flavor_burgundy.101 = {
 	immediate = {
 		hidden_effect = {
 			save_scope_as = burgundy_country
-			
-			# Create Philip the Bold with the Valois dynasty
 			create_character = {
 				dynasty = dynasty:valois_dynasty
 				culture = root.primary_culture
@@ -138,48 +114,31 @@ flavor_burgundy.101 = {
 		name = flavor_burgundy.101.a
 		historical_option = yes
 		
-		# Move Philip to the Burgundian court first
 		scope:philip_the_bold = {
 			move_country = root
 		}
 		
-		# Current ruler dies, Philip becomes Duke of Burgundy
-		hidden_effect = {
-			if = {
-				limit = { has_ruler_in_country = yes }
-				ruler = {
-					kill_character_silently = this
-				}
-			}
-		}
-		
-		# Philip the Bold becomes the new ruler
 		set_new_ruler = scope:philip_the_bold
 		
-		# Restore appanage status - Burgundy granted to Valois as autonomous duchy
 		if = {
 			limit = { 
 				is_subject_of = c:FRA
 				c:FRA = { exists = yes }
 			}
-			c:FRA = {
-				make_subject_of = {
-					target = root
-					type = subject_type:appanage
-				}
+			make_subject_of = {
+				target = c:FRA
+				type = subject_type:appanage
 			}
 		}
 		
 		add_prestige = 25
 		add_legitimacy = 15
 		
-		# Add loyal appanage modifier from former Event 100
 		add_country_modifier = {
 			modifier = loyal_appanage
 			years = 6
 		}
 		
-		# Set flag for future events
 		set_variable = {
 			name = valois_dynasty_installed
 			value = yes
@@ -201,7 +160,6 @@ flavor_burgundy.101 = {
 	option = {
 		name = flavor_burgundy.101.b
 		
-		# Reject the Valois heir - keep current dynasty
 		add_stability = -1
 		add_legitimacy = -10
 		
@@ -219,8 +177,7 @@ flavor_burgundy.101 = {
 
 
 
-# Event 102: Consolidation of Power (1380-1390)
-# Burgundy grows in influence
+# Event 102: Consolidation of Power (1380-1395)
 flavor_burgundy.102 = {
 	type = country_event
 	title = flavor_burgundy.102.t
@@ -269,7 +226,6 @@ flavor_burgundy.102 = {
 }
 
 # Event 103: The Golden Age (1400-1430)
-# Burgundy reaches its cultural peak
 flavor_burgundy.103 = {
 	type = country_event
 	title = flavor_burgundy.103.t
@@ -314,8 +270,7 @@ flavor_burgundy.103 = {
 	}
 }
 
-# Event 104: The Crisis of Succession (1467)
-# Charles the Bold faces decisive battles
+# Event 104: The Crisis of Succession (1467-1477)
 flavor_burgundy.104 = {
 	type = country_event
 	title = flavor_burgundy.104.t
@@ -360,7 +315,6 @@ flavor_burgundy.104 = {
 }
 
 # Event 105: The Burgundian Circle (1500-1525)
-# Burgundy's influence within the Holy Roman Empire
 flavor_burgundy.105 = {
 	type = country_event
 	title = flavor_burgundy.105.t
@@ -411,7 +365,6 @@ flavor_burgundy.105 = {
 }
 
 # Event 106: Religious Tensions (1550-1580)
-# The conflict between Spanish rule and Dutch identity
 flavor_burgundy.106 = {
 	type = country_event
 	title = flavor_burgundy.106.t
