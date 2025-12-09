@@ -29,3 +29,4 @@
  random_event.1005.desc: "Disaster strikes! The security forces of [target_country.GetName] have detected and captured our intelligence agents attempting to investigate the donation's origins. They now confront us with irrefutable evidence of our espionage. Our agents are imprisoned in [target_country.GetNameWithNoTooltip], diplomatic relations are strained, and we must respond carefully. We can attempt damage control through diplomacy, or deflect blame back onto them for their original interference."
  random_event.1005.a: "Issue a formal apology to [target_country.GetName] and negotiate for our agents' release."
  random_event.1005.b: "Deny involvement and accuse [target_country.GetName] of fabricating the story."
+

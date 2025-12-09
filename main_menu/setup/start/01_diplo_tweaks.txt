@@ -1,4 +1,4 @@
-diplomacy_manager = {
+﻿diplomacy_manager = {
 	
 	# Castile guarantees Portugal to prevent early war between them
 	scripted_oneway = { first = CAS second = POR type = guarantee }
@@ -12,3 +12,4 @@ diplomacy_manager = {
 	scripted_mutual = { first = BRI second = ENG type = alliance }
 
 }
+

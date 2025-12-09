@@ -1,4 +1,4 @@
-on_action = {
+﻿on_action = {
     on_game_start = {
         immediate = {
             # If France and Flanders exist at game start, cancel subject relationship
@@ -19,3 +19,4 @@ on_action = {
         }
     }
 }
+

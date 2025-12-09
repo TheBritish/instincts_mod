@@ -1,4 +1,4 @@
-namespace = instincts_gdp
+﻿namespace = instincts_gdp
 
 # Placeholder GDP ranking event - Infrastructure ready for future implementation
 # The on_action hook will keep this disabled until proper event structure is in place
@@ -21,3 +21,4 @@ instincts_gdp.1 = {
 		name = "CONTINUE"
 	}
 }
+

@@ -1,4 +1,4 @@
-international_organization_manager = {
+﻿international_organization_manager = {
 	add_international_organization = {
 		type = hanseatic_league
 		creation_date = 1337.1.1
@@ -12,3 +12,4 @@ international_organization_manager = {
 		laws = { }
 	}
 }
+

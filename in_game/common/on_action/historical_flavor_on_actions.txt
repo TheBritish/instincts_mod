@@ -1,4 +1,4 @@
-yearly_country_pulse = {
+﻿yearly_country_pulse = {
 	random_events = {
 		5 = historical_flavor.2001
 		5 = historical_flavor.2008
@@ -18,3 +18,4 @@ yearly_country_pulse = {
 		3 = random_event.1003
 	}
 }
+

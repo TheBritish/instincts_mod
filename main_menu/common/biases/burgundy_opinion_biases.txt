@@ -1,4 +1,4 @@
-# Burgundy opinion modifiers
+﻿# Burgundy opinion modifiers
 
 burgundy_relations_positive = {
 	value = 50
@@ -9,3 +9,4 @@ burgundy_relations_negative = {
 	value = -50
 	yearly_decay = 5
 }
+

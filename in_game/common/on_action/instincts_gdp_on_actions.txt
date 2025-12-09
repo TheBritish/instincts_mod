@@ -1,6 +1,7 @@
-# GDP Ranking System - Updates monthly with top 10 countries by economic output
+﻿# GDP Ranking System - Updates monthly with top 10 countries by economic output
 monthly_pulse = {
 	events = {
 		instincts_gdp.1
 	}
 }
+

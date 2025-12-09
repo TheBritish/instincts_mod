@@ -413,3 +413,4 @@ godlike_ruler = {
 		aggressiveness_modifier = 0.1
 	}
 }
+

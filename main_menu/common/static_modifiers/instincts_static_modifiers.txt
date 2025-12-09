@@ -1,4 +1,4 @@
-game_data = {
+﻿game_data = {
     country = {
         instincts_on_start_debug = {
             # Visible short note for testing - no numeric effect
@@ -13,3 +13,4 @@ game_data = {
         }
     }
 }
+

@@ -35,3 +35,4 @@ halley_comet_seen_mod = {
 	}
 	# No gameplay effect - tracks Halley comet event firing
 }
+

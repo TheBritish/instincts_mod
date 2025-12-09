@@ -1,4 +1,4 @@
-namespace = flavor_burgundy
+﻿namespace = flavor_burgundy
 
 #######################################
 # Burgundy Historical Events (Chronologically Ordered)
@@ -886,3 +886,4 @@ flavor_burgundy.111 = {
 		}
 	}
 }
+

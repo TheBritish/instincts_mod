@@ -1,4 +1,4 @@
-# Population and Integration Modifiers
+﻿# Population and Integration Modifiers
 
 integration_core = {
 	game_data = {
@@ -21,3 +21,4 @@ total_population = {
 
 	free_building_levels = 0.1
 }
+

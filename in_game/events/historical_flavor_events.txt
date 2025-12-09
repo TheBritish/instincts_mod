@@ -422,3 +422,4 @@ historical_flavor.2020 = {
         add_prestige = 5
     }
 }
+
