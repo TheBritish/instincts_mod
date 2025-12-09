@@ -1,0 +1,8 @@
+diplomacy_manager = {
+
+	dependency = { first = ENG second = FLA subject_type = vassal }
+	dependency = { first = FRA second = BRI subject_type = tributary }
+
+	scripted_mutual = { first = HAI second = ENG type = alliance }
+
+}

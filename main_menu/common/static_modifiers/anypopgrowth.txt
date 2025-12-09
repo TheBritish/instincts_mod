@@ -1,0 +1,23 @@
+# Population and Integration Modifiers
+
+integration_core = {
+	game_data = {
+		category = location
+	}
+	local_monthly_control = 0.001
+	local_max_control = 0.20
+	#growth_is_primary_culture = yes
+	owner_gets_vision_when_occupied = yes
+}
+
+total_population = {
+	game_data = {
+		category = location
+	}
+	supply_limit = 0.02
+	blockade_force_required = 0.02
+
+	local_max_rgo_size = 0.025
+
+	free_building_levels = 0.1
+}
