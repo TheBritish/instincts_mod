@@ -69,6 +69,7 @@ flavor_burgundy.100 = {
 				add_opinion = {
 					target = root
 					modifier = burgundy_relations_positive
+					years = 10
 				}
 			}
 		}
@@ -96,6 +97,7 @@ flavor_burgundy.100 = {
 				add_opinion = {
 					target = root
 					modifier = burgundy_relations_negative
+					years = 10
 				}
 			}
 		}
@@ -181,6 +183,7 @@ flavor_burgundy.101 = {
 				add_opinion = {
 					target = root
 					modifier = burgundy_relations_positive
+					years = 10
 				}
 			}
 		}
@@ -202,6 +205,7 @@ flavor_burgundy.101 = {
 				add_opinion = {
 					target = root
 					modifier = burgundy_relations_negative
+					years = 10
 				}
 			}
 		}
@@ -542,6 +546,7 @@ flavor_burgundy.106 = {
 				add_opinion = {
 					target = root
 					modifier = burgundy_relations_positive
+					years = 10
 				}
 			}
 		}
@@ -577,6 +582,7 @@ flavor_burgundy.106 = {
 				add_opinion = {
 					target = root
 					modifier = burgundy_relations_negative
+					years = 10
 				}
 			}
 		}
