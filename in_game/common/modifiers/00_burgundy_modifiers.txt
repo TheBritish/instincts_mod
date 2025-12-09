@@ -51,3 +51,18 @@ religious_tensions = {
 	local_unrest = 1
 	stability_cost = 0.15
 }
+
+# Opinion Modifiers
+burgundy_relations_positive = {
+	game_data = {
+		category = opinion
+	}
+	add = 50
+}
+
+burgundy_relations_negative = {
+	game_data = {
+		category = opinion
+	}
+	add = -50
+}
