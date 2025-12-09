@@ -1,4 +1,8 @@
-﻿namespace = flavor_burgundy
+namespace = flavor_burgundy
+
+#######################################
+# Burgundy Historical Events (Chronologically Ordered)
+#######################################
 
 # Event 100: The Capetian Extinction (1361)
 flavor_burgundy.100 = {
@@ -13,11 +17,7 @@ flavor_burgundy.100 = {
 		to = 1361.12.31
 		monthly_chance = 100
 	}
-	
-	illustration_tags = {
-		10 = death
-		10 = interior
-	}
+
 	
 	trigger = {
 		tag = c:BUR
@@ -28,6 +28,7 @@ flavor_burgundy.100 = {
 	immediate = {
 		hidden_effect = {
 			save_scope_as = burgundy_country
+			c:FRA = { save_scope_as = france_country }
 		}
 	}
 	
@@ -114,14 +115,12 @@ flavor_burgundy.101 = {
 	desc = flavor_burgundy.101.d
 	fire_only_once = yes
 	
-	illustration_tags = {
-		10 = prosperity
-		10 = interior
-	}
+
 	
 	immediate = {
 		hidden_effect = {
 			save_scope_as = burgundy_country
+			c:FRA = { save_scope_as = france_country }
 			create_character = {
 				dynasty = dynasty:valois_dynasty
 				culture = root.GetPrimaryCulture
@@ -213,8 +212,6 @@ flavor_burgundy.101 = {
 	}
 }
 
-
-
 # Event 102: The Battle of Roosebeke and the Counter-Offensive (1382)
 flavor_burgundy.102 = {
 	type = country_event
@@ -229,25 +226,20 @@ flavor_burgundy.102 = {
 		monthly_chance = 50
 	}
 	
-	illustration_tags = {
-		10 = war
-		10 = armed
-	}
+
 	
 	trigger = {
 		tag = c:BUR
-		any_owned_location = {
-			OR = {
-				location_region = region:brabant_region
-				location_region = region:flanders_region
-				location_region = region:holland_region
-			}
-		}
+		any_owned_location = { exists = yes }
 	}
 	
 	immediate = {
 		hidden_effect = {
 			save_scope_as = burgundy_country
+			if = {
+				limit = { exists = c:FLA }
+				c:FLA = { save_scope_as = flanders_country }
+			}
 		}
 	}
 	
@@ -265,10 +257,37 @@ flavor_burgundy.102 = {
 			}
 		}
 		
-		add_country_modifier = {
-			modifier = flanders_marriage_alliance
-			years = 5
+		# Annexations not handled by the historical DHE events (201-205)
+		# Transfer Bar and French Comte to Burgundy
+		if = {
+			limit = { exists = c:BAR }
+			c:BAR = {
+				every_owned_location = {
+					change_location_owner = c:BUR
+					add_core = c:BUR
+				}
+			}
 		}
+		
+		if = {
+			limit = { exists = c:FCB }
+			c:FCB = {
+				every_owned_location = {
+					change_location_owner = c:BUR
+					add_core = c:BUR
+				}
+			}
+		}
+		
+		# Improve relations with Flanders
+		if = {
+			limit = { exists = c:FLA }
+			add_opinion = {
+				target = c:FLA
+				modifier = burgundy_relations_positive
+			}
+		}
+		
 		add_prestige = 20
 	}
 	
@@ -304,10 +323,7 @@ flavor_burgundy.103 = {
 		monthly_chance = 40
 	}
 	
-	illustration_tags = {
-		10 = prosperity
-		10 = interior
-	}
+    
 	
 	trigger = {
 		tag = c:BUR
@@ -356,11 +372,303 @@ flavor_burgundy.103 = {
 	}
 }
 
-# Event 104: The Crisis of Succession (1467-1477)
+# Event 104: Purchase of Namur (1421)
 flavor_burgundy.104 = {
 	type = country_event
 	title = flavor_burgundy.104.t
 	desc = flavor_burgundy.104.d
+	fire_only_once = yes
+	
+	dynamic_historical_event = {
+		tag = BUR
+		from = 1421.1.1
+		to = 1430.12.31
+		monthly_chance = 100
+	}
+	
+    
+	
+	trigger = {
+		tag = c:BUR
+		current_date >= 1421.1.1
+		exists = c:NAM
+	}
+	
+	immediate = {
+		hidden_effect = {
+			c:NAM = { save_scope_as = namur_country }
+		}
+	}
+	
+	option = {
+		name = flavor_burgundy.104.a
+		
+		# Cost: 200 gold
+		add_gold = -200
+		
+		# Transfer all Namur locations to Burgundy
+		c:NAM = {
+			every_owned_location = {
+				change_location_owner = c:BUR
+				add_core = c:BUR
+			}
+		}
+		
+		add_prestige = 15
+	}
+}
+
+# Event 105: Brabant Succession (1430)
+flavor_burgundy.105 = {
+	type = country_event
+	title = flavor_burgundy.105.t
+	desc = flavor_burgundy.105.d
+	fire_only_once = yes
+	
+	dynamic_historical_event = {
+		tag = BUR
+		from = 1430.1.1
+		to = 1440.12.31
+		monthly_chance = 100
+	}
+	
+    
+	
+	trigger = {
+		tag = c:BUR
+		current_date >= 1430.1.1
+		exists = c:BRB
+	}
+	
+	immediate = {
+		hidden_effect = {
+			c:BRB = { save_scope_as = brabant_country }
+		}
+	}
+	
+	option = {
+		name = flavor_burgundy.105.a
+		
+		# Kill Brabant's ruler
+		c:BRB = {
+			ruler = {
+				kill_character_silently = this
+			}
+		}
+		
+		# Transfer all Brabant locations to Burgundy
+		c:BRB = {
+			every_owned_location = {
+				change_location_owner = c:BUR
+				add_core = c:BUR
+			}
+		}
+		
+		# Add modifier
+		add_country_modifier = {
+			modifier = brabantian_privileges
+			years = 25
+		}
+		
+		add_prestige = 20
+	}
+}
+
+# Event 106: Treaty of Delft (1433)
+flavor_burgundy.106 = {
+	type = country_event
+	title = flavor_burgundy.106.t
+	desc = flavor_burgundy.106.d
+	fire_only_once = yes
+	
+	dynamic_historical_event = {
+		tag = BUR
+		from = 1433.1.1
+		to = 1440.12.31
+		monthly_chance = 100
+	}
+	
+    
+	
+	trigger = {
+		tag = c:BUR
+		current_date >= 1433.1.1
+		OR = {
+			exists = c:HOL
+			exists = c:HAI
+		}
+	}
+	
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = { exists = c:HOL }
+				c:HOL = { save_scope_as = holland_country }
+			}
+			if = {
+				limit = { exists = c:HAI }
+				c:HAI = { save_scope_as = hainault_country }
+			}
+		}
+	}
+	
+	option = {
+		name = flavor_burgundy.106.a
+		
+		# Transfer Holland if it exists
+		if = {
+			limit = { exists = c:HOL }
+			c:HOL = {
+				every_owned_location = {
+					change_location_owner = c:BUR
+					add_core = c:BUR
+				}
+			}
+		}
+		
+		# Transfer Hainault if it exists
+		if = {
+			limit = { exists = c:HAI }
+			c:HAI = {
+				every_owned_location = {
+					change_location_owner = c:BUR
+					add_core = c:BUR
+				}
+			}
+		}
+		
+		# Set variable for unified Low Countries
+		set_variable = { name = low_countries_unified value = yes }
+		
+		add_prestige = 25
+	}
+}
+
+# Event 107: Treaty of Arras (1435)
+flavor_burgundy.107 = {
+	type = country_event
+	title = flavor_burgundy.107.t
+	desc = flavor_burgundy.107.d
+	fire_only_once = yes
+	
+	dynamic_historical_event = {
+		tag = BUR
+		from = 1435.1.1
+		to = 1445.12.31
+		monthly_chance = 100
+	}
+	
+    
+	
+	trigger = {
+		tag = c:BUR
+		current_date >= 1435.1.1
+		exists = c:FRA
+	}
+	
+	immediate = {
+		hidden_effect = {
+			c:FRA = { save_scope_as = france_country }
+			if = {
+				limit = { exists = c:ENG }
+				c:ENG = { save_scope_as = england_country }
+			}
+		}
+	}
+	
+	option = {
+		name = flavor_burgundy.107.a
+		
+		# France transfers only Picardy to Burgundy
+		c:FRA = {
+			every_owned_location = {
+				limit = {
+					area ?= area:picardy_area
+				}
+				change_location_owner = c:BUR
+				add_core = c:BUR
+			}
+		}
+		
+		# Add opinion bonus with France
+		add_opinion = {
+			target = c:FRA
+			modifier = treaty_of_arras_alliance
+		}
+		
+		# Break alliance with England if it exists
+		if = {
+			limit = { exists = c:ENG }
+			remove_alliance = c:ENG
+		}
+		
+		add_prestige = 30
+	}
+}
+
+# Event 108: Luxembourg Succession (1443)
+flavor_burgundy.108 = {
+	type = country_event
+	title = flavor_burgundy.108.t
+	desc = flavor_burgundy.108.d
+	fire_only_once = yes
+	
+	dynamic_historical_event = {
+		tag = BUR
+		from = 1443.1.1
+		to = 1450.12.31
+		monthly_chance = 100
+	}
+	
+	
+	
+	trigger = {
+		tag = c:BUR
+		current_date >= 1443.1.1
+		exists = c:LUX
+	}
+	
+	immediate = {
+		hidden_effect = {
+			c:LUX = { save_scope_as = luxembourg_country }
+		}
+	}
+	
+	option = {
+		name = flavor_burgundy.108.a
+		
+		# Cost: 300 gold
+		add_gold = -300
+		
+		# Transfer all Luxembourg locations to Burgundy
+		c:LUX = {
+			every_owned_location = {
+				change_location_owner = c:BUR
+				add_core = c:BUR
+			}
+		}
+		
+		# Add antagonism with HRE Emperor
+		if = {
+			limit = { 
+				exists = international_organization:hre
+				international_organization:hre = { has_leader = yes }
+			}
+			add_antagonism = {
+				target = international_organization:hre.leader_country
+				modifier = luxembourg_succession_dispute
+			}
+		}
+		
+		add_prestige = 20
+	}
+}
+
+# Event 109: The Crisis of Succession (1467-1477)
+flavor_burgundy.109 = {
+	type = country_event
+	title = flavor_burgundy.109.t
+	desc = flavor_burgundy.109.d
 	fire_only_once = yes
 	
 	dynamic_historical_event = {
@@ -370,10 +678,7 @@ flavor_burgundy.104 = {
 		monthly_chance = 50
 	}
 	
-	illustration_tags = {
-		10 = death
-		10 = angry
-	}
+	
 	
 	trigger = {
 		tag = c:BUR
@@ -387,7 +692,7 @@ flavor_burgundy.104 = {
 	}
 	
 	option = {
-		name = flavor_burgundy.104.a
+		name = flavor_burgundy.109.a
 		historical_option = yes
 		
 		ai_chance = {
@@ -409,7 +714,7 @@ flavor_burgundy.104 = {
 	}
 	
 	option = {
-		name = flavor_burgundy.104.b
+		name = flavor_burgundy.109.b
 		
 		ai_chance = {
 			base = 35
@@ -427,11 +732,11 @@ flavor_burgundy.104 = {
 	}
 }
 
-# Event 105: The Burgundian Circle (1500-1525)
-flavor_burgundy.105 = {
+# Event 110: The Burgundian Circle (1500-1525)
+flavor_burgundy.110 = {
 	type = country_event
-	title = flavor_burgundy.105.t
-	desc = flavor_burgundy.105.d
+	title = flavor_burgundy.110.t
+	desc = flavor_burgundy.110.d
 	fire_only_once = yes
 	
 	dynamic_historical_event = {
@@ -441,20 +746,10 @@ flavor_burgundy.105 = {
 		monthly_chance = 30
 	}
 	
-	illustration_tags = {
-		10 = prosperity
-		10 = interior
-	}
-	
+    
 	trigger = {
 		tag = c:BUR
-		any_owned_location = {
-			OR = {
-				location_region = region:brabant_region
-				location_region = region:flanders_region
-				location_region = region:holland_region
-			}
-		}
+		any_owned_location = { exists = yes }
 		prestige >= 40
 	}
 	
@@ -465,7 +760,7 @@ flavor_burgundy.105 = {
 	}
 	
 	option = {
-		name = flavor_burgundy.105.a
+		name = flavor_burgundy.110.a
 		historical_option = yes
 		
 		ai_chance = {
@@ -487,7 +782,7 @@ flavor_burgundy.105 = {
 	}
 	
 	option = {
-		name = flavor_burgundy.105.b
+		name = flavor_burgundy.110.b
 		
 		ai_chance = {
 			base = 25
@@ -498,11 +793,11 @@ flavor_burgundy.105 = {
 	}
 }
 
-# Event 106: Religious Tensions (1550-1580)
-flavor_burgundy.106 = {
+# Event 111: Religious Tensions (1550-1580)
+flavor_burgundy.111 = {
 	type = country_event
-	title = flavor_burgundy.106.t
-	desc = flavor_burgundy.106.d
+	title = flavor_burgundy.111.t
+	desc = flavor_burgundy.111.d
 	fire_only_once = yes
 	
 	dynamic_historical_event = {
@@ -512,35 +807,26 @@ flavor_burgundy.106 = {
 		monthly_chance = 40
 	}
 	
-	illustration_tags = {
-		10 = religion
-		10 = conflict
-	}
-	
+    
 	trigger = {
 		tag = c:BUR
 		is_subject_of = c:SPA
 		c:SPA = { exists = yes }
-		any_owned_location = {
-			OR = {
-				location_region = region:brabant_region
-				location_region = region:flanders_region
-			}
-		}
+		any_owned_location = { exists = yes }
 	}
 	
 	immediate = {
 		hidden_effect = {
 			save_scope_as = burgundy_country
-			random_neighbor_country = {
-				limit = { tag = c:SPA }
-				save_scope_as = spain_country
+			if = {
+				limit = { exists = c:SPA }
+				c:SPA = { save_scope_as = spain_country }
 			}
 		}
 	}
 	
 	option = {
-		name = flavor_burgundy.106.a
+		name = flavor_burgundy.111.a
 		
 		ai_chance = {
 			base = 40
@@ -553,12 +839,6 @@ flavor_burgundy.106 = {
 		}
 		
 		every_owned_location = {
-			limit = {
-				OR = {
-					location_region = region:brabant_region
-					location_region = region:flanders_region
-				}
-			}
 			add_location_modifier = {
 				modifier = religious_tensions
 				years = 10
@@ -578,7 +858,7 @@ flavor_burgundy.106 = {
 	}
 	
 	option = {
-		name = flavor_burgundy.106.b
+		name = flavor_burgundy.111.b
 		historical_option = yes
 		
 		ai_chance = {
@@ -592,12 +872,6 @@ flavor_burgundy.106 = {
 		}
 		
 		every_owned_location = {
-			limit = {
-				OR = {
-					location_region = region:brabant_region
-					location_region = region:flanders_region
-				}
-			}
 			add_rebel_progress = 30
 		}
 		add_stability = -2
@@ -612,8 +886,3 @@ flavor_burgundy.106 = {
 		}
 	}
 }
-
-
-
-
-

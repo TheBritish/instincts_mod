@@ -1,0 +1,21 @@
+on_action = {
+    on_game_start = {
+        immediate = {
+            # If France and Flanders exist at game start, cancel subject relationship
+            if = {
+                limit = {
+                    exists = c:FRA
+                    exists = c:FLA
+                }
+                c:FRA = {
+                        cancel_subject = c:FLA
+                        # Add a short-lived debug modifier so we can confirm the hook ran
+                        add_country_modifier = {
+                        modifier = instincts_on_start_debug
+                        days = 7
+                        }
+                }
+            }
+        }
+    }
+}

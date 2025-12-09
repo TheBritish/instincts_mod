@@ -1,0 +1,5 @@
+l_english:
+  INSTINCTS_ON_START_DEBUG:0 "Instincts: on_game_start hook executed (temporary marker)"
+  BRABANTIAN_PRIVILEGES_DESC:0 "Brabantian Privileges: local privileges granted to Brabant"
+  TREATY_OF_ARRAS_ALLIANCE_DESC:0 "Treaty of Arras: alliance goodwill established"
+  LUXEMBOURG_SUCCESSION_DISPUTE_DESC:0 "Luxembourg Succession: dispute with HRE over succession"

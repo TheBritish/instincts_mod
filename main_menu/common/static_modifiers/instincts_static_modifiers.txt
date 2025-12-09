@@ -1,0 +1,15 @@
+game_data = {
+    country = {
+        instincts_on_start_debug = {
+            # Visible short note for testing - no numeric effect
+            picture = "gfx/interface/icons/special/flag.dds"
+            description = INSTINCTS_ON_START_DEBUG
+        }
+        
+        brabantian_privileges = {
+            picture = "gfx/interface/icons/special/flag.dds"
+            description = BRABANTIAN_PRIVILEGES_DESC
+            # conservative bonus to local autonomy/economy could be added later
+        }
+    }
+}

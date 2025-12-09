@@ -1,0 +1,9 @@
+treaty_of_arras_alliance = {
+    value = 25
+    yearly_decay = 2
+}
+
+luxembourg_succession_dispute = {
+    value = -100
+    yearly_decay = 3
+}
