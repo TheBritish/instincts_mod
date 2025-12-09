@@ -377,6 +377,17 @@ historical_flavor.2019 = {
             modifier = jacobite_rising_unrest
             months = 8
         }
+        
+        # Trigger England's response event
+        if = {
+            limit = { c:ENG = { exists = yes } }
+            c:ENG = {
+                trigger_event = {
+                    id = historical_flavor.2020
+                    days = 30
+                }
+            }
+        }
     }
 
     option = {
@@ -393,7 +404,7 @@ historical_flavor.2020 = {
     title = historical_flavor.2020.title
     desc = historical_flavor.2020.desc
 
-    is_triggered_only = yes
+    fire_only_once = yes
 
     option = {
         name = historical_flavor.2020.a
