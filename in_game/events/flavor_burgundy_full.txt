@@ -168,11 +168,6 @@ flavor_burgundy.101 = {
 			years = 6
 		}
 		
-		set_variable = {
-			name = valois_dynasty_installed
-			value = yes
-		}
-		
 		custom_tooltip = flavor_burgundy.101.a.tt
 		
 		if = {

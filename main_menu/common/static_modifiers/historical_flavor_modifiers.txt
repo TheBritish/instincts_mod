@@ -143,36 +143,6 @@ flanders_marriage_alliance = {
 }
 
 # Main Event Chain Modifiers (1380-1550)
-middle_kingdom_diplomacy = {
-	game_data = {
-		category = country
-	}
-	fort_defense = 0.20
-	diplomatic_relations = 2
-	mercenary_manpower = 0.10
-}
-
-imperial_protection = {
-	game_data = {
-		category = country
-	}
-	fort_defense = 0.15
-	diplomatic_reputation = 1
-}
-
-burgundy_war_taxes = {
-	game_data = {
-		category = country
-	}
-	war_taxes_cost = -0.25
-}
-
-burgundian_circle = {
-	game_data = {
-		category = location
-	}
-	local_autonomy = -0.20
-}
 
 burgundy_pragmatic_sanction = {
 	game_data = {
@@ -188,20 +158,5 @@ burgundian_golden_age = {
 	land_morale = 0.10
 	fort_defense = 0.25
 	diplomatic_relations = 2
-}
-
-# Opinion Modifiers
-burgundy_relations_positive = {
-	game_data = {
-		category = opinion
-	}
-	add = 50
-}
-
-burgundy_relations_negative = {
-	game_data = {
-		category = opinion
-	}
-	add = -50
 }
 
