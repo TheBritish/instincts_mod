@@ -1,4 +1,4 @@
-namespace = flavor_burgundy
+﻿namespace = flavor_burgundy
 
 # Event 100: The Capetian Extinction (1361)
 flavor_burgundy.100 = {
