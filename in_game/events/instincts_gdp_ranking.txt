@@ -1,0 +1,23 @@
+namespace = instincts_gdp
+
+# Placeholder GDP ranking event - Infrastructure ready for future implementation
+# The on_action hook will keep this disabled until proper event structure is in place
+
+instincts_gdp.1 = {
+	type = country_event
+	hidden = yes
+	fire_only_once = no
+	
+	trigger = {
+		always = no  # Disabled - event structure not yet implemented
+	}
+	
+	immediate = {
+		# TODO: Implement proper country ranking by monthly_income_trade_and_tax
+		# This requires using proper event loops and scope chains
+	}
+	
+	option = {
+		name = "CONTINUE"
+	}
+}

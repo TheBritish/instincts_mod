@@ -1,12 +1,11 @@
 yearly_country_pulse = {
-	random_events = {
-		5 = flavor_burgundy.100
-		5 = flavor_burgundy.101
-		5 = flavor_burgundy.102
-		5 = flavor_burgundy.1
-		5 = flavor_burgundy.2
-		5 = flavor_burgundy.10
-		5 = flavor_burgundy.20
-		5 = flavor_burgundy.30
+	events = {
+		100 = flavor_burgundy.100
+		101 = flavor_burgundy.101
+		102 = flavor_burgundy.102
+		103 = flavor_burgundy.103
+		104 = flavor_burgundy.104
+		105 = flavor_burgundy.105
+		106 = flavor_burgundy.106
 	}
 }

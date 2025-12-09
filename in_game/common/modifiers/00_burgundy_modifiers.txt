@@ -40,3 +40,14 @@ burgundian_circle = {
 burgundy_pragmatic_sanction = {
 	administrative_efficiency = 0.05
 }
+
+burgundian_golden_age = {
+	land_morale = 0.10
+	fort_defense = 0.25
+	diplomatic_relations = 2
+}
+
+religious_tensions = {
+	local_unrest = 1
+	stability_cost = 0.15
+}

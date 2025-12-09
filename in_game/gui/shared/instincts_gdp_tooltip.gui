@@ -1,5 +1,7 @@
 template instincts_gdp_tooltip
 {
+template instincts_gdp_tooltip
+{
 	# Match vanilla contextual tooltip frame so background renders correctly
 	ContextualTooltipType = {
 		blockoverride "title_icon" {
@@ -36,10 +38,15 @@ template instincts_gdp_tooltip
 				}
 			}
 			
-			TooltipScrolledStringPairList = {
-				blockoverride "block_scrollarea" { maximumsize = { -1 300 } }
-				textcontext = "[GetAllPlayersRankedByEstimatedMonthlyIncome]"
+			# Top-10 list will be populated by event rankings
+			# Note: Global variable access in GUI is complex; this shows placeholder format
+			# For now, display explanation that list updates monthly
+			TooltipTextBlock = {
+				blockoverride "text" {
+					text = "INSTINCTS_GDP_TOP10_UNAVAILABLE"
+				}
 			}
 		}
 	}
+}
 }

@@ -103,6 +103,7 @@ scottish_enlightenment_modifier = {
 	diplomatic_reputation = 2
 }
 
+
 # Jacobite Rising Unrest
 jacobite_rising_unrest = {
 	game_data = {
@@ -111,3 +112,90 @@ jacobite_rising_unrest = {
 	stability_cost = 0.25
 	land_morale_modifier = -0.10
 }
+
+# Burgundy Event Chain Modifiers
+succession_crisis_modifier = {
+	game_data = {
+		category = country
+	}
+	stability_cost = 0.25
+	local_unrest = 2
+}
+
+loyal_appanage = {
+	game_data = {
+		category = country
+	}
+	diplomatic_reputation = 1
+	monthly_prestige = 0.05
+}
+
+flanders_marriage_alliance = {
+	game_data = {
+		category = country
+	}
+	diplomatic_reputation = 1
+	monthly_prestige = 0.10
+}
+
+middle_kingdom_diplomacy = {
+	game_data = {
+		category = country
+	}
+	diplomatic_reputation = 2
+	monthly_diplomats = 0.10
+}
+
+imperial_protection = {
+	game_data = {
+		category = country
+	}
+	diplomatic_reputation = 1
+	monthly_prestige = 0.05
+}
+
+burgundy_war_taxes = {
+	game_data = {
+		category = country
+	}
+	monthly_prestige = -0.10
+	stability_cost = 0.10
+}
+
+burgundian_circle = {
+	game_data = {
+		category = location
+	}
+	local_unrest = -1
+}
+
+burgundy_pragmatic_sanction = {
+	game_data = {
+		category = country
+	}
+	monthly_prestige = 0.05
+	stability_cost = -0.05
+}
+
+burgundian_golden_age = {
+	game_data = {
+		category = country
+	}
+	land_morale_modifier = 0.10
+	monthly_prestige = 0.15
+	diplomatic_reputation = 2
+}
+
+# Opinion modifiers for Burgundy relations
+burgundy_relations_positive = {
+	game_data = {
+		category = opinion
+	}
+}
+
+burgundy_relations_negative = {
+	game_data = {
+		category = opinion
+	}
+}
+
