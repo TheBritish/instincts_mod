@@ -8,7 +8,7 @@ flavor_burgundy.100 = {
 	fire_only_once = yes
 	
 	dynamic_historical_event = {
-		tag = c:BUR
+		tag = BUR
 		from = 1361.1.1
 		to = 1361.12.31
 		monthly_chance = 100
@@ -176,7 +176,7 @@ flavor_burgundy.101 = {
 
 
 
-# Event 102: Consolidation of Power (1380-1395)
+# Event 102: The Battle of Roosebeke and the Counter-Offensive (1382)
 flavor_burgundy.102 = {
 	type = country_event
 	title = flavor_burgundy.102.t
@@ -184,7 +184,7 @@ flavor_burgundy.102 = {
 	fire_only_once = yes
 	
 	dynamic_historical_event = {
-		tag = c:BUR
+		tag = BUR
 		from = 1380.1.1
 		to = 1395.12.31
 		monthly_chance = 50
@@ -232,7 +232,7 @@ flavor_burgundy.103 = {
 	fire_only_once = yes
 	
 	dynamic_historical_event = {
-		tag = c:BUR
+		tag = BUR
 		from = 1400.1.1
 		to = 1430.12.31
 		monthly_chance = 40
@@ -277,7 +277,7 @@ flavor_burgundy.104 = {
 	fire_only_once = yes
 	
 	dynamic_historical_event = {
-		tag = c:BUR
+		tag = BUR
 		from = 1467.1.1
 		to = 1477.12.31
 		monthly_chance = 50
@@ -321,7 +321,7 @@ flavor_burgundy.105 = {
 	fire_only_once = yes
 	
 	dynamic_historical_event = {
-		tag = c:BUR
+		tag = BUR
 		from = 1500.1.1
 		to = 1525.12.31
 		monthly_chance = 30
@@ -371,7 +371,7 @@ flavor_burgundy.106 = {
 	fire_only_once = yes
 	
 	dynamic_historical_event = {
-		tag = c:BUR
+		tag = BUR
 		from = 1550.1.1
 		to = 1580.12.31
 		monthly_chance = 40
