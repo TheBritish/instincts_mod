@@ -120,6 +120,7 @@ succession_crisis_modifier = {
 	}
 	stability_cost = 0.25
 	local_unrest = 2
+	manpower_recovery = -0.15
 }
 
 loyal_appanage = {
@@ -128,6 +129,8 @@ loyal_appanage = {
 	}
 	diplomatic_reputation = 1
 	monthly_prestige = 0.05
+	liberty_desire = -25
+	vassal_income = 0.10
 }
 
 flanders_marriage_alliance = {
@@ -184,19 +187,6 @@ burgundian_golden_age = {
 	land_morale_modifier = 0.10
 	monthly_prestige = 0.15
 	diplomatic_reputation = 2
-}
-
-# Prologue Modifiers (1361-1369)
-succession_crisis_modifier = {
-	stability_cost = 0.25
-	local_unrest = 2
-	manpower_recovery = -0.15
-}
-
-loyal_appanage = {
-	diplomatic_reputation = 1
-	liberty_desire = -25
-	vassal_income = 0.10
 }
 
 flanders_marriage_alliance = {
