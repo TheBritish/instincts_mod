@@ -94,8 +94,8 @@ flavor_burgundy.101 = {
 			save_scope_as = burgundy_country
 			create_character = {
 				dynasty = dynasty:valois_dynasty
-				culture = root.primary_culture
-				religion = root.state_religion
+				culture = root.GetPrimaryCulture
+				religion = root.GetStateReligion
 				age = 22
 				first_name = name_philip
 				adm = { 60 75 }
@@ -194,9 +194,9 @@ flavor_burgundy.102 = {
 		tag = c:BUR
 		any_owned_location = {
 			OR = {
-				region = brabant_region
-				region = flanders_region
-				region = holland_region
+				location_region = region:brabant_region
+				location_region = region:flanders_region
+				location_region = region:holland_region
 			}
 		}
 	}
@@ -331,9 +331,9 @@ flavor_burgundy.105 = {
 		tag = c:BUR
 		any_owned_location = {
 			OR = {
-				region = brabant_region
-				region = flanders_region
-				region = holland_region
+				location_region = region:brabant_region
+				location_region = region:flanders_region
+				location_region = region:holland_region
 			}
 		}
 		prestige >= 40
@@ -352,7 +352,7 @@ flavor_burgundy.105 = {
 			modifier = burgundy_pragmatic_sanction
 			years = 15
 		}
-		set_government_rank = 1
+		set_government_rank_value = 1
 		add_prestige = 35
 	}
 	
@@ -383,8 +383,8 @@ flavor_burgundy.106 = {
 		c:SPA = { exists = yes }
 		any_owned_location = {
 			OR = {
-				region = brabant_region
-				region = flanders_region
+				location_region = region:brabant_region
+				location_region = region:flanders_region
 			}
 		}
 	}
@@ -423,8 +423,8 @@ flavor_burgundy.106 = {
 		every_owned_location = {
 			limit = {
 				OR = {
-					region = brabant_region
-					region = flanders_region
+					location_region = region:brabant_region
+					location_region = region:flanders_region
 				}
 			}
 			add_rebel_progress = 30
