@@ -88,7 +88,6 @@ flavor_burgundy.101 = {
 	title = flavor_burgundy.101.t
 	desc = flavor_burgundy.101.d
 	fire_only_once = yes
-	is_triggered_only = yes
 	
 	immediate = {
 		hidden_effect = {
@@ -102,8 +101,8 @@ flavor_burgundy.101 = {
 				adm = { 60 75 }
 				dip = { 70 85 }
 				mil = { 55 70 }
-				add_trait = trait:ambitious
-				add_trait = trait:diplomatic
+				add_trait = trait:expansionist
+				add_trait = trait:well_connected
 				create_in_limbo = yes
 				save_scope_as = philip_the_bold
 			}
