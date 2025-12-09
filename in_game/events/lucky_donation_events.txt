@@ -10,6 +10,10 @@ random_event.1001 = {
 
 	title = random_event.1001.title
 	desc = random_event.1001.desc
+	
+	on_action = {
+		id = monthly_pulse
+	}
 
 	trigger = {
 		# Only between Jan 1, 1400 and Dec 31, 1500
@@ -124,7 +128,7 @@ random_event.1003 = {
 	option = {
 		name = random_event.1003.a
 		if = {
-			limit = { exists = scope:target_country }
+			limit = { scope:target_country ?= { exists = yes } }
 			add_prestige = 15
 			add_gold = 100
 			scope:target_country = { add_prestige = -15 }
