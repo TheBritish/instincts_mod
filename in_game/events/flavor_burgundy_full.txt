@@ -30,6 +30,16 @@ flavor_burgundy.100 = {
 		name = flavor_burgundy.100.a
 		historical_option = yes
 		
+		ai_chance = {
+			base = 75
+			modifier = {
+				factor = 1.5
+				trigger = {
+					stability >= 1
+				}
+			}
+		}
+		
 		custom_tooltip = flavor_burgundy.100.a.tt
 		
 		# Change from appanage to fiefdom - losing autonomy after succession crisis
@@ -66,6 +76,16 @@ flavor_burgundy.100 = {
 	
 	option = {
 		name = flavor_burgundy.100.b
+		
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 2
+				trigger = {
+					stability < -1
+				}
+			}
+		}
 		
 		add_stability = -2
 		add_legitimacy = -20
@@ -113,6 +133,16 @@ flavor_burgundy.101 = {
 		name = flavor_burgundy.101.a
 		historical_option = yes
 		
+		ai_chance = {
+			base = 90
+			modifier = {
+				factor = 1.25
+				trigger = {
+					is_subject_of = c:FRA
+				}
+			}
+		}
+		
 		scope:philip_the_bold = {
 			move_country = root
 		}
@@ -158,6 +188,10 @@ flavor_burgundy.101 = {
 	
 	option = {
 		name = flavor_burgundy.101.b
+		
+		ai_chance = {
+			base = 10
+		}
 		
 		add_stability = -1
 		add_legitimacy = -10
@@ -210,6 +244,17 @@ flavor_burgundy.102 = {
 	option = {
 		name = flavor_burgundy.102.a
 		historical_option = yes
+		
+		ai_chance = {
+			base = 70
+			modifier = {
+				factor = 1.5
+				trigger = {
+					prestige >= 30
+				}
+			}
+		}
+		
 		add_country_modifier = {
 			modifier = flanders_marriage_alliance
 			years = 5
@@ -219,6 +264,17 @@ flavor_burgundy.102 = {
 	
 	option = {
 		name = flavor_burgundy.102.b
+		
+		ai_chance = {
+			base = 30
+			modifier = {
+				factor = 2
+				trigger = {
+					stability < 0
+				}
+			}
+		}
+		
 		add_stability = 1
 		add_prestige = 10
 	}
@@ -255,6 +311,17 @@ flavor_burgundy.103 = {
 	option = {
 		name = flavor_burgundy.103.a
 		historical_option = yes
+		
+		ai_chance = {
+			base = 80
+			modifier = {
+				factor = 1.25
+				trigger = {
+					prestige >= 60
+				}
+			}
+		}
+		
 		add_country_modifier = {
 			modifier = burgundian_golden_age
 			years = 10
@@ -264,6 +331,11 @@ flavor_burgundy.103 = {
 	
 	option = {
 		name = flavor_burgundy.103.b
+		
+		ai_chance = {
+			base = 20
+		}
+		
 		add_stability = 2
 		add_prestige = 15
 	}
@@ -297,6 +369,17 @@ flavor_burgundy.104 = {
 	option = {
 		name = flavor_burgundy.104.a
 		historical_option = yes
+		
+		ai_chance = {
+			base = 65
+			modifier = {
+				factor = 1.5
+				trigger = {
+					legitimacy >= 50
+				}
+			}
+		}
+		
 		add_country_modifier = {
 			modifier = succession_crisis_modifier
 			years = 5
@@ -307,6 +390,17 @@ flavor_burgundy.104 = {
 	
 	option = {
 		name = flavor_burgundy.104.b
+		
+		ai_chance = {
+			base = 35
+			modifier = {
+				factor = 0
+				trigger = {
+					stability >= 2
+				}
+			}
+		}
+		
 		add_prestige = -15
 		add_stability = -2
 		add_war_exhaustion = 5
@@ -348,6 +442,17 @@ flavor_burgundy.105 = {
 	option = {
 		name = flavor_burgundy.105.a
 		historical_option = yes
+		
+		ai_chance = {
+			base = 75
+			modifier = {
+				factor = 1.5
+				trigger = {
+					prestige >= 50
+				}
+			}
+		}
+		
 		add_country_modifier = {
 			modifier = burgundy_pragmatic_sanction
 			years = 15
@@ -358,6 +463,11 @@ flavor_burgundy.105 = {
 	
 	option = {
 		name = flavor_burgundy.105.b
+		
+		ai_chance = {
+			base = 25
+		}
+		
 		add_stability = 2
 		add_prestige = 20
 	}
@@ -401,6 +511,17 @@ flavor_burgundy.106 = {
 	
 	option = {
 		name = flavor_burgundy.106.a
+		
+		ai_chance = {
+			base = 40
+			modifier = {
+				factor = 2
+				trigger = {
+					stability >= 1
+				}
+			}
+		}
+		
 		add_country_modifier = {
 			modifier = religious_tensions
 			years = 10
@@ -420,6 +541,17 @@ flavor_burgundy.106 = {
 	option = {
 		name = flavor_burgundy.106.b
 		historical_option = yes
+		
+		ai_chance = {
+			base = 60
+			modifier = {
+				factor = 0.5
+				trigger = {
+					stability < 0
+				}
+			}
+		}
+		
 		every_owned_location = {
 			limit = {
 				OR = {
