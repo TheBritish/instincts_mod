@@ -88,7 +88,6 @@ hanseatic_league_events.3 = {
 	
 	trigger = {
 		is_member_of_international_organization = international_organization:hanseatic_league
-		has_merchants = yes
 		trade_efficiency > 0
 	}
 	
@@ -276,7 +275,7 @@ hanseatic_league_events.8 = {
 	
 	trigger = {
 		is_member_of_international_organization = international_organization:hanseatic_league
-		diplomatic_reputation > -0.5
+		diplomatic_capacity > 0
 	}
 	
 	dynamic_historical_event = {
@@ -346,7 +345,7 @@ hanseatic_league_events.10 = {
 	
 	trigger = {
 		is_member_of_international_organization = international_organization:hanseatic_league
-		global_merchant_capacity_modifier > 0
+		trade_efficiency > 0
 	}
 	
 	dynamic_historical_event = {
@@ -383,7 +382,7 @@ hanseatic_league_events.11 = {
 	
 	trigger = {
 		is_member_of_international_organization = international_organization:hanseatic_league
-		any_location = { disease_risk > 0 }
+		any_location = { has_disease = yes }
 	}
 	
 	dynamic_historical_event = {
@@ -486,7 +485,6 @@ hanseatic_league_events.14 = {
 	
 	trigger = {
 		is_member_of_international_organization = international_organization:hanseatic_league
-		global_burghers_desired_pop > 0
 	}
 	
 	dynamic_historical_event = {
@@ -523,7 +521,6 @@ hanseatic_league_events.15 = {
 	
 	trigger = {
 		is_member_of_international_organization = international_organization:hanseatic_league
-		monthly_gold_income > 0
 	}
 	
 	dynamic_historical_event = {
@@ -599,7 +596,7 @@ hanseatic_league_events.17 = {
 	
 	trigger = {
 		is_member_of_international_organization = international_organization:hanseatic_league
-		any_international_organization_member = { religion != root.religion }
+		any_international_organization_member = { NOT = { religion = root.religion } }
 	}
 	
 	dynamic_historical_event = {
@@ -632,7 +629,6 @@ hanseatic_league_events.18 = {
 	
 	trigger = {
 		is_member_of_international_organization = international_organization:hanseatic_league
-		ruler_age > 50
 	}
 	
 	dynamic_historical_event = {
