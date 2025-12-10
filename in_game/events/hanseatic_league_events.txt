@@ -4,10 +4,6 @@ namespace = hanseatic_league_events
 hanseatic_league_events.1 = {
 	type = country_event
 
-	mean_time_to_happen = {
-		months = 24
-	}
-
 	title = hanseatic_league_events.1.title
 	desc = hanseatic_league_events.1.desc
 	
@@ -48,10 +44,6 @@ hanseatic_league_events.1 = {
 hanseatic_league_events.2 = {
 	type = country_event
 
-	mean_time_to_happen = {
-		months = 24
-	}
-
 	title = hanseatic_league_events.2.title
 	desc = hanseatic_league_events.2.desc
 	
@@ -89,10 +81,6 @@ hanseatic_league_events.2 = {
 hanseatic_league_events.3 = {
 	type = country_event
 
-	mean_time_to_happen = {
-		months = 24
-	}
-
 	title = hanseatic_league_events.3.title
 	desc = hanseatic_league_events.3.desc
 	
@@ -127,10 +115,6 @@ hanseatic_league_events.3 = {
 # Merchant Privileges Granted
 hanseatic_league_events.4 = {
 	type = country_event
-
-	mean_time_to_happen = {
-		months = 24
-	}
 
 	title = hanseatic_league_events.4.title
 	desc = hanseatic_league_events.4.desc
@@ -170,10 +154,6 @@ hanseatic_league_events.4 = {
 hanseatic_league_events.5 = {
 	type = country_event
 
-	mean_time_to_happen = {
-		months = 24
-	}
-
 	title = hanseatic_league_events.5.title
 	desc = hanseatic_league_events.5.desc
 	
@@ -211,10 +191,6 @@ hanseatic_league_events.5 = {
 hanseatic_league_events.6 = {
 	type = country_event
 
-	mean_time_to_happen = {
-		months = 24
-	}
-
 	title = hanseatic_league_events.6.title
 	desc = hanseatic_league_events.6.desc
 	
@@ -249,10 +225,6 @@ hanseatic_league_events.6 = {
 # Economic Boom Period
 hanseatic_league_events.7 = {
 	type = country_event
-
-	mean_time_to_happen = {
-		months = 24
-	}
 
 	title = hanseatic_league_events.7.title
 	desc = hanseatic_league_events.7.desc
@@ -291,10 +263,6 @@ hanseatic_league_events.7 = {
 hanseatic_league_events.8 = {
 	type = country_event
 
-	mean_time_to_happen = {
-		months = 24
-	}
-
 	title = hanseatic_league_events.8.title
 	desc = hanseatic_league_events.8.desc
 	
@@ -321,10 +289,6 @@ hanseatic_league_events.8 = {
 # Technological Innovation
 hanseatic_league_events.9 = {
 	type = country_event
-
-	mean_time_to_happen = {
-		months = 24
-	}
 
 	title = hanseatic_league_events.9.title
 	desc = hanseatic_league_events.9.desc
@@ -364,10 +328,6 @@ hanseatic_league_events.9 = {
 hanseatic_league_events.10 = {
 	type = country_event
 
-	mean_time_to_happen = {
-		months = 24
-	}
-
 	title = hanseatic_league_events.10.title
 	desc = hanseatic_league_events.10.desc
 	
@@ -404,10 +364,6 @@ hanseatic_league_events.10 = {
 # Plague Disruption
 hanseatic_league_events.11 = {
 	type = country_event
-
-	mean_time_to_happen = {
-		months = 24
-	}
 
 	title = hanseatic_league_events.11.title
 	desc = hanseatic_league_events.11.desc
@@ -447,10 +403,6 @@ hanseatic_league_events.11 = {
 hanseatic_league_events.12 = {
 	type = country_event
 
-	mean_time_to_happen = {
-		months = 24
-	}
-
 	title = hanseatic_league_events.12.title
 	desc = hanseatic_league_events.12.desc
 	
@@ -486,10 +438,6 @@ hanseatic_league_events.12 = {
 hanseatic_league_events.13 = {
 	type = country_event
 
-	mean_time_to_happen = {
-		months = 24
-	}
-
 	title = hanseatic_league_events.13.title
 	desc = hanseatic_league_events.13.desc
 	
@@ -522,10 +470,6 @@ hanseatic_league_events.13 = {
 # Merchant Guild Expansion
 hanseatic_league_events.14 = {
 	type = country_event
-
-	mean_time_to_happen = {
-		months = 24
-	}
 
 	title = hanseatic_league_events.14.title
 	desc = hanseatic_league_events.14.desc
@@ -563,10 +507,6 @@ hanseatic_league_events.14 = {
 hanseatic_league_events.15 = {
 	type = country_event
 
-	mean_time_to_happen = {
-		months = 24
-	}
-
 	title = hanseatic_league_events.15.title
 	desc = hanseatic_league_events.15.desc
 	
@@ -601,10 +541,6 @@ hanseatic_league_events.15 = {
 # Cultural Exchange
 hanseatic_league_events.16 = {
 	type = country_event
-
-	mean_time_to_happen = {
-		months = 24
-	}
 
 	title = hanseatic_league_events.16.title
 	desc = hanseatic_league_events.16.desc
@@ -644,10 +580,6 @@ hanseatic_league_events.16 = {
 hanseatic_league_events.17 = {
 	type = country_event
 
-	mean_time_to_happen = {
-		months = 24
-	}
-
 	title = hanseatic_league_events.17.title
 	desc = hanseatic_league_events.17.desc
 	
@@ -686,10 +618,6 @@ hanseatic_league_events.17 = {
 hanseatic_league_events.18 = {
 	type = country_event
 
-	mean_time_to_happen = {
-		months = 24
-	}
-
 	title = hanseatic_league_events.18.title
 	desc = hanseatic_league_events.18.desc
 	
@@ -720,10 +648,6 @@ hanseatic_league_events.18 = {
 # Exploration Opportunity
 hanseatic_league_events.19 = {
 	type = country_event
-
-	mean_time_to_happen = {
-		months = 24
-	}
 
 	title = hanseatic_league_events.19.title
 	desc = hanseatic_league_events.19.desc
@@ -763,10 +687,6 @@ hanseatic_league_events.19 = {
 hanseatic_league_events.20 = {
 	type = country_event
 
-	mean_time_to_happen = {
-		months = 24
-	}
-
 	title = hanseatic_league_events.20.title
 	desc = hanseatic_league_events.20.desc
 	
@@ -796,5 +716,6 @@ hanseatic_league_events.20 = {
 		add_prestige = -2
 		}
 	}
+
 
 
