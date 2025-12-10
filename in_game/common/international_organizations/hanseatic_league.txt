@@ -76,7 +76,7 @@ hanseatic_league = {
 		global_salt_output_modifier = 0.05
 		tolerance_heretic = 1
 		diplomatic_capacity = 1
-		naval_forcelimit_modifier = 0.1
+		global_naval_forcelimit_modifier = 0.1
 		trade_company_investment_cost = -0.15
 	}
 	
