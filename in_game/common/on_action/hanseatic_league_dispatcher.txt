@@ -1,0 +1,36 @@
+# Add our custom on_action to the existing biyearly pulse
+biyearly_country_pulse = {
+	on_actions = {
+		hanseatic_league_event_dispatcher
+	}
+}
+
+# Our custom on_action that dispatches random Hanseatic League events
+hanseatic_league_event_dispatcher = {
+	trigger = {
+		is_member_of_international_organization = international_organization:hanseatic_league
+	}
+	
+	random_events = {
+		10 = hanseatic_league_events.1
+		10 = hanseatic_league_events.2
+		10 = hanseatic_league_events.3
+		10 = hanseatic_league_events.4
+		10 = hanseatic_league_events.5
+		10 = hanseatic_league_events.6
+		10 = hanseatic_league_events.7
+		10 = hanseatic_league_events.8
+		10 = hanseatic_league_events.9
+		10 = hanseatic_league_events.10
+		10 = hanseatic_league_events.11
+		10 = hanseatic_league_events.12
+		10 = hanseatic_league_events.13
+		10 = hanseatic_league_events.14
+		10 = hanseatic_league_events.15
+		10 = hanseatic_league_events.16
+		10 = hanseatic_league_events.17
+		10 = hanseatic_league_events.18
+		10 = hanseatic_league_events.19
+		10 = hanseatic_league_events.20
+	}
+}
