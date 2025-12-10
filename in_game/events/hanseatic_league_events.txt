@@ -1,4 +1,4 @@
-﻿namespace = hanseatic_league_events
+namespace = hanseatic_league_events
 
 # Trade Dispute Resolution
 hanseatic_league_events.1 = {
@@ -14,12 +14,6 @@ hanseatic_league_events.1 = {
 		any_owned_province = { trade_goods = grain }
 		}
 
-	dynamic_historical_event = {
-		tag = HSA
-		from = 1350.1.1
-		to = 1550.1.1
-		monthly_chance = 5
-		}
 
 	option = {
 		name = hanseatic_league_events.1.a
@@ -60,12 +54,6 @@ hanseatic_league_events.2 = {
 		navy_size > 0
 		}
 
-	dynamic_historical_event = {
-		tag = LUB
-		from = 1400.1.1
-		to = 1600.1.1
-		monthly_chance = 3
-		}
 
 	option = {
 		name = hanseatic_league_events.2.a
@@ -102,12 +90,6 @@ hanseatic_league_events.3 = {
 		any_owned_province = { trade_goods = grain }
 		}
 
-	dynamic_historical_event = {
-		tag = HAM
-		from = 1300.1.1
-		to = 1500.1.1
-		monthly_chance = 4
-		}
 
 	option = {
 		name = hanseatic_league_events.3.a
@@ -143,12 +125,6 @@ hanseatic_league_events.4 = {
 		diplomatic_capacity > 0
 		}
 
-	dynamic_historical_event = {
-		tag = BRM
-		from = 1350.1.1
-		to = 1550.1.1
-		monthly_chance = 6
-		}
 
 	option = {
 		name = hanseatic_league_events.4.a
@@ -187,12 +163,6 @@ hanseatic_league_events.5 = {
 		stability > -1
 		}
 
-	dynamic_historical_event = {
-		tag = HSA
-		from = 1400.1.1
-		to = 1600.1.1
-		monthly_chance = 2
-		}
 
 	option = {
 		name = hanseatic_league_events.5.a
@@ -230,12 +200,6 @@ hanseatic_league_events.6 = {
 		any_neighbor_country = { exists = yes }
 		}
 
-	dynamic_historical_event = {
-		tag = LUB
-		from = 1450.1.1
-		to = 1650.1.1
-		monthly_chance = 3
-		}
 
 	option = {
 		name = hanseatic_league_events.6.a
@@ -271,12 +235,6 @@ hanseatic_league_events.7 = {
 		any_owned_province = { trade_goods = grain }
 		}
 
-	dynamic_historical_event = {
-		tag = HAM
-		from = 1300.1.1
-		to = 1700.1.1
-		monthly_chance = 4
-		}
 
 	option = {
 		name = hanseatic_league_events.7.a
@@ -314,12 +272,6 @@ hanseatic_league_events.8 = {
 		diplomatic_capacity > 0
 		}
 
-	dynamic_historical_event = {
-		tag = BRM
-		from = 1350.1.1
-		to = 1550.1.1
-		monthly_chance = 5
-		}
 
 	option = {
 		name = hanseatic_league_events.8.a
@@ -347,12 +299,6 @@ hanseatic_league_events.9 = {
 		has_ports = yes
 		}
 
-	dynamic_historical_event = {
-		tag = HSA
-		from = 1400.1.1
-		to = 1600.1.1
-		monthly_chance = 3
-		}
 
 	option = {
 		name = hanseatic_league_events.9.a
@@ -391,12 +337,6 @@ hanseatic_league_events.10 = {
 		any_owned_province = { trade_goods = grain }
 		}
 
-	dynamic_historical_event = {
-		tag = LUB
-		from = 1450.1.1
-		to = 1650.1.1
-		monthly_chance = 2
-		}
 
 	option = {
 		name = hanseatic_league_events.10.a
@@ -434,12 +374,6 @@ hanseatic_league_events.11 = {
 		any_owned_province = { controlled_by = root }
 		}
 
-	dynamic_historical_event = {
-		tag = HAM
-		from = 1300.1.1
-		to = 1700.1.1
-		monthly_chance = 3
-		}
 
 	option = {
 		name = hanseatic_league_events.11.a
@@ -478,12 +412,6 @@ hanseatic_league_events.12 = {
 		has_explorer = yes
 		}
 
-	dynamic_historical_event = {
-		tag = BRM
-		from = 1400.1.1
-		to = 1600.1.1
-		monthly_chance = 4
-		}
 
 	option = {
 		name = hanseatic_league_events.12.a
@@ -519,12 +447,6 @@ hanseatic_league_events.13 = {
 		navy_size > 0
 		}
 
-	dynamic_historical_event = {
-		tag = HSA
-		from = 1350.1.1
-		to = 1550.1.1
-		monthly_chance = 5
-		}
 
 	option = {
 		name = hanseatic_league_events.13.a
@@ -557,12 +479,6 @@ hanseatic_league_events.14 = {
 		is_member_of_international_organization = international_organization:hanseatic_league
 		}
 
-	dynamic_historical_event = {
-		tag = LUB
-		from = 1300.1.1
-		to = 1500.1.1
-		monthly_chance = 6
-		}
 
 	option = {
 		name = hanseatic_league_events.14.a
@@ -599,12 +515,6 @@ hanseatic_league_events.15 = {
 		is_member_of_international_organization = international_organization:hanseatic_league
 		}
 
-	dynamic_historical_event = {
-		tag = HAM
-		from = 1400.1.1
-		to = 1600.1.1
-		monthly_chance = 4
-		}
 
 	option = {
 		name = hanseatic_league_events.15.a
@@ -641,12 +551,6 @@ hanseatic_league_events.16 = {
 		stability > 0
 		}
 
-	dynamic_historical_event = {
-		tag = BRM
-		from = 1350.1.1
-		to = 1550.1.1
-		monthly_chance = 5
-		}
 
 	option = {
 		name = hanseatic_league_events.16.a
@@ -685,12 +589,6 @@ hanseatic_league_events.17 = {
 		any_international_organization_member = { NOT = { religion = root.religion } }
 		}
 
-	dynamic_historical_event = {
-		tag = HSA
-		from = 1500.1.1
-		to = 1700.1.1
-		monthly_chance = 3
-		}
 
 	option = {
 		name = hanseatic_league_events.17.a
@@ -728,12 +626,6 @@ hanseatic_league_events.18 = {
 		is_member_of_international_organization = international_organization:hanseatic_league
 		}
 
-	dynamic_historical_event = {
-		tag = LUB
-		from = 1300.1.1
-		to = 1700.1.1
-		monthly_chance = 4
-		}
 
 	option = {
 		name = hanseatic_league_events.18.a
@@ -766,12 +658,6 @@ hanseatic_league_events.19 = {
 		has_explorer = yes
 		}
 
-	dynamic_historical_event = {
-		tag = HAM
-		from = 1400.1.1
-		to = 1600.1.1
-		monthly_chance = 3
-		}
 
 	option = {
 		name = hanseatic_league_events.19.a
@@ -809,12 +695,6 @@ hanseatic_league_events.20 = {
 		is_member_of_international_organization = international_organization:hanseatic_league
 		}
 
-	dynamic_historical_event = {
-		tag = HSA
-		from = 1300.1.1
-		to = 1700.1.1
-		monthly_chance = 6
-		}
 
 	option = {
 		name = hanseatic_league_events.20.a
