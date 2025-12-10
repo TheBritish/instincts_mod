@@ -11,7 +11,7 @@ hanseatic_league_events.1 = {
 	trigger = {
 		is_member_of_international_organization = international_organization:hanseatic_league
 		at_war = no
-		has_trade_partners = yes
+		trade_efficiency > 0
 	}
 	
 	dynamic_historical_event = {
