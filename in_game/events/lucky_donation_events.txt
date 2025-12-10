@@ -11,9 +11,6 @@ random_event.1001 = {
 	title = random_event.1001.title
 	desc = random_event.1001.desc
 	
-	on_action = {
-		id = monthly_pulse
-	}
 
 	trigger = {
 		# Only between Jan 1, 1400 and Dec 31, 1500

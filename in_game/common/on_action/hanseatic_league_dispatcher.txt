@@ -1,11 +1,12 @@
-# Add our custom on_action to the existing yearly pulse (fires every year)
+# Add our custom on_actions to the existing yearly pulse (fires every year)
 yearly_country_pulse = {
 	on_actions = {
 		hanseatic_league_event_dispatcher
+		general_random_event_dispatcher
 	}
 }
 
-# Our custom on_action that dispatches random Hanseatic League events
+# Hanseatic League events - only for IO members
 hanseatic_league_event_dispatcher = {
 	trigger = {
 		is_member_of_international_organization = international_organization:hanseatic_league
@@ -32,5 +33,12 @@ hanseatic_league_event_dispatcher = {
 		10 = hanseatic_league_events.18
 		10 = hanseatic_league_events.19
 		10 = hanseatic_league_events.20
+	}
+}
+
+# General random events - for all countries
+general_random_event_dispatcher = {
+	random_events = {
+		5 = random_event.1001  # Lucky donation event (rare)
 	}
 }
