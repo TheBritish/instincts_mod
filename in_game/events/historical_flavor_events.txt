@@ -17,12 +17,7 @@ historical_flavor.2001 = {
         name = historical_flavor.2001.a
         add_stability = stability_mild_bonus
         add_prestige = 5
-    }
-
-    option = {
-        name = historical_flavor.2001.b
-        add_prestige = 5
-        change_gold_effect = { scale = 2 }
+        add_treasury = 100
     }
 }
 
@@ -33,12 +28,14 @@ historical_flavor.2008 = {
     desc = historical_flavor.2008.desc
     fire_only_once = yes
 
-    trigger = {
-        tag = c:MOS
-        current_date >= 1550.1.1
-        current_date <= 1551.12.31
-        owns = location:moscow
+    dynamic_historical_event = {
+        tag = MOS
+        from = 1550.1.1
+        to = 1551.12.31
+        monthly_chance = 100
     }
+
+    illustration_tags = { 10 = war 10 = interior }
 
 
     option = {
@@ -48,12 +45,6 @@ historical_flavor.2008 = {
             months = 12
         }
         add_army_tradition = army_tradition_mild_bonus
-        add_prestige = 5
-    }
-
-    option = {
-        name = historical_flavor.2008.b
-        change_gold_effect = { scale = 3 }
         add_prestige = 5
     }
 }
@@ -66,7 +57,7 @@ historical_flavor.2009 = {
     fire_only_once = yes
 
     trigger = {
-        owns = location:augsburg
+        owns = 67
         current_date >= 1473.1.1
         current_date <= 1510.12.31
     }
@@ -78,14 +69,8 @@ historical_flavor.2009 = {
             modifier = fugger_banking_partnership
             months = 12
         }
-        change_gold_effect = { scale = 5 }
+        add_treasury = 200
         add_prestige = 5
-    }
-
-    option = {
-        name = historical_flavor.2009.b
-        add_prestige = 5
-        change_gold_effect = { scale = 10 }
     }
 }
 
@@ -96,11 +81,14 @@ historical_flavor.2010 = {
     desc = historical_flavor.2010.desc
     fire_only_once = yes
 
-    trigger = {
-        tag = c:ENG
-        current_date >= 1346.8.1
-        current_date <= 1347.12.31
+    dynamic_historical_event = {
+        tag = ENG
+        from = 1346.8.1
+        to = 1347.12.31
+        monthly_chance = 100
     }
+
+    illustration_tags = { 10 = war 10 = battlefield }
 
 
     option = {
@@ -111,11 +99,6 @@ historical_flavor.2010 = {
         }
         add_army_tradition = army_tradition_mild_bonus
     }
-
-    option = {
-        name = historical_flavor.2010.b
-        add_prestige = 10
-    }
 }
 
 # Hussite Wagon Fort Tactics (1419)
@@ -125,14 +108,14 @@ historical_flavor.2011 = {
     desc = historical_flavor.2011.desc
     fire_only_once = yes
 
-    trigger = {
-        OR = {
-            tag = c:BOH
-            owns = location:prague
-        }
-        current_date >= 1419.1.1
-        current_date <= 1435.12.31
+    dynamic_historical_event = {
+        tag = BOH
+        from = 1419.1.1
+        to = 1435.12.31
+        monthly_chance = 100
     }
+
+    illustration_tags = { 10 = war 10 = angry }
 
 
     option = {
@@ -142,12 +125,6 @@ historical_flavor.2011 = {
             months = 12
         }
         add_prestige = 5
-    }
-
-    option = {
-        name = historical_flavor.2011.b
-        add_prestige = 10
-        add_army_tradition = army_tradition_weak_bonus
     }
 }
 
@@ -159,7 +136,7 @@ historical_flavor.2012 = {
     fire_only_once = yes
 
     trigger = {
-        owns = location:leipzig
+        owns = 61
         current_date >= 1497.1.1
         current_date <= 1498.12.31
     }
@@ -173,39 +150,33 @@ historical_flavor.2012 = {
         }
         add_prestige = 5
     }
-
-    option = {
-        name = historical_flavor.2012.b
-        change_gold_effect = { scale = 3 }
-    }
 }
 
-# English Longbow Innovation (1380)
+# English Longbow Innovation (1340)
 historical_flavor.2013 = {
     type = country_event
     title = historical_flavor.2013.title
     desc = historical_flavor.2013.desc
     fire_only_once = yes
 
-    trigger = {
-        tag = c:ENG
-        current_date >= 1380.1.1
-        current_date <= 1381.12.31
+    dynamic_historical_event = {
+        tag = ENG
+        from = 1340.1.1
+        to = 1381.12.31
+        monthly_chance = 100
     }
+
+    illustration_tags = { 10 = war 10 = battlefield }
 
 
     option = {
         name = historical_flavor.2013.a
+        unlock_levy = levy_a_longbowmen
         add_country_modifier = {
             modifier = english_longbow_tradition
             months = 12
         }
         add_army_tradition = army_tradition_mild_bonus
-    }
-
-    option = {
-        name = historical_flavor.2013.b
-        add_prestige = 10
     }
 }
 
@@ -217,7 +188,7 @@ historical_flavor.2014 = {
     fire_only_once = yes
 
     trigger = {
-        owns = location:nuremberg
+        owns = 66
         current_date >= 1493.1.1
         current_date <= 1494.12.31
     }
@@ -231,11 +202,6 @@ historical_flavor.2014 = {
         }
         add_prestige = 5
     }
-
-    option = {
-        name = historical_flavor.2014.b
-        change_gold_effect = { scale = 2 }
-    }
 }
 
 # Magdeburg Siege Devastation (1631)
@@ -246,7 +212,7 @@ historical_flavor.2015 = {
     fire_only_once = yes
 
     trigger = {
-        owns = location:magdeburg
+        owns = 54
         current_date >= 1631.5.1
         current_date <= 1631.6.30
     }
@@ -259,12 +225,6 @@ historical_flavor.2015 = {
             months = 6
         }
     }
-
-    option = {
-        name = historical_flavor.2015.b
-        add_prestige = 5
-        add_stability = stability_mild_bonus
-    }
 }
 
 # Irish Bardic Tradition (1500s)
@@ -274,11 +234,14 @@ historical_flavor.2016 = {
     desc = historical_flavor.2016.desc
     fire_only_once = yes
 
-    trigger = {
-        tag = c:IRE
-        current_date >= 1500.1.1
-        current_date <= 1550.12.31
+    dynamic_historical_event = {
+        tag = IRE
+        from = 1500.1.1
+        to = 1550.12.31
+        monthly_chance = 100
     }
+
+    illustration_tags = { 10 = prosperity 10 = interior }
 
 
     option = {
@@ -289,12 +252,6 @@ historical_flavor.2016 = {
         }
         add_prestige = 5
     }
-
-    option = {
-        name = historical_flavor.2016.b
-        change_gold_effect = { scale = 2 }
-        add_prestige = 3
-    }
 }
 
 # Highland Clearances (1750s-1800s)
@@ -304,11 +261,14 @@ historical_flavor.2017 = {
     desc = historical_flavor.2017.desc
     fire_only_once = yes
 
-    trigger = {
-        tag = c:SCO
-        current_date >= 1750.1.1
-        current_date <= 1800.12.31
+    dynamic_historical_event = {
+        tag = SCO
+        from = 1750.1.1
+        to = 1800.12.31
+        monthly_chance = 100
     }
+
+    illustration_tags = { 10 = death 10 = interior }
 
 
     option = {
@@ -317,13 +277,7 @@ historical_flavor.2017 = {
             modifier = highland_clearances_impact
             months = 12
         }
-        change_gold_effect = { scale = 5 }
-    }
-
-    option = {
-        name = historical_flavor.2017.b
-        add_stability = stability_mild_bonus
-        add_prestige = 5
+        add_treasury = -200
     }
 }
 
@@ -334,11 +288,14 @@ historical_flavor.2018 = {
     desc = historical_flavor.2018.desc
     fire_only_once = yes
 
-    trigger = {
-        tag = c:SCO
-        current_date >= 1740.1.1
-        current_date <= 1760.12.31
+    dynamic_historical_event = {
+        tag = SCO
+        from = 1740.1.1
+        to = 1760.12.31
+        monthly_chance = 100
     }
+
+    illustration_tags = { 10 = prosperity 10 = interior }
 
 
     option = {
@@ -349,12 +306,6 @@ historical_flavor.2018 = {
         }
         add_prestige = 10
     }
-
-    option = {
-        name = historical_flavor.2018.b
-        add_prestige = 5
-        change_gold_effect = { scale = 3 }
-    }
 }
 
 # Jacobite Rising - Scotland (1715 or 1745)
@@ -364,11 +315,14 @@ historical_flavor.2019 = {
     desc = historical_flavor.2019.desc
     fire_only_once = yes
 
-    trigger = {
-        tag = c:SCO
-        current_date >= 1715.1.1
-        current_date <= 1746.12.31
+    dynamic_historical_event = {
+        tag = SCO
+        from = 1715.1.1
+        to = 1746.12.31
+        monthly_chance = 100
     }
+
+    illustration_tags = { 10 = war 10 = angry }
 
 
     option = {
@@ -389,13 +343,6 @@ historical_flavor.2019 = {
             }
         }
     }
-
-    option = {
-        name = historical_flavor.2019.b
-        add_stability = stability_mild_bonus
-        add_prestige = 5
-        change_gold_effect = { scale = 3 }
-    }
 }
 
 # Jacobite Rising - England/Britain Response
@@ -414,12 +361,4 @@ historical_flavor.2020 = {
         }
         add_army_tradition = army_tradition_weak_bonus
     }
-
-    option = {
-        name = historical_flavor.2020.b
-        add_stability = stability_mild_bonus
-        change_gold_effect = { scale = 5 }
-        add_prestige = 5
-    }
 }
-

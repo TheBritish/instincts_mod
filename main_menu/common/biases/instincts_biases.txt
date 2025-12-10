@@ -8,3 +8,27 @@ luxembourg_succession_dispute = {
     yearly_decay = 3
 }
 
+# Burgundy opinion modifiers
+
+burgundy_relations_positive = {
+	value = 50
+	yearly_decay = 5
+}
+
+burgundy_relations_negative = {
+	value = -50
+	yearly_decay = 5
+}
+
+# Brewer of Ghent opinion modifiers
+
+brewer_of_ghent_france_rift = {
+    value = -150
+    yearly_decay = 5
+}
+
+brewer_of_ghent_england_betrayal = {
+    value = -100
+    yearly_decay = 3
+}
+

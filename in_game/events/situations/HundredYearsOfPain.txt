@@ -1,0 +1,98 @@
+﻿namespace = hundred_years_war
+
+######################################
+# The start of the situation events
+######################################
+
+
+hundred_years_war.220 = { #The Brewer of Ghent
+	type = country_event
+	title = hundred_years_war.220.title
+	desc = hundred_years_war.220.desc
+	historical_info = hundred_years_war.220.historical_info
+
+	image = "gfx/interface/illustrations/situation/hundred_years_war.dds"
+	fire_only_once = yes
+	dynamic_historical_event = {
+		tag = FLA
+		from = 1337.1.1
+		to = 1375.1.1
+		monthly_chance = 100
+	}
+
+	major = yes
+	major_trigger = {
+		OR = {
+			tag = ENG
+			tag = FRA
+		}
+	}
+
+	trigger = {
+		situation:hundred_years_war = { situation_is_active = yes }
+		is_subject_of = c:FRA
+		at_war = no
+		opinion = {
+			target = c:ENG
+			value > 0
+		} 
+		character:fla_jacob_van_artevelde = {
+			is_alive = yes
+			owner = root
+		}
+	}
+
+	immediate = {
+		ruler_or_regent ?= { save_scope_as = target_character }
+		character:fla_jacob_van_artevelde = { save_scope_as = target_character2 }
+	}
+
+	option = {	#Side with England
+		name = hundred_years_war.220.a
+		
+		historical_option = yes
+
+		custom_tooltip = this_will_not_affect_our_textile_industry_tt
+
+		c:FRA = { cancel_subject = c:FLA }
+        c:ENG = {
+			create_relation = {
+				first = c:ENG
+				second = c:FLA
+				type = relation_type:alliance
+			}
+		}
+        add_opinion = { target = c:FRA modifier = brewer_of_ghent_france_rift }
+        add_country_modifier = { modifier = wool_trade_restored months = 60 }
+		add_country_modifier = { modifier = fla_diplomatic_capacity months = 60 }
+        add_estate_satisfaction = { estate = burghers satisfaction = 20 }
+        add_estate_satisfaction = { estate = nobles satisfaction = -20 }
+	}
+
+	option = {	#Side with France
+		name = hundred_years_war.220.b
+
+		add_country_modifier = {
+			modifier = strained_textile_industry_modifier
+			mode = replace
+			years = modifier_duration_years_long
+		}
+        add_country_modifier = { modifier = guild_unrest months = 24 }
+        add_country_modifier = { modifier = wool_famine months = 60 }
+        add_opinion = { target = c:ENG modifier = brewer_of_ghent_england_betrayal }
+        add_estate_satisfaction = { estate = nobles satisfaction = 20 }
+        add_estate_satisfaction = { estate = burghers satisfaction = -20 }
+		c:ENG = {
+			create_relation = {
+				first = c:ENG
+				second = root
+				type = relation_type:embargo_nation
+			}
+		}
+
+		kill_character = {
+			target = scope:target_character2
+			reason = execution
+		}
+	}
+}

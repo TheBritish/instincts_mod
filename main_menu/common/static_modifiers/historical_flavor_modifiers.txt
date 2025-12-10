@@ -103,7 +103,6 @@ scottish_enlightenment_modifier = {
 	diplomatic_reputation = 2
 }
 
-
 # Jacobite Rising Unrest
 jacobite_rising_unrest = {
 	game_data = {
@@ -120,7 +119,6 @@ succession_crisis_modifier = {
 	}
 	stability_cost = 0.25
 	local_unrest = 2
-	manpower_recovery = -0.15
 }
 
 loyal_appanage = {
@@ -129,35 +127,55 @@ loyal_appanage = {
 	}
 	diplomatic_reputation = 1
 	monthly_prestige = 0.05
-	liberty_desire = -25
-	vassal_income = 0.10
 }
 
 flanders_marriage_alliance = {
 	game_data = {
 		category = country
 	}
-	diplomatic_relations = 1
-	improve_relations = 0.15
 	diplomatic_reputation = 1
 }
 
 # Main Event Chain Modifiers (1380-1550)
-
 burgundy_pragmatic_sanction = {
 	game_data = {
 		category = country
 	}
-	administrative_efficiency = 0.05
 }
 
 burgundian_golden_age = {
 	game_data = {
 		category = country
 	}
-	land_morale = 0.10
-	fort_defense = 0.25
-	diplomatic_relations = 2
+	land_morale_modifier = 0.10
+}
+
+# Brewer of Ghent modifiers
+
+wool_trade_restored = {
+	game_data = {
+		category = country
+	}
+	trade_efficiency = 0.10
+	production_efficiency = 0.10
+	monthly_income = 0.05
+}
+
+guild_unrest = {
+	game_data = {
+		category = country
+	}
+	stability_cost = 0.20
+	local_unrest = 5
+}
+
+wool_famine = {
+	game_data = {
+		category = country
+	}
+	trade_efficiency = -0.15
+	production_efficiency = -0.10
+	monthly_income = -0.05
 }
 
 

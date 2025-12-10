@@ -17,16 +17,3 @@
  random_event.1003.desc: "Our spymaster returns with troubling news: they have managed to trace the donation's origin to [target_country.GetName]. It appears this foreign power attempted to manipulate us through financial inducement. Our agents prepare to conduct a more thorough investigation into [target_country.GetNameWithNoTooltip]'s involvement. Success is not guaranteed—they may discover our snooping."
  random_event.1003.a: "Deploy our agents to uncover the full truth."
 
- # Event 1004: Investigation succeeds - donor country exposed
- random_event.1004.title: "A Plot Exposed!"
- random_event.1004.desc: "Triumph! Our investigation has succeeded. We have uncovered irrefutable proof that [target_country.GetName] orchestrated the donation as part of a covert scheme to manipulate our foreign policy. Their ambassadors were puppeteers attempting to make us dance to their tune. This revelation presents us with several strategic opportunities. We may expose them to the world, extract compensation for their impertinence, or use this as justification for military action against [target_country.GetNameWithNoTooltip]."
- random_event.1004.a: "Expose the conspiracy and humiliate [target_country.GetName] publicly."
- random_event.1004.b: "Demand substantial compensation from [target_country.GetName] for their interference."
- random_event.1004.c: "Manufacture a casus belli against [target_country.GetName] and prepare for war."
-
- # Event 1005: Investigation fails - our snooping is discovered
- random_event.1005.title: "Our Spies Exposed!"
- random_event.1005.desc: "Disaster strikes! The security forces of [target_country.GetName] have detected and captured our intelligence agents attempting to investigate the donation's origins. They now confront us with irrefutable evidence of our espionage. Our agents are imprisoned in [target_country.GetNameWithNoTooltip], diplomatic relations are strained, and we must respond carefully. We can attempt damage control through diplomacy, or deflect blame back onto them for their original interference."
- random_event.1005.a: "Issue a formal apology to [target_country.GetName] and negotiate for our agents' release."
- random_event.1005.b: "Deny involvement and accuse [target_country.GetName] of fabricating the story."
-
