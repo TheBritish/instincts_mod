@@ -77,7 +77,6 @@ hanseatic_league = {
 		tolerance_heretic = 1
 		diplomatic_capacity = 1
 		global_naval_forcelimit_modifier = 0.1
-		trade_company_investment_cost = -0.15
 	}
 	
 	# Leaders (HSA) get additional benefits for coordinating the league
