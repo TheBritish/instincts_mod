@@ -33,6 +33,17 @@ hl_trade_regulations = {
         international_organization_modifier = { trade_efficiency = 0.02 }
         country_modifier = { trade_efficiency = 0.05 }
     }
+
+    hl_balanced_regulations = {
+        wants_propose_policy = {
+            add = { desc = "POLICY_LEADER_PREFERENCE" value = 25 }
+        }
+        wants_this_policy_bias = {
+            add = { desc = "POLICY_DEFAULT" value = 20 }
+        }
+        international_organization_modifier = { trade_efficiency = 0.03 }
+        country_modifier = { trade_efficiency = 0.02 }
+    }
 }
 
 hl_kontor_privileges = {
@@ -136,6 +147,17 @@ hl_naval_defense = {
         }
         country_modifier = { naval_morale_modifier = 0.05 }
     }
+
+    hl_coastal_patrols = {
+        wants_propose_policy = {
+            add = { desc = "POLICY_LEADER_PREFERENCE" value = 75 }
+        }
+        wants_this_policy_bias = {
+            add = { desc = "POLICY_DEFAULT" value = 30 }
+        }
+        international_organization_modifier = { global_naval_forcelimit_modifier = 0.15 }
+        country_modifier = { naval_maintenance_modifier = -0.1 }
+    }
 }
 
 hl_economic_cooperation = {
@@ -169,6 +191,17 @@ hl_economic_cooperation = {
             add = { desc = "POLICY_DEFAULT" value = 15 }
         }
         country_modifier = { trade_efficiency = 0.03 stability_cost = 0.05 }
+    }
+
+    hl_joint_ventures = {
+        wants_propose_policy = {
+            add = { desc = "POLICY_LEADER_PREFERENCE" value = 60 }
+        }
+        wants_this_policy_bias = {
+            add = { desc = "POLICY_DEFAULT" value = 25 }
+        }
+        international_organization_modifier = { global_trade_goods_size_modifier = 0.1 }
+        country_modifier = { production_efficiency = 0.05 }
     }
 }
 
@@ -306,5 +339,86 @@ hl_foreign_policy = {
         }
         international_organization_modifier = { diplomatic_reputation = 0.10 }
         country_modifier = { diplomatic_reputation = -0.15 diplomatic_capacity = 1 }
+    }
+
+    hl_collective_bargaining = {
+        wants_propose_policy = {
+            add = { desc = "POLICY_LEADER_PREFERENCE" value = 75 }
+        }
+        wants_this_policy_bias = {
+            add = { desc = "POLICY_DEFAULT" value = 30 }
+        }
+        international_organization_modifier = { diplomatic_reputation = 2 }
+        country_modifier = { improve_relation_speed = 0.2 }
+    }
+}
+
+hl_cultural_exchange = {
+    type = international_organization
+    law_category = socioeconomic
+    potential = { international_organization_type = international_organization_type:hanseatic_league }
+
+    hl_shared_knowledge = {
+        wants_propose_policy = {
+            add = { desc = "POLICY_LEADER_PREFERENCE" value = 80 }
+        }
+        wants_this_policy_bias = {
+            add = { desc = "POLICY_DEFAULT" value = 40 }
+        }
+        international_organization_modifier = { technology_cost = -0.05 }
+    }
+
+    hl_limited_exchange = {
+        wants_this_policy_bias = {
+            add = { desc = "POLICY_DEFAULT" value = 20 }
+        }
+        international_organization_modifier = { technology_cost = -0.02 }
+    }
+}
+
+hl_mercenary_standards = {
+    type = international_organization
+    law_category = military
+    potential = { international_organization_type = international_organization_type:hanseatic_league }
+
+    hl_professional_mercenaries = {
+        wants_propose_policy = {
+            add = { desc = "POLICY_LEADER_PREFERENCE" value = 70 }
+        }
+        wants_this_policy_bias = {
+            add = { desc = "POLICY_DEFAULT" value = 35 }
+        }
+        international_organization_modifier = { mercenary_discipline = 0.1 }
+        country_modifier = { mercenary_cost = -0.1 }
+    }
+
+    hl_regulated_mercenaries = {
+        wants_this_policy_bias = {
+            add = { desc = "POLICY_DEFAULT" value = 15 }
+        }
+        international_organization_modifier = { mercenary_discipline = 0.05 }
+    }
+}
+
+hl_religious_harmony = {
+    type = international_organization
+    law_category = socioeconomic
+    potential = { international_organization_type = international_organization_type:hanseatic_league }
+
+    hl_ecumenical_tolerance = {
+        wants_propose_policy = {
+            add = { desc = "POLICY_LEADER_PREFERENCE" value = 60 }
+        }
+        wants_this_policy_bias = {
+            add = { desc = "POLICY_DEFAULT" value = 30 }
+        }
+        international_organization_modifier = { tolerance_heretic = 2 tolerance_heathen = 1 }
+    }
+
+    hl_moderate_tolerance = {
+        wants_this_policy_bias = {
+            add = { desc = "POLICY_DEFAULT" value = 15 }
+        }
+        international_organization_modifier = { tolerance_heretic = 1 }
     }
 }

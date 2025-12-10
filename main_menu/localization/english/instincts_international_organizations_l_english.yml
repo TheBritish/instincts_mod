@@ -177,3 +177,18 @@
 # Opinion Modifiers
 brewer_of_ghent_england_alliance: "Brewer of Ghent Alliance"
 
+# New Law Policies
+hl_balanced_regulations: "Balanced Regulations"
+hl_coastal_patrols: "Coastal Patrols"
+hl_joint_ventures: "Joint Ventures"
+hl_collective_bargaining: "Collective Bargaining"
+hl_cultural_exchange: "Cultural Exchange"
+hl_shared_knowledge: "Shared Knowledge"
+hl_limited_exchange: "Limited Exchange"
+hl_mercenary_standards: "Mercenary Standards"
+hl_professional_mercenaries: "Professional Mercenaries"
+hl_regulated_mercenaries: "Regulated Mercenaries"
+hl_religious_harmony: "Religious Harmony"
+hl_ecumenical_tolerance: "Ecumenical Tolerance"
+hl_moderate_tolerance: "Moderate Tolerance"
+
