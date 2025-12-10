@@ -76,8 +76,6 @@
  hl_selective_membership_desc: "Carefully evaluate prospective members based on their trading potential and geographic position."
  hl_open_membership: "Open Admission"
  hl_open_membership_desc: "Welcome any qualifying city to join the league, rapidly expanding the trade network but diluting exclusivity."
- hl_aggressive_recruitment: "Aggressive Recruitment"
- hl_aggressive_recruitment_desc: "Actively seek out and invite new cities to join the league, greatly increasing membership growth but straining diplomatic relations and internal stability."
  
  # Naval Defense
  hl_naval_defense: "Naval Defense"
@@ -158,7 +156,6 @@
  hl_exclusive_membership: "Exclusive Membership"
  hl_selective_membership: "Selective Membership"
  hl_open_membership: "Open Membership"
- hl_aggressive_recruitment: "Aggressive Recruitment"
  hl_unified_fleet: "Unified Fleet"
  hl_coordinated_fleet: "Coordinated Fleet"
  hl_independent_fleet: "Independent Fleet"
