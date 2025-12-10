@@ -89,9 +89,11 @@ hanseatic_league = {
 	}
 	
 	can_join_trigger = {
-		# Allow countries to join even if HRE members
-		# HRE and Hanseatic League can coexist for Baltic/German states
-		always = yes
+		# Restrict to single-location countries on coastal provinces
+		num_of_locations = 1
+		any_location = {
+			coastal = yes
+		}
 	}
 	
 	can_lead_trigger = {
@@ -129,6 +131,16 @@ hanseatic_league = {
 			if = {
 				limit = { culture = culture:german }
 				value = 10
+			}
+		}
+		add = {
+			value = 50
+			if = {
+				limit = {
+					num_of_locations = 1
+					any_location = { coastal = yes }
+				}
+				value = 25
 			}
 		}
 	}
