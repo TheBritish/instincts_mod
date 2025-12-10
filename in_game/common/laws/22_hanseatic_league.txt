@@ -92,7 +92,7 @@ hl_membership_policy = {
         wants_this_policy_bias = {
             add = { desc = "POLICY_DEFAULT" value = 50 }
         }
-        international_organization_modifier = { diplomatic_reputation = 0.5 }
+        international_organization_modifier = { diplomatic_reputation = 0.5 ai_desire_to_join_modifier = -0.25 ai_desire_to_allow_new_member_modifier = -0.5 }
         country_modifier = { local_unrest = -0.5 }
     }
 
@@ -103,15 +103,26 @@ hl_membership_policy = {
         wants_this_policy_bias = {
             add = { desc = "POLICY_DEFAULT" value = 25 }
         }
-        international_organization_modifier = { diplomatic_reputation = 0.25 }
+        international_organization_modifier = { diplomatic_reputation = 0.25 ai_desire_to_join_modifier = 0.1 ai_desire_to_allow_new_member_modifier = 0.1 }
     }
 
     hl_open_membership = {
         wants_this_policy_bias = {
             add = { desc = "POLICY_DEFAULT" value = 15 }
         }
-        international_organization_modifier = { trade_efficiency = 0.03 }
+        international_organization_modifier = { trade_efficiency = 0.03 ai_desire_to_join_modifier = 0.5 ai_desire_to_allow_new_member_modifier = 0.25 }
         country_modifier = { diplomatic_reputation = 0.15 local_unrest = 0.25 }
+    }
+
+    hl_aggressive_recruitment = {
+        wants_propose_policy = {
+            add = { desc = "POLICY_LEADER_PREFERENCE" value = 75 }
+        }
+        wants_this_policy_bias = {
+            add = { desc = "POLICY_DEFAULT" value = 20 }
+        }
+        international_organization_modifier = { ai_desire_to_join_modifier = 1.0 ai_desire_to_allow_new_member_modifier = 0.75 diplomatic_reputation = -0.25 }
+        country_modifier = { diplomatic_reputation = -0.1 local_unrest = 0.15 }
     }
 }
 
