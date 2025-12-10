@@ -1,5 +1,5 @@
-# Add our custom on_action to the existing biyearly pulse
-biyearly_country_pulse = {
+# Add our custom on_action to the existing yearly pulse (fires every year)
+yearly_country_pulse = {
 	on_actions = {
 		hanseatic_league_event_dispatcher
 	}
