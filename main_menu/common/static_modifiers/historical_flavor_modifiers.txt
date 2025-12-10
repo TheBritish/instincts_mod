@@ -157,8 +157,8 @@ wool_trade_restored = {
 		category = country
 	}
 	trade_efficiency = 0.10
-	production_efficiency = 0.10
-	monthly_income = 0.05
+	global_production_efficiency = 0.10
+	monthly_gold_income = 0.05
 }
 
 guild_unrest = {
@@ -174,8 +174,8 @@ wool_famine = {
 		category = country
 	}
 	trade_efficiency = -0.15
-	production_efficiency = -0.10
-	monthly_income = -0.05
+	global_production_efficiency = -0.10
+	monthly_gold_income = -0.05
 }
 
 fla_diplomatic_capacity = {
@@ -198,7 +198,7 @@ stability_cost_reduction = {
 	game_data = {
 		category = country
 	}
-	stability_cost_modifier = -0.05
+	stability_cost = -0.05
 }
 
 # Religious Tolerance Penalty for Hanseatic League Events

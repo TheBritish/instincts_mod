@@ -89,15 +89,43 @@ hanseatic_league = {
 	}
 	
 	can_join_trigger = {
-		# Restrict to single-location countries on coastal provinces
-		num_of_locations = 1
-		any_location = {
-			coastal = yes
+		# Allow HRE members to join with specific requirements
+		trigger_if = {
+			limit = {
+				is_member_of_international_organization_of_type = {
+					type = international_organization_type:hre
+				}
+			}
+			# HRE members must be single-location coastal countries
+			num_of_locations = 1
+			any_location = {
+				coastal = yes
+			}
+		}
+		trigger_if = {
+			limit = {
+				NOT = {
+					is_member_of_international_organization_of_type = {
+						type = international_organization_type:hre
+					}
+				}
+			}
+			# Countries not in HRE must meet strict requirements
+			num_of_locations = 1
+			any_location = {
+				coastal = yes
+			}
 		}
 	}
 	
 	can_lead_trigger = {
-		tag = HSA
+		# Allow founding members to lead the Hanseatic League
+		OR = {
+			tag = HSA  # Lübeck - traditional leader
+			tag = LUB  # Lübeck area
+			tag = HAM  # Hamburg
+			tag = BRM  # Bremen
+		}
 	}
 	
 	can_leave_trigger = {

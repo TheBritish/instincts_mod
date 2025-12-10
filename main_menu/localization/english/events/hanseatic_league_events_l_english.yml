@@ -1,4 +1,4 @@
-l_english:
+﻿l_english:
  # Hanseatic League Dynamic Historical Events
 
  # Event 1: Trade Dispute Resolution
@@ -119,5 +119,4 @@ l_english:
  hanseatic_league_events.20.title: "Grand Assembly of the Hanseatic League"
  hanseatic_league_events.20.desc: "The Hanseatic Diet convenes for a grand assembly to address pressing matters affecting the entire confederation. This gathering represents the collective wisdom and authority of our league."
  hanseatic_league_events.20.a: "Strengthen league institutions"
- hanseatic_league_events.20.b: "Some members question league authority"</content>
-<parameter name="filePath">c:\Users\Craig.CraigBates-PC\Documents\Paradox Interactive\Europa Universalis V\mod\instincts_mod\main_menu\localization\english\events\hanseatic_league_events_l_english.yml
+ hanseatic_league_events.20.b: "Some members question league authority"

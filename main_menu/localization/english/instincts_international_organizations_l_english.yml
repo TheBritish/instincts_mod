@@ -146,35 +146,7 @@
  HL_UNIFIED_FLEET_EFFECT: "A common fleet will protect all Hanseatic trade routes"
  HL_EXCLUSIVE_MEMBERSHIP_TT: "Only traditional trading cities of the Baltic and North Sea may join"
  
- # Law Policy Localizations
- hl_strict_regulations: "Strict Regulations"
- hl_moderate_regulations: "Moderate Regulations"
- hl_minimal_regulations: "Minimal Regulations"
- hl_exclusive_kontors: "Exclusive Kontors"
- hl_negotiated_kontors: "Negotiated Kontors"
- hl_open_kontors: "Open Kontors"
- hl_exclusive_membership: "Exclusive Membership"
- hl_selective_membership: "Selective Membership"
- hl_open_membership: "Open Membership"
- hl_unified_fleet: "Unified Fleet"
- hl_coordinated_fleet: "Coordinated Fleet"
- hl_independent_fleet: "Independent Fleet"
- hl_common_standards: "Common Standards"
- hl_cooperative_trade: "Cooperative Trade"
- hl_independent_economies: "Independent Economies"
- hl_binding_arbitration: "Binding Arbitration"
- hl_mediation: "Mediation"
- hl_member_autonomy: "Member Autonomy"
- hl_proportional_shares: "Proportional Shares"
- hl_equal_distribution: "Equal Distribution"
- hl_merit_based: "Merit-Based"
- hl_frequent_tagfahrt: "Frequent Tagfahrt"
- hl_regular_tagfahrt: "Regular Tagfahrt"
- hl_infrequent_tagfahrt: "Infrequent Tagfahrt"
- hl_unified_diplomacy: "Unified Diplomacy"
- hl_coordinated_diplomacy: "Coordinated Diplomacy"
-
-# Opinion Modifiers
+ # Opinion Modifiers
 brewer_of_ghent_england_alliance: "Brewer of Ghent Alliance"
 
 # New Law Policies
