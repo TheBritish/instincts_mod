@@ -1,8 +1,0 @@
-﻿yearly_country_pulse = {
-	random_events = {
-		3 = random_event.1001
-		3 = random_event.1002
-		3 = random_event.1003
-	}
-}
-
