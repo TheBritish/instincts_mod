@@ -49,6 +49,23 @@ hanseatic_league = {
 	# Land ownership rules for IO-controlled territories
 	land_ownership_rule = hanseatic_league_land_ownership
 	
+	formation = {
+		potential = {
+			NOT = { international_organization_type = international_organization_type:hanseatic_league }
+			# Add other conditions if needed
+		}
+		allow = {
+			# Conditions to form
+			always = yes
+		}
+		effect = {
+			create_international_organization = {
+				type = hanseatic_league
+				# Members, leader, etc. can be set here if not at start
+			}
+		}
+	}
+	
 	# Base benefits for all members: trade network, merchant cooperation, naval coordination
 	modifier = {
 		trade_efficiency = 0.05
