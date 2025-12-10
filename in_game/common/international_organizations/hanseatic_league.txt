@@ -95,7 +95,7 @@ hanseatic_league = {
 	}
 	
 	can_lead_trigger = {
-		always = yes
+		tag = HSA
 	}
 	
 	can_leave_trigger = {
