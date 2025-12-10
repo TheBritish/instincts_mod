@@ -2,837 +2,837 @@
 
 # Trade Dispute Resolution
 hanseatic_league_events.1 = {
-type = country_event
-category = io_event
-title = hanseatic_league_events.1.title
-desc = hanseatic_league_events.1.desc
-fire_only_once = yes
+	type = country_event
+	category = io_event
+	title = hanseatic_league_events.1.title
+	desc = hanseatic_league_events.1.desc
+	fire_only_once = yes
 
-trigger = {
-is_member_of_international_organization = international_organization:hanseatic_league
-at_war = no
-any_owned_province = { trade_goods = grain }
-}
+	trigger = {
+		is_member_of_international_organization = international_organization:hanseatic_league
+		at_war = no
+		any_owned_province = { trade_goods = grain }
+		}
 
-dynamic_historical_event = {
-tag = HSA
-from = 1350.1.1
-to = 1550.1.1
-monthly_chance = 5
-}
+	dynamic_historical_event = {
+		tag = HSA
+		from = 1350.1.1
+		to = 1550.1.1
+		monthly_chance = 5
+		}
 
-option = {
-name = hanseatic_league_events.1.a
-add_country_modifier = {
-modifier = diplomatic_capacity
-duration = 3650
-}
-international_organization:hanseatic_league = {
-add_international_organization_modifier = {
-modifier = trade_efficiency
-duration = 3650
-value = 0.05
-}
-}
-}
+	option = {
+		name = hanseatic_league_events.1.a
+		add_country_modifier = {
+			modifier = diplomatic_capacity
+			duration = 3650
+			}
+		international_organization:hanseatic_league = {
+			add_international_organization_modifier = {
+				modifier = trade_efficiency
+				duration = 3650
+				value = 0.05
+				}
+			}
+		}
 
-option = {
-name = hanseatic_league_events.1.b
-add_gold = 50
-random_owned_province = {
-limit = { has_port = yes }
-add_local_unrest = 10
-}
-}
-}
+	option = {
+		name = hanseatic_league_events.1.b
+		add_gold = 50
+		random_owned_province = {
+			limit = { has_port = yes }
+			add_local_unrest = 10
+			}
+		}
+	}
 
 # Pirate Raid on Trade Routes
 hanseatic_league_events.2 = {
-type = country_event
-category = io_event
-title = hanseatic_league_events.2.title
-desc = hanseatic_league_events.2.desc
-fire_only_once = yes
+	type = country_event
+	category = io_event
+	title = hanseatic_league_events.2.title
+	desc = hanseatic_league_events.2.desc
+	fire_only_once = yes
 
-trigger = {
-is_member_of_international_organization = international_organization:hanseatic_league
-has_ports = yes
-navy_size > 0
-}
+	trigger = {
+		is_member_of_international_organization = international_organization:hanseatic_league
+		has_ports = yes
+		navy_size > 0
+		}
 
-dynamic_historical_event = {
-tag = LUB
-from = 1400.1.1
-to = 1600.1.1
-monthly_chance = 3
-}
+	dynamic_historical_event = {
+		tag = LUB
+		from = 1400.1.1
+		to = 1600.1.1
+		monthly_chance = 3
+		}
 
-option = {
-name = hanseatic_league_events.2.a
-add_country_modifier = {
-modifier = naval_morale_bonus
-duration = 3650
-}
-international_organization:hanseatic_league = {
-add_international_organization_modifier = {
-modifier = global_naval_forcelimit_modifier
-duration = 3650
-value = 0.05
-}
-}
-}
+	option = {
+		name = hanseatic_league_events.2.a
+		add_country_modifier = {
+			modifier = naval_morale_bonus
+			duration = 3650
+			}
+		international_organization:hanseatic_league = {
+			add_international_organization_modifier = {
+				modifier = global_naval_forcelimit_modifier
+				duration = 3650
+				value = 0.05
+				}
+			}
+		}
 
-option = {
-name = hanseatic_league_events.2.b
-add_gold = -25
-add_prestige = -5
-}
-}
+	option = {
+		name = hanseatic_league_events.2.b
+		add_gold = -25
+		add_prestige = -5
+		}
+	}
 
 # New Kontor Established
 hanseatic_league_events.3 = {
-type = country_event
-category = io_event
-title = hanseatic_league_events.3.title
-desc = hanseatic_league_events.3.desc
-fire_only_once = yes
+	type = country_event
+	category = io_event
+	title = hanseatic_league_events.3.title
+	desc = hanseatic_league_events.3.desc
+	fire_only_once = yes
 
-trigger = {
-is_member_of_international_organization = international_organization:hanseatic_league
-any_owned_province = { trade_goods = grain }
-}
+	trigger = {
+		is_member_of_international_organization = international_organization:hanseatic_league
+		any_owned_province = { trade_goods = grain }
+		}
 
-dynamic_historical_event = {
-tag = HAM
-from = 1300.1.1
-to = 1500.1.1
-monthly_chance = 4
-}
+	dynamic_historical_event = {
+		tag = HAM
+		from = 1300.1.1
+		to = 1500.1.1
+		monthly_chance = 4
+		}
 
-option = {
-name = hanseatic_league_events.3.a
-add_country_modifier = {
-modifier = trade_efficiency_bonus
-duration = 3650
-}
-international_organization:hanseatic_league = {
-add_international_organization_modifier = {
-modifier = trade_efficiency
-duration = 3650
-value = 0.03
-}
-}
-}
+	option = {
+		name = hanseatic_league_events.3.a
+		add_country_modifier = {
+			modifier = trade_efficiency_bonus
+			duration = 3650
+			}
+		international_organization:hanseatic_league = {
+			add_international_organization_modifier = {
+				modifier = trade_efficiency
+				duration = 3650
+				value = 0.03
+				}
+			}
+		}
 
-option = {
-name = hanseatic_league_events.3.b
-add_prestige = -5
-}
-}
+	option = {
+		name = hanseatic_league_events.3.b
+		add_prestige = -5
+		}
+	}
 
 # Merchant Privileges Granted
 hanseatic_league_events.4 = {
-type = country_event
-category = io_event
-title = hanseatic_league_events.4.title
-desc = hanseatic_league_events.4.desc
-fire_only_once = yes
+	type = country_event
+	category = io_event
+	title = hanseatic_league_events.4.title
+	desc = hanseatic_league_events.4.desc
+	fire_only_once = yes
 
-trigger = {
-is_member_of_international_organization = international_organization:hanseatic_league
-diplomatic_capacity > 0
-}
+	trigger = {
+		is_member_of_international_organization = international_organization:hanseatic_league
+		diplomatic_capacity > 0
+		}
 
-dynamic_historical_event = {
-tag = BRM
-from = 1350.1.1
-to = 1550.1.1
-monthly_chance = 6
-}
+	dynamic_historical_event = {
+		tag = BRM
+		from = 1350.1.1
+		to = 1550.1.1
+		monthly_chance = 6
+		}
 
-option = {
-name = hanseatic_league_events.4.a
-add_country_modifier = {
-modifier = trade_efficiency_bonus
-duration = 3650
-}
-international_organization:hanseatic_league = {
-add_international_organization_modifier = {
-modifier = diplomatic_reputation
-duration = 3650
-value = 0.05
-}
-}
-}
+	option = {
+		name = hanseatic_league_events.4.a
+		add_country_modifier = {
+			modifier = trade_efficiency_bonus
+			duration = 3650
+			}
+		international_organization:hanseatic_league = {
+			add_international_organization_modifier = {
+				modifier = diplomatic_reputation
+				duration = 3650
+				value = 0.05
+				}
+			}
+		}
 
-option = {
-name = hanseatic_league_events.4.b
-add_country_modifier = {
-modifier = diplomatic_capacity
-duration = 3650
-}
-}
-}
+	option = {
+		name = hanseatic_league_events.4.b
+		add_country_modifier = {
+			modifier = diplomatic_capacity
+			duration = 3650
+			}
+		}
+	}
 
 # Internal League Reform
 hanseatic_league_events.5 = {
-type = country_event
-category = io_event
-title = hanseatic_league_events.5.title
-desc = hanseatic_league_events.5.desc
-fire_only_once = yes
+	type = country_event
+	category = io_event
+	title = hanseatic_league_events.5.title
+	desc = hanseatic_league_events.5.desc
+	fire_only_once = yes
 
-trigger = {
-is_member_of_international_organization = international_organization:hanseatic_league
-stability > -1
-}
+	trigger = {
+		is_member_of_international_organization = international_organization:hanseatic_league
+		stability > -1
+		}
 
-dynamic_historical_event = {
-tag = HSA
-from = 1400.1.1
-to = 1600.1.1
-monthly_chance = 2
-}
+	dynamic_historical_event = {
+		tag = HSA
+		from = 1400.1.1
+		to = 1600.1.1
+		monthly_chance = 2
+		}
 
-option = {
-name = hanseatic_league_events.5.a
-international_organization:hanseatic_league = {
-add_international_organization_modifier = {
-modifier = trade_efficiency
-duration = 3650
-value = 0.04
-}
-}
-add_country_modifier = {
-modifier = stability_cost_reduction
-duration = 3650
-}
-}
+	option = {
+		name = hanseatic_league_events.5.a
+		international_organization:hanseatic_league = {
+			add_international_organization_modifier = {
+				modifier = trade_efficiency
+				duration = 3650
+				value = 0.04
+				}
+			}
+		add_country_modifier = {
+			modifier = stability_cost_reduction
+			duration = 3650
+			}
+		}
 
-option = {
-name = hanseatic_league_events.5.b
-random_owned_province = {
-add_local_unrest = 5
-}
-}
-}
+	option = {
+		name = hanseatic_league_events.5.b
+		random_owned_province = {
+			add_local_unrest = 5
+			}
+		}
+	}
 
 # External Trade Embargo
 hanseatic_league_events.6 = {
-type = country_event
-category = io_event
-title = hanseatic_league_events.6.title
-desc = hanseatic_league_events.6.desc
-fire_only_once = yes
+	type = country_event
+	category = io_event
+	title = hanseatic_league_events.6.title
+	desc = hanseatic_league_events.6.desc
+	fire_only_once = yes
 
-trigger = {
-is_member_of_international_organization = international_organization:hanseatic_league
-any_neighbor_country = { exists = yes }
-}
+	trigger = {
+		is_member_of_international_organization = international_organization:hanseatic_league
+		any_neighbor_country = { exists = yes }
+		}
 
-dynamic_historical_event = {
-tag = LUB
-from = 1450.1.1
-to = 1650.1.1
-monthly_chance = 3
-}
+	dynamic_historical_event = {
+		tag = LUB
+		from = 1450.1.1
+		to = 1650.1.1
+		monthly_chance = 3
+		}
 
-option = {
-name = hanseatic_league_events.6.a
-international_organization:hanseatic_league = {
-add_international_organization_modifier = {
-modifier = trade_efficiency
-duration = 3650
-value = 0.1
-}
-}
-}
+	option = {
+		name = hanseatic_league_events.6.a
+		international_organization:hanseatic_league = {
+			add_international_organization_modifier = {
+				modifier = trade_efficiency
+				duration = 3650
+				value = 0.1
+				}
+			}
+		}
 
-option = {
-name = hanseatic_league_events.6.b
-add_prestige = 5
-add_country_modifier = {
-modifier = trade_efficiency_bonus
-duration = 3650
-}
-}
-}
+	option = {
+		name = hanseatic_league_events.6.b
+		add_prestige = 5
+		add_country_modifier = {
+			modifier = trade_efficiency_bonus
+			duration = 3650
+			}
+		}
+	}
 
 # Economic Boom Period
 hanseatic_league_events.7 = {
-type = country_event
-category = io_event
-title = hanseatic_league_events.7.title
-desc = hanseatic_league_events.7.desc
-fire_only_once = yes
+	type = country_event
+	category = io_event
+	title = hanseatic_league_events.7.title
+	desc = hanseatic_league_events.7.desc
+	fire_only_once = yes
 
-trigger = {
-is_member_of_international_organization = international_organization:hanseatic_league
-any_owned_province = { trade_goods = grain }
-}
+	trigger = {
+		is_member_of_international_organization = international_organization:hanseatic_league
+		any_owned_province = { trade_goods = grain }
+		}
 
-dynamic_historical_event = {
-tag = HAM
-from = 1300.1.1
-to = 1700.1.1
-monthly_chance = 4
-}
+	dynamic_historical_event = {
+		tag = HAM
+		from = 1300.1.1
+		to = 1700.1.1
+		monthly_chance = 4
+		}
 
-option = {
-name = hanseatic_league_events.7.a
-add_country_modifier = {
-modifier = monthly_gold_income
-duration = 3650
-}
-international_organization:hanseatic_league = {
-add_international_organization_modifier = {
-modifier = trade_efficiency
-duration = 3650
-value = 0.02
-}
-}
-}
+	option = {
+		name = hanseatic_league_events.7.a
+		add_country_modifier = {
+			modifier = monthly_gold_income
+			duration = 3650
+			}
+		international_organization:hanseatic_league = {
+			add_international_organization_modifier = {
+				modifier = trade_efficiency
+				duration = 3650
+				value = 0.02
+				}
+			}
+		}
 
-option = {
-name = hanseatic_league_events.7.b
-every_international_organization_member = {
-country_event = { id = hanseatic_league_events.7 }
-}
-}
-}
+	option = {
+		name = hanseatic_league_events.7.b
+		every_international_organization_member = {
+			country_event = { id = hanseatic_league_events.7 }
+			}
+		}
+	}
 
 # Diplomatic Incident
 hanseatic_league_events.8 = {
-type = country_event
-category = io_event
-title = hanseatic_league_events.8.title
-desc = hanseatic_league_events.8.desc
-fire_only_once = yes
+	type = country_event
+	category = io_event
+	title = hanseatic_league_events.8.title
+	desc = hanseatic_league_events.8.desc
+	fire_only_once = yes
 
-trigger = {
-is_member_of_international_organization = international_organization:hanseatic_league
-diplomatic_capacity > 0
-}
+	trigger = {
+		is_member_of_international_organization = international_organization:hanseatic_league
+		diplomatic_capacity > 0
+		}
 
-dynamic_historical_event = {
-tag = BRM
-from = 1350.1.1
-to = 1550.1.1
-monthly_chance = 5
-}
+	dynamic_historical_event = {
+		tag = BRM
+		from = 1350.1.1
+		to = 1550.1.1
+		monthly_chance = 5
+		}
 
-option = {
-name = hanseatic_league_events.8.a
-add_prestige = 5
-add_gold = -10
-}
+	option = {
+		name = hanseatic_league_events.8.a
+		add_prestige = 5
+		add_gold = -10
+		}
 
-option = {
-name = hanseatic_league_events.8.b
-add_prestige = -2
-add_gold = 25
-}
-}
+	option = {
+		name = hanseatic_league_events.8.b
+		add_prestige = -2
+		add_gold = 25
+		}
+	}
 
 # Technological Innovation
 hanseatic_league_events.9 = {
-type = country_event
-category = io_event
-title = hanseatic_league_events.9.title
-desc = hanseatic_league_events.9.desc
-fire_only_once = yes
+	type = country_event
+	category = io_event
+	title = hanseatic_league_events.9.title
+	desc = hanseatic_league_events.9.desc
+	fire_only_once = yes
 
-trigger = {
-is_member_of_international_organization = international_organization:hanseatic_league
-has_ports = yes
-}
+	trigger = {
+		is_member_of_international_organization = international_organization:hanseatic_league
+		has_ports = yes
+		}
 
-dynamic_historical_event = {
-tag = HSA
-from = 1400.1.1
-to = 1600.1.1
-monthly_chance = 3
-}
+	dynamic_historical_event = {
+		tag = HSA
+		from = 1400.1.1
+		to = 1600.1.1
+		monthly_chance = 3
+		}
 
-option = {
-name = hanseatic_league_events.9.a
-international_organization:hanseatic_league = {
-add_international_organization_modifier = {
-modifier = naval_morale_modifier
-duration = 3650
-value = 0.1
-}
-}
-add_country_modifier = {
-modifier = trade_efficiency_bonus
-duration = 3650
-}
-}
+	option = {
+		name = hanseatic_league_events.9.a
+		international_organization:hanseatic_league = {
+			add_international_organization_modifier = {
+				modifier = naval_morale_modifier
+				duration = 3650
+				value = 0.1
+				}
+			}
+		add_country_modifier = {
+			modifier = trade_efficiency_bonus
+			duration = 3650
+			}
+		}
 
-option = {
-name = hanseatic_league_events.9.b
-add_country_modifier = {
-modifier = naval_maintenance_reduction
-duration = 3650
-}
-}
-}
+	option = {
+		name = hanseatic_league_events.9.b
+		add_country_modifier = {
+			modifier = naval_maintenance_reduction
+			duration = 3650
+			}
+		}
+	}
 
 # Rival League Formation
 hanseatic_league_events.10 = {
-type = country_event
-category = io_event
-title = hanseatic_league_events.10.title
-desc = hanseatic_league_events.10.desc
-fire_only_once = yes
+	type = country_event
+	category = io_event
+	title = hanseatic_league_events.10.title
+	desc = hanseatic_league_events.10.desc
+	fire_only_once = yes
 
-trigger = {
-is_member_of_international_organization = international_organization:hanseatic_league
-any_owned_province = { trade_goods = grain }
-}
+	trigger = {
+		is_member_of_international_organization = international_organization:hanseatic_league
+		any_owned_province = { trade_goods = grain }
+		}
 
-dynamic_historical_event = {
-tag = LUB
-from = 1450.1.1
-to = 1650.1.1
-monthly_chance = 2
-}
+	dynamic_historical_event = {
+		tag = LUB
+		from = 1450.1.1
+		to = 1650.1.1
+		monthly_chance = 2
+		}
 
-option = {
-name = hanseatic_league_events.10.a
-international_organization:hanseatic_league = {
-add_international_organization_modifier = {
-modifier = global_merchant_capacity_modifier
-duration = 3650
-value = 0.05
-}
-}
-}
+	option = {
+		name = hanseatic_league_events.10.a
+		international_organization:hanseatic_league = {
+			add_international_organization_modifier = {
+				modifier = global_merchant_capacity_modifier
+				duration = 3650
+				value = 0.05
+				}
+			}
+		}
 
-option = {
-name = hanseatic_league_events.10.b
-add_country_modifier = {
-modifier = diplomatic_capacity
-duration = 3650
-}
-random_owned_province = {
-add_local_unrest = 5
-}
-}
-}
+	option = {
+		name = hanseatic_league_events.10.b
+		add_country_modifier = {
+			modifier = diplomatic_capacity
+			duration = 3650
+			}
+		random_owned_province = {
+			add_local_unrest = 5
+			}
+		}
+	}
 
 # Plague Disruption
 hanseatic_league_events.11 = {
-type = country_event
-category = io_event
-title = hanseatic_league_events.11.title
-desc = hanseatic_league_events.11.desc
-fire_only_once = yes
+	type = country_event
+	category = io_event
+	title = hanseatic_league_events.11.title
+	desc = hanseatic_league_events.11.desc
+	fire_only_once = yes
 
-trigger = {
-is_member_of_international_organization = international_organization:hanseatic_league
-any_owned_province = { controlled_by = root }
-}
+	trigger = {
+		is_member_of_international_organization = international_organization:hanseatic_league
+		any_owned_province = { controlled_by = root }
+		}
 
-dynamic_historical_event = {
-tag = HAM
-from = 1300.1.1
-to = 1700.1.1
-monthly_chance = 3
-}
+	dynamic_historical_event = {
+		tag = HAM
+		from = 1300.1.1
+		to = 1700.1.1
+		monthly_chance = 3
+		}
 
-option = {
-name = hanseatic_league_events.11.a
-random_owned_province = {
-add_local_unrest = -10
-}
-add_country_modifier = {
-modifier = trade_efficiency_bonus
-duration = 3650
-}
-}
+	option = {
+		name = hanseatic_league_events.11.a
+		random_owned_province = {
+			add_local_unrest = -10
+			}
+		add_country_modifier = {
+			modifier = trade_efficiency_bonus
+			duration = 3650
+			}
+		}
 
-option = {
-name = hanseatic_league_events.11.b
-add_country_modifier = {
-modifier = trade_efficiency_bonus
-duration = 3650
-}
-add_country_modifier = {
-modifier = global_unrest
-duration = 3650
-}
-}
-}
+	option = {
+		name = hanseatic_league_events.11.b
+		add_country_modifier = {
+			modifier = trade_efficiency_bonus
+			duration = 3650
+			}
+		add_country_modifier = {
+			modifier = global_unrest
+			duration = 3650
+			}
+		}
+	}
 
 # New Goods Discovery
 hanseatic_league_events.12 = {
-type = country_event
-category = io_event
-title = hanseatic_league_events.12.title
-desc = hanseatic_league_events.12.desc
-fire_only_once = yes
+	type = country_event
+	category = io_event
+	title = hanseatic_league_events.12.title
+	desc = hanseatic_league_events.12.desc
+	fire_only_once = yes
 
-trigger = {
-is_member_of_international_organization = international_organization:hanseatic_league
-has_explorer = yes
-}
+	trigger = {
+		is_member_of_international_organization = international_organization:hanseatic_league
+		has_explorer = yes
+		}
 
-dynamic_historical_event = {
-tag = BRM
-from = 1400.1.1
-to = 1600.1.1
-monthly_chance = 4
-}
+	dynamic_historical_event = {
+		tag = BRM
+		from = 1400.1.1
+		to = 1600.1.1
+		monthly_chance = 4
+		}
 
-option = {
-name = hanseatic_league_events.12.a
-international_organization:hanseatic_league = {
-add_international_organization_modifier = {
-modifier = trade_efficiency
-duration = 3650
-value = 0.05
-}
-}
-add_country_modifier = {
-modifier = monthly_gold_income
-duration = 3650
-}
-}
+	option = {
+		name = hanseatic_league_events.12.a
+		international_organization:hanseatic_league = {
+			add_international_organization_modifier = {
+				modifier = trade_efficiency
+				duration = 3650
+				value = 0.05
+				}
+			}
+		add_country_modifier = {
+			modifier = monthly_gold_income
+			duration = 3650
+			}
+		}
 
-option = {
-name = hanseatic_league_events.12.b
-add_prestige = 5
-}
-}
+	option = {
+		name = hanseatic_league_events.12.b
+		add_prestige = 5
+		}
+	}
 
 # Naval Skirmish
 hanseatic_league_events.13 = {
-type = country_event
-category = io_event
-title = hanseatic_league_events.13.title
-desc = hanseatic_league_events.13.desc
-fire_only_once = yes
+	type = country_event
+	category = io_event
+	title = hanseatic_league_events.13.title
+	desc = hanseatic_league_events.13.desc
+	fire_only_once = yes
 
-trigger = {
-is_member_of_international_organization = international_organization:hanseatic_league
-navy_size > 0
-}
+	trigger = {
+		is_member_of_international_organization = international_organization:hanseatic_league
+		navy_size > 0
+		}
 
-dynamic_historical_event = {
-tag = HSA
-from = 1350.1.1
-to = 1550.1.1
-monthly_chance = 5
-}
+	dynamic_historical_event = {
+		tag = HSA
+		from = 1350.1.1
+		to = 1550.1.1
+		monthly_chance = 5
+		}
 
-option = {
-name = hanseatic_league_events.13.a
-add_country_modifier = {
-modifier = naval_morale_bonus
-duration = 3650
-}
-add_prestige = 3
-}
+	option = {
+		name = hanseatic_league_events.13.a
+		add_country_modifier = {
+			modifier = naval_morale_bonus
+			duration = 3650
+			}
+		add_prestige = 3
+		}
 
-option = {
-name = hanseatic_league_events.13.b
-add_country_modifier = {
-modifier = naval_morale_penalty
-duration = 3650
-}
-add_prestige = -2
-}
-}
+	option = {
+		name = hanseatic_league_events.13.b
+		add_country_modifier = {
+			modifier = naval_morale_penalty
+			duration = 3650
+			}
+		add_prestige = -2
+		}
+	}
 
 # Merchant Guild Expansion
 hanseatic_league_events.14 = {
-type = country_event
-category = io_event
-title = hanseatic_league_events.14.title
-desc = hanseatic_league_events.14.desc
-fire_only_once = yes
+	type = country_event
+	category = io_event
+	title = hanseatic_league_events.14.title
+	desc = hanseatic_league_events.14.desc
+	fire_only_once = yes
 
-trigger = {
-is_member_of_international_organization = international_organization:hanseatic_league
-}
+	trigger = {
+		is_member_of_international_organization = international_organization:hanseatic_league
+		}
 
-dynamic_historical_event = {
-tag = LUB
-from = 1300.1.1
-to = 1500.1.1
-monthly_chance = 6
-}
+	dynamic_historical_event = {
+		tag = LUB
+		from = 1300.1.1
+		to = 1500.1.1
+		monthly_chance = 6
+		}
 
-option = {
-name = hanseatic_league_events.14.a
-international_organization:hanseatic_league = {
-add_international_organization_modifier = {
-modifier = global_burghers_desired_pop
-duration = 3650
-value = 0.02
-}
-}
-add_country_modifier = {
-modifier = trade_efficiency_bonus
-duration = 3650
-}
-}
+	option = {
+		name = hanseatic_league_events.14.a
+		international_organization:hanseatic_league = {
+			add_international_organization_modifier = {
+				modifier = global_burghers_desired_pop
+				duration = 3650
+				value = 0.02
+				}
+			}
+		add_country_modifier = {
+			modifier = trade_efficiency_bonus
+			duration = 3650
+			}
+		}
 
-option = {
-name = hanseatic_league_events.14.b
-random_owned_province = {
-add_local_unrest = 3
-}
-}
-}
+	option = {
+		name = hanseatic_league_events.14.b
+		random_owned_province = {
+			add_local_unrest = 3
+			}
+		}
+	}
 
 # Taxation Dispute
 hanseatic_league_events.15 = {
-type = country_event
-category = io_event
-title = hanseatic_league_events.15.title
-desc = hanseatic_league_events.15.desc
-fire_only_once = yes
+	type = country_event
+	category = io_event
+	title = hanseatic_league_events.15.title
+	desc = hanseatic_league_events.15.desc
+	fire_only_once = yes
 
-trigger = {
-is_member_of_international_organization = international_organization:hanseatic_league
-}
+	trigger = {
+		is_member_of_international_organization = international_organization:hanseatic_league
+		}
 
-dynamic_historical_event = {
-tag = HAM
-from = 1400.1.1
-to = 1600.1.1
-monthly_chance = 4
-}
+	dynamic_historical_event = {
+		tag = HAM
+		from = 1400.1.1
+		to = 1600.1.1
+		monthly_chance = 4
+		}
 
-option = {
-name = hanseatic_league_events.15.a
-international_organization:hanseatic_league = {
-add_international_organization_modifier = {
-modifier = monthly_gold_income
-duration = 3650
-value = 0.2
-}
-}
-}
+	option = {
+		name = hanseatic_league_events.15.a
+		international_organization:hanseatic_league = {
+			add_international_organization_modifier = {
+				modifier = monthly_gold_income
+				duration = 3650
+				value = 0.2
+				}
+			}
+		}
 
-option = {
-name = hanseatic_league_events.15.b
-every_international_organization_member = {
-country_event = { id = hanseatic_league_events.15 }
-}
-random_owned_province = {
-add_local_unrest = 5
-}
-}
-}
+	option = {
+		name = hanseatic_league_events.15.b
+		every_international_organization_member = {
+			country_event = { id = hanseatic_league_events.15 }
+			}
+		random_owned_province = {
+			add_local_unrest = 5
+			}
+		}
+	}
 
 # Cultural Exchange
 hanseatic_league_events.16 = {
-type = country_event
-category = io_event
-title = hanseatic_league_events.16.title
-desc = hanseatic_league_events.16.desc
-fire_only_once = yes
+	type = country_event
+	category = io_event
+	title = hanseatic_league_events.16.title
+	desc = hanseatic_league_events.16.desc
+	fire_only_once = yes
 
-trigger = {
-is_member_of_international_organization = international_organization:hanseatic_league
-stability > 0
-}
+	trigger = {
+		is_member_of_international_organization = international_organization:hanseatic_league
+		stability > 0
+		}
 
-dynamic_historical_event = {
-tag = BRM
-from = 1350.1.1
-to = 1550.1.1
-monthly_chance = 5
-}
+	dynamic_historical_event = {
+		tag = BRM
+		from = 1350.1.1
+		to = 1550.1.1
+		monthly_chance = 5
+		}
 
-option = {
-name = hanseatic_league_events.16.a
-add_country_modifier = {
-modifier = religious_tolerance_bonus
-duration = 3650
-}
-international_organization:hanseatic_league = {
-add_international_organization_modifier = {
-modifier = diplomatic_reputation
-duration = 3650
-value = 0.03
-}
-}
-}
+	option = {
+		name = hanseatic_league_events.16.a
+		add_country_modifier = {
+			modifier = religious_tolerance_bonus
+			duration = 3650
+			}
+		international_organization:hanseatic_league = {
+			add_international_organization_modifier = {
+				modifier = diplomatic_reputation
+				duration = 3650
+				value = 0.03
+				}
+			}
+		}
 
-option = {
-name = hanseatic_league_events.16.b
-add_country_modifier = {
-modifier = trade_efficiency_bonus
-duration = 3650
-}
-}
-}
+	option = {
+		name = hanseatic_league_events.16.b
+		add_country_modifier = {
+			modifier = trade_efficiency_bonus
+			duration = 3650
+			}
+		}
+	}
 
 # Religious Tensions
 hanseatic_league_events.17 = {
-type = country_event
-category = io_event
-title = hanseatic_league_events.17.title
-desc = hanseatic_league_events.17.desc
-fire_only_once = yes
+	type = country_event
+	category = io_event
+	title = hanseatic_league_events.17.title
+	desc = hanseatic_league_events.17.desc
+	fire_only_once = yes
 
-trigger = {
-is_member_of_international_organization = international_organization:hanseatic_league
-any_international_organization_member = { NOT = { religion = root.religion } }
-}
+	trigger = {
+		is_member_of_international_organization = international_organization:hanseatic_league
+		any_international_organization_member = { NOT = { religion = root.religion } }
+		}
 
-dynamic_historical_event = {
-tag = HSA
-from = 1500.1.1
-to = 1700.1.1
-monthly_chance = 3
-}
+	dynamic_historical_event = {
+		tag = HSA
+		from = 1500.1.1
+		to = 1700.1.1
+		monthly_chance = 3
+		}
 
-option = {
-name = hanseatic_league_events.17.a
-add_country_modifier = {
-modifier = religious_tolerance_bonus
-duration = 3650
-}
-add_country_modifier = {
-modifier = stability_cost_reduction
-duration = 3650
-}
-}
+	option = {
+		name = hanseatic_league_events.17.a
+		add_country_modifier = {
+			modifier = religious_tolerance_bonus
+			duration = 3650
+			}
+		add_country_modifier = {
+			modifier = stability_cost_reduction
+			duration = 3650
+			}
+		}
 
-option = {
-name = hanseatic_league_events.17.b
-random_owned_province = {
-add_local_unrest = -5
-}
-add_country_modifier = {
-modifier = religious_tolerance_penalty
-duration = 3650
-}
-}
-}
+	option = {
+		name = hanseatic_league_events.17.b
+		random_owned_province = {
+			add_local_unrest = -5
+			}
+		add_country_modifier = {
+			modifier = religious_tolerance_penalty
+			duration = 3650
+			}
+		}
+	}
 
 # Succession Crisis
 hanseatic_league_events.18 = {
-type = country_event
-category = io_event
-title = hanseatic_league_events.18.title
-desc = hanseatic_league_events.18.desc
-fire_only_once = yes
+	type = country_event
+	category = io_event
+	title = hanseatic_league_events.18.title
+	desc = hanseatic_league_events.18.desc
+	fire_only_once = yes
 
-trigger = {
-is_member_of_international_organization = international_organization:hanseatic_league
-}
+	trigger = {
+		is_member_of_international_organization = international_organization:hanseatic_league
+		}
 
-dynamic_historical_event = {
-tag = LUB
-from = 1300.1.1
-to = 1700.1.1
-monthly_chance = 4
-}
+	dynamic_historical_event = {
+		tag = LUB
+		from = 1300.1.1
+		to = 1700.1.1
+		monthly_chance = 4
+		}
 
-option = {
-name = hanseatic_league_events.18.a
-add_country_modifier = {
-modifier = diplomatic_capacity
-duration = 3650
-}
-add_prestige = 2
-}
+	option = {
+		name = hanseatic_league_events.18.a
+		add_country_modifier = {
+			modifier = diplomatic_capacity
+			duration = 3650
+			}
+		add_prestige = 2
+		}
 
-option = {
-name = hanseatic_league_events.18.b
-random_owned_province = {
-add_local_unrest = 10
-}
-add_prestige = -5
-}
-}
+	option = {
+		name = hanseatic_league_events.18.b
+		random_owned_province = {
+			add_local_unrest = 10
+			}
+		add_prestige = -5
+		}
+	}
 
 # Exploration Opportunity
 hanseatic_league_events.19 = {
-type = country_event
-category = io_event
-title = hanseatic_league_events.19.title
-desc = hanseatic_league_events.19.desc
-fire_only_once = yes
+	type = country_event
+	category = io_event
+	title = hanseatic_league_events.19.title
+	desc = hanseatic_league_events.19.desc
+	fire_only_once = yes
 
-trigger = {
-is_member_of_international_organization = international_organization:hanseatic_league
-has_explorer = yes
-}
+	trigger = {
+		is_member_of_international_organization = international_organization:hanseatic_league
+		has_explorer = yes
+		}
 
-dynamic_historical_event = {
-tag = HAM
-from = 1400.1.1
-to = 1600.1.1
-monthly_chance = 3
-}
+	dynamic_historical_event = {
+		tag = HAM
+		from = 1400.1.1
+		to = 1600.1.1
+		monthly_chance = 3
+		}
 
-option = {
-name = hanseatic_league_events.19.a
-international_organization:hanseatic_league = {
-add_international_organization_modifier = {
-modifier = global_merchant_capacity_modifier
-duration = 3650
-value = 0.03
-}
-}
-add_country_modifier = {
-modifier = trade_efficiency_bonus
-duration = 3650
-}
-}
+	option = {
+		name = hanseatic_league_events.19.a
+		international_organization:hanseatic_league = {
+			add_international_organization_modifier = {
+				modifier = global_merchant_capacity_modifier
+				duration = 3650
+				value = 0.03
+				}
+			}
+		add_country_modifier = {
+			modifier = trade_efficiency_bonus
+			duration = 3650
+			}
+		}
 
-option = {
-name = hanseatic_league_events.19.b
-add_country_modifier = {
-modifier = monthly_gold_income
-duration = 3650
-}
-}
-}
+	option = {
+		name = hanseatic_league_events.19.b
+		add_country_modifier = {
+			modifier = monthly_gold_income
+			duration = 3650
+			}
+		}
+	}
 
 # League Assembly (Tagfahrt)
 hanseatic_league_events.20 = {
-type = country_event
-category = io_event
-title = hanseatic_league_events.20.title
-desc = hanseatic_league_events.20.desc
-fire_only_once = yes
+	type = country_event
+	category = io_event
+	title = hanseatic_league_events.20.title
+	desc = hanseatic_league_events.20.desc
+	fire_only_once = yes
 
-trigger = {
-is_member_of_international_organization = international_organization:hanseatic_league
-}
+	trigger = {
+		is_member_of_international_organization = international_organization:hanseatic_league
+		}
 
-dynamic_historical_event = {
-tag = HSA
-from = 1300.1.1
-to = 1700.1.1
-monthly_chance = 6
-}
+	dynamic_historical_event = {
+		tag = HSA
+		from = 1300.1.1
+		to = 1700.1.1
+		monthly_chance = 6
+		}
 
-option = {
-name = hanseatic_league_events.20.a
-international_organization:hanseatic_league = {
-add_international_organization_modifier = {
-modifier = diplomatic_capacity
-duration = 3650
-value = 0.5
-}
-}
-add_country_modifier = {
-modifier = trade_efficiency_bonus
-duration = 3650
-}
-}
+	option = {
+		name = hanseatic_league_events.20.a
+		international_organization:hanseatic_league = {
+			add_international_organization_modifier = {
+				modifier = diplomatic_capacity
+				duration = 3650
+				value = 0.5
+				}
+			}
+		add_country_modifier = {
+			modifier = trade_efficiency_bonus
+			duration = 3650
+			}
+		}
 
-option = {
-name = hanseatic_league_events.20.b
-add_prestige = -2
-}
-}
+	option = {
+		name = hanseatic_league_events.20.b
+		add_prestige = -2
+		}
+	}

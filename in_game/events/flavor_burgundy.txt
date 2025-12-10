@@ -16,12 +16,13 @@ flavor_burgundy.100 = {
 		from = 1361.1.1
 		to = 1361.12.31
 		monthly_chance = 100
-		illustration_tags = { 10 = prosperity 10 = interior }
 	}
+
+	illustration_tags = { 10 = prosperity 10 = interior }
 
 	
 	trigger = {
-		tag = c:BUR
+		tag = BUR
 		is_subject_of = c:FRA
 		c:FRA = { exists = yes }
 	}
@@ -230,7 +231,7 @@ flavor_burgundy.102 = {
 
 	
 	trigger = {
-		tag = c:BUR
+		tag = BUR
 		any_owned_location = { exists = yes }
 	}
 	
@@ -327,7 +328,7 @@ flavor_burgundy.103 = {
     
 	
 	trigger = {
-		tag = c:BUR
+		tag = BUR
 		prestige >= 50
 		any_owned_location = {
 			development >= 10
@@ -390,7 +391,7 @@ flavor_burgundy.104 = {
     
 	
 	trigger = {
-		tag = c:BUR
+		tag = BUR
 		current_date >= 1421.1.1
 		exists = c:NAM
 	}
@@ -436,7 +437,7 @@ flavor_burgundy.105 = {
     
 	
 	trigger = {
-		tag = c:BUR
+		tag = BUR
 		current_date >= 1430.1.1
 		exists = c:BRB
 	}
@@ -492,7 +493,7 @@ flavor_burgundy.106 = {
     
 	
 	trigger = {
-		tag = c:BUR
+		tag = BUR
 		current_date >= 1433.1.1
 		OR = {
 			exists = c:HOL
@@ -562,7 +563,7 @@ flavor_burgundy.107 = {
     
 	
 	trigger = {
-		tag = c:BUR
+		tag = BUR
 		current_date >= 1435.1.1
 		exists = c:FRA
 	}
@@ -624,7 +625,7 @@ flavor_burgundy.108 = {
 	
 	
 	trigger = {
-		tag = c:BUR
+		tag = BUR
 		current_date >= 1443.1.1
 		exists = c:LUX
 	}
@@ -682,7 +683,7 @@ flavor_burgundy.109 = {
 	
 	
 	trigger = {
-		tag = c:BUR
+		tag = BUR
 		NOT = { is_subject = no }
 	}
 	
@@ -749,7 +750,7 @@ flavor_burgundy.110 = {
 	
     
 	trigger = {
-		tag = c:BUR
+		tag = BUR
 		any_owned_location = { exists = yes }
 		prestige >= 40
 	}
@@ -810,7 +811,7 @@ flavor_burgundy.111 = {
 	
     
 	trigger = {
-		tag = c:BUR
+		tag = BUR
 		is_subject_of = c:SPA
 		c:SPA = { exists = yes }
 		any_owned_location = { exists = yes }
