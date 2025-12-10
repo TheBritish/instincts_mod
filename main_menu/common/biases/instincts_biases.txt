@@ -32,3 +32,8 @@ brewer_of_ghent_england_betrayal = {
     yearly_decay = 3
 }
 
+brewer_of_ghent_england_alliance = {
+    value = 200
+    yearly_decay = 5
+}
+

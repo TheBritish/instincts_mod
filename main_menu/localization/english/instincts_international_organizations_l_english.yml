@@ -174,3 +174,6 @@
  hl_unified_diplomacy: "Unified Diplomacy"
  hl_coordinated_diplomacy: "Coordinated Diplomacy"
 
+# Opinion Modifiers
+brewer_of_ghent_england_alliance: "Brewer of Ghent Alliance"
+

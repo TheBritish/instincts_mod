@@ -62,6 +62,7 @@ hundred_years_war.220 = { #The Brewer of Ghent
 				type = relation_type:alliance
 			}
 		}
+        add_opinion = { target = c:ENG modifier = brewer_of_ghent_england_alliance }
         add_opinion = { target = c:FRA modifier = brewer_of_ghent_france_rift }
         add_country_modifier = { modifier = wool_trade_restored months = 60 }
 		add_country_modifier = { modifier = fla_diplomatic_capacity months = 60 }
