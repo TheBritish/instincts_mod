@@ -178,4 +178,9 @@ wool_famine = {
 	monthly_income = -0.05
 }
 
-
+fla_diplomatic_capacity = {
+	game_data = {
+		category = country
+	}
+	diplomatic_capacity = 4
+}
