@@ -571,7 +571,10 @@ hanseatic_league_events.16 = {
 	
 	option = {
 		name = hanseatic_league_events.16.a
-		add_stability = 0.05
+		add_country_modifier = {
+			modifier = religious_tolerance_bonus
+			duration = 3650
+		}
 		international_organization:hanseatic_league = {
 			add_international_organization_modifier = {
 				modifier = diplomatic_reputation
@@ -608,14 +611,23 @@ hanseatic_league_events.17 = {
 	
 	option = {
 		name = hanseatic_league_events.17.a
-		add_diplomatic_reputation = 0.1
-		add_stability = 0.1
+		add_country_modifier = {
+			modifier = religious_tolerance_bonus
+			duration = 3650
+		}
+		add_country_modifier = {
+			modifier = stability_cost_reduction
+			duration = 3650
+		}
 	}
 	
 	option = {
 		name = hanseatic_league_events.17.b
 		add_local_unrest = -0.05
-		add_diplomatic_reputation = -0.05
+		add_country_modifier = {
+			modifier = religious_tolerance_penalty
+			duration = 3650
+		}
 	}
 }
 

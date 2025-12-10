@@ -184,3 +184,27 @@ fla_diplomatic_capacity = {
 	}
 	diplomatic_capacity = 4
 }
+
+# Religious Tolerance Bonus for Hanseatic League Events
+religious_tolerance_bonus = {
+	game_data = {
+		category = country
+	}
+	tolerance_heretic = 2
+}
+
+# Stability Cost Reduction for Hanseatic League Events
+stability_cost_reduction = {
+	game_data = {
+		category = country
+	}
+	stability_cost_modifier = -0.05
+}
+
+# Religious Tolerance Penalty for Hanseatic League Events
+religious_tolerance_penalty = {
+	game_data = {
+		category = country
+	}
+	tolerance_heretic = -1
+}
