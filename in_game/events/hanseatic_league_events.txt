@@ -3,7 +3,7 @@ namespace = hanseatic_league_events
 # Trade Dispute Resolution
 hanseatic_league_events.1 = {
 	type = country_event
-	category = io_event
+
 	title = hanseatic_league_events.1.title
 	desc = hanseatic_league_events.1.desc
 	fire_only_once = yes
@@ -43,7 +43,7 @@ hanseatic_league_events.1 = {
 # Pirate Raid on Trade Routes
 hanseatic_league_events.2 = {
 	type = country_event
-	category = io_event
+
 	title = hanseatic_league_events.2.title
 	desc = hanseatic_league_events.2.desc
 	fire_only_once = yes
@@ -80,7 +80,7 @@ hanseatic_league_events.2 = {
 # New Kontor Established
 hanseatic_league_events.3 = {
 	type = country_event
-	category = io_event
+
 	title = hanseatic_league_events.3.title
 	desc = hanseatic_league_events.3.desc
 	fire_only_once = yes
@@ -115,7 +115,7 @@ hanseatic_league_events.3 = {
 # Merchant Privileges Granted
 hanseatic_league_events.4 = {
 	type = country_event
-	category = io_event
+
 	title = hanseatic_league_events.4.title
 	desc = hanseatic_league_events.4.desc
 	fire_only_once = yes
@@ -153,7 +153,7 @@ hanseatic_league_events.4 = {
 # Internal League Reform
 hanseatic_league_events.5 = {
 	type = country_event
-	category = io_event
+
 	title = hanseatic_league_events.5.title
 	desc = hanseatic_league_events.5.desc
 	fire_only_once = yes
@@ -190,7 +190,7 @@ hanseatic_league_events.5 = {
 # External Trade Embargo
 hanseatic_league_events.6 = {
 	type = country_event
-	category = io_event
+
 	title = hanseatic_league_events.6.title
 	desc = hanseatic_league_events.6.desc
 	fire_only_once = yes
@@ -225,7 +225,7 @@ hanseatic_league_events.6 = {
 # Economic Boom Period
 hanseatic_league_events.7 = {
 	type = country_event
-	category = io_event
+
 	title = hanseatic_league_events.7.title
 	desc = hanseatic_league_events.7.desc
 	fire_only_once = yes
@@ -262,7 +262,7 @@ hanseatic_league_events.7 = {
 # Diplomatic Incident
 hanseatic_league_events.8 = {
 	type = country_event
-	category = io_event
+
 	title = hanseatic_league_events.8.title
 	desc = hanseatic_league_events.8.desc
 	fire_only_once = yes
@@ -289,7 +289,7 @@ hanseatic_league_events.8 = {
 # Technological Innovation
 hanseatic_league_events.9 = {
 	type = country_event
-	category = io_event
+
 	title = hanseatic_league_events.9.title
 	desc = hanseatic_league_events.9.desc
 	fire_only_once = yes
@@ -327,7 +327,7 @@ hanseatic_league_events.9 = {
 # Rival League Formation
 hanseatic_league_events.10 = {
 	type = country_event
-	category = io_event
+
 	title = hanseatic_league_events.10.title
 	desc = hanseatic_league_events.10.desc
 	fire_only_once = yes
@@ -364,7 +364,7 @@ hanseatic_league_events.10 = {
 # Plague Disruption
 hanseatic_league_events.11 = {
 	type = country_event
-	category = io_event
+
 	title = hanseatic_league_events.11.title
 	desc = hanseatic_league_events.11.desc
 	fire_only_once = yes
@@ -402,7 +402,7 @@ hanseatic_league_events.11 = {
 # New Goods Discovery
 hanseatic_league_events.12 = {
 	type = country_event
-	category = io_event
+
 	title = hanseatic_league_events.12.title
 	desc = hanseatic_league_events.12.desc
 	fire_only_once = yes
@@ -437,7 +437,7 @@ hanseatic_league_events.12 = {
 # Naval Skirmish
 hanseatic_league_events.13 = {
 	type = country_event
-	category = io_event
+
 	title = hanseatic_league_events.13.title
 	desc = hanseatic_league_events.13.desc
 	fire_only_once = yes
@@ -470,7 +470,7 @@ hanseatic_league_events.13 = {
 # Merchant Guild Expansion
 hanseatic_league_events.14 = {
 	type = country_event
-	category = io_event
+
 	title = hanseatic_league_events.14.title
 	desc = hanseatic_league_events.14.desc
 	fire_only_once = yes
@@ -506,7 +506,7 @@ hanseatic_league_events.14 = {
 # Taxation Dispute
 hanseatic_league_events.15 = {
 	type = country_event
-	category = io_event
+
 	title = hanseatic_league_events.15.title
 	desc = hanseatic_league_events.15.desc
 	fire_only_once = yes
@@ -541,7 +541,7 @@ hanseatic_league_events.15 = {
 # Cultural Exchange
 hanseatic_league_events.16 = {
 	type = country_event
-	category = io_event
+
 	title = hanseatic_league_events.16.title
 	desc = hanseatic_league_events.16.desc
 	fire_only_once = yes
@@ -579,7 +579,7 @@ hanseatic_league_events.16 = {
 # Religious Tensions
 hanseatic_league_events.17 = {
 	type = country_event
-	category = io_event
+
 	title = hanseatic_league_events.17.title
 	desc = hanseatic_league_events.17.desc
 	fire_only_once = yes
@@ -617,7 +617,7 @@ hanseatic_league_events.17 = {
 # Succession Crisis
 hanseatic_league_events.18 = {
 	type = country_event
-	category = io_event
+
 	title = hanseatic_league_events.18.title
 	desc = hanseatic_league_events.18.desc
 	fire_only_once = yes
@@ -648,7 +648,7 @@ hanseatic_league_events.18 = {
 # Exploration Opportunity
 hanseatic_league_events.19 = {
 	type = country_event
-	category = io_event
+
 	title = hanseatic_league_events.19.title
 	desc = hanseatic_league_events.19.desc
 	fire_only_once = yes
@@ -686,7 +686,7 @@ hanseatic_league_events.19 = {
 # League Assembly (Tagfahrt)
 hanseatic_league_events.20 = {
 	type = country_event
-	category = io_event
+
 	title = hanseatic_league_events.20.title
 	desc = hanseatic_league_events.20.desc
 	fire_only_once = yes
