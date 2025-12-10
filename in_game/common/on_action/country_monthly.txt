@@ -1,0 +1,25 @@
+monthly_country_pulse = {
+	random_events = {
+		# Hanseatic League IO events - random chance for members
+		5 = hanseatic_league_events.1
+		5 = hanseatic_league_events.2
+		5 = hanseatic_league_events.3
+		5 = hanseatic_league_events.4
+		5 = hanseatic_league_events.5
+		5 = hanseatic_league_events.6
+		5 = hanseatic_league_events.7
+		5 = hanseatic_league_events.8
+		5 = hanseatic_league_events.9
+		5 = hanseatic_league_events.10
+		5 = hanseatic_league_events.11
+		5 = hanseatic_league_events.12
+		5 = hanseatic_league_events.13
+		5 = hanseatic_league_events.14
+		5 = hanseatic_league_events.15
+		5 = hanseatic_league_events.16
+		5 = hanseatic_league_events.17
+		5 = hanseatic_league_events.18
+		5 = hanseatic_league_events.19
+		5 = hanseatic_league_events.20
+	}
+}
