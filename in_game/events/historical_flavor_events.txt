@@ -57,7 +57,7 @@ historical_flavor.2009 = {
     fire_only_once = yes
 
     trigger = {
-        owns = 67
+        location:augsburg = { owner ?= root }
         current_date >= 1473.1.1
         current_date <= 1510.12.31
     }
@@ -136,7 +136,7 @@ historical_flavor.2012 = {
     fire_only_once = yes
 
     trigger = {
-        owns = 61
+        location:leipzig = { owner ?= root }
         current_date >= 1497.1.1
         current_date <= 1498.12.31
     }
@@ -188,7 +188,7 @@ historical_flavor.2014 = {
     fire_only_once = yes
 
     trigger = {
-        owns = 66
+        location:nuremberg = { owner ?= root }
         current_date >= 1493.1.1
         current_date <= 1494.12.31
     }
@@ -212,7 +212,7 @@ historical_flavor.2015 = {
     fire_only_once = yes
 
     trigger = {
-        owns = 54
+        location:magdeburg = { owner ?= root }
         current_date >= 1631.5.1
         current_date <= 1631.6.30
     }
