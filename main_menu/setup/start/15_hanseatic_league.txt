@@ -8,6 +8,9 @@
 			lower_saxony_area
 			holstein_area
 			mecklenburg_area
+			pommerania_area
+			brandenburg_area
+			prussia_area
 		}
 		laws = { }
 	}

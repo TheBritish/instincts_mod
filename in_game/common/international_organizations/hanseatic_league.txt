@@ -16,6 +16,8 @@ hanseatic_league = {
 	disband_if_no_leader = no
 	months_between_leader_changes = 60	# Tagfahrt (Hanseatic Diet) typically met irregularly
 
+	historical_info = hanseatic_league_desc
+
 	leader = {
 		leader_country ?= {
 			add_to_list = leaders
@@ -74,6 +76,8 @@ hanseatic_league = {
 		global_salt_output_modifier = 0.05
 		tolerance_heretic = 1
 		diplomatic_capacity = 1
+		naval_forcelimit_modifier = 0.1
+		trade_company_investment_cost = -0.15
 	}
 	
 	# Leaders (HSA) get additional benefits for coordinating the league
@@ -81,6 +85,8 @@ hanseatic_league = {
 		diplomatic_capacity = 2
 		global_merchant_capacity_modifier = 0.10
 		global_burghers_desired_pop = 0.05
+		monthly_prestige = 0.5
+		trade_efficiency = 0.10
 	}
 	
 	can_join_trigger = {
@@ -118,6 +124,13 @@ hanseatic_league = {
 	ai_desire_to_join = {
 		add = {
 			value = 30
+		}
+		add = {
+			value = 20
+			if = {
+				limit = { culture = culture:german }
+				value = 10
+			}
 		}
 	}
 	
