@@ -1,5 +1,135 @@
 namespace = hanseatic_league_events
 
+# Leader proposes candidate to join the Hanseatic League
+country_event = {
+	id = hanseatic_league_events.1000
+    hide_window = yes
+    trigger = {
+        # event fired by leader targeting candidate
+        is_leader_of_international_organization = international_organization:hanseatic_league
+    }
+    immediate = {
+		# Candidate evaluates desire to join using their ai_desire_to_join; dispatch vote collector
+		# The vote collector will tally member support and call accept/reject paths.
+		root = { country_event = { id = hanseatic_league_events.1020 days = 0 target = scope:recipient } }
+    }
+}
+
+# Vote collector: Heuristic Majority (tallies member support and decides)
+country_event = {
+	id = hanseatic_league_events.1020
+	hide_window = yes
+	trigger = {
+		is_leader_of_international_organization = international_organization:hanseatic_league
+	}
+	immediate = {
+		# initialize counters on root
+		root = {
+			set_variable = { name = hl_total_members value = 0 }
+			set_variable = { name = hl_yes_votes value = 0 }
+			set_variable = { name = hl_temp_double_yes value = 0 }
+		}
+
+		# Iterate current members and evaluate willingness to accept the candidate (scope:recipient)
+		every_international_organization_member = {
+			limit = { NOT = { this = scope:recipient } }
+			# increment total members
+			root = { change_variable = { name = hl_total_members add = 1 } }
+
+			# Heuristic tests: opinion, cultural affinity, trade interest
+			# If any test passes, count as a supportive vote
+			if = {
+				limit = {
+					OR = {
+						opinion = { target = scope:recipient value > 10 }
+						culture_group = scope:recipient.culture_group
+						trade_efficiency > 0
+						merchant_capacity > 0
+					}
+				}
+				root = { change_variable = { name = hl_yes_votes add = 1 } }
+			}
+		}
+
+		# Determine majority: accept if (yes_votes * 2) > total_members
+		root = {
+			set_variable = { name = hl_temp_double_yes value = var:hl_yes_votes }
+			change_variable = { name = hl_temp_double_yes multiply = 2 }
+		}
+
+		if = {
+			limit = { var:hl_temp_double_yes > var:hl_total_members }
+			# majority supports -> add candidate
+			root = { country_event = { id = hanseatic_league_events.1001 days = 0 target = scope:recipient } }
+		}
+		else = {
+			# majority rejects -> notify leader and candidate
+			root = { country_event = { id = hanseatic_league_events.1002 days = 0 target = scope:recipient } }
+		}
+	}
+}
+
+# Candidate rejected by vote: notify parties and run member reaction flavor
+country_event = {
+	id = hanseatic_league_events.1002
+	hide_window = yes
+	trigger = {
+		is_leader_of_international_organization = international_organization:hanseatic_league
+	}
+	immediate = {
+		# Notify leader and candidate with hidden member reaction events for flavor
+		# Candidate gets a small prestige penalty and notification (handled by engine/localization)
+		target = {
+			add_prestige = -1
+		}
+
+		# Let members react to rejection (flavor)
+		every_international_organization_member = {
+			limit = { NOT = { this = scope:recipient } }
+			country_event = { id = hanseatic_league_events.1100 days = 0 target = scope:recipient }
+		}
+	}
+}
+
+# Candidate accepted: add country to the IO and notify members
+country_event = {
+	id = hanseatic_league_events.1001
+    hide_window = yes
+    trigger = {
+        # fired on leader (root) with target candidate as scope:recipient
+        is_leader_of_international_organization = international_organization:hanseatic_league
+    }
+    immediate = {
+        # add the candidate to the IO
+        add_country_to_international_organization = scope:recipient
+
+        # notify existing members (hidden event) so ai_desire_to_allow_new_member can be applied as flavor
+        every_international_organization_member = {
+            limit = { NOT = { this = scope:recipient } }
+			country_event = { id = hanseatic_league_events.1100 days = 0 target = scope:recipient }
+        }
+    }
+}
+
+# Member reaction (hidden): adjust opinion or trigger effects based on ai_desire_to_allow_new_member
+country_event = {
+	id = hanseatic_league_events.1100
+    hide_window = yes
+    trigger = {
+        is_member_of_international_organization = international_organization:hanseatic_league
+    }
+    immediate = {
+        # small opinion modifier toward the new member depending on their attributes
+        if = {
+            limit = { scope:recipient = { culture_group = culture_group:germanic } }
+            add_opinion = { target = scope:recipient modifier = hanseatic_relations_positive }
+        }
+        else = {
+            add_opinion = { target = scope:recipient modifier = hanseatic_relations_neutral }
+        }
+    }
+}
+
 # Trade Dispute Resolution
 hanseatic_league_events.1 = {
 	type = country_event
