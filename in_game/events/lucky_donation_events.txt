@@ -75,7 +75,7 @@ random_event.1002 = {
 	desc = random_event.1002.desc
 
 	trigger = {
-		has_country_modifier = gift_accepted_mod
+		# has_country_modifier = gift_accepted_mod
 		# Small stability guard so the follow-up doesn't immediately plague a collapsing realm
 		stability >= -2
 		NOT = { has_country_modifier = donation_followup_decline_shown }
@@ -110,7 +110,7 @@ random_event.1003 = {
 	desc = random_event.1003.desc
 
 	trigger = {
-		has_country_modifier = gift_accepted_mod
+		# has_country_modifier = gift_accepted_mod
 		# Small stability guard so the follow-up doesn't immediately plague a collapsing realm
 		stability >= -2
 		NOT = { has_country_modifier = donation_followup_investigate_shown }

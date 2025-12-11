@@ -117,7 +117,9 @@ flavor_burgundy.101 = {
 	desc = flavor_burgundy.101.d
 	fire_only_once = yes
 	
-
+	trigger = {
+		tag = BUR
+	}
 	
 	immediate = {
 		hidden_effect = {
@@ -538,9 +540,6 @@ flavor_burgundy.106 = {
 				}
 			}
 		}
-		
-		# Set variable for unified Low Countries
-		set_variable = { name = low_countries_unified value = yes }
 		
 		add_prestige = 25
 	}

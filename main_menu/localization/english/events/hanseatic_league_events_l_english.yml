@@ -120,3 +120,15 @@
  hanseatic_league_events.20.desc: "The Hanseatic Diet convenes for a grand assembly to address pressing matters affecting the entire confederation. This gathering represents the collective wisdom and authority of our league."
  hanseatic_league_events.20.a: "Strengthen league institutions"
  hanseatic_league_events.20.b: "Some members question league authority"
+
+# Leader proposal / join flow
+hanseatic_league_events.1000.title: "Invitation from the Hanseatic League"
+hanseatic_league_events.1000.desc: "[ROOT.GetName] proposes that your city join the Hanseatic League."
+hanseatic_league_events.1000.a: "Accept the invitation"
+hanseatic_league_events.1000.b: "Decline the invitation"
+
+hanseatic_league_events.1001.title: "Joined the Hanseatic League"
+hanseatic_league_events.1001.desc: "[ROOT.GetName] has brought [TARGET.GetName] into the Hanseatic League."
+
+hanseatic_league_events.1100.title: "Hanseatic Membership Update"
+hanseatic_league_events.1100.desc: "The league recently admitted a new member: [TARGET.GetName]."

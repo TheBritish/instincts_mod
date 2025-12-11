@@ -2,6 +2,7 @@
 yearly_country_pulse = {
 	on_actions = {
 		hanseatic_league_event_dispatcher
+		hanseatic_league_invite_dispatcher
 		general_random_event_dispatcher
 	}
 }
@@ -40,5 +41,35 @@ hanseatic_league_event_dispatcher = {
 general_random_event_dispatcher = {
 	random_events = {
 		5 = random_event.1001  # Lucky donation event (rare)
+	}
+}
+
+# Invite dispatcher: leader countries may propose adding a candidate once per year
+hanseatic_league_invite_dispatcher = {
+	trigger = {
+		is_leader_of_international_organization = international_organization:hanseatic_league
+	}
+
+	hidden_effect = {
+		# find a candidate country: single-location, coastal, not already member
+		any_country = {
+			limit = {
+				num_of_locations = 1
+				any_location = { coastal = yes }
+				NOT = { is_member_of_international_organization = international_organization:hanseatic_league }
+				scope:root = { country_can_join_international_organization = international_organization:hanseatic_league }
+			}
+			# save candidate and fire a country event targeted at them from the leader
+			save_scope_as = invite_candidate
+			root = {
+				country_event = {
+					id = hanseatic_league_events.1000
+					days = 0
+					target = scope:invite_candidate
+				}
+			}
+			# only one candidate per invocation
+			limit = { save_scope_as = invite_candidate }
+		}
 	}
 }
