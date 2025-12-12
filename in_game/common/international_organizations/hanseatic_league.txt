@@ -134,9 +134,9 @@ hanseatic_league = {
 			add = { value = 100 }
 		}
 
-				# Coastal countries get a large bonus (single-location check omitted for compatibility)
+				# Coastal countries get a large bonus when the candidate is single-location
 				trigger_if = {
-					limit = { any_owned_location = { coastal = yes } }
+					limit = { scope:recipient = { num_of_locations = 1 any_owned_location = { coastal = yes } } }
 					add = { value = 40 }
 				}
 
@@ -231,7 +231,7 @@ hanseatic_league = {
 
 		# Penalty if candidate is large continental power (not desirable)
 		trigger_if = {
-			limit = { num_of_locations > 5 }
+			limit = { scope:recipient = { num_of_locations > 5 } }
 			add = { value = -20 }
 		}
 	}
@@ -253,9 +253,9 @@ hanseatic_league = {
 			add = { value = 25 }
 		}
 
-		# Candidate attributes - coastal candidates are attractive (single-location check omitted)
+		# Candidate attributes - single-location coastal candidates are attractive
 		trigger_if = {
-			limit = { any_owned_location = { coastal = yes } }
+			limit = { scope:recipient = { num_of_locations = 1 any_owned_location = { coastal = yes } } }
 			add = { value = 25 }
 		}
 
@@ -285,7 +285,7 @@ hanseatic_league = {
 
 		# Penalize adding large continental powers or existing subjects
 		trigger_if = {
-			limit = { num_of_locations > 5 }
+			limit = { scope:recipient = { num_of_locations > 5 } }
 			add = { value = -30 }
 		}
 
