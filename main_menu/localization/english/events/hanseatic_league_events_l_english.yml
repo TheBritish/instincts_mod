@@ -1,125 +1,5 @@
 ﻿l_english:
- # Hanseatic League Dynamic Historical Events
 
- # Event 1: Trade Dispute Resolution
- hanseatic_league_events.1.title: "Resolving Trade Disputes"
- hanseatic_league_events.1.desc: "A dispute has arisen between league members over trade privileges and market access. The affected cities call for a meeting of the Hanseatic Diet to mediate the conflict and restore harmony to our commercial network."
- hanseatic_league_events.1.a: "Mediate the dispute diplomatically"
- hanseatic_league_events.1.b: "The dispute escalates into conflict"
-
- # Event 2: Pirate Raid on Trade Routes
- hanseatic_league_events.2.title: "Pirate Raid on Trade Routes"
- hanseatic_league_events.2.desc: "Pirates have attacked our merchant convoys in the Baltic Sea, disrupting vital trade routes. The league must respond decisively to protect our maritime commerce and maintain the security of our shipping lanes."
- hanseatic_league_events.2.a: "Launch a naval campaign against the pirates"
- hanseatic_league_events.2.b: "Pay tribute to ensure safe passage"
-
- # Event 3: New Kontor Established
- hanseatic_league_events.3.title: "New Kontor Established"
- hanseatic_league_events.3.desc: "Our merchants have successfully established a new trading post in a foreign city. This kontor will serve as a vital hub for league commerce, providing exclusive trading privileges and diplomatic representation."
- hanseatic_league_events.3.a: "Celebrate this expansion of our trade network"
- hanseatic_league_events.3.b: "The establishment faces local resistance"
-
- # Event 4: Merchant Privileges Granted
- hanseatic_league_events.4.title: "Merchant Privileges Extended"
- hanseatic_league_events.4.desc: "Through diplomatic negotiations, our league has secured additional trading privileges in a foreign market. This strengthens our commercial position and enhances the league's economic influence."
- hanseatic_league_events.4.a: "Leverage these privileges for greater trade"
- hanseatic_league_events.4.b: "The privileges are limited in scope"
-
- # Event 5: Internal League Reform
- hanseatic_league_events.5.title: "Internal League Reforms"
- hanseatic_league_events.5.desc: "The Hanseatic Diet convenes to discuss reforms to league governance and trade regulations. These changes aim to strengthen the confederation and address emerging challenges to our collective interests."
- hanseatic_league_events.5.a: "Support progressive reforms"
- hanseatic_league_events.5.b: "Conservative elements resist change"
-
- # Event 6: External Trade Embargo
- hanseatic_league_events.6.title: "League-Wide Trade Embargo"
- hanseatic_league_events.6.desc: "In response to hostile actions against league members, the Hanseatic Diet has declared a trade embargo against an offending power. This collective action demonstrates the league's economic strength."
- hanseatic_league_events.6.a: "Enforce the embargo strictly"
- hanseatic_league_events.6.b: "Some members seek to circumvent the embargo"
-
- # Event 7: Economic Boom Period
- hanseatic_league_events.7.title: "Economic Boom in the League"
- hanseatic_league_events.7.desc: "A period of unprecedented prosperity has descended upon the Hanseatic League. Trade flourishes, markets thrive, and member cities enjoy remarkable economic growth and cultural development."
- hanseatic_league_events.7.a: "Capitalize on this golden age of commerce"
- hanseatic_league_events.7.b: "The boom benefits all league members equally"
-
- # Event 8: Diplomatic Incident
- hanseatic_league_events.8.title: "Diplomatic Incident Involving League Members"
- hanseatic_league_events.8.desc: "A diplomatic incident has occurred involving one of our league members and a foreign power. The league must navigate this crisis carefully to protect our collective interests and maintain diplomatic relations."
- hanseatic_league_events.8.a: "Support our member diplomatically"
- hanseatic_league_events.8.b: "The incident damages our reputation"
-
- # Event 9: Technological Innovation
- hanseatic_league_events.9.title: "Maritime Technological Innovation"
- hanseatic_league_events.9.desc: "Our shipbuilders have developed innovative naval technologies that promise to revolutionize maritime trade. These advancements will enhance our competitive advantage in Baltic and North Sea commerce."
- hanseatic_league_events.9.a: "Invest in these technological breakthroughs"
- hanseatic_league_events.9.b: "The innovations require significant investment"
-
- # Event 10: Rival League Formation
- hanseatic_league_events.10.title: "Formation of a Rival Trading League"
- hanseatic_league_events.10.desc: "A rival confederation of trading cities has formed, challenging our dominance in Northern European commerce. This new league threatens to compete with our established trade networks and privileges."
- hanseatic_league_events.10.a: "Counter their formation aggressively"
- hanseatic_league_events.10.b: "Monitor their development cautiously"
-
- # Event 11: Plague Disruption
- hanseatic_league_events.11.title: "Plague Disrupts League Trade"
- hanseatic_league_events.11.desc: "The devastating plague has struck several league cities, disrupting trade routes and commercial activities. The disease threatens to undermine our economic foundations and social stability."
- hanseatic_league_events.11.a: "Implement quarantine measures"
- hanseatic_league_events.11.b: "The plague spreads despite our efforts"
-
- # Event 12: New Goods Discovery
- hanseatic_league_events.12.title: "Discovery of New Trade Goods"
- hanseatic_league_events.12.desc: "Our explorers have discovered new valuable commodities in distant markets. These goods promise to revolutionize our trade networks and open new avenues for commercial expansion."
- hanseatic_league_events.12.a: "Monopolize trade in these new goods"
- hanseatic_league_events.12.b: "Share the discovery with league partners"
-
- # Event 13: Naval Skirmish
- hanseatic_league_events.13.title: "Naval Skirmish in League Waters"
- hanseatic_league_events.13.desc: "A naval engagement has occurred between league vessels and foreign ships in contested waters. The outcome of this skirmish will influence maritime security and trade route protection."
- hanseatic_league_events.13.a: "Our navy emerges victorious"
- hanseatic_league_events.13.b: "We suffer a naval defeat"
-
- # Event 14: Merchant Guild Expansion
- hanseatic_league_events.14.title: "Merchant Guild Expansion"
- hanseatic_league_events.14.desc: "Our merchant guilds have expanded their operations and influence within the league. This growth strengthens our commercial institutions and enhances our collective bargaining power."
- hanseatic_league_events.14.a: "Support the guild expansion"
- hanseatic_league_events.14.b: "The expansion creates internal rivalries"
-
- # Event 15: Taxation Dispute
- hanseatic_league_events.15.title: "Taxation Dispute Within the League"
- hanseatic_league_events.15.desc: "A dispute has arisen over taxation policies and revenue distribution among league members. The Hanseatic Diet must resolve these financial disagreements to maintain league cohesion."
- hanseatic_league_events.15.a: "Implement fair taxation reforms"
- hanseatic_league_events.15.b: "The dispute leads to financial strain"
-
- # Event 16: Cultural Exchange
- hanseatic_league_events.16.title: "Cultural Exchange Among League Cities"
- hanseatic_league_events.16.desc: "Increased cultural exchange between league cities has fostered greater understanding and cooperation. This cultural flourishing enhances social harmony and diplomatic relations within the confederation."
- hanseatic_league_events.16.a: "Embrace this cultural renaissance"
- hanseatic_league_events.16.b: "Focus on practical trade matters instead"
-
- # Event 17: Religious Tensions
- hanseatic_league_events.17.title: "Religious Tensions in the League"
- hanseatic_league_events.17.desc: "Religious differences between league members have created tensions that threaten the confederation's unity. The Hanseatic Diet must address these divisions to preserve the league's stability."
- hanseatic_league_events.17.a: "Promote religious tolerance and harmony"
- hanseatic_league_events.17.b: "The tensions escalate into conflict"
-
- # Event 18: Succession Crisis
- hanseatic_league_events.18.title: "Succession Crisis in League Leadership"
- hanseatic_league_events.18.desc: "A leadership succession crisis has emerged within the league hierarchy. The resolution of this crisis will determine the future direction and stability of the Hanseatic confederation."
- hanseatic_league_events.18.a: "Navigate the crisis diplomatically"
- hanseatic_league_events.18.b: "The crisis creates political instability"
-
- # Event 19: Exploration Opportunity
- hanseatic_league_events.19.title: "New Exploration Opportunities"
- hanseatic_league_events.19.desc: "Our explorers have discovered promising new trade routes and markets. These opportunities could significantly expand the league's commercial reach and economic influence."
- hanseatic_league_events.19.a: "Invest in exploration and expansion"
- hanseatic_league_events.19.b: "The opportunities prove challenging to exploit"
-
- # Event 20: League Assembly
- hanseatic_league_events.20.title: "Grand Assembly of the Hanseatic League"
- hanseatic_league_events.20.desc: "The Hanseatic Diet convenes for a grand assembly to address pressing matters affecting the entire confederation. This gathering represents the collective wisdom and authority of our league."
- hanseatic_league_events.20.a: "Strengthen league institutions"
- hanseatic_league_events.20.b: "Some members question league authority"
 
 # Leader proposal / join flow
 hanseatic_league_events.1000.title: "Invitation from the Hanseatic League"
@@ -139,3 +19,104 @@ hanseatic_league_events.1020.desc: "[ROOT.GetName] has called a vote among Hanse
 
 hanseatic_league_events.1002.title: "Admission Rejected"
 hanseatic_league_events.1002.desc: "[TARGET.GetName]'s application to join the Hanseatic League was rejected by the membership."
+
+# Monthly Hanseatic flavor events (1-20)
+hanseatic_league_events.1.title: "Market Day Boost"
+hanseatic_league_events.1.desc: "A bustling market in [ROOT.GetName] has lifted trade and spirits this month."
+hanseatic_league_events.1.a: "Encourage the merchants and enjoy the boon."
+hanseatic_league_events.1.b: "Levy a quick tax on the surge."
+
+hanseatic_league_events.2.title: "Minor Pirate Raid"
+hanseatic_league_events.2.desc: "Coastal merchants report a brief raid; losses are small but troubling."
+hanseatic_league_events.2.a: "Improve coastal patrols."
+hanseatic_league_events.2.b: "Cut losses and tighten wallets."
+
+hanseatic_league_events.3.title: "New Kontor Opened"
+hanseatic_league_events.3.desc: "A new trading kontor opens its doors, promising fresh routes and contacts."
+hanseatic_league_events.3.a: "Support the new kontor."
+hanseatic_league_events.3.b: "Keep the guilds cautious."
+
+hanseatic_league_events.4.title: "Merchant Privileges Negotiated"
+hanseatic_league_events.4.desc: "Negotiations grant merchants temporary privileges in port cities."
+hanseatic_league_events.4.a: "Grant privileges to encourage trade."
+hanseatic_league_events.4.b: "Protect civic interests instead."
+
+hanseatic_league_events.5.title: "League Administrative Reform"
+hanseatic_league_events.5.desc: "Talks of administrative reform sweep the League, promising small systemic gains."
+hanseatic_league_events.5.a: "Push the reforms through."
+hanseatic_league_events.5.b: "Delay until the membership agrees."
+
+hanseatic_league_events.6.title: "Embargo on Rival Ports"
+hanseatic_league_events.6.desc: "A targeted embargo is proposed against rival ports to hamper their trade."
+hanseatic_league_events.6.a: "Enforce the embargo."
+hanseatic_league_events.6.b: "Avoid risking open conflict."
+
+hanseatic_league_events.7.title: "Regional Economic Surge"
+hanseatic_league_events.7.desc: "Local investment has sparked a short-lived economic surge."
+hanseatic_league_events.7.a: "Ride the boom for growth."
+hanseatic_league_events.7.b: "Save for leaner months."
+
+hanseatic_league_events.8.title: "Diplomatic Overture"
+hanseatic_league_events.8.desc: "A friendly envoy seeks to mend strained relations with a neighbor."
+hanseatic_league_events.8.a: "Accept the overture."
+hanseatic_league_events.8.b: "Remain cautious of motives."
+
+hanseatic_league_events.9.title: "Local Innovation at the Docks"
+hanseatic_league_events.9.desc: "Shipwrights and craftsmen trial a small innovation improving port efficiency."
+hanseatic_league_events.9.a: "Support the innovation."
+hanseatic_league_events.9.b: "Preserve established methods."
+
+hanseatic_league_events.10.title: "Rival Merchant Challenge"
+hanseatic_league_events.10.desc: "A competing merchant consortium seeks to undercut League traders."
+hanseatic_league_events.10.a: "Coordinate a countermeasure."
+hanseatic_league_events.10.b: "Let competition play out."
+
+hanseatic_league_events.11.title: "Minor Plague Disruption"
+hanseatic_league_events.11.desc: "A brief outbreak causes extra stress in towns and markets."
+hanseatic_league_events.11.a: "Provide relief and medical aid."
+hanseatic_league_events.11.b: "Focus on maintaining order."
+
+hanseatic_league_events.12.title: "Exotic Goods Arrive"
+hanseatic_league_events.12.desc: "A shipment of exotic goods arrives, sparking demand and curiosity."
+hanseatic_league_events.12.a: "Promote trade of the new goods."
+hanseatic_league_events.12.b: "Keep them for elite consumption."
+
+hanseatic_league_events.13.title: "Naval Skirmish"
+hanseatic_league_events.13.desc: "A small skirmish at sea raises morale but worries merchants."
+hanseatic_league_events.13.a: "Celebrate the navy's success."
+hanseatic_league_events.13.b: "Lay low and tend to losses."
+
+hanseatic_league_events.14.title: "Guild Support Campaign"
+hanseatic_league_events.14.desc: "Guilds petition for support to expand local industry."
+hanseatic_league_events.14.a: "Fund guild initiatives."
+hanseatic_league_events.14.b: "Restrict guild influence."
+
+hanseatic_league_events.15.title: "Taxation Dispute"
+hanseatic_league_events.15.desc: "Disputes over taxation policy threaten short-term unrest."
+hanseatic_league_events.15.a: "Temporarily adjust taxation."
+hanseatic_league_events.15.b: "Hold firm and enforce taxes."
+
+hanseatic_league_events.16.title: "Cultural Exchange Fair"
+hanseatic_league_events.16.desc: "A fair celebrates shared culture and encourages artisanship."
+hanseatic_league_events.16.a: "Sponsor the fair."
+hanseatic_league_events.16.b: "Keep spending conservative."
+
+hanseatic_league_events.17.title: "Religious Mediation"
+hanseatic_league_events.17.desc: "Mediators are sent to ease tensions between differing confessions within the League."
+hanseatic_league_events.17.a: "Support conciliation efforts."
+hanseatic_league_events.17.b: "Prioritize stability over compromise."
+
+hanseatic_league_events.18.title: "Succession Support"
+hanseatic_league_events.18.desc: "Members discuss offering support to a friendly succession to secure alliances."
+hanseatic_league_events.18.a: "Back the succession discreetly."
+hanseatic_league_events.18.b: "Avoid entangling claims."
+
+hanseatic_league_events.19.title: "Exploration Funding"
+hanseatic_league_events.19.desc: "Patrons propose funding a small expedition to seek new routes and rewards."
+hanseatic_league_events.19.a: "Fund the voyage."
+hanseatic_league_events.19.b: "Conserve funds for local needs."
+
+hanseatic_league_events.20.title: "Merchant Warehouse Fire"
+hanseatic_league_events.20.desc: "A warehouse fire damages goods; relief and rebuilding are discussed."
+hanseatic_league_events.20.a: "Aid the merchants and ensure relief."
+hanseatic_league_events.20.b: "Focus on containment and rebuilding."
