@@ -49,8 +49,8 @@ hanseatic_league_events.5 = {
 	title = hanseatic_league_events.5.title
 	desc = hanseatic_league_events.5.desc
 	trigger = { is_member_of_international_organization = international_organization:hanseatic_league }
-	option = { name = hanseatic_league_events.5.a add_international_organization_modifier = { modifier = instincts_hl_reform_io months = 30 size = { value = 0.02 } } }
-	option = { name = hanseatic_league_events.5.b add_local_unrest = 3 }
+	option = { name = hanseatic_league_events.5.a add_country_modifier = { modifier = instincts_hl_reform_io months = 30 size = { value = 0.02 } } }
+	option = { name = hanseatic_league_events.5.b add_unrest = 3 }
 }
 
 # 6: Embargo on Rival Ports
@@ -59,7 +59,7 @@ hanseatic_league_events.6 = {
 	title = hanseatic_league_events.6.title
 	desc = hanseatic_league_events.6.desc
 	trigger = { is_member_of_international_organization = international_organization:hanseatic_league }
-	option = { name = hanseatic_league_events.6.a add_international_organization_modifier = { modifier = instincts_hl_embargo_io months = 30 size = { value = -0.02 } } }
+	option = { name = hanseatic_league_events.6.a add_country_modifier = { modifier = instincts_hl_embargo_io months = 30 size = { value = -0.02 } } }
 	option = { name = hanseatic_league_events.6.b add_prestige = 2 }
 }
 
@@ -70,7 +70,7 @@ hanseatic_league_events.7 = {
 	desc = hanseatic_league_events.7.desc
 	trigger = { is_member_of_international_organization = international_organization:hanseatic_league }
 	option = { name = hanseatic_league_events.7.a add_country_modifier = { modifier = instincts_hl_economic_boom months = 60 } }
-	option = { name = hanseatic_league_events.7.b add_local_unrest = 2 }
+	option = { name = hanseatic_league_events.7.b add_unrest = 2 }
 }
 
 # 8: Diplomatic Overture
@@ -78,7 +78,7 @@ hanseatic_league_events.8 = {
 	type = country_event
 	title = hanseatic_league_events.8.title
 	desc = hanseatic_league_events.8.desc
-	trigger = { is_member_of_international_organization = international_organization:hanseatic_league diplomatic_reputation < 5 }
+	trigger = { is_member_of_international_organization = international_organization:hanseatic_league }
 	option = { name = hanseatic_league_events.8.a add_country_modifier = { modifier = instincts_hl_diplomatic_bump months = 30 } }
 	option = { name = hanseatic_league_events.8.b add_prestige = -1 }
 }
@@ -89,7 +89,7 @@ hanseatic_league_events.9 = {
 	title = hanseatic_league_events.9.title
 	desc = hanseatic_league_events.9.desc
 	trigger = { is_member_of_international_organization = international_organization:hanseatic_league has_ports = yes }
-	option = { name = hanseatic_league_events.9.a add_international_organization_modifier = { modifier = instincts_hl_innovation_io months = 30 size = { value = 0.02 } } }
+	option = { name = hanseatic_league_events.9.a add_country_modifier = { modifier = instincts_hl_innovation_io months = 30 size = { value = 0.02 } } }
 	option = { name = hanseatic_league_events.9.b add_prestige = -2 }
 }
 
@@ -99,8 +99,8 @@ hanseatic_league_events.10 = {
 	title = hanseatic_league_events.10.title
 	desc = hanseatic_league_events.10.desc
 	trigger = { is_member_of_international_organization = international_organization:hanseatic_league }
-	option = { name = hanseatic_league_events.10.a add_international_organization_modifier = { modifier = instincts_hl_rival_formation_io months = 30 size = { value = -0.01 } } }
-	option = { name = hanseatic_league_events.10.b add_local_unrest = 4 }
+	option = { name = hanseatic_league_events.10.a add_country_modifier = { modifier = instincts_hl_rival_formation_io months = 30 size = { value = -0.01 } } }
+	option = { name = hanseatic_league_events.10.b add_unrest = 4 }
 }
 
 # 11: Minor Plague Disruption
@@ -109,7 +109,7 @@ hanseatic_league_events.11 = {
 	title = hanseatic_league_events.11.title
 	desc = hanseatic_league_events.11.desc
 	trigger = { is_member_of_international_organization = international_organization:hanseatic_league }
-	option = { name = hanseatic_league_events.11.a add_local_unrest = 5 }
+	option = { name = hanseatic_league_events.11.a add_unrest = 5 }
 	option = { name = hanseatic_league_events.11.b add_country_modifier = { modifier = instincts_hl_plague_relief months = 30 } }
 }
 
@@ -140,7 +140,7 @@ hanseatic_league_events.14 = {
 	desc = hanseatic_league_events.14.desc
 	trigger = { is_member_of_international_organization = international_organization:hanseatic_league }
 	option = { name = hanseatic_league_events.14.a add_country_modifier = { modifier = instincts_hl_guild_support months = 30 } }
-	option = { name = hanseatic_league_events.14.b add_local_unrest = 2 }
+	option = { name = hanseatic_league_events.14.b add_unrest = 2 }
 }
 
 # 15: Taxation Dispute
@@ -149,8 +149,8 @@ hanseatic_league_events.15 = {
 	title = hanseatic_league_events.15.title
 	desc = hanseatic_league_events.15.desc
 	trigger = { is_member_of_international_organization = international_organization:hanseatic_league }
-	option = { name = hanseatic_league_events.15.a add_international_organization_modifier = { modifier = instincts_hl_taxation_boost_io months = 30 size = { value = 0.02 } } }
-	option = { name = hanseatic_league_events.15.b add_local_unrest = 4 }
+	option = { name = hanseatic_league_events.15.a add_country_modifier = { modifier = instincts_hl_taxation_boost_io months = 30 size = { value = 0.02 } } }
+	option = { name = hanseatic_league_events.15.b add_unrest = 4 }
 }
 
 # 16: Cultural Exchange Fair
@@ -170,7 +170,7 @@ hanseatic_league_events.17 = {
 	desc = hanseatic_league_events.17.desc
 	trigger = { is_member_of_international_organization = international_organization:hanseatic_league any_international_organization_member = { NOT = { religion = root.religion } } }
 	option = { name = hanseatic_league_events.17.a add_country_modifier = { modifier = instincts_hl_religious_conciliation months = 30 } }
-	option = { name = hanseatic_league_events.17.b add_local_unrest = 3 }
+	option = { name = hanseatic_league_events.17.b add_unrest = 3 }
 }
 
 # 18: Succession Support
@@ -180,7 +180,7 @@ hanseatic_league_events.18 = {
 	desc = hanseatic_league_events.18.desc
 	trigger = { is_member_of_international_organization = international_organization:hanseatic_league }
 	option = { name = hanseatic_league_events.18.a add_country_modifier = { modifier = instincts_hl_succession_support months = 30 } }
-	option = { name = hanseatic_league_events.18.b add_local_unrest = 5 }
+	option = { name = hanseatic_league_events.18.b add_unrest = 5 }
 }
 
 # 19: Exploration Funding
@@ -188,7 +188,7 @@ hanseatic_league_events.19 = {
 	type = country_event
 	title = hanseatic_league_events.19.title
 	desc = hanseatic_league_events.19.desc
-	trigger = { is_member_of_international_organization = international_organization:hanseatic_league has_explorer = yes }
+	trigger = { is_member_of_international_organization = international_organization:hanseatic_league }
 	option = { name = hanseatic_league_events.19.a add_country_modifier = { modifier = instincts_hl_exploration_bonus months = 60 } }
 	option = { name = hanseatic_league_events.19.b add_gold = -20 }
 }
