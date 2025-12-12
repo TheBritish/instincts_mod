@@ -184,3 +184,107 @@ fla_diplomatic_capacity = {
 	}
 	diplomatic_capacity = 4
 }
+
+# Instincts Hanseatic League short modifiers (used by monthly events)
+instincts_hl_trade_burst = {
+	game_data = { category = country }
+	trade_efficiency = 0.05
+}
+
+instincts_hl_piracy_alert = {
+	game_data = { category = country }
+	naval_morale_modifier = -0.05
+	monthly_gold_income = -0.02
+}
+
+instincts_hl_new_kontor = {
+	game_data = { category = country }
+	monthly_gold_income = 0.05
+	trade_efficiency = 0.03
+}
+
+instincts_hl_merchant_privileges = {
+	game_data = { category = country }
+	trade_efficiency = 0.04
+}
+
+instincts_hl_reform_io = {
+	game_data = { category = internationalorganization }
+	trade_efficiency = 0.02
+}
+
+instincts_hl_embargo_io = {
+	game_data = { category = internationalorganization }
+	trade_efficiency = -0.02
+}
+
+instincts_hl_economic_boom = {
+	game_data = { category = country }
+	monthly_gold_income = 0.10
+}
+
+instincts_hl_diplomatic_bump = {
+	game_data = { category = country }
+	diplomatic_reputation = 1
+}
+
+instincts_hl_innovation_io = {
+	game_data = { category = internationalorganization }
+	trade_efficiency = 0.02
+}
+
+instincts_hl_rival_formation_io = {
+	game_data = { category = internationalorganization }
+	trade_efficiency = -0.01
+}
+
+instincts_hl_plague_relief = {
+	game_data = { category = country }
+	local_unrest = -3
+}
+
+instincts_hl_new_goods_income = {
+	game_data = { category = country }
+	monthly_gold_income = 0.05
+}
+
+instincts_hl_naval_morale = {
+	game_data = { category = country }
+	naval_morale_modifier = 0.05
+}
+
+instincts_hl_guild_support = {
+	game_data = { category = country }
+	global_burghers_estate_power = 0.05
+}
+
+instincts_hl_taxation_boost_io = {
+	game_data = { category = internationalorganization }
+	monthly_gold_income = 0.02
+}
+
+instincts_hl_cultural_exchange = {
+	game_data = { category = country }
+	research_speed_modifier = 0.03
+}
+
+instincts_hl_religious_conciliation = {
+	game_data = { category = country }
+	tolerance_heretic = 1
+}
+
+instincts_hl_succession_support = {
+	game_data = { category = country }
+	diplomatic_capacity = 1
+}
+
+instincts_hl_exploration_bonus = {
+	game_data = { category = country }
+	trade_efficiency = 0.03
+}
+
+instincts_hl_merchant_disaster_relief = {
+	game_data = { category = country }
+	monthly_gold_income = 0.05
+	stability_cost = -0.02
+}
