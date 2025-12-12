@@ -73,23 +73,20 @@ hanseatic_league = {
                         }
                         always = yes
                 }
-                # Allow HRE members to join with specific requirements
-                trigger_if = {
-                        limit = {
-                                is_member_of_international_organization = international_organization:hre
-                        }
-						# HRE members should be coastal (single-location check omitted for compatibility)
-						any_owned_location = { coastal = yes }
-                }
-                trigger_if = {
-                        limit = {
-                                NOT = {
-                                        is_member_of_international_organization = international_organization:hre
-                                }
-                        }
-						# Countries not in HRE should be coastal (single-location check omitted)
-						any_owned_location = { coastal = yes }
-                }
+				# Allow HRE members to join when the candidate is single-location coastal
+				trigger_if = {
+					limit = {
+						is_member_of_international_organization = international_organization:hre
+						scope:recipient = { num_of_locations = 1 any_owned_location = { coastal = yes } }
+					}
+				}
+				trigger_if = {
+					limit = {
+						NOT = { is_member_of_international_organization = international_organization:hre }
+						scope:recipient = { num_of_locations = 1 any_owned_location = { coastal = yes } }
+					}
+					# Countries not in HRE must also be single-location coastal to join
+				}
         }
 	can_lead_trigger = {
 		# Allow founding members to lead the Hanseatic League
