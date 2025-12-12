@@ -873,7 +873,7 @@ flavor_burgundy.111 = {
 		}
 		
 		every_owned_location = {
-			add_rebel_progress = 30
+			add_unrest = 1
 		}
 		add_stability = -2
 		if = {
