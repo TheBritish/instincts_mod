@@ -19,8 +19,6 @@ l_english:
  instincts_hl_innovation_io_desc: "An organizational push accelerates technological and commercial innovation."
  instincts_hl_rival_formation_io: "Rival Formation Pressure"
  instincts_hl_rival_formation_io_desc: "Rival powers form alliances in response to IO influence."
- instincts_hl_plague_relief: "Plague Relief Funds"
- instincts_hl_plague_relief_desc: "Resources are allocated to relieve the effects of epidemic outbreaks."
  instincts_hl_new_goods_income: "New Goods Market"
  instincts_hl_new_goods_income_desc: "Introduction of new trade goods increases export income."
  instincts_hl_naval_morale: "Naval Morale Boost"
@@ -39,8 +37,4 @@ l_english:
  instincts_hl_exploration_bonus_desc: "Incentives encourage voyages of exploration and discovery."
  instincts_hl_merchant_disaster_relief: "Merchant Disaster Relief"
  instincts_hl_merchant_disaster_relief_desc: "Relief funds are provided to merchants after disasters."
- instincts_hl_unrest_2: "Local Unrest (Minor)"
- instincts_hl_unrest_3: "Local Unrest (Moderate)"
- instincts_hl_unrest_4: "Local Unrest (Severe)"
- instincts_hl_unrest_5: "Local Unrest (Major)"
- instincts_hl_unrest_6: "Local Unrest (Widespread)"
+
