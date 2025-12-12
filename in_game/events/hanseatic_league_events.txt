@@ -50,7 +50,7 @@ hanseatic_league_events.5 = {
 	desc = hanseatic_league_events.5.desc
 	trigger = { is_member_of_international_organization = international_organization:hanseatic_league }
 	option = { name = hanseatic_league_events.5.a add_country_modifier = { modifier = instincts_hl_reform_io months = 30 size = { value = 0.02 } } }
-	option = { name = hanseatic_league_events.5.b every_owned_location = { add_location_modifier = { modifier = instincts_hl_unrest_3 months = 6 } } }
+	option = { name = hanseatic_league_events.5.b every_pop = { limit = { owner = root pop_type = pop_type:burghers } add_pop_satisfaction = pop_satisfaction_ultimate_penalty } }
 }
 
 # 6: Embargo on Rival Ports
@@ -70,7 +70,7 @@ hanseatic_league_events.7 = {
 	desc = hanseatic_league_events.7.desc
 	trigger = { is_member_of_international_organization = international_organization:hanseatic_league }
 	option = { name = hanseatic_league_events.7.a add_country_modifier = { modifier = instincts_hl_economic_boom months = 60 } }
-	option = { name = hanseatic_league_events.7.b every_owned_location = { add_location_modifier = { modifier = instincts_hl_unrest_2 months = 6 } } }
+	option = { name = hanseatic_league_events.7.b every_pop = { limit = { owner = root pop_type = pop_type:burghers } add_pop_satisfaction = pop_satisfaction_major_penalty } }
 }
 
 # 8: Diplomatic Overture
@@ -100,7 +100,7 @@ hanseatic_league_events.10 = {
 	desc = hanseatic_league_events.10.desc
 	trigger = { is_member_of_international_organization = international_organization:hanseatic_league }
 	option = { name = hanseatic_league_events.10.a add_country_modifier = { modifier = instincts_hl_rival_formation_io months = 30 size = { value = -0.01 } } }
-	option = { name = hanseatic_league_events.10.b every_owned_location = { add_location_modifier = { modifier = instincts_hl_unrest_4 months = 6 } } }
+	option = { name = hanseatic_league_events.10.b every_pop = { limit = { owner = root pop_type = pop_type:burghers } add_pop_satisfaction = pop_satisfaction_ultimate_penalty } }
 }
 
 # 11: Minor Plague Disruption
@@ -109,8 +109,8 @@ hanseatic_league_events.11 = {
 	title = hanseatic_league_events.11.title
 	desc = hanseatic_league_events.11.desc
 	trigger = { is_member_of_international_organization = international_organization:hanseatic_league }
-	option = { name = hanseatic_league_events.11.a every_owned_location = { add_location_modifier = { modifier = instincts_hl_unrest_5 months = 6 } } }
-	option = { name = hanseatic_league_events.11.b add_country_modifier = { modifier = instincts_hl_plague_relief months = 30 } }
+	option = { name = hanseatic_league_events.11.a every_pop = { limit = { owner = root pop_type = pop_type:peasants } add_pop_satisfaction = pop_satisfaction_ultimate_penalty } }
+	option = { name = hanseatic_league_events.11.b every_pop = { limit = { owner = root pop_type = pop_type:peasants } add_pop_satisfaction = pop_satisfaction_ultimate_penalty } }
 }
 
 # 12: Exotic Goods Arrive
@@ -140,7 +140,7 @@ hanseatic_league_events.14 = {
 	desc = hanseatic_league_events.14.desc
 	trigger = { is_member_of_international_organization = international_organization:hanseatic_league }
 	option = { name = hanseatic_league_events.14.a add_country_modifier = { modifier = instincts_hl_guild_support months = 30 } }
-	option = { name = hanseatic_league_events.14.b every_owned_location = { add_location_modifier = { modifier = instincts_hl_unrest_2 months = 6 } } }
+	option = { name = hanseatic_league_events.14.b every_pop = { limit = { owner = root pop_type = pop_type:burghers } add_pop_satisfaction = pop_satisfaction_major_penalty } }
 }
 
 # 15: Taxation Dispute
@@ -150,7 +150,7 @@ hanseatic_league_events.15 = {
 	desc = hanseatic_league_events.15.desc
 	trigger = { is_member_of_international_organization = international_organization:hanseatic_league }
 	option = { name = hanseatic_league_events.15.a add_country_modifier = { modifier = instincts_hl_taxation_boost_io months = 30 size = { value = 0.02 } } }
-	option = { name = hanseatic_league_events.15.b every_owned_location = { add_location_modifier = { modifier = instincts_hl_unrest_4 months = 6 } } }
+	option = { name = hanseatic_league_events.15.b every_pop = { limit = { owner = root pop_type = pop_type:peasants } add_pop_satisfaction = pop_satisfaction_ultimate_penalty } }
 }
 
 # 16: Cultural Exchange Fair
@@ -170,7 +170,7 @@ hanseatic_league_events.17 = {
 	desc = hanseatic_league_events.17.desc
 	trigger = { is_member_of_international_organization = international_organization:hanseatic_league }
 	option = { name = hanseatic_league_events.17.a add_country_modifier = { modifier = instincts_hl_religious_conciliation months = 30 } }
-	option = { name = hanseatic_league_events.17.b every_owned_location = { add_location_modifier = { modifier = instincts_hl_unrest_3 months = 6 } } }
+	option = { name = hanseatic_league_events.17.b every_pop = { limit = { owner = root pop_type = pop_type:clergy } add_pop_satisfaction = pop_satisfaction_ultimate_penalty } }
 }
 
 # 18: Succession Support
@@ -180,7 +180,7 @@ hanseatic_league_events.18 = {
 	desc = hanseatic_league_events.18.desc
 	trigger = { is_member_of_international_organization = international_organization:hanseatic_league }
 	option = { name = hanseatic_league_events.18.a add_country_modifier = { modifier = instincts_hl_succession_support months = 30 } }
-	option = { name = hanseatic_league_events.18.b every_owned_location = { add_location_modifier = { modifier = instincts_hl_unrest_5 months = 6 } } }
+	option = { name = hanseatic_league_events.18.b every_pop = { limit = { owner = root pop_type = pop_type:nobles } add_pop_satisfaction = pop_satisfaction_ultimate_penalty } }
 }
 
 # 19: Exploration Funding
@@ -199,7 +199,7 @@ hanseatic_league_events.20 = {
 	title = hanseatic_league_events.20.title
 	desc = hanseatic_league_events.20.desc
 	trigger = { is_member_of_international_organization = international_organization:hanseatic_league }
-	option = { name = hanseatic_league_events.20.a every_owned_location = { add_location_modifier = { modifier = instincts_hl_unrest_6 months = 6 } } }
+	option = { name = hanseatic_league_events.20.a every_pop = { limit = { owner = root pop_type = pop_type:burghers } add_pop_satisfaction = pop_satisfaction_ultimate_penalty } }
 	option = { name = hanseatic_league_events.20.b add_country_modifier = { modifier = instincts_hl_merchant_disaster_relief months = 30 } }
 }
 

@@ -179,10 +179,6 @@ wool_famine = {
 }
 
 # Location modifier used by events to add small unrest to provinces
-add_unrest_1_modifier = {
-    game_data = { category = location }
-    local_unrest = 1
-}
 
 fla_diplomatic_capacity = {
 	game_data = {
@@ -255,7 +251,7 @@ instincts_hl_rival_formation_io = {
 
 instincts_hl_plague_relief = {
 	game_data = { category = country }
-	local_unrest = -3
+	# REMOVED: local_unrest handled via pop-targeted satisfaction effects in events
 }
 
 instincts_hl_new_goods_income = {
@@ -304,28 +300,5 @@ instincts_hl_merchant_disaster_relief = {
 	stability_cost = -0.02
 }
 
-# Short-lived unrest modifiers used by Hanseatic League events
-instincts_hl_unrest_2 = {
-	game_data = { category = location }
-	local_unrest = 2
-}
-
-instincts_hl_unrest_3 = {
-	game_data = { category = location }
-	local_unrest = 3
-}
-
-instincts_hl_unrest_4 = {
-	game_data = { category = location }
-	local_unrest = 4
-}
-
-instincts_hl_unrest_5 = {
-	game_data = { category = location }
-	local_unrest = 5
-}
-
-instincts_hl_unrest_6 = {
-	game_data = { category = location }
-	local_unrest = 6
-}
+# Short-lived unrest modifiers previously used by Hanseatic League events
+# REMOVED: these are now implemented inline in events as `every_pop` + `add_pop_satisfaction`.
