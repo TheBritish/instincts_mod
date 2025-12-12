@@ -1,6 +1,5 @@
 ﻿l_english:
 
-
 # Leader proposal / join flow
 hanseatic_league_events.1000.title: "Invitation from the Hanseatic League"
 hanseatic_league_events.1000.desc: "[ROOT.GetName] proposes that your city join the Hanseatic League."
