@@ -55,7 +55,7 @@ hanseatic_league_invite_dispatcher = {
 		any_country = {
 			limit = {
 				num_of_locations = 1
-				any_location = { coastal = yes }
+				any_owned_location = { coastal = yes }
 				NOT = { is_member_of_international_organization = international_organization:hanseatic_league }
 				scope:root = { country_can_join_international_organization = international_organization:hanseatic_league }
 			}
