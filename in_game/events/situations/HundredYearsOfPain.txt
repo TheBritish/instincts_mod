@@ -66,8 +66,8 @@ hundred_years_war.220 = { #The Brewer of Ghent
         add_opinion = { target = c:FRA modifier = brewer_of_ghent_france_rift }
         add_country_modifier = { modifier = wool_trade_restored months = 60 }
 		add_country_modifier = { modifier = fla_diplomatic_capacity months = 60 }
-        add_estate_satisfaction = { estate = burghers satisfaction = 20 }
-        add_estate_satisfaction = { estate = nobles satisfaction = -20 }
+		add_estate_satisfaction = { type = estate_type:burghers_estate value = 20 }
+		add_estate_satisfaction = { type = estate_type:nobles_estate value = -20 }
 	}
 
 	option = {	#Side with France
@@ -81,8 +81,8 @@ hundred_years_war.220 = { #The Brewer of Ghent
         add_country_modifier = { modifier = guild_unrest months = 24 }
         add_country_modifier = { modifier = wool_famine months = 60 }
         add_opinion = { target = c:ENG modifier = brewer_of_ghent_england_betrayal }
-        add_estate_satisfaction = { estate = nobles satisfaction = 20 }
-        add_estate_satisfaction = { estate = burghers satisfaction = -20 }
+		add_estate_satisfaction = { type = estate_type:nobles_estate value = 20 }
+		add_estate_satisfaction = { type = estate_type:burghers_estate value = -20 }
 		c:ENG = {
 			create_relation = {
 				first = c:ENG

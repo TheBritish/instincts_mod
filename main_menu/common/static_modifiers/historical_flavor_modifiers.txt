@@ -218,6 +218,15 @@ instincts_hl_embargo_io = {
 	trade_efficiency = -0.02
 }
 
+# Brabant privileges granted to Burgundy after annexation
+brabantian_privileges = {
+	game_data = {
+		category = country
+	}
+	trade_efficiency = 0.05
+	monthly_prestige = 0.02
+}
+
 instincts_hl_economic_boom = {
 	game_data = { category = country }
 	monthly_gold_income = 0.10
