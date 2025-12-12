@@ -132,3 +132,10 @@ hanseatic_league_events.1001.desc: "[ROOT.GetName] has brought [TARGET.GetName] 
 
 hanseatic_league_events.1100.title: "Hanseatic Membership Update"
 hanseatic_league_events.1100.desc: "The league recently admitted a new member: [TARGET.GetName]."
+
+# Vote / rejection localization
+hanseatic_league_events.1020.title: "League Vote Called"
+hanseatic_league_events.1020.desc: "[ROOT.GetName] has called a vote among Hanseatic League members on whether to admit [TARGET.GetName]."
+
+hanseatic_league_events.1002.title: "Admission Rejected"
+hanseatic_league_events.1002.desc: "[TARGET.GetName]'s application to join the Hanseatic League was rejected by the membership."

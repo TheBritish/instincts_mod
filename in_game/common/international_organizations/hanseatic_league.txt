@@ -13,8 +13,6 @@ hanseatic_league = {
 	has_leader_country = yes
 	leader_title_key = "HANSEATIC_LEAGUE_LEADER"
 	leader_type = country
-	leader_change_trigger_type = none
-	leader_change_method = none
 	disband_if_no_leader = no
 
 	leader = {
