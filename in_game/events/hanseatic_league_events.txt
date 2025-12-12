@@ -168,7 +168,7 @@ hanseatic_league_events.17 = {
 	type = country_event
 	title = hanseatic_league_events.17.title
 	desc = hanseatic_league_events.17.desc
-	trigger = { is_member_of_international_organization = international_organization:hanseatic_league any_international_organization_member = { NOT = { religion = root.religion } } }
+	trigger = { is_member_of_international_organization = international_organization:hanseatic_league }
 	option = { name = hanseatic_league_events.17.a add_country_modifier = { modifier = instincts_hl_religious_conciliation months = 30 } }
 	option = { name = hanseatic_league_events.17.b add_unrest = 3 }
 }
@@ -199,7 +199,7 @@ hanseatic_league_events.20 = {
 	title = hanseatic_league_events.20.title
 	desc = hanseatic_league_events.20.desc
 	trigger = { is_member_of_international_organization = international_organization:hanseatic_league }
-	option = { name = hanseatic_league_events.20.a add_local_unrest = 6 }
+	option = { name = hanseatic_league_events.20.a add_unrest = 6 }
 	option = { name = hanseatic_league_events.20.b add_country_modifier = { modifier = instincts_hl_merchant_disaster_relief months = 30 } }
 }
 
