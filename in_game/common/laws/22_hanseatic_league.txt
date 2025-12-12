@@ -388,15 +388,15 @@ hl_mercenary_standards = {
         wants_this_policy_bias = {
             add = { desc = "POLICY_DEFAULT" value = 35 }
         }
-        international_organization_modifier = { mercenary_discipline = 0.1 }
-        country_modifier = { mercenary_cost = -0.1 }
+        international_organization_modifier = { discipline = 0.10 }
+        country_modifier = { army_maintenance_modifier = -0.10 }
     }
 
     hl_regulated_mercenaries = {
         wants_this_policy_bias = {
             add = { desc = "POLICY_DEFAULT" value = 15 }
         }
-        international_organization_modifier = { mercenary_discipline = 0.05 }
+        international_organization_modifier = { discipline = 0.05 }
     }
 }
 
