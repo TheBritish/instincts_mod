@@ -78,7 +78,14 @@ hundred_years_war.220 = { #The Brewer of Ghent
 			mode = replace
 			years = modifier_duration_years_long
 		}
-        add_country_modifier = { modifier = guild_unrest months = 24 }
+		add_country_modifier = { modifier = guild_unrest months = 24 }
+		every_pop = {
+			limit = {
+				owner = root
+				pop_type = pop_type:burghers
+			}
+			add_pop_satisfaction = pop_satisfaction_ultimate_penalty
+		}
         add_country_modifier = { modifier = wool_famine months = 60 }
         add_opinion = { target = c:ENG modifier = brewer_of_ghent_england_betrayal }
 		add_estate_satisfaction = { type = estate_type:nobles_estate value = 20 }

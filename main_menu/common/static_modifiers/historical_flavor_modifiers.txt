@@ -118,7 +118,6 @@ succession_crisis_modifier = {
 		category = country
 	}
 	stability_cost = 0.25
-	local_unrest = 2
 }
 
 loyal_appanage = {
@@ -166,7 +165,6 @@ guild_unrest = {
 		category = country
 	}
 	stability_cost = 0.20
-	local_unrest = 5
 }
 
 wool_famine = {
