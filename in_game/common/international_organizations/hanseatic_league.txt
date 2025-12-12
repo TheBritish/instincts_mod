@@ -66,26 +66,9 @@ hanseatic_league = {
 	}
 
 	can_join_trigger = {
-		# Founding members can always join
-		trigger_if = {
-			limit = { tag = HSA }
-			always = yes
-		}
-
-		# Allow HRE members to join when the candidate is single-location coastal
-		trigger_if = {
-			limit = {
-				is_member_of_international_organization = international_organization:hre
-				scope:recipient = { num_of_locations = 1 any_owned_location = { coastal = yes } }
-			}
-		}
-
-		# Countries not in HRE must also be single-location coastal to join
-		trigger_if = {
-			limit = {
-				NOT = { is_member_of_international_organization = international_organization:hre }
-				scope:recipient = { num_of_locations = 1 any_owned_location = { coastal = yes } }
-			}
+		OR = {
+			tag = HSA
+			scope:recipient = { num_locations = 1 any_owned_location = { is_coastal = yes } }
 		}
 	}
 
@@ -119,22 +102,13 @@ hanseatic_league = {
 		add = { value = 5 }
 
 		# Strong boost for founding city (always wants to be member)
-		trigger_if = {
-			limit = { tag = HSA }
-			add = { value = 100 }
-		}
+		add = { value = 100 if = { limit = { tag = HSA } } }
 
 		# Coastal countries get a large bonus when the candidate is single-location
-		trigger_if = {
-			limit = { scope:recipient = { num_of_locations = 1 any_owned_location = { coastal = yes } } }
-			add = { value = 40 }
-		}
+		add = { value = 40 if = { limit = { scope:recipient = { num_locations = 1 any_owned_location = { is_coastal = yes } } } } }
 
 		# Cultural affinity: Germanic culture increases desire
-		trigger_if = {
-			limit = { culture_group = culture_group:germanic }
-			add = { value = 15 }
-		}
+		add = { value = 15 if = { limit = { culture_group = culture_group:germanic } } }
 
 		# Economic incentive: higher trade efficiency makes joining attractive
 		# This is a rough proxy using merchant_capacity; scale value accordingly
@@ -170,10 +144,7 @@ hanseatic_league = {
 		}
 
 		# Penalty for being already member of an exclusive IO, small negative value
-		trigger_if = {
-			limit = { is_member_of_international_organization = international_organization:hre }
-			add = { value = -5 }
-		}
+		add = { value = -5 if = { limit = { is_member_of_international_organization = international_organization:hre } } }
 	}
 
 	# AI desire to allow new members (existing members' willingness to accept candidates)
@@ -182,10 +153,7 @@ hanseatic_league = {
 		add = { value = -5 }
 
 		# Leaders prefer expanding the league moderately
-		trigger_if = {
-			limit = { is_leader_of_international_organization = yes }
-			add = { value = 20 }
-		}
+		add = { value = 20 if = { limit = { is_leader_of_international_organization = yes } } }
 
 		# Members with high trade efficiency prefer more members (network benefits)
 		add = {
@@ -200,10 +168,7 @@ hanseatic_league = {
 		add = { value = 0 if = { limit = { any_owned_location = { area = lower_saxony_area } } value = 8 } }
 
 		# Penalty if candidate is large continental power (not desirable)
-		trigger_if = {
-			limit = { scope:recipient = { num_of_locations > 5 } }
-			add = { value = -20 }
-		}
+		add = { value = -20 if = { limit = { scope:recipient = { num_locations > 5 } } } }
 	}
 
 	# AI desire for members (existing organization agents considering adding a candidate)
@@ -212,45 +177,27 @@ hanseatic_league = {
 		add = { value = 0 }
 
 		# Leaders actively propose growth when they control the IO
-		trigger_if = {
-			limit = { is_leader_of_international_organization = yes }
-			add = { value = 30 }
-		}
+		add = { value = 30 if = { limit = { is_leader_of_international_organization = yes } } }
 
 		# Founding/strong Hansa cities push to expand network
-		trigger_if = {
-			limit = { tag = HSA }
-			add = { value = 25 }
-		}
+		add = { value = 25 if = { limit = { tag = HSA } } }
 
 		# Candidate attributes - single-location coastal candidates are attractive
-		trigger_if = {
-			limit = { scope:recipient = { num_of_locations = 1 any_owned_location = { coastal = yes } } }
-			add = { value = 25 }
-		}
+		add = { value = 25 if = { limit = { scope:recipient = { num_locations = 1 any_owned_location = { is_coastal = yes } } } } }
 
 		# Trade incentive: members with merchant capacity support adding trade partners
 		add = { value = 0 if = { limit = { merchant_capacity > 0 } value = "(merchant_capacity * 4)" } }
 
 		# Cultural affinity bonus for Germanic culture group
-		trigger_if = {
-			limit = { culture_group = culture_group:germanic }
-			add = { value = 10 }
-		}
+		add = { value = 10 if = { limit = { culture_group = culture_group:germanic } } }
 
 		# Proximity helps: members with holdings in Hansa areas support adding nearby
 		add = { value = 0 if = { limit = { any_owned_location = { area = lower_saxony_area } } value = 10 } }
 
 		# Penalize adding large continental powers or existing subjects
-		trigger_if = {
-			limit = { scope:recipient = { num_of_locations > 5 } }
-			add = { value = -30 }
-		}
+		add = { value = -30 if = { limit = { scope:recipient = { num_locations > 5 } } } }
 
-		trigger_if = {
-			limit = { is_subject = yes }
-			add = { value = -15 }
-		}
+		add = { value = -15 if = { limit = { is_subject = yes } } }
 	}
 }
 

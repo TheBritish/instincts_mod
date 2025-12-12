@@ -1,4 +1,4 @@
-# Opinion bias modifiers for Hanseatic League interactions
+﻿# Opinion bias modifiers for Hanseatic League interactions
 hanseatic_relations_positive = {
     value = 25
     yearly_decay = 5
