@@ -1,10 +1,10 @@
-# Add our custom on_actions to the existing monthly pulse (fires every month)
-monthly_country_pulse = {
-    on_actions = {
-        hanseatic_league_event_dispatcher
-        hanseatic_league_invite_dispatcher
-        general_random_event_dispatcher
-    }
+﻿# Add our custom on_actions to the yearly pulse (fires once per year)
+yearly_country_pulse = {
+	on_actions = {
+		hanseatic_league_event_dispatcher
+		hanseatic_league_invite_dispatcher
+		general_random_event_dispatcher
+	}
 }
 
 # Hanseatic League events - only for IO members
@@ -50,26 +50,18 @@ hanseatic_league_invite_dispatcher = {
 		is_leader_of_international_organization = international_organization:hanseatic_league
 	}
 
-	hidden_effect = {
+	effect = {
 		# find a candidate country: single-location, coastal, not already member
 		any_country = {
 			limit = {
-				num_of_locations = 1
-				any_owned_location = { coastal = yes }
+				num_locations = 1
+				any_owned_location = { is_coastal = yes }
 				NOT = { is_member_of_international_organization = international_organization:hanseatic_league }
-				scope:root = { country_can_join_international_organization = international_organization:hanseatic_league }
+				country_can_join_international_organization = international_organization:hanseatic_league
 			}
 			# save candidate and fire a country event targeted at them from the leader
 			save_scope_as = invite_candidate
-			root = {
-				country_event = {
-					id = hanseatic_league_events.1000
-					days = 0
-					target = scope:invite_candidate
-				}
-			}
-			# only one candidate per invocation
-			limit = { save_scope_as = invite_candidate }
+			root = { trigger_event = { id = hanseatic_league_events.1000 days = 0 target = scope:invite_candidate } }
 		}
 	}
 }

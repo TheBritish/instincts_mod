@@ -1,27 +1,30 @@
 ﻿l_english:
 
 # Leader proposal / join flow
-hanseatic_league_events.1000.title: "Invitation from the Hanseatic League"
-hanseatic_league_events.1000.desc: "[ROOT.GetName] proposes that your city join the Hanseatic League."
-hanseatic_league_events.1000.a: "Accept the invitation"
-hanseatic_league_events.1000.b: "Decline the invitation"
+hanseatic_league_events.1000.title: "Hanseatic League — Candidate Proposed"
+hanseatic_league_events.1000.desc: "The leader of the Hanseatic League has proposed [ROOT.GetCountry.GetName] for membership. The members will now vote."
+hanseatic_league_events.1000.a: "Acknowledge"
 
-hanseatic_league_events.1001.title: "Joined the Hanseatic League"
-hanseatic_league_events.1001.desc: "[ROOT.GetName] has brought [TARGET.GetName] into the Hanseatic League."
+hanseatic_league_events.1001.title: "Hanseatic League — Candidate Accepted"
+hanseatic_league_events.1001.desc: "A majority of members have voted in favour. [ROOT.GetCountry.GetName] will be admitted to the Hanseatic League."
+hanseatic_league_events.1001.a: "Very well"
 
-hanseatic_league_events.1100.title: "Hanseatic Membership Update"
-hanseatic_league_events.1100.desc: "The league recently admitted a new member: [TARGET.GetName]."
+hanseatic_league_events.1100.title: "Hanseatic League — Member Reaction"
+hanseatic_league_events.1100.desc: "Member states have adjusted their opinions following the vote."
+hanseatic_league_events.1100.a: "Continue"
 
 # Vote / rejection localization
-hanseatic_league_events.1020.title: "League Vote Called"
-hanseatic_league_events.1020.desc: "[ROOT.GetName] has called a vote among Hanseatic League members on whether to admit [TARGET.GetName]."
+hanseatic_league_events.1020.title: "Hanseatic League — Member Vote"
+hanseatic_league_events.1020.desc: "Members are casting their votes on [ROOT.GetCountry.GetName] joining the League."
+hanseatic_league_events.1020.a: "Proceed"
 
-hanseatic_league_events.1002.title: "Admission Rejected"
-hanseatic_league_events.1002.desc: "[TARGET.GetName]'s application to join the Hanseatic League was rejected by the membership."
+hanseatic_league_events.1002.title: "Hanseatic League — Candidate Rejected"
+hanseatic_league_events.1002.desc: "The proposal to admit [ROOT.GetCountry.GetName] has been rejected by the member states."
+hanseatic_league_events.1002.a: "Understood"
 
 # Monthly Hanseatic flavor events (1-20)
 hanseatic_league_events.1.title: "Market Day Boost"
-hanseatic_league_events.1.desc: "A bustling market in [ROOT.GetName] has lifted trade and spirits this month."
+hanseatic_league_events.1.desc: "A bustling market has lifted in [ROOT.GetCountry.GetName] this month."
 hanseatic_league_events.1.a: "Encourage the merchants and enjoy the boon."
 hanseatic_league_events.1.b: "Levy a quick tax on the surge."
 

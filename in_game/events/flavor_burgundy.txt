@@ -653,7 +653,7 @@ flavor_burgundy.108 = {
 		if = {
 			limit = { 
 				exists = international_organization:hre
-				international_organization:hre = { has_leader = yes }
+				international_organization:hre = { international_organization_has_leader = yes }
 			}
 			add_antagonism = {
 				target = international_organization:hre.leader_country
@@ -773,7 +773,7 @@ flavor_burgundy.110 = {
 				}
 			}
 		}
-		
+		}
 		add_country_modifier = {
 			modifier = burgundy_pragmatic_sanction
 			years = 15
@@ -872,8 +872,12 @@ flavor_burgundy.111 = {
 			}
 		}
 		
-		every_owned_location = {
-			add_unrest = 1
+		every_pop = {
+			limit = {
+				owner = root
+				pop_type = pop_type:burghers
+			}
+			add_pop_satisfaction = pop_satisfaction_ultimate_penalty
 		}
 		add_stability = -2
 		if = {
