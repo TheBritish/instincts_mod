@@ -17,6 +17,9 @@ hanseatic_league = {
 		}
 	}
 
+	# Make the IO visible on the diplomatic map/UI
+	show_on_diplomatic_map = yes
+
 	create_visible_trigger = {
 		always = yes
 	}
