@@ -31,7 +31,6 @@ hl_trade_regulations = {
             add = { desc = "POLICY_DEFAULT" value = 15 }
         }
         international_organization_modifier = { trade_efficiency = 0.02 }
-        country_modifier = { trade_efficiency = 0.05 }
     }
 
     hl_balanced_regulations = {
@@ -42,7 +41,6 @@ hl_trade_regulations = {
             add = { desc = "POLICY_DEFAULT" value = 20 }
         }
         international_organization_modifier = { trade_efficiency = 0.03 }
-        country_modifier = { trade_efficiency = 0.02 }
     }
 }
 
