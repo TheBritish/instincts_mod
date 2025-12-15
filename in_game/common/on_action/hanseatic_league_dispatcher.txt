@@ -22,17 +22,17 @@ instincts_hl_create_io = {
 
 	effect = {
 		create_international_organization = {
-			type = hanseatic_league
-			creator = HSA
+			type = international_organization_type:hanseatic_league
+			creator = c:HSA
 			save_scope_as = target_io
 		}
 
 		scope:target_io = {
-			add_country_to_international_organization = HSA
-			add_country_to_international_organization = LUB
-			add_country_to_international_organization = HAM
-			add_country_to_international_organization = BRM
-			set_leader_country = HSA
+			add_country_to_international_organization = c:HSA
+			add_country_to_international_organization = c:LUB
+			add_country_to_international_organization = c:HAM
+			add_country_to_international_organization = c:BRM
+			set_leader_country = c:HSA
 		}
 	}
 }
