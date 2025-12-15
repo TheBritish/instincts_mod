@@ -22,11 +22,11 @@ hanseatic_league = {
 	}
 
 	invite_visible_trigger = {
-		always = yes
+		is_leader_of_international_organization = international_organization:hanseatic_league
 	}
 
 	can_initiate_policy_votes = {
-		is_leader_of_international_organization = scope:recipient
+		is_leader_of_international_organization = international_organization:hanseatic_league
 	}
 
 	can_declare_war = {
@@ -62,8 +62,23 @@ hanseatic_league = {
 	}
 
 	can_join_trigger = {
-		# Only founding HSA tag automatically allowed; candidate checks are handled by invite logic
-		tag = HSA
+		OR = {
+			# Founding HSA tag automatically allowed
+			tag = HSA
+
+			# Single-location coastal countries (good candidates)
+			AND = {
+				num_locations = 1
+				any_owned_location = { is_coastal = yes }
+			}
+
+			# Members of the HRE that meet the same single-location coastal requirement
+			AND = {
+				is_member_of_international_organization = international_organization:hre
+				num_locations = 1
+				any_owned_location = { is_coastal = yes }
+			}
+		}
 	}
 
 	can_lead_trigger = {
@@ -86,7 +101,10 @@ hanseatic_league = {
 
 	auto_disband_trigger = { total_members < 3 }
 
-	on_joined = { custom_tooltip = "HANSEATIC_LEAGUE_JOINED_TT" }
+	on_joined = {
+		custom_tooltip = "HANSEATIC_LEAGUE_JOINED_TT"
+		add_country_modifier = { modifier = hanseatic_new_member years = 1 }
+	}
 
 	on_left = { custom_tooltip = "HANSEATIC_LEAGUE_LEFT_TT" }
 

@@ -8,6 +8,7 @@
  historical_flavor.2008.title: "The Formation of the Streltsy"
  historical_flavor.2008.desc: "A new military unit has been established to serve as our standing army and protect the capital. These disciplined musketeers represent a shift toward professional soldiery and centralized power."
  historical_flavor.2008.a: "Invest in their training and traditions."
+historical_flavor.2008.historical_info: "The Streltsy were an early professional infantry corps in Muscovy whose formation marked a shift toward standing forces and centralized military power."
  
  # Event 2009: The Fugger Banking Dynasty
  historical_flavor.2009.title: "The Rise of the Fugger Banking Dynasty"
@@ -18,11 +19,13 @@
  historical_flavor.2010.title: "Innovations in Longbow Tactics"
  historical_flavor.2010.desc: "Our military scholars have studied the devastating effectiveness of massed longbowmen in recent engagements. The combination of disciplined archer formations and defensive positions has proven highly effective against traditional cavalry charges."
  historical_flavor.2010.a: "Implement these tactical innovations into our armies."
+historical_flavor.2010.historical_info: "At Crécy (1346) English longbowmen and defensive tactics repelled larger cavalry forces, influencing battlefield doctrine across Europe."
  
  # Event 2011: The Hussite Wagon Fort Tactics
  historical_flavor.2011.title: "Revolutionary Wagon Fort Tactics"
  historical_flavor.2011.desc: "Reports from the wars in Bohemia detail innovative defensive tactics using fortified wagons arranged in defensive circles. These tactics have proven devastatingly effective against traditional mounted knights."
  historical_flavor.2011.a: "Study and implement these tactical innovations."
+historical_flavor.2011.historical_info: "Hussite wagon forts were mobile defensive systems that allowed infantry and firearms to blunt cavalry assaults, reshaping Central European warfare."
  
  # Event 2012: Leipzig Trade Fair
  historical_flavor.2012.title: "The Leipzig Trade Fair Flourishes"
@@ -33,6 +36,7 @@
  historical_flavor.2013.title: "Mastery of the Longbow"
  historical_flavor.2013.desc: "Our military theorists have perfected the art of longbow warfare. Through disciplined training and tactical innovation, massed archery formations have become a devastating force on the battlefield."
  historical_flavor.2013.a: "Formalize longbow training and make it doctrine."
+historical_flavor.2013.historical_info: "The English longbow, combined with disciplined training, was a decisive factor in medieval battles and military evolution."
  
  # Event 2014: Nuremberg Chronicles
  historical_flavor.2014.title: "The Nuremberg Chronicles Completed"
@@ -48,21 +52,25 @@
  historical_flavor.2016.title: "The Flourishing of Bardic Tradition"
  historical_flavor.2016.desc: "Our bardic poets and historians have preserved our cultural heritage through generations. Their verses chronicle our glorious past, legitimize our rule, and inspire our people. The bardic schools produce skilled poets who serve as advisors, diplomats, and keepers of our ancient traditions."
  historical_flavor.2016.a: "Patronize the bardic schools and honor their traditions."
+historical_flavor.2016.historical_info: "Irish bardic schools preserved history and law through oral and written verse, reinforcing cultural identity and elite legitimacy."
  
  # Event 2017: Highland Clearances
  historical_flavor.2017.title: "The Highland Clearances"
  historical_flavor.2017.desc: "Landowners are forcing Highland communities from their ancestral lands to make way for more profitable sheep farming. Entire villages are being cleared, and families are being displaced. While economically beneficial to landowners, this is causing immense suffering and unrest among the Highland population."
  historical_flavor.2017.a: "Allow the clearances to proceed for economic gain."
+historical_flavor.2017.historical_info: "The Highland Clearances drastically altered rural society in Scotland, as traditional communities were displaced to make way for pastoral agriculture."
  
  # Event 2018: Scottish Enlightenment
  historical_flavor.2018.title: "The Scottish Enlightenment"
  historical_flavor.2018.desc: "Our universities and intellectual circles are producing remarkable thinkers whose ideas are reshaping philosophy, economics, and science. Scholars like David Hume and Adam Smith are gaining international renown, and our capital is becoming known as a center of learning and rational inquiry."
  historical_flavor.2018.a: "Invest in our universities and support intellectual pursuits."
+historical_flavor.2018.historical_info: "The Scottish Enlightenment fostered advances in philosophy, economics, and science, with institutions and thinkers that influenced modern thought."
  
  # Event 2019: Jacobite Rising - Scotland
  historical_flavor.2019.title: "The Jacobite Rising"
  historical_flavor.2019.desc: "Supporters of the exiled Stuart dynasty have risen in rebellion, seeking to restore the old line to the throne. Highland clans have rallied to the Jacobite cause, and armed conflict threatens the stability of the realm. The uprising has divided loyalties and sparked unrest throughout the land."
  historical_flavor.2019.a: "The clans rise for the Stuarts!"
+historical_flavor.2019.historical_info: "The Jacobite Risings were dynastic rebellions aiming to restore the Stuart monarchy, drawing on Highland support and challenging the established order."
  
  # Event 2020: Jacobite Rising - England/Britain Response
  historical_flavor.2020.title: "News of the Jacobite Rising"

@@ -1,0 +1,10 @@
+game_data = {
+    category = country
+
+    # Short-term bonus for newly joined Hanseatic members
+    hanseatic_new_member = {
+        trade_efficiency = 0.05
+        global_merchant_capacity_modifier = 0.05
+        monthly_prestige = 0.2
+    }
+}

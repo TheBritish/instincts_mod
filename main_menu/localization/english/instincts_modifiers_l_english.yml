@@ -37,4 +37,6 @@ l_english:
  instincts_hl_exploration_bonus_desc: "Incentives encourage voyages of exploration and discovery."
  instincts_hl_merchant_disaster_relief: "Merchant Disaster Relief"
  instincts_hl_merchant_disaster_relief_desc: "Relief funds are provided to merchants after disasters."
+ instincts_hl_new_member: "New Hanseatic Member"
+ instincts_hl_new_member_desc: "A short-term boost to trade efficiency and merchant capacity granted on joining the Hanseatic League."
 

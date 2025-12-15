@@ -72,7 +72,7 @@ hanseatic_league_events.1002 = {
         target = { add_prestige = -1 }
         every_international_organization_member = {
             limit = { NOT = { this = scope:target } }
-            this = { root = { trigger_event = { id = hanseatic_league_events.1100 days = 0 target = scope:target } } }
+            this = { trigger_event = { id = hanseatic_league_events.1100 days = 0 target = scope:target } }
         }
     }
 }
@@ -90,7 +90,7 @@ hanseatic_league_events.1001 = {
         add_country_to_international_organization = scope:target
         every_international_organization_member = {
             limit = { NOT = { this = scope:target } }
-            this = { root = { trigger_event = { id = hanseatic_league_events.1100 days = 0 target = scope:target } } }
+            this = { trigger_event = { id = hanseatic_league_events.1100 days = 0 target = scope:target } }
         }
     }
 }
@@ -110,10 +110,5 @@ hanseatic_league_events.1100 = {
             add_opinion = { target = scope:target modifier = hanseatic_relations_positive }
         }
         else = { add_opinion = { target = scope:target modifier = hanseatic_relations_neutral } }
-        # Reduce satisfaction among clergy pops in member countries as a reaction
-        every_pop = {
-            limit = { pop_type = pop_type:clergy }
-            add_pop_satisfaction = pop_satisfaction_ultimate_penalty
-        }
     }
 }

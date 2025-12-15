@@ -229,6 +229,10 @@ flavor_burgundy.102 = {
 		to = 1395.12.31
 		monthly_chance = 50
 	}
+
+	illustration_tags = { 10 = war 10 = battlefield }
+
+	historical_info = flavor_burgundy.102.historical_info
 	
 
 	
@@ -326,6 +330,10 @@ flavor_burgundy.103 = {
 		to = 1430.12.31
 		monthly_chance = 40
 	}
+
+	illustration_tags = { 10 = prosperity 10 = interior }
+
+	historical_info = flavor_burgundy.103.historical_info
 	
     
 	
@@ -389,6 +397,10 @@ flavor_burgundy.104 = {
 		to = 1430.12.31
 		monthly_chance = 100
 	}
+
+	illustration_tags = { 10 = prosperity 10 = interior }
+
+	historical_info = flavor_burgundy.104.historical_info
 	
     
 	
@@ -435,6 +447,10 @@ flavor_burgundy.105 = {
 		to = 1440.12.31
 		monthly_chance = 100
 	}
+
+	illustration_tags = { 10 = prosperity 10 = interior }
+
+	historical_info = flavor_burgundy.105.historical_info
 	
     
 	
@@ -491,6 +507,10 @@ flavor_burgundy.106 = {
 		to = 1440.12.31
 		monthly_chance = 100
 	}
+
+	illustration_tags = { 10 = prosperity 10 = interior }
+
+	historical_info = flavor_burgundy.106.historical_info
 	
     
 	
@@ -558,6 +578,10 @@ flavor_burgundy.107 = {
 		to = 1445.12.31
 		monthly_chance = 100
 	}
+
+	illustration_tags = { 10 = prosperity 10 = interior }
+
+	historical_info = flavor_burgundy.107.historical_info
 	
     
 	
@@ -620,6 +644,10 @@ flavor_burgundy.108 = {
 		to = 1450.12.31
 		monthly_chance = 100
 	}
+
+	illustration_tags = { 10 = prosperity 10 = interior }
+
+	historical_info = flavor_burgundy.108.historical_info
 	
 	
 	
@@ -678,6 +706,10 @@ flavor_burgundy.109 = {
 		to = 1477.12.31
 		monthly_chance = 50
 	}
+
+	illustration_tags = { 10 = war 10 = angry }
+
+	historical_info = flavor_burgundy.109.historical_info
 	
 	
 	
@@ -753,6 +785,10 @@ flavor_burgundy.110 = {
 		to = 1525.12.31
 		monthly_chance = 30
 	}
+
+	illustration_tags = { 10 = prosperity 10 = interior }
+
+	historical_info = flavor_burgundy.110.historical_info
 	
     
 	trigger = {
@@ -779,7 +815,6 @@ flavor_burgundy.110 = {
 					prestige >= 50
 				}
 			}
-		}
 		}
 		add_country_modifier = {
 			modifier = burgundy_pragmatic_sanction
@@ -814,6 +849,10 @@ flavor_burgundy.111 = {
 		to = 1580.12.31
 		monthly_chance = 40
 	}
+
+	illustration_tags = { 10 = angry 10 = interior }
+
+	historical_info = flavor_burgundy.111.historical_info
 	
     
 	trigger = {

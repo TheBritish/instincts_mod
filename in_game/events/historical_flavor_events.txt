@@ -17,7 +17,7 @@ historical_flavor.2001 = {
         name = historical_flavor.2001.a
         add_stability = stability_mild_bonus
         add_prestige = 5
-        add_treasury = 100
+        add_gold = 100
     }
 }
 
@@ -35,6 +35,8 @@ historical_flavor.2008 = {
         monthly_chance = 100
     }
 
+    historical_info = historical_flavor.2008.historical_info
+
     illustration_tags = { 10 = war 10 = interior }
 
 
@@ -46,6 +48,7 @@ historical_flavor.2008 = {
         }
         add_army_tradition = army_tradition_mild_bonus
         add_prestige = 5
+        historical_option = yes
     }
 }
 
@@ -69,7 +72,7 @@ historical_flavor.2009 = {
             modifier = fugger_banking_partnership
             months = 12
         }
-        add_treasury = 200
+        add_gold = 200
         add_prestige = 5
     }
 }
@@ -88,6 +91,8 @@ historical_flavor.2010 = {
         monthly_chance = 100
     }
 
+    historical_info = historical_flavor.2010.historical_info
+
     illustration_tags = { 10 = war 10 = battlefield }
 
 
@@ -98,6 +103,7 @@ historical_flavor.2010 = {
             months = 12
         }
         add_army_tradition = army_tradition_mild_bonus
+        historical_option = yes
     }
 }
 
@@ -115,6 +121,8 @@ historical_flavor.2011 = {
         monthly_chance = 100
     }
 
+    historical_info = historical_flavor.2011.historical_info
+
     illustration_tags = { 10 = war 10 = angry }
 
 
@@ -125,6 +133,7 @@ historical_flavor.2011 = {
             months = 12
         }
         add_prestige = 5
+        historical_option = yes
     }
 }
 
@@ -166,6 +175,8 @@ historical_flavor.2013 = {
         monthly_chance = 100
     }
 
+    historical_info = historical_flavor.2013.historical_info
+
     illustration_tags = { 10 = war 10 = battlefield }
 
 
@@ -177,6 +188,7 @@ historical_flavor.2013 = {
             months = 12
         }
         add_army_tradition = army_tradition_mild_bonus
+        historical_option = yes
     }
 }
 
@@ -241,6 +253,8 @@ historical_flavor.2016 = {
         monthly_chance = 100
     }
 
+    historical_info = historical_flavor.2016.historical_info
+
     illustration_tags = { 10 = prosperity 10 = interior }
 
 
@@ -251,6 +265,7 @@ historical_flavor.2016 = {
             months = 12
         }
         add_prestige = 5
+        historical_option = yes
     }
 }
 
@@ -268,6 +283,8 @@ historical_flavor.2017 = {
         monthly_chance = 100
     }
 
+    historical_info = historical_flavor.2017.historical_info
+
     illustration_tags = { 10 = death 10 = interior }
 
 
@@ -277,7 +294,8 @@ historical_flavor.2017 = {
             modifier = highland_clearances_impact
             months = 12
         }
-        add_treasury = -200
+        add_gold = -200
+        historical_option = yes
     }
 }
 
@@ -295,6 +313,8 @@ historical_flavor.2018 = {
         monthly_chance = 100
     }
 
+    historical_info = historical_flavor.2018.historical_info
+
     illustration_tags = { 10 = prosperity 10 = interior }
 
 
@@ -305,6 +325,7 @@ historical_flavor.2018 = {
             months = 12
         }
         add_prestige = 10
+        historical_option = yes
     }
 }
 
@@ -321,6 +342,8 @@ historical_flavor.2019 = {
         to = 1746.12.31
         monthly_chance = 100
     }
+
+    historical_info = historical_flavor.2019.historical_info
 
     illustration_tags = { 10 = war 10 = angry }
 
@@ -342,6 +365,7 @@ historical_flavor.2019 = {
                 }
             }
         }
+        historical_option = yes
     }
 }
 
