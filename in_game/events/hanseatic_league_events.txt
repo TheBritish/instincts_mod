@@ -49,7 +49,14 @@ hanseatic_league_events.5 = {
 	title = hanseatic_league_events.5.title
 	desc = hanseatic_league_events.5.desc
 	trigger = { is_member_of_international_organization = international_organization:hanseatic_league }
-	option = { name = hanseatic_league_events.5.a add_country_modifier = { modifier = instincts_hl_reform_io months = 30 size = { value = 0.02 } } }
+	option = {
+		name = hanseatic_league_events.5.a
+		root = {
+			international_organization:hanseatic_league = {
+				add_international_organization_modifier = { modifier = instincts_hl_reform_io months = 30 size = { value = 0.02 } }
+			}
+		}
+	}
 	option = { name = hanseatic_league_events.5.b every_pop = { limit = { owner = root pop_type = pop_type:burghers } add_pop_satisfaction = pop_satisfaction_ultimate_penalty } }
 }
 
@@ -59,7 +66,14 @@ hanseatic_league_events.6 = {
 	title = hanseatic_league_events.6.title
 	desc = hanseatic_league_events.6.desc
 	trigger = { is_member_of_international_organization = international_organization:hanseatic_league }
-	option = { name = hanseatic_league_events.6.a add_country_modifier = { modifier = instincts_hl_embargo_io months = 30 size = { value = -0.02 } } }
+	option = {
+		name = hanseatic_league_events.6.a
+		root = {
+			international_organization:hanseatic_league = {
+				add_international_organization_modifier = { modifier = instincts_hl_embargo_io months = 30 size = { value = -0.02 } }
+			}
+		}
+	}
 	option = { name = hanseatic_league_events.6.b add_prestige = 2 }
 }
 
@@ -89,7 +103,14 @@ hanseatic_league_events.9 = {
 	title = hanseatic_league_events.9.title
 	desc = hanseatic_league_events.9.desc
 	trigger = { is_member_of_international_organization = international_organization:hanseatic_league has_ports = yes }
-	option = { name = hanseatic_league_events.9.a add_country_modifier = { modifier = instincts_hl_innovation_io months = 30 size = { value = 0.02 } } }
+	option = {
+		name = hanseatic_league_events.9.a
+		root = {
+			international_organization:hanseatic_league = {
+				add_international_organization_modifier = { modifier = instincts_hl_innovation_io months = 30 size = { value = 0.02 } }
+			}
+		}
+	}
 	option = { name = hanseatic_league_events.9.b add_prestige = -2 }
 }
 
@@ -99,7 +120,14 @@ hanseatic_league_events.10 = {
 	title = hanseatic_league_events.10.title
 	desc = hanseatic_league_events.10.desc
 	trigger = { is_member_of_international_organization = international_organization:hanseatic_league }
-	option = { name = hanseatic_league_events.10.a add_country_modifier = { modifier = instincts_hl_rival_formation_io months = 30 size = { value = -0.01 } } }
+	option = {
+		name = hanseatic_league_events.10.a
+		root = {
+			international_organization:hanseatic_league = {
+				add_international_organization_modifier = { modifier = instincts_hl_rival_formation_io months = 30 size = { value = -0.01 } }
+			}
+		}
+	}
 	option = { name = hanseatic_league_events.10.b every_pop = { limit = { owner = root pop_type = pop_type:burghers } add_pop_satisfaction = pop_satisfaction_ultimate_penalty } }
 }
 
@@ -149,7 +177,14 @@ hanseatic_league_events.15 = {
 	title = hanseatic_league_events.15.title
 	desc = hanseatic_league_events.15.desc
 	trigger = { is_member_of_international_organization = international_organization:hanseatic_league }
-	option = { name = hanseatic_league_events.15.a add_country_modifier = { modifier = instincts_hl_taxation_boost_io months = 30 size = { value = 0.02 } } }
+	option = {
+		name = hanseatic_league_events.15.a
+		root = {
+			international_organization:hanseatic_league = {
+				add_international_organization_modifier = { modifier = instincts_hl_taxation_boost_io months = 30 size = { value = 0.02 } }
+			}
+		}
+	}
 	option = { name = hanseatic_league_events.15.b every_pop = { limit = { owner = root pop_type = pop_type:peasants } add_pop_satisfaction = pop_satisfaction_ultimate_penalty } }
 }
 
