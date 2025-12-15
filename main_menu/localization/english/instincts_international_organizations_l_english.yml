@@ -49,6 +49,8 @@
  EQUALITY_PRINCIPLE: "Believe in equal rights"
  ACTIVE_TRADER: "Active merchant network"
  PROPOSE_LEADER_CONSOLIDATE: "Leader wants to strengthen control"
+ POLICY_RECENTLY_PROPOSED: "Recently Proposed (Cooldown)"
+ POLICY_RECENTLY_PROPOSED_desc: "This city recently proposed a policy and is under a temporary cooldown, making it less likely to propose another policy immediately."
  
  # Trade Regulations
  hl_trade_regulations: "Trade Regulations"

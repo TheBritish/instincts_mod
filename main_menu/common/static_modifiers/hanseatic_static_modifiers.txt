@@ -4,3 +4,8 @@
 	global_merchant_capacity_modifier = 0.05
 	monthly_prestige = 0.2
 }
+
+hl_policy_proposal_cooldown = {
+	game_data = { category = country }
+	# Marker modifier used to prevent rapid repeated policy proposals by the same country
+} 

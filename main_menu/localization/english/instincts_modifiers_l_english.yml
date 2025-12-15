@@ -41,4 +41,6 @@
  instincts_hl_new_member_desc: "A short-term boost to trade efficiency and merchant capacity granted on joining the Hanseatic League."
  hanseatic_new_member: "New Hanseatic Member"
  hanseatic_new_member_desc: "A short-term boost to trade efficiency and merchant capacity granted on joining the Hanseatic League."
+ hl_policy_proposal_cooldown: "Policy Proposal Cooldown"
+ hl_policy_proposal_cooldown_desc: "A short-term marker applied to a leader who recently changed a league policy; reduces the likelihood of immediate repeat proposals."
 
