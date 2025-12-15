@@ -52,7 +52,7 @@ hanseatic_league = {
 		global_salt_output_modifier = 0.05
 		tolerance_heretic = 1
 		diplomatic_capacity = 1
-		naval_forcelimit = 0.10
+		global_naval_forcelimit_modifier = 0.10
 	}
 
 	# Leaders (HSA) get additional benefits for coordinating the league
@@ -138,7 +138,7 @@ hanseatic_league = {
 		add = { value = -5 }
 
 		# Leaders prefer expanding the league moderately
-		add = { value = 20 if = { limit = { is_leader_of_international_organization = international_organization:hanseatic_league } } }
+		add = { value = 20 if = { limit = { this = { is_leader_of_international_organization = international_organization:hanseatic_league } } } }
 
 		# Members with merchant activity are moderately favorable to new partners
 		add = { value = 8 if = { limit = { this = { total_merchant_capacity > 0 } } } }
@@ -156,7 +156,7 @@ hanseatic_league = {
 		add = { value = 0 }
 
 		# Leaders actively propose growth when they control the IO
-		add = { value = 30 if = { limit = { is_leader_of_international_organization = international_organization:hanseatic_league } } }
+		add = { value = 30 if = { limit = { this = { is_leader_of_international_organization = international_organization:hanseatic_league } } } }
 
 		# Founding/strong Hansa cities push to expand network
 		add = { value = 25 if = { limit = { tag = HSA } } }

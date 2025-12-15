@@ -5,6 +5,8 @@ hanseatic_league_events.1000.title: "Hanseatic League — Candidate Proposed"
 hanseatic_league_events.1000.desc: "The leader of the Hanseatic League has proposed [ROOT.GetCountry.GetName] for membership. The members will now vote."
 hanseatic_league_events.1000.a: "Acknowledge"
 
+# (debug localization removed)
+
 hanseatic_league_events.1001.title: "Hanseatic League — Candidate Accepted"
 hanseatic_league_events.1001.desc: "A majority of members have voted in favour. [ROOT.GetCountry.GetName] will be admitted to the Hanseatic League."
 hanseatic_league_events.1001.a: "Very well"

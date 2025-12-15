@@ -8,7 +8,7 @@ hl_trade_regulations = {
     hl_strict_regulations = {
         wants_propose_policy = {
             add = { desc = "POLICY_LEADER_PREFERENCE" value = 100 }
-            add = { desc = "POLICY_RECENTLY_PROPOSED" value = -100 if = { limit = { has_country_modifier = hl_policy_proposal_cooldown } } }
+            add = { desc = "POLICY_RECENTLY_PROPOSED" value = -80 if = { limit = { has_country_modifier = hl_policy_proposal_cooldown } } }
         }
         wants_this_policy_bias = {
             add = { desc = "POLICY_DEFAULT" value = 50 }
@@ -38,7 +38,7 @@ hl_trade_regulations = {
     hl_balanced_regulations = {
         wants_propose_policy = {
             add = { desc = "POLICY_LEADER_PREFERENCE" value = 25 }
-            add = { desc = "POLICY_RECENTLY_PROPOSED" value = -25 if = { limit = { has_country_modifier = hl_policy_proposal_cooldown } } }
+            add = { desc = "POLICY_RECENTLY_PROPOSED" value = -20 if = { limit = { has_country_modifier = hl_policy_proposal_cooldown } } }
         }
         wants_this_policy_bias = {
             add = { desc = "POLICY_DEFAULT" value = 20 }
@@ -55,7 +55,7 @@ hl_kontor_privileges = {
     hl_exclusive_kontors = {
         wants_propose_policy = {
             add = { desc = "POLICY_LEADER_PREFERENCE" value = 100 }
-            add = { desc = "POLICY_RECENTLY_PROPOSED" value = -100 if = { limit = { has_country_modifier = hl_policy_proposal_cooldown } } }
+            add = { desc = "POLICY_RECENTLY_PROPOSED" value = -80 if = { limit = { has_country_modifier = hl_policy_proposal_cooldown } } }
         }
         wants_this_policy_bias = {
             add = { desc = "POLICY_DEFAULT" value = 50 }
@@ -126,7 +126,7 @@ hl_naval_defense = {
     hl_unified_fleet = {
         wants_propose_policy = {
             add = { desc = "POLICY_LEADER_PREFERENCE" value = 100 }
-            add = { desc = "POLICY_RECENTLY_PROPOSED" value = -100 if = { limit = { has_country_modifier = hl_policy_proposal_cooldown } } }
+            add = { desc = "POLICY_RECENTLY_PROPOSED" value = -80 if = { limit = { has_country_modifier = hl_policy_proposal_cooldown } } }
         }
         wants_this_policy_bias = {
             add = { desc = "POLICY_DEFAULT" value = 50 }
@@ -155,12 +155,12 @@ hl_naval_defense = {
     hl_coastal_patrols = {
         wants_propose_policy = {
             add = { desc = "POLICY_LEADER_PREFERENCE" value = 75 }
-            add = { desc = "POLICY_RECENTLY_PROPOSED" value = -75 if = { limit = { has_country_modifier = hl_policy_proposal_cooldown } } }
+            add = { desc = "POLICY_RECENTLY_PROPOSED" value = -60 if = { limit = { has_country_modifier = hl_policy_proposal_cooldown } } }
         }
         wants_this_policy_bias = {
             add = { desc = "POLICY_DEFAULT" value = 30 }
         }
-        international_organization_modifier = { naval_forcelimit_modifier = 0.08 }
+        international_organization_modifier = { global_naval_forcelimit_modifier = 0.08 }
         country_modifier = { navy_maintenance_cost = -0.10 }
     }
 }
@@ -201,7 +201,7 @@ hl_economic_cooperation = {
     hl_joint_ventures = {
         wants_propose_policy = {
             add = { desc = "POLICY_LEADER_PREFERENCE" value = 60 }
-            add = { desc = "POLICY_RECENTLY_PROPOSED" value = -60 if = { limit = { has_country_modifier = hl_policy_proposal_cooldown } } }
+            add = { desc = "POLICY_RECENTLY_PROPOSED" value = -50 if = { limit = { has_country_modifier = hl_policy_proposal_cooldown } } }
         }
         wants_this_policy_bias = {
             add = { desc = "POLICY_DEFAULT" value = 25 }
@@ -219,7 +219,7 @@ hl_dispute_resolution = {
     hl_binding_arbitration = {
         wants_propose_policy = {
             add = { desc = "POLICY_LEADER_PREFERENCE" value = 100 }
-            add = { desc = "POLICY_RECENTLY_PROPOSED" value = -100 if = { limit = { has_country_modifier = hl_policy_proposal_cooldown } } }
+            add = { desc = "POLICY_RECENTLY_PROPOSED" value = -80 if = { limit = { has_country_modifier = hl_policy_proposal_cooldown } } }
         }
         wants_this_policy_bias = {
             add = { desc = "POLICY_DEFAULT" value = 50 }
@@ -254,7 +254,7 @@ hl_profit_distribution = {
     hl_proportional_shares = {
         wants_propose_policy = {
             add = { desc = "POLICY_LEADER_PREFERENCE" value = 100 }
-            add = { desc = "POLICY_RECENTLY_PROPOSED" value = -100 if = { limit = { has_country_modifier = hl_policy_proposal_cooldown } } }
+            add = { desc = "POLICY_RECENTLY_PROPOSED" value = -80 if = { limit = { has_country_modifier = hl_policy_proposal_cooldown } } }
         }
         wants_this_policy_bias = {
             add = { desc = "POLICY_DEFAULT" value = 50 }
@@ -290,7 +290,7 @@ hl_tagfahrt_frequency = {
     hl_frequent_tagfahrt = {
         wants_propose_policy = {
             add = { desc = "POLICY_LEADER_PREFERENCE" value = 100 }
-            add = { desc = "POLICY_RECENTLY_PROPOSED" value = -100 if = { limit = { has_country_modifier = hl_policy_proposal_cooldown } } }
+            add = { desc = "POLICY_RECENTLY_PROPOSED" value = -80 if = { limit = { has_country_modifier = hl_policy_proposal_cooldown } } }
         }
         wants_this_policy_bias = {
             add = { desc = "POLICY_DEFAULT" value = 50 }
@@ -371,7 +371,7 @@ hl_cultural_exchange = {
     hl_shared_knowledge = {
         wants_propose_policy = {
             add = { desc = "POLICY_LEADER_PREFERENCE" value = 80 }
-            add = { desc = "POLICY_RECENTLY_PROPOSED" value = -80 if = { limit = { has_country_modifier = hl_policy_proposal_cooldown } } }
+            add = { desc = "POLICY_RECENTLY_PROPOSED" value = -65 if = { limit = { has_country_modifier = hl_policy_proposal_cooldown } } }
         }
         wants_this_policy_bias = {
             add = { desc = "POLICY_DEFAULT" value = 40 }
@@ -395,7 +395,7 @@ hl_mercenary_standards = {
     hl_professional_mercenaries = {
         wants_propose_policy = {
             add = { desc = "POLICY_LEADER_PREFERENCE" value = 70 }
-            add = { desc = "POLICY_RECENTLY_PROPOSED" value = -70 if = { limit = { has_country_modifier = hl_policy_proposal_cooldown } } }
+            add = { desc = "POLICY_RECENTLY_PROPOSED" value = -55 if = { limit = { has_country_modifier = hl_policy_proposal_cooldown } } }
         }
         wants_this_policy_bias = {
             add = { desc = "POLICY_DEFAULT" value = 35 }
