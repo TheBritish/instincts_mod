@@ -4,7 +4,7 @@
 }
 
 luxembourg_succession_dispute = {
-    value = -100
+    value = -80
     yearly_decay = 3
 }
 
@@ -28,7 +28,7 @@ brewer_of_ghent_france_rift = {
 }
 
 brewer_of_ghent_england_betrayal = {
-    value = -100
+    value = -80
     yearly_decay = 3
 }
 
