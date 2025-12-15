@@ -1,2 +1,0 @@
-# Removed temporary debug event used during IO creation testing
-# Event `instincts_hl.1` deleted — kept as placeholder to avoid missing-file errors during iterative testing
