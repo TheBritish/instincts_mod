@@ -55,11 +55,10 @@ hundred_years_war.220 = { #The Brewer of Ghent
 		custom_tooltip = this_will_not_affect_our_textile_industry_tt
 
 		c:FRA = { cancel_subject = c:FLA }
-        c:ENG = {
-			create_relation = {
-				first = c:ENG
-				second = c:FLA
-				type = relation_type:alliance
+        c:FLA = {
+			make_subject_of = {
+				target = c:ENG 
+				type = subject_type:vassal 
 			}
 		}
         add_opinion = { target = c:ENG modifier = brewer_of_ghent_england_alliance }

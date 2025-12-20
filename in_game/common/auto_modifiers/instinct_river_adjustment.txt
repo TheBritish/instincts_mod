@@ -1,5 +1,0 @@
-﻿TRY_INJECT:country_base_values = {
-	land_cost_going_upstream        = -20 # 15 # 30
-	land_cost_going_downstream      = 0 # 15 # 10
-}
-

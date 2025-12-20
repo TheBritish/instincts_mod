@@ -13,8 +13,20 @@ hl_trade_regulations = {
         wants_this_policy_bias = {
             add = { desc = "POLICY_DEFAULT" value = 50 }
         }
-        international_organization_modifier = { trade_efficiency = 0.08 }
-        country_modifier = { trade_efficiency = -0.02 global_urban_build_buildings_cost = -0.10 }
+        # Strict regulations centralize control: IO coordination raises merchant capacity.
+        # The league leader gains tariff income and merchant capacity; members suffer lower
+        # trade efficiency and greater local unrest.
+        international_organization_modifier = { trade_efficiency = 0.04 global_merchant_capacity_modifier = 0.10 }
+        # Leader-specific benefits (tariff income, merchant capacity)
+        country_modifier = {
+            potential_trigger = {
+                is_leader_of_international_organization = international_organization:hanseatic_league
+            }
+            monthly_gold_income = 0.02
+            global_merchant_capacity_modifier = 0.05
+        }
+        # Effects applied to member countries
+        country_modifier = { trade_efficiency = -0.05 local_unrest = 0.10 }
     }
 
     hl_moderate_regulations = {
@@ -25,14 +37,34 @@ hl_trade_regulations = {
         wants_this_policy_bias = {
             add = { desc = "POLICY_DEFAULT" value = 25 }
         }
-        international_organization_modifier = { trade_efficiency = 0.06 }
+        # Moderate regulations: modest IO trade benefits. Leader receives small tariff income
+        # and merchant capacity boost; members receive a small trade penalty.
+        international_organization_modifier = { trade_efficiency = 0.03 }
+        country_modifier = {
+            potential_trigger = {
+                is_leader_of_international_organization = international_organization:hanseatic_league
+            }
+            monthly_gold_income = 0.01
+            global_merchant_capacity_modifier = 0.05
+        }
+        country_modifier = { trade_efficiency = -0.01 }
     }
 
     hl_minimal_regulations = {
         wants_this_policy_bias = {
             add = { desc = "POLICY_DEFAULT" value = 15 }
         }
-        international_organization_modifier = { trade_efficiency = 0.02 }
+        # Minimal regulation favors freer trade: higher IO trade efficiency. Leaders see a small
+        # tariff reduction; members get a modest trade boost.
+        international_organization_modifier = { trade_efficiency = 0.06 }
+        country_modifier = {
+            potential_trigger = {
+                is_leader_of_international_organization = international_organization:hanseatic_league
+            }
+            trade_efficiency = 0.02
+            monthly_gold_income = -0.01
+        }
+        country_modifier = { trade_efficiency = 0.01 }
     }
 
     hl_balanced_regulations = {
@@ -43,7 +75,16 @@ hl_trade_regulations = {
         wants_this_policy_bias = {
             add = { desc = "POLICY_DEFAULT" value = 20 }
         }
+        # Balanced regulations: modest IO coordination and small country-level benefits.
         international_organization_modifier = { trade_efficiency = 0.02 }
+        country_modifier = {
+            potential_trigger = {
+                is_leader_of_international_organization = international_organization:hanseatic_league
+            }
+            trade_efficiency = 0.01
+            monthly_gold_income = 0.005
+        }
+        country_modifier = { trade_efficiency = 0.00 }
     }
 }
 
@@ -61,6 +102,15 @@ hl_kontor_privileges = {
             add = { desc = "POLICY_DEFAULT" value = 50 }
         }
         international_organization_modifier = { global_merchant_capacity_modifier = 0.20 }
+        # Leader of the League collects extra merchant capacity and tariffs from exclusive kontors
+        country_modifier = {
+            potential_trigger = {
+                is_leader_of_international_organization = international_organization:hanseatic_league
+            }
+            monthly_gold_income = 0.02
+            global_merchant_capacity_modifier = 0.10
+        }
+        # Effects applied to member countries
         country_modifier = { global_merchant_capacity_modifier = -0.10 global_urban_build_buildings_cost = -0.08 }
     }
 
@@ -78,7 +128,14 @@ hl_kontor_privileges = {
         wants_this_policy_bias = {
             add = { desc = "POLICY_DEFAULT" value = 15 }
         }
+        # Open kontors benefit merchants generally; leader receives slight tariff income
         country_modifier = { global_merchant_capacity_modifier = 1 diplomatic_reputation = 0.25 }
+        country_modifier = {
+            potential_trigger = {
+                is_leader_of_international_organization = international_organization:hanseatic_league
+            }
+            monthly_gold_income = 0.01
+        }
     }
 }
 
@@ -95,6 +152,14 @@ hl_membership_policy = {
             add = { desc = "POLICY_DEFAULT" value = 50 }
         }
         international_organization_modifier = { diplomatic_reputation = 0.5 }
+        # Leader diplomatic benefit for exclusive membership
+        country_modifier = {
+            potential_trigger = {
+                is_leader_of_international_organization = international_organization:hanseatic_league
+            }
+            diplomatic_reputation = 0.25
+        }
+        # Member-level effect
         country_modifier = { local_unrest = -0.5 }
     }
 
@@ -114,6 +179,13 @@ hl_membership_policy = {
             add = { desc = "POLICY_DEFAULT" value = 15 }
         }
         international_organization_modifier = { trade_efficiency = 0.03 }
+        # Leader gets small tariff income for open membership
+        country_modifier = {
+            potential_trigger = {
+                is_leader_of_international_organization = international_organization:hanseatic_league
+            }
+            monthly_gold_income = 0.01
+        }
         country_modifier = { diplomatic_reputation = 0.15 local_unrest = 0.25 }
     }
 }
@@ -132,6 +204,13 @@ hl_naval_defense = {
             add = { desc = "POLICY_DEFAULT" value = 50 }
         }
         international_organization_modifier = { naval_morale_modifier = 0.08 }
+        # Leader gains improved naval performance
+        country_modifier = {
+            potential_trigger = {
+                is_leader_of_international_organization = international_organization:hanseatic_league
+            }
+            naval_morale_modifier = 0.05
+        }
         country_modifier = { naval_morale_modifier = -0.03 global_urban_build_buildings_cost = -0.06 }
     }
 
@@ -149,6 +228,13 @@ hl_naval_defense = {
         wants_this_policy_bias = {
             add = { desc = "POLICY_DEFAULT" value = 15 }
         }
+        # Leader gets extra naval morale when fleets remain independent
+        country_modifier = {
+            potential_trigger = {
+                is_leader_of_international_organization = international_organization:hanseatic_league
+            }
+            naval_morale_modifier = 0.03
+        }
         country_modifier = { naval_morale_modifier = 0.05 }
     }
 
@@ -161,6 +247,13 @@ hl_naval_defense = {
             add = { desc = "POLICY_DEFAULT" value = 30 }
         }
         international_organization_modifier = { global_naval_forcelimit_modifier = 0.08 }
+        # Leader benefits from coastal patrol coordination
+        country_modifier = {
+            potential_trigger = {
+                is_leader_of_international_organization = international_organization:hanseatic_league
+            }
+            naval_morale_modifier = 0.02
+        }
         country_modifier = { navy_maintenance_cost = -0.10 }
     }
 }
@@ -178,6 +271,12 @@ hl_economic_cooperation = {
             add = { desc = "POLICY_DEFAULT" value = 50 }
         }
         international_organization_modifier = { trade_efficiency = 0.06 }
+        country_modifier = {
+            potential_trigger = {
+                is_leader_of_international_organization = international_organization:hanseatic_league
+            }
+            trade_efficiency = 0.01
+        }
         country_modifier = { stability_cost = -0.05 global_build_buildings_cost = -0.07 }
     }
 
@@ -195,6 +294,12 @@ hl_economic_cooperation = {
         wants_this_policy_bias = {
             add = { desc = "POLICY_DEFAULT" value = 15 }
         }
+        country_modifier = {
+            potential_trigger = {
+                is_leader_of_international_organization = international_organization:hanseatic_league
+            }
+            monthly_gold_income = 0.01
+        }
         country_modifier = { trade_efficiency = 0.03 stability_cost = 0.05 }
     }
 
@@ -207,6 +312,12 @@ hl_economic_cooperation = {
             add = { desc = "POLICY_DEFAULT" value = 25 }
         }
         international_organization_modifier = { trade_efficiency = 0.06 }
+        country_modifier = {
+            potential_trigger = {
+                is_leader_of_international_organization = international_organization:hanseatic_league
+            }
+            monthly_gold_income = 0.01
+        }
         country_modifier = { global_production_efficiency = 0.05 }
     }
 }
@@ -242,6 +353,12 @@ hl_dispute_resolution = {
         wants_this_policy_bias = {
             add = { desc = "POLICY_DEFAULT" value = 15 }
         }
+        country_modifier = {
+            potential_trigger = {
+                is_leader_of_international_organization = international_organization:hanseatic_league
+            }
+            diplomatic_reputation = 0.05
+        }
         country_modifier = { diplomatic_capacity = 1 local_unrest = 0.25 }
     }
 }
@@ -260,6 +377,13 @@ hl_profit_distribution = {
             add = { desc = "POLICY_DEFAULT" value = 50 }
         }
         international_organization_modifier = { trade_efficiency = 0.04 }
+        # Leader receives a small share of profits as tariff income; members get distribution effects
+        country_modifier = {
+            potential_trigger = {
+                is_leader_of_international_organization = international_organization:hanseatic_league
+            }
+            monthly_gold_income = 0.015
+        }
         country_modifier = { trade_efficiency = -0.02 global_build_buildings_cost = -0.05 }
     }
 
@@ -277,6 +401,12 @@ hl_profit_distribution = {
     hl_merit_based = {
         wants_this_policy_bias = {
             add = { desc = "POLICY_DEFAULT" value = 15 }
+        }
+        country_modifier = {
+            potential_trigger = {
+                is_leader_of_international_organization = international_organization:hanseatic_league
+            }
+            monthly_gold_income = 0.01
         }
         country_modifier = { trade_efficiency = 0.05 local_unrest = 0.5 }
     }
@@ -296,6 +426,12 @@ hl_tagfahrt_frequency = {
             add = { desc = "POLICY_DEFAULT" value = 50 }
         }
         international_organization_modifier = { diplomatic_reputation = 0.30 }
+        country_modifier = {
+            potential_trigger = {
+                is_leader_of_international_organization = international_organization:hanseatic_league
+            }
+            diplomatic_reputation = 0.05
+        }
         country_modifier = { stability_cost = -0.05 }
     }
 
@@ -312,6 +448,12 @@ hl_tagfahrt_frequency = {
     hl_infrequent_tagfahrt = {
         wants_this_policy_bias = {
             add = { desc = "POLICY_DEFAULT" value = 15 }
+        }
+        country_modifier = {
+            potential_trigger = {
+                is_leader_of_international_organization = international_organization:hanseatic_league
+            }
+            diplomatic_reputation = 0.02
         }
         country_modifier = { diplomatic_capacity = 1 }
     }
@@ -330,6 +472,12 @@ hl_foreign_policy = {
             add = { desc = "POLICY_DEFAULT" value = 50 }
         }
         international_organization_modifier = { diplomatic_reputation = 0.50 }
+        country_modifier = {
+            potential_trigger = {
+                is_leader_of_international_organization = international_organization:hanseatic_league
+            }
+            diplomatic_reputation = 0.10
+        }
         country_modifier = { diplomatic_reputation = 0.25 }
     }
 

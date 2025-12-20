@@ -169,3 +169,52 @@ hl_regulated_mercenaries: "Regulated Mercenaries"
 hl_religious_harmony: "Religious Harmony"
 hl_ecumenical_tolerance: "Ecumenical Tolerance"
 hl_moderate_tolerance: "Moderate Tolerance"
+
+# Leader Effects
+HL_STRICT_REGULATIONS_LEADER_EFFECT: "Leader city gains tariff income and increased merchant capacity."
+HL_MODERATE_REGULATIONS_LEADER_EFFECT: "Leader city receives modest tariff income and merchant coordination benefits."
+HL_MINIMAL_REGULATIONS_LEADER_EFFECT: "Leader city sees a small tariff reduction but retains influence over trade standards."
+HL_BALANCED_REGULATIONS_LEADER_EFFECT: "Leader city gains modest trade efficiency and small tariff income."
+
+HL_OPEN_KONTORS_LEADER_EFFECT: "Leader city receives minor tariff income from open kontors."
+HL_EXCLUSIVE_MEMBERSHIP_LEADER_EFFECT: "Leader city gains a diplomatic reputation bonus for maintaining exclusive membership."
+HL_PROPORTIONAL_SHARES_LEADER_EFFECT: "Leader city receives a small share of league revenue as tariff income."
+
+HL_UNIFIED_FLEET_LEADER_EFFECT: "Leader city benefits from improved naval performance and coordination."
+HL_INDEPENDENT_FLEET_LEADER_EFFECT: "Leader city receives a modest naval morale bonus when fleets remain independent."
+HL_COASTAL_PATROLS_LEADER_EFFECT: "Leader city benefits from coordinated patrols with a slight naval morale increase."
+
+HL_COMMON_STANDARDS_LEADER_EFFECT: "Leader city gains a small trade efficiency bonus for enforcing common standards."
+HL_INDEPENDENT_ECONOMIES_LEADER_EFFECT: "Leader city receives a small tariff income under independent economies."
+HL_JOINT_VENTURES_LEADER_EFFECT: "Leader city gains a small share of joint venture revenues."
+HL_MEMBER_AUTONOMY_LEADER_EFFECT: "Leader city receives a small diplomatic reputation bonus under member autonomy."
+HL_MERIT_BASED_LEADER_EFFECT: "Leader city receives a small share of profits from merit-based distribution."
+
+HL_FREQUENT_TAGFAHRT_LEADER_EFFECT: "Leader city gains increased diplomatic reputation when assemblies are frequent."
+HL_INFREQUENT_TAGFAHRT_LEADER_EFFECT: "Leader city retains modest diplomatic reputation when assemblies are rare."
+
+HL_UNIFIED_DIPLOMACY_LEADER_EFFECT: "Leader city receives enhanced diplomatic reputation when diplomacy is unified."
+
+# Leader Tooltips (short, shown on leader bonus lines)
+HL_STRICT_REGULATIONS_LEADER_TT: "Leader: gains tariff income and increased merchant capacity."
+HL_MODERATE_REGULATIONS_LEADER_TT: "Leader: modest tariff income and merchant coordination."
+HL_MINIMAL_REGULATIONS_LEADER_TT: "Leader: small tariff reduction while retaining influence."
+HL_BALANCED_REGULATIONS_LEADER_TT: "Leader: modest trade efficiency and small tariff income."
+
+HL_OPEN_KONTORS_LEADER_TT: "Leader: minor tariff income from shared kontors."
+HL_EXCLUSIVE_MEMBERSHIP_LEADER_TT: "Leader: diplomatic reputation bonus for exclusivity."
+HL_PROPORTIONAL_SHARES_LEADER_TT: "Leader: small share of league revenue as tariff income."
+
+HL_UNIFIED_FLEET_LEADER_TT: "Leader: improved naval performance and coordination."
+HL_INDEPENDENT_FLEET_LEADER_TT: "Leader: modest naval morale bonus when fleets are independent."
+HL_COASTAL_PATROLS_LEADER_TT: "Leader: slight naval morale increase from coordinated patrols."
+
+HL_COMMON_STANDARDS_LEADER_TT: "Leader: small trade efficiency bonus for enforcing standards."
+HL_INDEPENDENT_ECONOMIES_LEADER_TT: "Leader: small tariff income under independent economies."
+HL_JOINT_VENTURES_LEADER_TT: "Leader: small share of joint venture revenues."
+HL_MEMBER_AUTONOMY_LEADER_TT: "Leader: small diplomatic reputation bonus under member autonomy."
+HL_MERIT_BASED_LEADER_TT: "Leader: small share of profits from merit-based distribution."
+
+HL_FREQUENT_TAGFAHRT_LEADER_TT: "Leader: increased diplomatic reputation when assemblies are frequent."
+HL_INFREQUENT_TAGFAHRT_LEADER_TT: "Leader: modest diplomatic reputation when assemblies are rare."
+HL_UNIFIED_DIPLOMACY_LEADER_TT: "Leader: enhanced diplomatic reputation when diplomacy is unified."

@@ -8,7 +8,6 @@ diplomacy_manager = {
 	
 	# Historical alliances
 	scripted_mutual = { first = HAI second = ENG type = alliance }
-	scripted_mutual = { first = FLA second = ENG type = alliance }
 	scripted_mutual = { first = BRI second = ENG type = alliance }
 
 }
