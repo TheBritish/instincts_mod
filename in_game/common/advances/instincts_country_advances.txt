@@ -1,0 +1,1587 @@
+###########################################################
+# Instincts Mod - Country-specific Advances
+# Generated: 2025-12-26
+# Contains 4 advances per Age (Traditions, Renaissance,
+# Discovery, Reformation, Absolutism, Revolutions) for
+# ENG, FRA, CAS, POR, HAB, BUR, SWE, MOS, TUR, POL
+###########################################################
+
+########################
+# England (ENG)
+########################
+
+eng_traditions_longbow_mastery = {
+    icon = "gfx/interface/icons/advances/eng_traditions_longbow_mastery.dds"
+    age = age_traditions
+    # Historical Context: Institutionalized longbowmen gave England battlefield dominance.
+    land_morale = 0.08
+    infantry_power = 0.06
+    recruit_speed = 0.05
+}
+
+eng_traditions_feudal_parliament = {
+    icon = "gfx/interface/icons/advances/eng_traditions_feudal_parliament.dds"
+    age = age_traditions
+    # Historical Context: Early parliamentary institutions increased administrative cohesion.
+    admin_power = 0.05
+    stability_cost = -0.05
+    unrest = -0.05
+}
+
+eng_traditions_shire_levies = {
+    icon = "gfx/interface/icons/advances/eng_traditions_shire_levies.dds"
+    age = age_traditions
+    # Historical Context: Local militia organization provided manpower resilience.
+    manpower = 0.10
+    monthly_regiment_reinforce_speed = 0.05
+}
+
+eng_traditions_coastal_defences = {
+    icon = "gfx/interface/icons/advances/eng_traditions_coastal_defences.dds"
+    age = age_traditions
+    # Historical Context: Early coastal works defended against raids and supported fleets.
+    naval_forcelimit_modifier = 0.05
+    naval_morale = 0.05
+}
+
+eng_renaissance_maritime_cartography = {
+    icon = "gfx/interface/icons/advances/eng_renaissance_maritime_cartography.dds"
+    age = age_renaissance
+    # Historical Context: Improved charts aided navigation and seamanship.
+    naval_movement = 0.10
+    global_trade_power = 0.05
+}
+
+eng_renaissance_gunpowder_adoption = {
+    icon = "gfx/interface/icons/advances/eng_renaissance_gunpowder_adoption.dds"
+    age = age_renaissance
+    # Historical Context: Early adoption of firearms improved battlefield firepower.
+    discipline = 0.05
+    infantry_power = 0.07
+}
+
+eng_renaissance_naval_doctrine = {
+    icon = "gfx/interface/icons/advances/eng_renaissance_naval_doctrine.dds"
+    age = age_renaissance
+    # Historical Context: Emerging naval tactics shaped an effective fighting fleet.
+    naval_forcelimit_modifier = 0.07
+    naval_power = 0.06
+}
+
+eng_renaissance_royal_administration = {
+    icon = "gfx/interface/icons/advances/eng_renaissance_royal_administration.dds"
+    age = age_renaissance
+    # Historical Context: Centralized revenue systems improved crown capacity.
+    tax_income = 0.07
+    admin_power = 0.05
+}
+
+eng_discovery_privateering = {
+    icon = "gfx/interface/icons/advances/eng_discovery_privateering.dds"
+    age = age_discovery
+    # Historical Context: Privateers expanded English maritime reach and prize income.
+    privateer_income = 0.10
+    global_trade_power = 0.05
+}
+
+eng_discovery_naval_consolidation = {
+    icon = "gfx/interface/icons/advances/eng_discovery_naval_consolidation.dds"
+    age = age_discovery
+    # Historical Context: Consolidation of fleet logistics boosted overseas operations.
+    naval_forcelimit_modifier = 0.08
+    naval_morale = 0.04
+}
+
+eng_discovery_colonial_administration = {
+    icon = "gfx/interface/icons/advances/eng_discovery_colonial_administration.dds"
+    age = age_discovery
+    # Historical Context: Efficient colonial governance increased settler throughput.
+    colonists = 1
+    colonist_period = -0.05
+}
+
+eng_discovery_seaborne_trade_networks = {
+    icon = "gfx/interface/icons/advances/eng_discovery_seaborne_trade_networks.dds"
+    age = age_discovery
+    # Historical Context: Merchant networks established England's global commerce.
+    global_trade_power = 0.10
+    trade_range = 0.10
+}
+
+eng_reformation_act_of_supremacy = {
+    icon = "gfx/interface/icons/advances/eng_reformation_act_of_supremacy.dds"
+    age = age_reformation
+    # Historical Context: Crown supremacy over church strengthened state control.
+    religious_unity = 0.05
+    stability_cost = -0.05
+}
+
+eng_reformation_parliamentary_reforms = {
+    icon = "gfx/interface/icons/advances/eng_reformation_parliamentary_reforms.dds"
+    age = age_reformation
+    # Historical Context: Parliamentary assertiveness reshaped political power.
+    admin_power = 0.06
+    unrest = -0.05
+}
+
+eng_reformation_line_infantry = {
+    icon = "gfx/interface/icons/advances/eng_reformation_line_infantry.dds"
+    age = age_reformation
+    # Historical Context: Formation of disciplined infantry formations improved survivability.
+    infantry_power = 0.08
+    discipline = 0.04
+}
+
+eng_reformation_fleet_supremacy = {
+    icon = "gfx/interface/icons/advances/eng_reformation_fleet_supremacy.dds"
+    age = age_reformation
+    # Historical Context: Royal Navy began to exert dominance over sea lanes.
+    naval_forcelimit_modifier = 0.10
+    naval_power = 0.06
+}
+
+eng_absolutism_naval_industry = {
+    icon = "gfx/interface/icons/advances/eng_absolutism_naval_industry.dds"
+    age = age_absolutism
+    # Historical Context: Dockyards and industry underwrote a powerful navy.
+    naval_forcelimit_modifier = 0.12
+    ship_build_cost = -0.10
+}
+
+eng_absolutism_professional_army = {
+    icon = "gfx/interface/icons/advances/eng_absolutism_professional_army.dds"
+    age = age_absolutism
+    # Historical Context: Standing professional forces improved campaign endurance.
+    manpower = 0.12
+    discipline = 0.06
+}
+
+eng_absolutism_industrial_foundations = {
+    icon = "gfx/interface/icons/advances/eng_absolutism_industrial_foundations.dds"
+    age = age_absolutism
+    # Historical Context: Early industrial growth fueled economic expansion.
+    production_efficiency = 0.08
+    tax_income = 0.05
+}
+
+eng_absolutism_naval_infantry = {
+    icon = "gfx/interface/icons/advances/eng_absolutism_naval_infantry.dds"
+    age = age_absolutism
+    # Historical Context: Marines professionalized amphibious and boarding actions.
+    naval_power = 0.05
+    infantry_power = 0.04
+}
+
+eng_revolutions_mechanised_plate = {
+    icon = "gfx/interface/icons/advances/eng_revolutions_mechanised_plate.dds"
+    age = age_revolutions
+    # Historical Context: Industrial technologies transformed mass production and logistics.
+    production_efficiency = 0.12
+    recruit_speed = 0.08
+}
+
+eng_revolutions_naval_global_hegemony = {
+    icon = "gfx/interface/icons/advances/eng_revolutions_naval_global_hegemony.dds"
+    age = age_revolutions
+    # Historical Context: Global reach established enduring maritime hegemony.
+    global_trade_power = 0.12
+    naval_forcelimit_modifier = 0.10
+}
+
+eng_revolutions_mass_army_reforms = {
+    icon = "gfx/interface/icons/advances/eng_revolutions_mass_army_reforms.dds"
+    age = age_revolutions
+    # Historical Context: Conscription and organization supported large-scale modern warfare.
+    manpower = 0.15
+    discipline = 0.06
+}
+
+eng_revolutions_parliamentary_democracy = {
+    icon = "gfx/interface/icons/advances/eng_revolutions_parliamentary_democracy.dds"
+    age = age_revolutions
+    # Historical Context: Modern political reforms broadened participation and stability.
+    stability_cost = -0.07
+    admin_power = 0.06
+}
+
+########################
+# France (FRA)
+########################
+
+fra_traditions_knightly_elan = {
+    icon = "gfx/interface/icons/advances/fra_traditions_knightly_elan.dds"
+    age = age_traditions
+    # Historical Context: Chivalric culture fostered aggressive cavalry tactics.
+    cavalry_power = 0.08
+    morale = 0.06
+}
+
+fra_traditions_manorial_revenue = {
+    icon = "gfx/interface/icons/advances/fra_traditions_manorial_revenue.dds"
+    age = age_traditions
+    # Historical Context: Seigneurial revenues sustained aristocratic armies.
+    tax_income = 0.06
+    manpower = 0.06
+}
+
+fra_traditions_castle_engineering = {
+    icon = "gfx/interface/icons/advances/fra_traditions_castle_engineering.dds"
+    age = age_traditions
+    # Historical Context: Fortification expertise improved defensive capabilities.
+    fort_level = 1
+    siege_defense = 0.05
+}
+
+fra_traditions_courtly_scholarship = {
+    icon = "gfx/interface/icons/advances/fra_traditions_courtly_scholarship.dds"
+    age = age_traditions
+    # Historical Context: Court patronage supported arts and administrative skill.
+    admin_power = 0.05
+    prestige = 0.05
+}
+
+fra_renaissance_musket_integration = {
+    icon = "gfx/interface/icons/advances/fra_renaissance_musket_integration.dds"
+    age = age_renaissance
+    # Historical Context: Integration of firearms with pike tactics modernized infantry.
+    infantry_power = 0.09
+    discipline = 0.04
+}
+
+fra_renaissance_palace_centralisation = {
+    icon = "gfx/interface/icons/advances/fra_renaissance_palace_centralisation.dds"
+    age = age_renaissance
+    # Historical Context: Central court strengthened royal authority and finance.
+    admin_power = 0.06
+    tax_income = 0.05
+}
+
+fra_renaissance_armoured_cavalry = {
+    icon = "gfx/interface/icons/advances/fra_renaissance_armoured_cavalry.dds"
+    age = age_renaissance
+    # Historical Context: Heavy cavalry adapted to new battlefield realities.
+    cavalry_power = 0.07
+    cavalry_charge = 0.05
+}
+
+fra_renaissance_artistic_patronage = {
+    icon = "gfx/interface/icons/advances/fra_renaissance_artistic_patronage.dds"
+    age = age_renaissance
+    # Historical Context: Royal patronage promoted culture and legitimacy.
+    prestige = 0.08
+    stability_cost = -0.04
+}
+
+fra_discovery_italian_mercantile_methods = {
+    icon = "gfx/interface/icons/advances/fra_discovery_italian_mercantile_methods.dds"
+    age = age_discovery
+    # Historical Context: Adoption of mercantile finance improved trade returns.
+    global_trade_power = 0.08
+    trade_efficiency = 0.05
+}
+
+fra_discovery_tertiary_recruitment = {
+    icon = "gfx/interface/icons/advances/fra_discovery_tertiary_recruitment.dds"
+    age = age_discovery
+    # Historical Context: Recruitment reforms improved manpower pools.
+    manpower = 0.10
+    monthly_regiment_reinforce_speed = 0.05
+}
+
+fra_discovery_colonial_enterprises = {
+    icon = "gfx/interface/icons/advances/fra_discovery_colonial_enterprises.dds"
+    age = age_discovery
+    # Historical Context: Trading companies extended French commercial reach.
+    global_trade_power = 0.06
+    colonists = 1
+}
+
+fra_discovery_field_artillery = {
+    icon = "gfx/interface/icons/advances/fra_discovery_field_artillery.dds"
+    age = age_discovery
+    # Historical Context: Artillery development reshaped siege warfare.
+    artillery_fire = 0.08
+    siege_speed = 0.10
+}
+
+fra_reformation_catholic_reform_response = {
+    icon = "gfx/interface/icons/advances/fra_reformation_catholic_reform_response.dds"
+    age = age_reformation
+    # Historical Context: Counter-reformation measures shored up religious authority.
+    stability_cost = -0.06
+    religious_unity = 0.06
+}
+
+fra_reformation_centralized_intendance = {
+    icon = "gfx/interface/icons/advances/fra_reformation_centralized_intendance.dds"
+    age = age_reformation
+    # Historical Context: Intendants improved provincial administration for the crown.
+    admin_power = 0.08
+    corruption = -0.05
+}
+
+fra_reformation_royal_guard = {
+    icon = "gfx/interface/icons/advances/fra_reformation_royal_guard.dds"
+    age = age_reformation
+    # Historical Context: Elite guards protected the monarch and led reforms.
+    cavalry_power = 0.05
+    discipline = 0.05
+}
+
+fra_reformation_provincial_mobilisation = {
+    icon = "gfx/interface/icons/advances/fra_reformation_provincial_mobilisation.dds"
+    age = age_reformation
+    # Historical Context: Improved levies supported longer wars of religion.
+    manpower = 0.12
+    recruit_speed = 0.06
+}
+
+fra_absolutism_sun_king_reforms = {
+    icon = "gfx/interface/icons/advances/fra_absolutism_sun_king_reforms.dds"
+    age = age_absolutism
+    # Historical Context: Administrative and military reforms under an absolute monarch.
+    admin_power = 0.10
+    discipline = 0.06
+}
+
+fra_absolutism_standing_regiment = {
+    icon = "gfx/interface/icons/advances/fra_absolutism_standing_regiment.dds"
+    age = age_absolutism
+    # Historical Context: Professional regiments improved army reliability.
+    manpower = 0.15
+    monthly_regiment_reinforce_speed = 0.07
+}
+
+fra_absolutism_cadre_officer_corp = {
+    icon = "gfx/interface/icons/advances/fra_absolutism_cadre_officer_corp.dds"
+    age = age_absolutism
+    # Historical Context: Officer corps enhanced battlefield command and cohesion.
+    discipline = 0.08
+    leadership = 0.05
+}
+
+fra_absolutism_financial_centralisation = {
+    icon = "gfx/interface/icons/advances/fra_absolutism_financial_centralisation.dds"
+    age = age_absolutism
+    # Historical Context: Improved fiscal systems funded sustained military effort.
+    tax_income = 0.10
+    inflation = -0.03
+}
+
+fra_revolutions_national_army = {
+    icon = "gfx/interface/icons/advances/fra_revolutions_national_army.dds"
+    age = age_revolutions
+    # Historical Context: Revolutionary levies transformed mass mobilization.
+    manpower = 0.20
+    discipline = 0.06
+}
+
+fra_revolutions_revolutionary_guard = {
+    icon = "gfx/interface/icons/advances/fra_revolutions_revolutionary_guard.dds"
+    age = age_revolutions
+    # Historical Context: Elite revolutionary units enforced changes and fought effectively.
+    infantry_power = 0.10
+    morale = 0.06
+}
+
+fra_revolutions_civic_culture = {
+    icon = "gfx/interface/icons/advances/fra_revolutions_civic_culture.dds"
+    age = age_revolutions
+    # Historical Context: New civic institutions reworked loyalty and mobilization.
+    stability_cost = -0.08
+    admin_power = 0.07
+}
+
+fra_revolutions_industrial_mobilisation = {
+    icon = "gfx/interface/icons/advances/fra_revolutions_industrial_mobilisation.dds"
+    age = age_revolutions
+    # Historical Context: Industrial capacity converted into military and economic power.
+    production_efficiency = 0.12
+    recruit_speed = 0.08
+}
+
+########################
+# Castile (CAS)
+########################
+
+cas_traditions_knightly_retinue = {
+    icon = "gfx/interface/icons/advances/cas_traditions_knightly_retinue.dds"
+    age = age_traditions
+    # Historical Context: Feudal retinues underpinned medieval Castilian warfare.
+    cavalry_power = 0.07
+    manpower = 0.06
+}
+
+cas_traditions_royal_fief_management = {
+    icon = "gfx/interface/icons/advances/cas_traditions_royal_fief_management.dds"
+    age = age_traditions
+    # Historical Context: Improved manorial oversight increased revenues.
+    tax_income = 0.06
+    admin_power = 0.04
+}
+
+cas_traditions_frontier_huscarl = {
+    icon = "gfx/interface/icons/advances/cas_traditions_frontier_huscarl.dds"
+    age = age_traditions
+    # Historical Context: Frontier warfare created hardy light cavalry and militia.
+    cavalry_power = 0.05
+    recruit_speed = 0.04
+}
+
+cas_traditions_coastal_watch = {
+    icon = "gfx/interface/icons/advances/cas_traditions_coastal_watch.dds"
+    age = age_traditions
+    # Historical Context: Coastal vigilance reduced raiding impact.
+    naval_morale = 0.04
+    trade_range = 0.05
+}
+
+cas_renaissance_maritime_trade_hubs = {
+    icon = "gfx/interface/icons/advances/cas_renaissance_maritime_trade_hubs.dds"
+    age = age_renaissance
+    # Historical Context: Iberian ports became trade centers linking Atlantic routes.
+    global_trade_power = 0.09
+    trade_efficiency = 0.04
+}
+
+cas_renaissance_gunpowder_reform = {
+    icon = "gfx/interface/icons/advances/cas_renaissance_gunpowder_reform.dds"
+    age = age_renaissance
+    # Historical Context: Reorganization around firearms modernized Castilian forces.
+    infantry_power = 0.08
+    discipline = 0.04
+}
+
+cas_renaissance_seafaring_infrastructure = {
+    icon = "gfx/interface/icons/advances/cas_renaissance_seafaring_infrastructure.dds"
+    age = age_renaissance
+    # Historical Context: Dock infrastructure supported larger trans-oceanic fleets.
+    naval_forcelimit_modifier = 0.08
+    ship_build_cost = -0.05
+}
+
+cas_renaissance_state_chancery = {
+    icon = "gfx/interface/icons/advances/cas_renaissance_state_chancery.dds"
+    age = age_renaissance
+    # Historical Context: Central chancery improved administration and diplomacy.
+    admin_power = 0.06
+    prestige = 0.04
+}
+
+cas_discovery_colonial_companies = {
+    icon = "gfx/interface/icons/advances/cas_discovery_colonial_companies.dds"
+    age = age_discovery
+    # Historical Context: Chartered companies organized colonial extraction and trade.
+    global_trade_power = 0.07
+    colonists = 1
+}
+
+cas_discovery_naval_provisions = {
+    icon = "gfx/interface/icons/advances/cas_discovery_naval_provisions.dds"
+    age = age_discovery
+    # Historical Context: Logistics for long voyages enabled sustained exploration.
+    naval_movement = 0.08
+    naval_forcelimit_modifier = 0.05
+}
+
+cas_discovery_new_world_administration = {
+    icon = "gfx/interface/icons/advances/cas_discovery_new_world_administration.dds"
+    age = age_discovery
+    # Historical Context: Early colonial governance increased extractive efficiency.
+    tax_income = 0.06
+    production_efficiency = 0.04
+}
+
+cas_discovery_naval_tactics = {
+    icon = "gfx/interface/icons/advances/cas_discovery_naval_tactics.dds"
+    age = age_discovery
+    # Historical Context: Naval experience improved convoy protection and raiding.
+    naval_power = 0.06
+    privateer_income = 0.05
+}
+
+cas_reformation_inquisition_reforms = {
+    icon = "gfx/interface/icons/advances/cas_reformation_inquisition_reforms.dds"
+    age = age_reformation
+    # Historical Context: Religious enforcement stabilized internal cohesion.
+    religious_unity = 0.06
+    unrest = -0.05
+}
+
+cas_reformation_crown_justice = {
+    icon = "gfx/interface/icons/advances/cas_reformation_crown_justice.dds"
+    age = age_reformation
+    # Historical Context: Crown judicial reforms strengthened royal authority.
+    admin_power = 0.05
+    stability_cost = -0.04
+}
+
+cas_reformation_infantry_drill = {
+    icon = "gfx/interface/icons/advances/cas_reformation_infantry_drill.dds"
+    age = age_reformation
+    # Historical Context: Drill and discipline increased battlefield effectiveness.
+    infantry_power = 0.07
+    recruit_speed = 0.05
+}
+
+cas_reformation_coastal_project = {
+    icon = "gfx/interface/icons/advances/cas_reformation_coastal_project.dds"
+    age = age_reformation
+    # Historical Context: Fortified harbors secured trade and naval bases.
+    fort_level = 1
+    naval_morale = 0.04
+}
+
+cas_absolutism_bureaucratic_reform = {
+    icon = "gfx/interface/icons/advances/cas_absolutism_bureaucratic_reform.dds"
+    age = age_absolutism
+    # Historical Context: Professional bureaucracy improved tax collection and oversight.
+    admin_power = 0.10
+    tax_income = 0.07
+}
+
+cas_absolutism_permanent_regiment = {
+    icon = "gfx/interface/icons/advances/cas_absolutism_permanent_regiment.dds"
+    age = age_absolutism
+    # Historical Context: Standing regiments increased campaign readiness.
+    manpower = 0.13
+    monthly_regiment_reinforce_speed = 0.06
+}
+
+cas_absolutism_maritime_investment = {
+    icon = "gfx/interface/icons/advances/cas_absolutism_maritime_investment.dds"
+    age = age_absolutism
+    # Historical Context: State investments supported a stronger navy and shipbuilding.
+    naval_forcelimit_modifier = 0.10
+    ship_build_cost = -0.08
+}
+
+cas_absolutism_crown_armories = {
+    icon = "gfx/interface/icons/advances/cas_absolutism_crown_armories.dds"
+    age = age_absolutism
+    # Historical Context: Centralized armories improved supply and quality of equipment.
+    recruit_speed = 0.07
+    infantry_power = 0.05
+}
+
+cas_revolutions_empire_reforms = {
+    icon = "gfx/interface/icons/advances/cas_revolutions_empire_reforms.dds"
+    age = age_revolutions
+    # Historical Context: Modernizing reforms reorganized imperial administration.
+    admin_power = 0.12
+    stability_cost = -0.06
+}
+
+cas_revolutions_naval_retooling = {
+    icon = "gfx/interface/icons/advances/cas_revolutions_naval_retooling.dds"
+    age = age_revolutions
+    # Historical Context: Industrial upgrades modernized the fleet for global operations.
+    naval_forcelimit_modifier = 0.12
+    naval_power = 0.08
+}
+
+cas_revolutions_mass_recruitment = {
+    icon = "gfx/interface/icons/advances/cas_revolutions_mass_recruitment.dds"
+    age = age_revolutions
+    # Historical Context: Mass recruitment systems produced large modern armies.
+    manpower = 0.18
+    recruit_speed = 0.09
+}
+
+cas_revolutions_trade_corporations = {
+    icon = "gfx/interface/icons/advances/cas_revolutions_trade_corporations.dds"
+    age = age_revolutions
+    # Historical Context: Large trading corporations integrated industry and commerce.
+    global_trade_power = 0.10
+    production_efficiency = 0.08
+}
+
+########################
+# Portugal continuation (already added above) - next: Habsburgs done - now Burgundy
+########################
+
+########################
+# Burgundy (BUR)
+########################
+
+bur_traditions_feudal_lordship = {
+    icon = "gfx/interface/icons/advances/bur_traditions_feudal_lordship.dds"
+    age = age_traditions
+    # Historical Context: Burgundian estates supported a wealthy feudal order.
+    tax_income = 0.06
+    prestige = 0.04
+}
+
+bur_traditions_cavalier_banner = {
+    icon = "gfx/interface/icons/advances/bur_traditions_cavalier_banner.dds"
+    age = age_traditions
+    # Historical Context: Noble cavalry formed the backbone of Burgundian forces.
+    cavalry_power = 0.07
+    morale = 0.04
+}
+
+bur_traditions_vineyard_economy = {
+    icon = "gfx/interface/icons/advances/bur_traditions_vineyard_economy.dds"
+    age = age_traditions
+    # Historical Context: Productive lands produced wealth for court and commerce.
+    tax_income = 0.05
+    production_efficiency = 0.04
+}
+
+bur_traditions_international_merchants = {
+    icon = "gfx/interface/icons/advances/bur_traditions_international_merchants.dds"
+    age = age_traditions
+    # Historical Context: Merchant communities connected Burgundian cities to trade.
+    global_trade_power = 0.06
+    trade_efficiency = 0.04
+}
+
+bur_renaissance_artisan_centres = {
+    icon = "gfx/interface/icons/advances/bur_renaissance_artisan_centres.dds"
+    age = age_renaissance
+    # Historical Context: Urban artisan centres fueled manufacturing and exports.
+    production_efficiency = 0.07
+    tax_income = 0.04
+}
+
+bur_renaissance_urban_militia = {
+    icon = "gfx/interface/icons/advances/bur_renaissance_urban_militia.dds"
+    age = age_renaissance
+    # Historical Context: City militias aided in regional defence and order.
+    recruit_speed = 0.05
+    manpower = 0.08
+}
+
+bur_renaissance_financial_houses = {
+    icon = "gfx/interface/icons/advances/bur_renaissance_financial_houses.dds"
+    age = age_renaissance
+    # Historical Context: Banks and financiers supported large-scale commerce.
+    global_trade_power = 0.08
+    stability_cost = -0.03
+}
+
+bur_renaissance_courtly_reforms = {
+    icon = "gfx/interface/icons/advances/bur_renaissance_courtly_reforms.dds"
+    age = age_renaissance
+    # Historical Context: Administrative refinement enhanced governance capacity.
+    admin_power = 0.06
+    prestige = 0.05
+}
+
+bur_discovery_trade_hubs = {
+    icon = "gfx/interface/icons/advances/bur_discovery_trade_hubs.dds"
+    age = age_discovery
+    # Historical Context: Strategic trade hubs increased regional commerce influence.
+    global_trade_power = 0.09
+    trade_efficiency = 0.05
+}
+
+bur_discovery_field_barracks = {
+    icon = "gfx/interface/icons/advances/bur_discovery_field_barracks.dds"
+    age = age_discovery
+    # Historical Context: Improved barracks increased army readiness and endurance.
+    recruit_speed = 0.06
+    manpower = 0.08
+}
+
+bur_discovery_infrastructure_investment = {
+    icon = "gfx/interface/icons/advances/bur_discovery_infrastructure_investment.dds"
+    age = age_discovery
+    # Historical Context: Investments in roads and ports enhanced logistics.
+    trade_range = 0.06
+    production_efficiency = 0.05
+}
+
+bur_discovery_artisan_colleges = {
+    icon = "gfx/interface/icons/advances/bur_discovery_artisan_colleges.dds"
+    age = age_discovery
+    # Historical Context: Technical knowledge spread through guild-backed colleges.
+    production_efficiency = 0.07
+    admin_power = 0.04
+}
+
+bur_reformation_regal_pacts = {
+    icon = "gfx/interface/icons/advances/bur_reformation_regal_pacts.dds"
+    age = age_reformation
+    # Historical Context: Political pacts attempted to contain religious fragmentation.
+    stability_cost = -0.04
+    diplomacy = 0.04
+}
+
+bur_reformation_civic_defences = {
+    icon = "gfx/interface/icons/advances/bur_reformation_civic_defences.dds"
+    age = age_reformation
+    # Historical Context: City defences resisted external threats during upheaval.
+    fort_level = 1
+    recruit_speed = 0.04
+}
+
+bur_reformation_artillery_refinement = {
+    icon = "gfx/interface/icons/advances/bur_reformation_artillery_refinement.dds"
+    age = age_reformation
+    # Historical Context: Refinement of artillery increased siege effectiveness.
+    artillery_fire = 0.07
+    siege_speed = 0.08
+}
+
+bur_reformation_economic_consortia = {
+    icon = "gfx/interface/icons/advances/bur_reformation_economic_consortia.dds"
+    age = age_reformation
+    # Historical Context: Economic consortia stabilized trade during confessional crises.
+    global_trade_power = 0.06
+    tax_income = 0.04
+}
+
+bur_absolutism_court_finance = {
+    icon = "gfx/interface/icons/advances/bur_absolutism_court_finance.dds"
+    age = age_absolutism
+    # Historical Context: Centralised finances funded military and diplomatic efforts.
+    tax_income = 0.10
+    admin_power = 0.06
+}
+
+bur_absolutism_professional_artisans = {
+    icon = "gfx/interface/icons/advances/bur_absolutism_professional_artisans.dds"
+    age = age_absolutism
+    # Historical Context: Skilled artisans increased manufactured output and exports.
+    production_efficiency = 0.09
+    global_trade_power = 0.05
+}
+
+bur_absolutism_garrison_reforms = {
+    icon = "gfx/interface/icons/advances/bur_absolutism_garrison_reforms.dds"
+    age = age_absolutism
+    # Historical Context: Garrison reforms solidified control over towns and trade routes.
+    fort_level = 1
+    manpower = 0.08
+}
+
+bur_absolutism_diplomatic_networks = {
+    icon = "gfx/interface/icons/advances/bur_absolutism_diplomatic_networks.dds"
+    age = age_absolutism
+    # Historical Context: Diplomatic networks secured commercial and territorial interests.
+    diplomacy = 0.08
+    stability_cost = -0.03
+}
+
+bur_revolutions_industrial_network = {
+    icon = "gfx/interface/icons/advances/bur_revolutions_industrial_network.dds"
+    age = age_revolutions
+    # Historical Context: Industrial networks converted artisanal production into factories.
+    production_efficiency = 0.12
+    trade_efficiency = 0.06
+}
+
+bur_revolutions_civic_mobilisation = {
+    icon = "gfx/interface/icons/advances/bur_revolutions_civic_mobilisation.dds"
+    age = age_revolutions
+    # Historical Context: Civic mobilization provided large manpower pools for modern wars.
+    manpower = 0.16
+    recruit_speed = 0.08
+}
+
+bur_revolutions_maritime_integration = {
+    icon = "gfx/interface/icons/advances/bur_revolutions_maritime_integration.dds"
+    age = age_revolutions
+    # Historical Context: Integrated maritime industries supported global trade competitiveness.
+    global_trade_power = 0.10
+    naval_forcelimit_modifier = 0.08
+}
+
+bur_revolutions_public_institutions = {
+    icon = "gfx/interface/icons/advances/bur_revolutions_public_institutions.dds"
+    age = age_revolutions
+    # Historical Context: Public institutions professionalized administration and services.
+    admin_power = 0.10
+    stability_cost = -0.06
+}
+
+########################
+# Sweden (SWE)
+########################
+
+swe_traditions_northern_shield = {
+    icon = "gfx/interface/icons/advances/swe_traditions_northern_shield.dds"
+    age = age_traditions
+    # Historical Context: Rugged terrain and levies favoured resilient defenders.
+    fort_level = 1
+    manpower = 0.07
+}
+
+swe_traditions_viking_heritage = {
+    icon = "gfx/interface/icons/advances/swe_traditions_viking_heritage.dds"
+    age = age_traditions
+    # Historical Context: Maritime raiding traditions aided coastal operations.
+    naval_morale = 0.05
+    privateer_income = 0.04
+}
+
+swe_traditions_forestry_resources = {
+    icon = "gfx/interface/icons/advances/swe_traditions_forestry_resources.dds"
+    age = age_traditions
+    # Historical Context: Timber and resources supported shipbuilding and trade.
+    production_efficiency = 0.05
+    ship_build_cost = -0.04
+}
+
+swe_traditions_border_watch = {
+    icon = "gfx/interface/icons/advances/swe_traditions_border_watch.dds"
+    age = age_traditions
+    # Historical Context: Border watch systems improved early warning and defence.
+    recruit_speed = 0.04
+    morale = 0.03
+}
+
+swe_renaissance_carolean_reform = {
+    icon = "gfx/interface/icons/advances/swe_renaissance_carolean_reform.dds"
+    age = age_renaissance
+    # Historical Context: Professional regimental reforms created effective forces.
+    discipline = 0.07
+    infantry_power = 0.06
+}
+
+swe_renaissance_military_drill = {
+    icon = "gfx/interface/icons/advances/swe_renaissance_military_drill.dds"
+    age = age_renaissance
+    # Historical Context: Drill and training improved operational efficiency.
+    recruit_speed = 0.06
+    leadership = 0.04
+}
+
+swe_renaissance_garrison_network = {
+    icon = "gfx/interface/icons/advances/swe_renaissance_garrison_network.dds"
+    age = age_renaissance
+    # Historical Context: Garrison networks secured newly conquered territories.
+    fort_level = 1
+    manpower = 0.06
+}
+
+swe_renaissance_mining_expansion = {
+    icon = "gfx/interface/icons/advances/swe_renaissance_mining_expansion.dds"
+    age = age_renaissance
+    # Historical Context: Mining expansions supplied metals for arms and trade.
+    production_efficiency = 0.08
+    tax_income = 0.04
+}
+
+swe_discovery_baltic_dominance = {
+    icon = "gfx/interface/icons/advances/swe_discovery_baltic_dominance.dds"
+    age = age_discovery
+    # Historical Context: Naval focus aimed to control Baltic trade and shores.
+    naval_forcelimit_modifier = 0.08
+    naval_power = 0.06
+}
+
+swe_discovery_field_artillery = {
+    icon = "gfx/interface/icons/advances/swe_discovery_field_artillery.dds"
+    age = age_discovery
+    # Historical Context: Artillery supported sieges across northern theatres.
+    artillery_fire = 0.07
+    siege_speed = 0.08
+}
+
+swe_discovery_state_logistics = {
+    icon = "gfx/interface/icons/advances/swe_discovery_state_logistics.dds"
+    age = age_discovery
+    # Historical Context: Logistics improvements sustained distant operations.
+    recruit_speed = 0.06
+    monthly_regiment_reinforce_speed = 0.05
+}
+
+swe_discovery_military_academies = {
+    icon = "gfx/interface/icons/advances/swe_discovery_military_academies.dds"
+    age = age_discovery
+    # Historical Context: Academies professionalized command and tactics.
+    leadership = 0.06
+    discipline = 0.05
+}
+
+swe_reformation_state_church_relations = {
+    icon = "gfx/interface/icons/advances/swe_reformation_state_church_relations.dds"
+    age = age_reformation
+    # Historical Context: Reforms aligned church structures with state aims.
+    religious_unity = 0.05
+    stability_cost = -0.03
+}
+
+swe_reformation_army_recruitment = {
+    icon = "gfx/interface/icons/advances/swe_reformation_army_recruitment.dds"
+    age = age_reformation
+    # Historical Context: Recruitment reforms widened manpower sources.
+    manpower = 0.10
+    recruit_speed = 0.05
+}
+
+swe_reformation_cavalry_reform = {
+    icon = "gfx/interface/icons/advances/swe_reformation_cavalry_reform.dds"
+    age = age_reformation
+    # Historical Context: Cavalry organization increases battlefield mobility.
+    cavalry_power = 0.07
+    leadership = 0.04
+}
+
+swe_reformation_economic_promotion = {
+    icon = "gfx/interface/icons/advances/swe_reformation_economic_promotion.dds"
+    age = age_reformation
+    # Historical Context: Economic incentives spurred resource development.
+    tax_income = 0.06
+    production_efficiency = 0.04
+}
+
+swe_absolutism_militarised_state = {
+    icon = "gfx/interface/icons/advances/swe_absolutism_militarised_state.dds"
+    age = age_absolutism
+    # Historical Context: A strong centralized state maintained expeditionary forces.
+    manpower = 0.14
+    discipline = 0.06
+}
+
+swe_absolutism_naval_investment = {
+    icon = "gfx/interface/icons/advances/swe_absolutism_naval_investment.dds"
+    age = age_absolutism
+    # Historical Context: Naval investment secured supply lines and power projection.
+    naval_forcelimit_modifier = 0.10
+    ship_build_cost = -0.06
+}
+
+swe_absolutism_state_mines = {
+    icon = "gfx/interface/icons/advances/swe_absolutism_state_mines.dds"
+    age = age_absolutism
+    # Historical Context: State-run mines boosted resource output for industry.
+    production_efficiency = 0.10
+    tax_income = 0.05
+}
+
+swe_absolutism_bureaucracy_hubs = {
+    icon = "gfx/interface/icons/advances/swe_absolutism_bureaucracy_hubs.dds"
+    age = age_absolutism
+    # Historical Context: Administrative hubs improved governance across territories.
+    admin_power = 0.10
+    stability_cost = -0.04
+}
+
+swe_revolutions_modern_army = {
+    icon = "gfx/interface/icons/advances/swe_revolutions_modern_army.dds"
+    age = age_revolutions
+    # Historical Context: Modern reforms created a professionally equipped army.
+    discipline = 0.08
+    manpower = 0.16
+}
+
+swe_revolutions_industrial_shipyards = {
+    icon = "gfx/interface/icons/advances/swe_revolutions_industrial_shipyards.dds"
+    age = age_revolutions
+    # Historical Context: Industrial shipyards accelerated fleet construction and repair.
+    ship_build_cost = -0.12
+    naval_forcelimit_modifier = 0.12
+}
+
+swe_revolutions_rail_networks = {
+    icon = "gfx/interface/icons/advances/swe_revolutions_rail_networks.dds"
+    age = age_revolutions
+    # Historical Context: Rail networks transformed mobilization and internal trade.
+    recruit_speed = 0.08
+    trade_range = 0.06
+}
+
+swe_revolutions_state_industry = {
+    icon = "gfx/interface/icons/advances/swe_revolutions_state_industry.dds"
+    age = age_revolutions
+    # Historical Context: State-backed industry anchored economic modernization.
+    production_efficiency = 0.12
+    tax_income = 0.06
+}
+
+########################
+# Muscovy (MOS)
+########################
+
+mos_traditions_frontier_warband = {
+    icon = "gfx/interface/icons/advances/mos_traditions_frontier_warband.dds"
+    age = age_traditions
+    # Historical Context: Frontier warbands defended and expanded early Muscovy.
+    cavalry_power = 0.06
+    manpower = 0.07
+}
+
+mos_traditions_princely_administration = {
+    icon = "gfx/interface/icons/advances/mos_traditions_princely_administration.dds"
+    age = age_traditions
+    # Historical Context: Princely courts developed administration across vast lands.
+    admin_power = 0.05
+    tax_income = 0.05
+}
+
+mos_traditions_woodcraft = {
+    icon = "gfx/interface/icons/advances/mos_traditions_woodcraft.dds"
+    age = age_traditions
+    # Historical Context: Timber supplied construction and naval stores.
+    production_efficiency = 0.05
+    ship_build_cost = -0.04
+}
+
+mos_traditions_ostrog_network = {
+    icon = "gfx/interface/icons/advances/mos_traditions_ostrog_network.dds"
+    age = age_traditions
+    # Historical Context: Fortified ostrogs secured river routes and frontiers.
+    fort_level = 1
+    recruit_speed = 0.05
+}
+
+mos_renaissance_cossack_recruitment = {
+    icon = "gfx/interface/icons/advances/mos_renaissance_cossack_recruitment.dds"
+    age = age_renaissance
+    # Historical Context: Cossack levies provided mobile cavalry for campaigns.
+    cavalry_power = 0.08
+    manpower = 0.08
+}
+
+mos_renaissance_central_treasury = {
+    icon = "gfx/interface/icons/advances/mos_renaissance_central_treasury.dds"
+    age = age_renaissance
+    # Historical Context: Central treasuries enabled sustained state expansion.
+    tax_income = 0.08
+    admin_power = 0.06
+}
+
+mos_renaissance_infantry_drill = {
+    icon = "gfx/interface/icons/advances/mos_renaissance_infantry_drill.dds"
+    age = age_renaissance
+    # Historical Context: Infantry organization increased battlefield reliability.
+    infantry_power = 0.07
+    recruit_speed = 0.05
+}
+
+mos_renaissance_frontier_colonisation = {
+    icon = "gfx/interface/icons/advances/mos_renaissance_frontier_colonisation.dds"
+    age = age_renaissance
+    # Historical Context: Colonization of hinterlands expanded resource access.
+    production_efficiency = 0.06
+    manpower = 0.06
+}
+
+mos_discovery_riverine_logistics = {
+    icon = "gfx/interface/icons/advances/mos_discovery_riverine_logistics.dds"
+    age = age_discovery
+    # Historical Context: River transport boosted internal movement and supply.
+    recruit_speed = 0.06
+    trade_range = 0.05
+}
+
+mos_discovery_zhupan_administration = {
+    icon = "gfx/interface/icons/advances/mos_discovery_zhupan_administration.dds"
+    age = age_discovery
+    # Historical Context: Local administrators improved fiscal reach in provinces.
+    tax_income = 0.06
+    admin_power = 0.05
+}
+
+mos_discovery_wheeled_transport = {
+    icon = "gfx/interface/icons/advances/mos_discovery_wheeled_transport.dds"
+    age = age_discovery
+    # Historical Context: Transport improvements sped troop and supply movement.
+    recruit_speed = 0.07
+    production_efficiency = 0.04
+}
+
+mos_discovery_siberian_outposts = {
+    icon = "gfx/interface/icons/advances/mos_discovery_siberian_outposts.dds"
+    age = age_discovery
+    # Historical Context: Outposts opened vast fur and resource frontiers.
+    tax_income = 0.05
+    colonists = 1
+}
+
+mos_reformation_orthodox_church_reform = {
+    icon = "gfx/interface/icons/advances/mos_reformation_orthodox_church_reform.dds"
+    age = age_reformation
+    # Historical Context: Church reforms consolidated religious legitimacy.
+    religious_unity = 0.06
+    stability_cost = -0.04
+}
+
+mos_reformation_state_militia = {
+    icon = "gfx/interface/icons/advances/mos_reformation_state_militia.dds"
+    age = age_reformation
+    # Historical Context: Militia reforms improved defence across vast territories.
+    manpower = 0.12
+    recruit_speed = 0.06
+}
+
+mos_reformation_cavalry_light = {
+    icon = "gfx/interface/icons/advances/mos_reformation_cavalry_light.dds"
+    age = age_reformation
+    # Historical Context: Light cavalry excelled in frontier skirmishes.
+    cavalry_power = 0.07
+    naval_morale = 0.02
+}
+
+mos_reformation_border_administration = {
+    icon = "gfx/interface/icons/advances/mos_reformation_border_administration.dds"
+    age = age_reformation
+    # Historical Context: Border administration improved security and tax flow.
+    admin_power = 0.06
+    fort_level = 1
+}
+
+mos_absolutism_reformed_treasury = {
+    icon = "gfx/interface/icons/advances/mos_absolutism_reformed_treasury.dds"
+    age = age_absolutism
+    # Historical Context: Fiscal centralisation funded sustained military growth.
+    tax_income = 0.10
+    admin_power = 0.08
+}
+
+mos_absolutism_conscript_system = {
+    icon = "gfx/interface/icons/advances/mos_absolutism_conscript_system.dds"
+    age = age_absolutism
+    # Historical Context: Conscription systems produced reliable large-scale forces.
+    manpower = 0.15
+    recruit_speed = 0.08
+}
+
+mos_absolutism_transport_infrastructure = {
+    icon = "gfx/interface/icons/advances/mos_absolutism_transport_infrastructure.dds"
+    age = age_absolutism
+    # Historical Context: Road and river works eased movement and administration.
+    recruit_speed = 0.07
+    trade_range = 0.05
+}
+
+mos_absolutism_industrial_mills = {
+    icon = "gfx/interface/icons/advances/mos_absolutism_industrial_mills.dds"
+    age = age_absolutism
+    # Historical Context: Early mills improved local production capabilities.
+    production_efficiency = 0.09
+    tax_income = 0.05
+}
+
+mos_revolutions_rail_and_repair = {
+    icon = "gfx/interface/icons/advances/mos_revolutions_rail_and_repair.dds"
+    age = age_revolutions
+    # Historical Context: Rail and repair yards modernised logistics and mobilization.
+    recruit_speed = 0.09
+    production_efficiency = 0.06
+}
+
+mos_revolutions_modernised_army = {
+    icon = "gfx/interface/icons/advances/mos_revolutions_modernised_army.dds"
+    age = age_revolutions
+    # Historical Context: Modern arms and training transformed military effectiveness.
+    discipline = 0.08
+    manpower = 0.16
+}
+
+mos_revolutions_industrial_development = {
+    icon = "gfx/interface/icons/advances/mos_revolutions_industrial_development.dds"
+    age = age_revolutions
+    # Historical Context: Industrialisation increased output for domestic and military needs.
+    production_efficiency = 0.14
+    tax_income = 0.07
+}
+
+mos_revolutions_state_railways = {
+    icon = "gfx/interface/icons/advances/mos_revolutions_state_railways.dds"
+    age = age_revolutions
+    # Historical Context: State railways accelerated integration and mobilization.
+    trade_range = 0.08
+    recruit_speed = 0.08
+}
+
+########################
+# Ottoman (TUR)
+########################
+
+tur_traditions_janissary_origins = {
+    icon = "gfx/interface/icons/advances/tur_traditions_janissary_origins.dds"
+    age = age_traditions
+    # Historical Context: Early elite troops increased battlefield reliability.
+    infantry_power = 0.07
+    discipline = 0.04
+}
+
+tur_traditions_feudal_levies = {
+    icon = "gfx/interface/icons/advances/tur_traditions_feudal_levies.dds"
+    age = age_traditions
+    # Historical Context: Timely levies provided manpower for expansion.
+    manpower = 0.10
+    recruit_speed = 0.05
+}
+
+tur_traditions_border_fortresses = {
+    icon = "gfx/interface/icons/advances/tur_traditions_border_fortresses.dds"
+    age = age_traditions
+    # Historical Context: Fortified frontiers defended strategic passes and coasts.
+    fort_level = 1
+    siege_defense = 0.05
+}
+
+tur_traditions_maritime_raiding = {
+    icon = "gfx/interface/icons/advances/tur_traditions_maritime_raiding.dds"
+    age = age_traditions
+    # Historical Context: Naval raiding traditions projected power across the Mediterranean.
+    privateer_income = 0.06
+    naval_morale = 0.04
+}
+
+tur_renaissance_central_recruits = {
+    icon = "gfx/interface/icons/advances/tur_renaissance_central_recruits.dds"
+    age = age_renaissance
+    # Historical Context: Centralized recruitment increased military effectiveness.
+    manpower = 0.12
+    recruit_speed = 0.06
+}
+
+tur_renaissance_artillery_corps = {
+    icon = "gfx/interface/icons/advances/tur_renaissance_artillery_corps.dds"
+    age = age_renaissance
+    # Historical Context: Artillery corps strengthened siege capabilities.
+    artillery_fire = 0.08
+    siege_speed = 0.09
+}
+
+tur_renaissance_naval_reforms = {
+    icon = "gfx/interface/icons/advances/tur_renaissance_naval_reforms.dds"
+    age = age_renaissance
+    # Historical Context: Fleet reforms improved Mediterranean dominance.
+    naval_power = 0.08
+    naval_forcelimit_modifier = 0.07
+}
+
+tur_renaissance_provincial_administration = {
+    icon = "gfx/interface/icons/advances/tur_renaissance_provincial_administration.dds"
+    age = age_renaissance
+    # Historical Context: Provincial administration improved tax and order in diverse lands.
+    admin_power = 0.07
+    tax_income = 0.05
+}
+
+tur_discovery_trade_routes = {
+    icon = "gfx/interface/icons/advances/tur_discovery_trade_routes.dds"
+    age = age_discovery
+    # Historical Context: Control of trade arteries increased revenue and influence.
+    global_trade_power = 0.09
+    tax_income = 0.05
+}
+
+tur_discovery_naval_arsenals = {
+    icon = "gfx/interface/icons/advances/tur_discovery_naval_arsenals.dds"
+    age = age_discovery
+    # Historical Context: Arsenal expansion supported durable fleet maintenance.
+    ship_build_cost = -0.08
+    naval_forcelimit_modifier = 0.09
+}
+
+tur_discovery_elite_cavalry = {
+    icon = "gfx/interface/icons/advances/tur_discovery_elite_cavalry.dds"
+    age = age_discovery
+    # Historical Context: Elite cavalry preserved shock capability in open campaigns.
+    cavalry_power = 0.09
+    morale = 0.05
+}
+
+tur_discovery_state_religious_integration = {
+    icon = "gfx/interface/icons/advances/tur_discovery_state_religious_integration.dds"
+    age = age_discovery
+    # Historical Context: Religious administration reinforced imperial unity.
+    stability_cost = -0.05
+    unrest = -0.04
+}
+
+tur_reformation_elite_armies = {
+    icon = "gfx/interface/icons/advances/tur_reformation_elite_armies.dds"
+    age = age_reformation
+    # Historical Context: Professional elite forces sustained prolonged campaigns.
+    infantry_power = 0.09
+    discipline = 0.05
+}
+
+tur_reformation_revenue_reforms = {
+    icon = "gfx/interface/icons/advances/tur_reformation_revenue_reforms.dds"
+    age = age_reformation
+    # Historical Context: Revenue reforms funded larger standing forces.
+    tax_income = 0.10
+    admin_power = 0.06
+}
+
+tur_reformation_coastal_bases = {
+    icon = "gfx/interface/icons/advances/tur_reformation_coastal_bases.dds"
+    age = age_reformation
+    # Historical Context: Coastal bases secured supply and repair for fleets.
+    naval_morale = 0.05
+    ship_build_cost = -0.05
+}
+
+tur_reformation_fortification_science = {
+    icon = "gfx/interface/icons/advances/tur_reformation_fortification_science.dds"
+    age = age_reformation
+    # Historical Context: Fortification science improved defensive works across borders.
+    fort_level = 1
+    siege_defense = 0.06
+}
+
+tur_absolutism_central_armories = {
+    icon = "gfx/interface/icons/advances/tur_absolutism_central_armories.dds"
+    age = age_absolutism
+    # Historical Context: Central armories standardized equipment and supply.
+    recruit_speed = 0.08
+    infantry_power = 0.06
+}
+
+tur_absolutism_state_arsenal = {
+    icon = "gfx/interface/icons/advances/tur_absolutism_state_arsenal.dds"
+    age = age_absolutism
+    # Historical Context: State arsenals reduced dependence on foreign yards.
+    ship_build_cost = -0.12
+    naval_forcelimit_modifier = 0.12
+}
+
+tur_absolutism_bureaucratic_reach = {
+    icon = "gfx/interface/icons/advances/tur_absolutism_bureaucratic_reach.dds"
+    age = age_absolutism
+    # Historical Context: Bureaucratic reforms enabled more effective governance.
+    admin_power = 0.10
+    tax_income = 0.06
+}
+
+tur_absolutism_mobilisation_centres = {
+    icon = "gfx/interface/icons/advances/tur_absolutism_mobilisation_centres.dds"
+    age = age_absolutism
+    # Historical Context: Mobilisation centres improved rapid troop deployment.
+    recruit_speed = 0.09
+    manpower = 0.12
+}
+
+tur_revolutions_industrial_shipyards = {
+    icon = "gfx/interface/icons/advances/tur_revolutions_industrial_shipyards.dds"
+    age = age_revolutions
+    # Historical Context: Industrial shipyards enabled rapid modern fleet construction.
+    ship_build_cost = -0.14
+    naval_forcelimit_modifier = 0.14
+}
+
+tur_revolutions_modern_bureaucracy = {
+    icon = "gfx/interface/icons/advances/tur_revolutions_modern_bureaucracy.dds"
+    age = age_revolutions
+    # Historical Context: Modern bureaucratic systems improved state capacity and reform.
+    admin_power = 0.12
+    stability_cost = -0.06
+}
+
+tur_revolutions_mass_mobilisation = {
+    icon = "gfx/interface/icons/advances/tur_revolutions_mass_mobilisation.dds"
+    age = age_revolutions
+    # Historical Context: Mass mobilisation reforms created larger modern armies.
+    manpower = 0.18
+    discipline = 0.06
+}
+
+tur_revolutions_infrastructure_investment = {
+    icon = "gfx/interface/icons/advances/tur_revolutions_infrastructure_investment.dds"
+    age = age_revolutions
+    # Historical Context: Infrastructure investment supported industrial and military needs.
+    production_efficiency = 0.12
+    trade_range = 0.08
+}
+
+########################
+# Poland (POL)
+########################
+
+pol_traditions_levée_en_masse = {
+    icon = "gfx/interface/icons/advances/pol_traditions_levée_en_masse.dds"
+    age = age_traditions
+    # Historical Context: Noble levies and regional mobilization supplied early armies.
+    manpower = 0.10
+    recruit_speed = 0.05
+}
+
+pol_traditions_hussar_culture = {
+    icon = "gfx/interface/icons/advances/pol_traditions_hussar_culture.dds"
+    age = age_traditions
+    # Historical Context: Light cavalry traditions produced highly mobile wings.
+    cavalry_power = 0.08
+    cavalry_charge = 0.05
+}
+
+pol_traditions_border_palankas = {
+    icon = "gfx/interface/icons/advances/pol_traditions_border_palankas.dds"
+    age = age_traditions
+    # Historical Context: Wooden fortifications and palankas defended frontier regions.
+    fort_level = 1
+    recruit_speed = 0.04
+}
+
+pol_traditions_trade_routes = {
+    icon = "gfx/interface/icons/advances/pol_traditions_trade_routes.dds"
+    age = age_traditions
+    # Historical Context: Internal trade routes connected grain and resource flows.
+    global_trade_power = 0.05
+    tax_income = 0.04
+}
+
+pol_renaissance_commonwealth_administration = {
+    icon = "gfx/interface/icons/advances/pol_renaissance_commonwealth_administration.dds"
+    age = age_renaissance
+    # Historical Context: Administrative structures accommodated diverse regions.
+    admin_power = 0.08
+    diplomacy = 0.05
+}
+
+pol_renaissance_hussar_reform = {
+    icon = "gfx/interface/icons/advances/pol_renaissance_hussar_reform.dds"
+    age = age_renaissance
+    # Historical Context: Hussar units refined cavalry tactics for mobile warfare.
+    cavalry_power = 0.09
+    morale = 0.04
+}
+
+pol_renaissance_granary_system = {
+    icon = "gfx/interface/icons/advances/pol_renaissance_granary_system.dds"
+    age = age_renaissance
+    # Historical Context: Grain storage and distribution supported army logistics.
+    recruit_speed = 0.06
+    tax_income = 0.04
+}
+
+pol_renaissance_border_regiments = {
+    icon = "gfx/interface/icons/advances/pol_renaissance_border_regiments.dds"
+    age = age_renaissance
+    # Historical Context: Border regiments protected against steppe incursions.
+    fort_level = 1
+    manpower = 0.08
+}
+
+pol_discovery_trade_colonies = {
+    icon = "gfx/interface/icons/advances/pol_discovery_trade_colonies.dds"
+    age = age_discovery
+    # Historical Context: Outposts and trading posts expanded external commerce.
+    global_trade_power = 0.07
+    colonists = 1
+}
+
+pol_discovery_royal_stables = {
+    icon = "gfx/interface/icons/advances/pol_discovery_royal_stables.dds"
+    age = age_discovery
+    # Historical Context: Stables and remount systems improved cavalry sustainability.
+    cavalry_power = 0.07
+    recruit_speed = 0.05
+}
+
+pol_discovery_cossack_alliances = {
+    icon = "gfx/interface/icons/advances/pol_discovery_cossack_alliances.dds"
+    age = age_discovery
+    # Historical Context: Alliances with steppe hordes influenced frontier warfare.
+    cavalry_power = 0.06
+    manpower = 0.06
+}
+
+pol_discovery_northern_ports = {
+    icon = "gfx/interface/icons/advances/pol_discovery_northern_ports.dds"
+    age = age_discovery
+    # Historical Context: Improved port infrastructure opened Baltic trade opportunities.
+    global_trade_power = 0.06
+    naval_morale = 0.04
+}
+
+pol_reformation_sejm_reforms = {
+    icon = "gfx/interface/icons/advances/pol_reformation_sejm_reforms.dds"
+    age = age_reformation
+    # Historical Context: Parliamentary reforms adjusted noble and royal relationships.
+    admin_power = 0.06
+    stability_cost = -0.04
+}
+
+pol_reformation_army_cavalry_brigades = {
+    icon = "gfx/interface/icons/advances/pol_reformation_army_cavalry_brigades.dds"
+    age = age_reformation
+    # Historical Context: Cavalry brigades improved coordination in the field.
+    cavalry_power = 0.08
+    leadership = 0.04
+}
+
+pol_reformation_border_fort_upgrade = {
+    icon = "gfx/interface/icons/advances/pol_reformation_border_fort_upgrade.dds"
+    age = age_reformation
+    # Historical Context: Fort upgrades strengthened frontier defence lines.
+    fort_level = 1
+    siege_defense = 0.06
+}
+
+pol_reformation_grain_reserves = {
+    icon = "gfx/interface/icons/advances/pol_reformation_grain_reserves.dds"
+    age = age_reformation
+    # Historical Context: Grain reserves buffered the economy and armies.
+    recruit_speed = 0.06
+    tax_income = 0.04
+}
+
+pol_absolutism_commonwealth_centres = {
+    icon = "gfx/interface/icons/advances/pol_absolutism_commonwealth_centres.dds"
+    age = age_absolutism
+    # Historical Context: Administrative centres improved fiscal extraction and law.
+    admin_power = 0.10
+    tax_income = 0.06
+}
+
+pol_absolutism_modern_cavalry = {
+    icon = "gfx/interface/icons/advances/pol_absolutism_modern_cavalry.dds"
+    age = age_absolutism
+    # Historical Context: Cavalry modernization enhanced shock and pursuit capabilities.
+    cavalry_power = 0.10
+    morale = 0.05
+}
+
+pol_absolutism_infrastructure_program = {
+    icon = "gfx/interface/icons/advances/pol_absolutism_infrastructure_program.dds"
+    age = age_absolutism
+    # Historical Context: Infrastructure programs improved internal cohesion and trade.
+    trade_range = 0.06
+    production_efficiency = 0.05
+}
+
+pol_absolutism_state_mint = {
+    icon = "gfx/interface/icons/advances/pol_absolutism_state_mint.dds"
+    age = age_absolutism
+    # Historical Context: A reliable mint stabilized currency and commerce.
+    tax_income = 0.08
+    inflation = -0.03
+}
+
+pol_revolutions_national_reforms = {
+    icon = "gfx/interface/icons/advances/pol_revolutions_national_reforms.dds"
+    age = age_revolutions
+    # Historical Context: Reforms modernized institutions for the industrial age.
+    admin_power = 0.12
+    stability_cost = -0.06
+}
+
+pol_revolutions_industrial_agriculture = {
+    icon = "gfx/interface/icons/advances/pol_revolutions_industrial_agriculture.dds"
+    age = age_revolutions
+    # Historical Context: Agricultural improvements increased yields and trade.
+    production_efficiency = 0.12
+    tax_income = 0.06
+}
+
+pol_revolutions_modern_army = {
+    icon = "gfx/interface/icons/advances/pol_revolutions_modern_army.dds"
+    age = age_revolutions
+    # Historical Context: Modernized armies improved mobilization and firepower.
+    discipline = 0.08
+    manpower = 0.16
+}
+
+pol_revolutions_international_trade = {
+    icon = "gfx/interface/icons/advances/pol_revolutions_international_trade.dds"
+    age = age_revolutions
+    # Historical Context: Integration into international markets boosted national income.
+    global_trade_power = 0.12
+    trade_efficiency = 0.08
+}
+
+
+
+
+
+
