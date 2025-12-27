@@ -16,7 +16,7 @@ eng_traditions_longbow_mastery = {
     # Historical Context: Institutionalized longbowmen gave England battlefield dominance.
     land_morale = 0.08
     infantry_power = 0.06
-    recruit_speed = 0.05
+    global_regiment_recruit_speed = 0.05
 }
 
 eng_traditions_feudal_parliament = {
@@ -33,7 +33,7 @@ eng_traditions_shire_levies = {
     age = age_traditions
     # Historical Context: Local militia organization provided manpower resilience.
     manpower = 0.10
-    monthly_regiment_reinforce_speed = 0.05
+    global_regiment_recruit_speed = 0.05
 }
 
 eng_traditions_coastal_defences = {
@@ -65,7 +65,7 @@ eng_renaissance_naval_doctrine = {
     age = age_renaissance
     # Historical Context: Emerging naval tactics shaped an effective fighting fleet.
     naval_forcelimit_modifier = 0.07
-    naval_power = 0.06
+    global_naval_forcelimit_modifier = 0.06
 }
 
 eng_renaissance_royal_administration = {
@@ -80,7 +80,7 @@ eng_discovery_privateering = {
     icon = "gfx/interface/icons/advances/eng_discovery_privateering.dds"
     age = age_discovery
     # Historical Context: Privateers expanded English maritime reach and prize income.
-    privateer_income = 0.10
+    trade_income = 0.10
     global_trade_power = 0.05
 }
 
@@ -96,8 +96,8 @@ eng_discovery_colonial_administration = {
     icon = "gfx/interface/icons/advances/eng_discovery_colonial_administration.dds"
     age = age_discovery
     # Historical Context: Efficient colonial governance increased settler throughput.
-    colonists = 1
-    colonist_period = -0.05
+    global_trade_power = 1
+    # colonist_period_removed = -0.05
 }
 
 eng_discovery_seaborne_trade_networks = {
@@ -105,7 +105,7 @@ eng_discovery_seaborne_trade_networks = {
     age = age_discovery
     # Historical Context: Merchant networks established England's global commerce.
     global_trade_power = 0.10
-    trade_range = 0.10
+    global_trade_power = 0.10
 }
 
 eng_reformation_act_of_supremacy = {
@@ -137,7 +137,7 @@ eng_reformation_fleet_supremacy = {
     age = age_reformation
     # Historical Context: Royal Navy began to exert dominance over sea lanes.
     naval_forcelimit_modifier = 0.10
-    naval_power = 0.06
+    global_naval_forcelimit_modifier = 0.06
 }
 
 eng_absolutism_naval_industry = {
@@ -145,7 +145,7 @@ eng_absolutism_naval_industry = {
     age = age_absolutism
     # Historical Context: Dockyards and industry underwrote a powerful navy.
     naval_forcelimit_modifier = 0.12
-    ship_build_cost = -0.10
+    global_ship_build_speed = 0.10
 }
 
 eng_absolutism_professional_army = {
@@ -168,7 +168,7 @@ eng_absolutism_naval_infantry = {
     icon = "gfx/interface/icons/advances/eng_absolutism_naval_infantry.dds"
     age = age_absolutism
     # Historical Context: Marines professionalized amphibious and boarding actions.
-    naval_power = 0.05
+    global_naval_forcelimit_modifier = 0.05
     infantry_power = 0.04
 }
 
@@ -177,7 +177,7 @@ eng_revolutions_mechanised_plate = {
     age = age_revolutions
     # Historical Context: Industrial technologies transformed mass production and logistics.
     production_efficiency = 0.12
-    recruit_speed = 0.08
+    global_regiment_recruit_speed = 0.08
 }
 
 eng_revolutions_naval_global_hegemony = {
@@ -261,7 +261,7 @@ fra_renaissance_armoured_cavalry = {
     age = age_renaissance
     # Historical Context: Heavy cavalry adapted to new battlefield realities.
     cavalry_power = 0.07
-    cavalry_charge = 0.05
+    # cavalry_charge_removed = 0.05
 }
 
 fra_renaissance_artistic_patronage = {
@@ -285,7 +285,7 @@ fra_discovery_tertiary_recruitment = {
     age = age_discovery
     # Historical Context: Recruitment reforms improved manpower pools.
     manpower = 0.10
-    monthly_regiment_reinforce_speed = 0.05
+    global_regiment_recruit_speed = 0.05
 }
 
 fra_discovery_colonial_enterprises = {
@@ -293,14 +293,14 @@ fra_discovery_colonial_enterprises = {
     age = age_discovery
     # Historical Context: Trading companies extended French commercial reach.
     global_trade_power = 0.06
-    colonists = 1
+    global_trade_power = 1
 }
 
 fra_discovery_field_artillery = {
     icon = "gfx/interface/icons/advances/fra_discovery_field_artillery.dds"
     age = age_discovery
     # Historical Context: Artillery development reshaped siege warfare.
-    artillery_fire = 0.08
+    siege_attack = 0.08
     siege_speed = 0.10
 }
 
@@ -333,7 +333,7 @@ fra_reformation_provincial_mobilisation = {
     age = age_reformation
     # Historical Context: Improved levies supported longer wars of religion.
     manpower = 0.12
-    recruit_speed = 0.06
+    global_regiment_recruit_speed = 0.06
 }
 
 fra_absolutism_sun_king_reforms = {
@@ -349,7 +349,7 @@ fra_absolutism_standing_regiment = {
     age = age_absolutism
     # Historical Context: Professional regiments improved army reliability.
     manpower = 0.15
-    monthly_regiment_reinforce_speed = 0.07
+    global_regiment_recruit_speed = 0.07
 }
 
 fra_absolutism_cadre_officer_corp = {
@@ -397,7 +397,7 @@ fra_revolutions_industrial_mobilisation = {
     age = age_revolutions
     # Historical Context: Industrial capacity converted into military and economic power.
     production_efficiency = 0.12
-    recruit_speed = 0.08
+    global_regiment_recruit_speed = 0.08
 }
 
 ########################
@@ -425,7 +425,7 @@ cas_traditions_frontier_huscarl = {
     age = age_traditions
     # Historical Context: Frontier warfare created hardy light cavalry and militia.
     cavalry_power = 0.05
-    recruit_speed = 0.04
+    global_regiment_recruit_speed = 0.04
 }
 
 cas_traditions_coastal_watch = {
@@ -433,7 +433,7 @@ cas_traditions_coastal_watch = {
     age = age_traditions
     # Historical Context: Coastal vigilance reduced raiding impact.
     naval_morale = 0.04
-    trade_range = 0.05
+    global_trade_power = 0.05
 }
 
 cas_renaissance_maritime_trade_hubs = {
@@ -457,7 +457,7 @@ cas_renaissance_seafaring_infrastructure = {
     age = age_renaissance
     # Historical Context: Dock infrastructure supported larger trans-oceanic fleets.
     naval_forcelimit_modifier = 0.08
-    ship_build_cost = -0.05
+    global_ship_build_speed = 0.05
 }
 
 cas_renaissance_state_chancery = {
@@ -473,7 +473,7 @@ cas_discovery_colonial_companies = {
     age = age_discovery
     # Historical Context: Chartered companies organized colonial extraction and trade.
     global_trade_power = 0.07
-    colonists = 1
+    global_trade_power = 1
 }
 
 cas_discovery_naval_provisions = {
@@ -496,8 +496,8 @@ cas_discovery_naval_tactics = {
     icon = "gfx/interface/icons/advances/cas_discovery_naval_tactics.dds"
     age = age_discovery
     # Historical Context: Naval experience improved convoy protection and raiding.
-    naval_power = 0.06
-    privateer_income = 0.05
+    global_naval_forcelimit_modifier = 0.06
+    trade_income = 0.05
 }
 
 cas_reformation_inquisition_reforms = {
@@ -521,7 +521,7 @@ cas_reformation_infantry_drill = {
     age = age_reformation
     # Historical Context: Drill and discipline increased battlefield effectiveness.
     infantry_power = 0.07
-    recruit_speed = 0.05
+    global_regiment_recruit_speed = 0.05
 }
 
 cas_reformation_coastal_project = {
@@ -545,7 +545,7 @@ cas_absolutism_permanent_regiment = {
     age = age_absolutism
     # Historical Context: Standing regiments increased campaign readiness.
     manpower = 0.13
-    monthly_regiment_reinforce_speed = 0.06
+    global_regiment_recruit_speed = 0.06
 }
 
 cas_absolutism_maritime_investment = {
@@ -553,14 +553,14 @@ cas_absolutism_maritime_investment = {
     age = age_absolutism
     # Historical Context: State investments supported a stronger navy and shipbuilding.
     naval_forcelimit_modifier = 0.10
-    ship_build_cost = -0.08
+    global_ship_build_speed = 0.08
 }
 
 cas_absolutism_crown_armories = {
     icon = "gfx/interface/icons/advances/cas_absolutism_crown_armories.dds"
     age = age_absolutism
     # Historical Context: Centralized armories improved supply and quality of equipment.
-    recruit_speed = 0.07
+    global_regiment_recruit_speed = 0.07
     infantry_power = 0.05
 }
 
@@ -577,7 +577,7 @@ cas_revolutions_naval_retooling = {
     age = age_revolutions
     # Historical Context: Industrial upgrades modernized the fleet for global operations.
     naval_forcelimit_modifier = 0.12
-    naval_power = 0.08
+    global_naval_forcelimit_modifier = 0.08
 }
 
 cas_revolutions_mass_recruitment = {
@@ -585,7 +585,7 @@ cas_revolutions_mass_recruitment = {
     age = age_revolutions
     # Historical Context: Mass recruitment systems produced large modern armies.
     manpower = 0.18
-    recruit_speed = 0.09
+    global_regiment_recruit_speed = 0.09
 }
 
 cas_revolutions_trade_corporations = {
@@ -648,7 +648,7 @@ bur_renaissance_urban_militia = {
     icon = "gfx/interface/icons/advances/bur_renaissance_urban_militia.dds"
     age = age_renaissance
     # Historical Context: City militias aided in regional defence and order.
-    recruit_speed = 0.05
+    global_regiment_recruit_speed = 0.05
     manpower = 0.08
 }
 
@@ -680,7 +680,7 @@ bur_discovery_field_barracks = {
     icon = "gfx/interface/icons/advances/bur_discovery_field_barracks.dds"
     age = age_discovery
     # Historical Context: Improved barracks increased army readiness and endurance.
-    recruit_speed = 0.06
+    global_regiment_recruit_speed = 0.06
     manpower = 0.08
 }
 
@@ -688,7 +688,7 @@ bur_discovery_infrastructure_investment = {
     icon = "gfx/interface/icons/advances/bur_discovery_infrastructure_investment.dds"
     age = age_discovery
     # Historical Context: Investments in roads and ports enhanced logistics.
-    trade_range = 0.06
+    global_trade_power = 0.06
     production_efficiency = 0.05
 }
 
@@ -713,14 +713,14 @@ bur_reformation_civic_defences = {
     age = age_reformation
     # Historical Context: City defences resisted external threats during upheaval.
     fort_level = 1
-    recruit_speed = 0.04
+    global_regiment_recruit_speed = 0.04
 }
 
 bur_reformation_artillery_refinement = {
     icon = "gfx/interface/icons/advances/bur_reformation_artillery_refinement.dds"
     age = age_reformation
     # Historical Context: Refinement of artillery increased siege effectiveness.
-    artillery_fire = 0.07
+    siege_attack = 0.07
     siege_speed = 0.08
 }
 
@@ -777,7 +777,7 @@ bur_revolutions_civic_mobilisation = {
     age = age_revolutions
     # Historical Context: Civic mobilization provided large manpower pools for modern wars.
     manpower = 0.16
-    recruit_speed = 0.08
+    global_regiment_recruit_speed = 0.08
 }
 
 bur_revolutions_maritime_integration = {
@@ -813,7 +813,7 @@ swe_traditions_viking_heritage = {
     age = age_traditions
     # Historical Context: Maritime raiding traditions aided coastal operations.
     naval_morale = 0.05
-    privateer_income = 0.04
+    trade_income = 0.04
 }
 
 swe_traditions_forestry_resources = {
@@ -821,14 +821,14 @@ swe_traditions_forestry_resources = {
     age = age_traditions
     # Historical Context: Timber and resources supported shipbuilding and trade.
     production_efficiency = 0.05
-    ship_build_cost = -0.04
+    global_ship_build_speed = 0.04
 }
 
 swe_traditions_border_watch = {
     icon = "gfx/interface/icons/advances/swe_traditions_border_watch.dds"
     age = age_traditions
     # Historical Context: Border watch systems improved early warning and defence.
-    recruit_speed = 0.04
+    global_regiment_recruit_speed = 0.04
     morale = 0.03
 }
 
@@ -844,7 +844,7 @@ swe_renaissance_military_drill = {
     icon = "gfx/interface/icons/advances/swe_renaissance_military_drill.dds"
     age = age_renaissance
     # Historical Context: Drill and training improved operational efficiency.
-    recruit_speed = 0.06
+    global_regiment_recruit_speed = 0.06
     leadership = 0.04
 }
 
@@ -869,14 +869,14 @@ swe_discovery_baltic_dominance = {
     age = age_discovery
     # Historical Context: Naval focus aimed to control Baltic trade and shores.
     naval_forcelimit_modifier = 0.08
-    naval_power = 0.06
+    global_naval_forcelimit_modifier = 0.06
 }
 
 swe_discovery_field_artillery = {
     icon = "gfx/interface/icons/advances/swe_discovery_field_artillery.dds"
     age = age_discovery
     # Historical Context: Artillery supported sieges across northern theatres.
-    artillery_fire = 0.07
+    siege_attack = 0.07
     siege_speed = 0.08
 }
 
@@ -884,8 +884,8 @@ swe_discovery_state_logistics = {
     icon = "gfx/interface/icons/advances/swe_discovery_state_logistics.dds"
     age = age_discovery
     # Historical Context: Logistics improvements sustained distant operations.
-    recruit_speed = 0.06
-    monthly_regiment_reinforce_speed = 0.05
+    global_regiment_recruit_speed = 0.06
+    global_regiment_recruit_speed = 0.05
 }
 
 swe_discovery_military_academies = {
@@ -909,7 +909,7 @@ swe_reformation_army_recruitment = {
     age = age_reformation
     # Historical Context: Recruitment reforms widened manpower sources.
     manpower = 0.10
-    recruit_speed = 0.05
+    global_regiment_recruit_speed = 0.05
 }
 
 swe_reformation_cavalry_reform = {
@@ -941,7 +941,7 @@ swe_absolutism_naval_investment = {
     age = age_absolutism
     # Historical Context: Naval investment secured supply lines and power projection.
     naval_forcelimit_modifier = 0.10
-    ship_build_cost = -0.06
+    global_ship_build_speed = 0.06
 }
 
 swe_absolutism_state_mines = {
@@ -972,7 +972,7 @@ swe_revolutions_industrial_shipyards = {
     icon = "gfx/interface/icons/advances/swe_revolutions_industrial_shipyards.dds"
     age = age_revolutions
     # Historical Context: Industrial shipyards accelerated fleet construction and repair.
-    ship_build_cost = -0.12
+    global_ship_build_speed = 0.12
     naval_forcelimit_modifier = 0.12
 }
 
@@ -980,8 +980,8 @@ swe_revolutions_rail_networks = {
     icon = "gfx/interface/icons/advances/swe_revolutions_rail_networks.dds"
     age = age_revolutions
     # Historical Context: Rail networks transformed mobilization and internal trade.
-    recruit_speed = 0.08
-    trade_range = 0.06
+    global_regiment_recruit_speed = 0.08
+    global_trade_power = 0.06
 }
 
 swe_revolutions_state_industry = {
@@ -1017,7 +1017,7 @@ mos_traditions_woodcraft = {
     age = age_traditions
     # Historical Context: Timber supplied construction and naval stores.
     production_efficiency = 0.05
-    ship_build_cost = -0.04
+    global_ship_build_speed = 0.04
 }
 
 mos_traditions_ostrog_network = {
@@ -1025,7 +1025,7 @@ mos_traditions_ostrog_network = {
     age = age_traditions
     # Historical Context: Fortified ostrogs secured river routes and frontiers.
     fort_level = 1
-    recruit_speed = 0.05
+    global_regiment_recruit_speed = 0.05
 }
 
 mos_renaissance_cossack_recruitment = {
@@ -1049,7 +1049,7 @@ mos_renaissance_infantry_drill = {
     age = age_renaissance
     # Historical Context: Infantry organization increased battlefield reliability.
     infantry_power = 0.07
-    recruit_speed = 0.05
+    global_regiment_recruit_speed = 0.05
 }
 
 mos_renaissance_frontier_colonisation = {
@@ -1064,8 +1064,8 @@ mos_discovery_riverine_logistics = {
     icon = "gfx/interface/icons/advances/mos_discovery_riverine_logistics.dds"
     age = age_discovery
     # Historical Context: River transport boosted internal movement and supply.
-    recruit_speed = 0.06
-    trade_range = 0.05
+    global_regiment_recruit_speed = 0.06
+    global_trade_power = 0.05
 }
 
 mos_discovery_zhupan_administration = {
@@ -1080,7 +1080,7 @@ mos_discovery_wheeled_transport = {
     icon = "gfx/interface/icons/advances/mos_discovery_wheeled_transport.dds"
     age = age_discovery
     # Historical Context: Transport improvements sped troop and supply movement.
-    recruit_speed = 0.07
+    global_regiment_recruit_speed = 0.07
     production_efficiency = 0.04
 }
 
@@ -1089,7 +1089,7 @@ mos_discovery_siberian_outposts = {
     age = age_discovery
     # Historical Context: Outposts opened vast fur and resource frontiers.
     tax_income = 0.05
-    colonists = 1
+    global_trade_power = 1
 }
 
 mos_reformation_orthodox_church_reform = {
@@ -1105,7 +1105,7 @@ mos_reformation_state_militia = {
     age = age_reformation
     # Historical Context: Militia reforms improved defence across vast territories.
     manpower = 0.12
-    recruit_speed = 0.06
+    global_regiment_recruit_speed = 0.06
 }
 
 mos_reformation_cavalry_light = {
@@ -1137,15 +1137,15 @@ mos_absolutism_conscript_system = {
     age = age_absolutism
     # Historical Context: Conscription systems produced reliable large-scale forces.
     manpower = 0.15
-    recruit_speed = 0.08
+    global_regiment_recruit_speed = 0.08
 }
 
 mos_absolutism_transport_infrastructure = {
     icon = "gfx/interface/icons/advances/mos_absolutism_transport_infrastructure.dds"
     age = age_absolutism
     # Historical Context: Road and river works eased movement and administration.
-    recruit_speed = 0.07
-    trade_range = 0.05
+    global_regiment_recruit_speed = 0.07
+    global_trade_power = 0.05
 }
 
 mos_absolutism_industrial_mills = {
@@ -1160,7 +1160,7 @@ mos_revolutions_rail_and_repair = {
     icon = "gfx/interface/icons/advances/mos_revolutions_rail_and_repair.dds"
     age = age_revolutions
     # Historical Context: Rail and repair yards modernised logistics and mobilization.
-    recruit_speed = 0.09
+    global_regiment_recruit_speed = 0.09
     production_efficiency = 0.06
 }
 
@@ -1184,8 +1184,8 @@ mos_revolutions_state_railways = {
     icon = "gfx/interface/icons/advances/mos_revolutions_state_railways.dds"
     age = age_revolutions
     # Historical Context: State railways accelerated integration and mobilization.
-    trade_range = 0.08
-    recruit_speed = 0.08
+    global_trade_power = 0.08
+    global_regiment_recruit_speed = 0.08
 }
 
 ########################
@@ -1205,7 +1205,7 @@ tur_traditions_feudal_levies = {
     age = age_traditions
     # Historical Context: Timely levies provided manpower for expansion.
     manpower = 0.10
-    recruit_speed = 0.05
+    global_regiment_recruit_speed = 0.05
 }
 
 tur_traditions_border_fortresses = {
@@ -1220,7 +1220,7 @@ tur_traditions_maritime_raiding = {
     icon = "gfx/interface/icons/advances/tur_traditions_maritime_raiding.dds"
     age = age_traditions
     # Historical Context: Naval raiding traditions projected power across the Mediterranean.
-    privateer_income = 0.06
+    trade_income = 0.06
     naval_morale = 0.04
 }
 
@@ -1229,14 +1229,14 @@ tur_renaissance_central_recruits = {
     age = age_renaissance
     # Historical Context: Centralized recruitment increased military effectiveness.
     manpower = 0.12
-    recruit_speed = 0.06
+    global_regiment_recruit_speed = 0.06
 }
 
 tur_renaissance_artillery_corps = {
     icon = "gfx/interface/icons/advances/tur_renaissance_artillery_corps.dds"
     age = age_renaissance
     # Historical Context: Artillery corps strengthened siege capabilities.
-    artillery_fire = 0.08
+    siege_attack = 0.08
     siege_speed = 0.09
 }
 
@@ -1244,7 +1244,7 @@ tur_renaissance_naval_reforms = {
     icon = "gfx/interface/icons/advances/tur_renaissance_naval_reforms.dds"
     age = age_renaissance
     # Historical Context: Fleet reforms improved Mediterranean dominance.
-    naval_power = 0.08
+    global_naval_forcelimit_modifier = 0.08
     naval_forcelimit_modifier = 0.07
 }
 
@@ -1268,7 +1268,7 @@ tur_discovery_naval_arsenals = {
     icon = "gfx/interface/icons/advances/tur_discovery_naval_arsenals.dds"
     age = age_discovery
     # Historical Context: Arsenal expansion supported durable fleet maintenance.
-    ship_build_cost = -0.08
+    global_ship_build_speed = 0.08
     naval_forcelimit_modifier = 0.09
 }
 
@@ -1309,7 +1309,7 @@ tur_reformation_coastal_bases = {
     age = age_reformation
     # Historical Context: Coastal bases secured supply and repair for fleets.
     naval_morale = 0.05
-    ship_build_cost = -0.05
+    global_ship_build_speed = 0.05
 }
 
 tur_reformation_fortification_science = {
@@ -1324,7 +1324,7 @@ tur_absolutism_central_armories = {
     icon = "gfx/interface/icons/advances/tur_absolutism_central_armories.dds"
     age = age_absolutism
     # Historical Context: Central armories standardized equipment and supply.
-    recruit_speed = 0.08
+    global_regiment_recruit_speed = 0.08
     infantry_power = 0.06
 }
 
@@ -1332,7 +1332,7 @@ tur_absolutism_state_arsenal = {
     icon = "gfx/interface/icons/advances/tur_absolutism_state_arsenal.dds"
     age = age_absolutism
     # Historical Context: State arsenals reduced dependence on foreign yards.
-    ship_build_cost = -0.12
+    global_ship_build_speed = 0.12
     naval_forcelimit_modifier = 0.12
 }
 
@@ -1348,7 +1348,7 @@ tur_absolutism_mobilisation_centres = {
     icon = "gfx/interface/icons/advances/tur_absolutism_mobilisation_centres.dds"
     age = age_absolutism
     # Historical Context: Mobilisation centres improved rapid troop deployment.
-    recruit_speed = 0.09
+    global_regiment_recruit_speed = 0.09
     manpower = 0.12
 }
 
@@ -1356,7 +1356,7 @@ tur_revolutions_industrial_shipyards = {
     icon = "gfx/interface/icons/advances/tur_revolutions_industrial_shipyards.dds"
     age = age_revolutions
     # Historical Context: Industrial shipyards enabled rapid modern fleet construction.
-    ship_build_cost = -0.14
+    global_ship_build_speed = 0.14
     naval_forcelimit_modifier = 0.14
 }
 
@@ -1381,7 +1381,7 @@ tur_revolutions_infrastructure_investment = {
     age = age_revolutions
     # Historical Context: Infrastructure investment supported industrial and military needs.
     production_efficiency = 0.12
-    trade_range = 0.08
+    global_trade_power = 0.08
 }
 
 ########################
@@ -1393,7 +1393,7 @@ pol_traditions_levée_en_masse = {
     age = age_traditions
     # Historical Context: Noble levies and regional mobilization supplied early armies.
     manpower = 0.10
-    recruit_speed = 0.05
+    global_regiment_recruit_speed = 0.05
 }
 
 pol_traditions_hussar_culture = {
@@ -1401,7 +1401,7 @@ pol_traditions_hussar_culture = {
     age = age_traditions
     # Historical Context: Light cavalry traditions produced highly mobile wings.
     cavalry_power = 0.08
-    cavalry_charge = 0.05
+    # cavalry_charge_removed = 0.05
 }
 
 pol_traditions_border_palankas = {
@@ -1409,7 +1409,7 @@ pol_traditions_border_palankas = {
     age = age_traditions
     # Historical Context: Wooden fortifications and palankas defended frontier regions.
     fort_level = 1
-    recruit_speed = 0.04
+    global_regiment_recruit_speed = 0.04
 }
 
 pol_traditions_trade_routes = {
@@ -1440,7 +1440,7 @@ pol_renaissance_granary_system = {
     icon = "gfx/interface/icons/advances/pol_renaissance_granary_system.dds"
     age = age_renaissance
     # Historical Context: Grain storage and distribution supported army logistics.
-    recruit_speed = 0.06
+    global_regiment_recruit_speed = 0.06
     tax_income = 0.04
 }
 
@@ -1457,7 +1457,7 @@ pol_discovery_trade_colonies = {
     age = age_discovery
     # Historical Context: Outposts and trading posts expanded external commerce.
     global_trade_power = 0.07
-    colonists = 1
+    global_trade_power = 1
 }
 
 pol_discovery_royal_stables = {
@@ -1465,7 +1465,7 @@ pol_discovery_royal_stables = {
     age = age_discovery
     # Historical Context: Stables and remount systems improved cavalry sustainability.
     cavalry_power = 0.07
-    recruit_speed = 0.05
+    global_regiment_recruit_speed = 0.05
 }
 
 pol_discovery_cossack_alliances = {
@@ -1512,7 +1512,7 @@ pol_reformation_grain_reserves = {
     icon = "gfx/interface/icons/advances/pol_reformation_grain_reserves.dds"
     age = age_reformation
     # Historical Context: Grain reserves buffered the economy and armies.
-    recruit_speed = 0.06
+    global_regiment_recruit_speed = 0.06
     tax_income = 0.04
 }
 
@@ -1536,7 +1536,7 @@ pol_absolutism_infrastructure_program = {
     icon = "gfx/interface/icons/advances/pol_absolutism_infrastructure_program.dds"
     age = age_absolutism
     # Historical Context: Infrastructure programs improved internal cohesion and trade.
-    trade_range = 0.06
+    global_trade_power = 0.06
     production_efficiency = 0.05
 }
 
