@@ -48,7 +48,7 @@ eng_renaissance_maritime_cartography = {
     icon = "gfx/interface/icons/advances/eng_renaissance_maritime_cartography.dds"
     age = age_renaissance
     # Historical Context: Improved charts aided navigation and seamanship.
-    naval_movement = 0.10
+    navy_movement_speed = 0.10
     global_trade_power = 0.05
 }
 
@@ -483,7 +483,7 @@ cas_discovery_naval_provisions = {
     icon = "gfx/interface/icons/advances/cas_discovery_naval_provisions.dds"
     age = age_discovery
     # Historical Context: Logistics for long voyages enabled sustained exploration.
-    naval_movement = 0.08
+    navy_movement_speed = 0.08
     naval_forcelimit_modifier = 0.05
 }
 
@@ -1648,7 +1648,7 @@ aus_renaissance_vassal_management = {
     icon = "gfx/interface/icons/advances/aus_renaissance_vassal_management.dds"
     age = age_renaissance
     # Historical Context: Systems to manage vassals increased cohesion and manpower.
-    global_manpower_modifier = 0.06
+    manpower = 0.06
     improve_relations_modifier = 0.04
 }
 
@@ -1753,7 +1753,7 @@ aus_revolutions_national_consortium = {
     age = age_revolutions
     # Historical Context: Modern institutions reorganized state power for the industrial era.
     admin_power = 0.12
-    global_production_efficiency = 0.10
+    production_efficiency = 0.10
 }
 
 aus_revolutions_mass_reforms = {
@@ -2879,7 +2879,7 @@ pap_traditions_swiss_guards_origin = {
     icon = "gfx/interface/icons/advances/pap_traditions_swiss_guards_origin.dds"
     age = age_traditions
     infantry_power = 0.05
-    loyalty = 0.0
+    subject_loyalty = 0
 }
 pap_traditions_church_endowments = {
     icon = "gfx/interface/icons/advances/pap_traditions_church_endowments.dds"
