@@ -744,8 +744,98 @@ cas_revolutions_trade_corporations = {
 }
 
 ########################
-# Portugal continuation (already added above) - next: Habsburgs done - now Burgundy
+# Portugal (POR)
 ########################
+
+por_battle_ourique = { 
+    potential = { has_or_had_tag = POR }
+    age = age_1_traditions
+    # Historical Context: Early Portuguese battlefield traditions and national identity.
+    infantry_power = 0.10
+}
+
+por_establishment_portuguese_navy = { 
+    potential = { has_or_had_tag = POR }
+    age = age_1_traditions
+    monthly_navy_tradition = 0.10
+    navy_movement_speed = 0.10
+    requires = ship_building_advance
+}
+
+por_estimulate_rural_areas = { 
+    potential = { has_or_had_tag = POR }
+    age = age_2_renaissance
+    global_raw_material_output = 0.10
+    requires = renaissance_thought
+}
+
+por_pursuing_waves = { 
+    potential = { has_or_had_tag = POR }
+    age = age_2_renaissance
+    colonial_range_modifier = 0.20
+    exploration_mission_speed = 0.10
+    requires = trade_range_advance_age_2
+}
+
+por_bombardeiros = { 
+    potential = { has_or_had_tag = POR }
+    age = age_3_discovery
+    navy_heavy_ship_power = 0.10
+    blockade_efficiency = 0.25
+    requires = correct_box_advance_discovery
+}
+
+por_feitorias = { 
+    potential = { has_or_had_tag = POR }
+    age = age_3_discovery
+    global_merchant_power = 0.10
+    trade_sea_movement_cost_modifier = -0.10
+    unlock_building = por_feitoria
+    requires = trade_range_advance_age_3
+}
+
+por_ordenancas = { 
+    potential = { has_or_had_tag = POR }
+    age = age_4_reformation 
+    monthly_army_tradition = 0.05
+    requires = flintlock_gun
+}
+
+por_the_bandeirantes = { 
+    potential = { has_or_had_tag = POR }
+    age = age_4_reformation
+    colonial_migration_size_modifier = 0.25
+    requires = confessional_court
+}
+
+por_colonial_governors = {
+    potential = { has_or_had_tag = POR }
+    age = age_5_absolutism
+    subject_loyalty = 5
+    requires = maritime_advance_age_5
+}
+
+por_royal_absolutism = {
+    potential = { has_or_had_tag = POR }
+    age = age_5_absolutism
+    global_crown_estate_power = 0.25
+    requires = absolute_rulership
+}
+
+por_royal_military_academy = { 
+    potential = { has_or_had_tag = POR }
+    age = age_6_revolutions 
+    army_artillery_power = 0.10
+    global_defensive = 0.10
+    requires = artillery_vs_fort_age_6_revolutions
+}
+
+por_vinho_porto = {
+    potential = { has_or_had_tag = POR }
+    age = age_6_revolutions 
+    global_wine_output_modifier = 0.33
+    requires = rgo_size_advance_revolutions
+}
 
 ########################
 # Burgundy (BUR)
