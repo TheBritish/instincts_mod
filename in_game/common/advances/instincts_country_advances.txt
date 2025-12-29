@@ -96,8 +96,9 @@ eng_discovery_colonial_administration = {
     icon = "gfx/interface/icons/advances/eng_discovery_colonial_administration.dds"
     age = age_discovery
     # Historical Context: Efficient colonial governance increased settler throughput.
-    global_trade_power = 1
-    # colonist_period_removed = -0.05
+    global_trade_power = 0.05
+    colonial_migration_size = 1
+    colonial_migration_size_modifier = 0.10
 }
 
 eng_discovery_seaborne_trade_networks = {
@@ -293,7 +294,8 @@ fra_discovery_colonial_enterprises = {
     age = age_discovery
     # Historical Context: Trading companies extended French commercial reach.
     global_trade_power = 0.06
-    global_trade_power = 1
+    colonial_range = 1
+    colonial_range_modifier = 0.10
 }
 
 fra_discovery_field_artillery = {
@@ -473,7 +475,8 @@ cas_discovery_colonial_companies = {
     age = age_discovery
     # Historical Context: Chartered companies organized colonial extraction and trade.
     global_trade_power = 0.07
-    global_trade_power = 1
+    colonial_maintenance_cost = -0.10
+    colonial_migration_size = 1
 }
 
 cas_discovery_naval_provisions = {
