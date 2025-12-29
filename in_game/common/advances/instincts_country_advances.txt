@@ -1584,6 +1584,203 @@ pol_revolutions_international_trade = {
 }
 
 
+########################
+# Austria (AUS)
+########################
+
+aus_traditions_habsburg_levies = {
+    icon = "gfx/interface/icons/advances/aus_traditions_habsburg_levies.dds"
+    age = age_traditions
+    # Historical Context: Habsburg levy systems provided reliable manpower for continental wars.
+    manpower = 0.12
+    global_regiment_recruit_speed = 0.06
+}
+
+aus_traditions_court_diplomacy = {
+    icon = "gfx/interface/icons/advances/aus_traditions_court_diplomacy.dds"
+    age = age_traditions
+    # Historical Context: Skilled diplomacy secured dynastic ties and influence.
+    diplomatic_capacity = 1
+    improve_relations_modifier = 0.05
+}
+
+aus_traditions_fortified_frontiers = {
+    icon = "gfx/interface/icons/advances/aus_traditions_fortified_frontiers.dds"
+    age = age_traditions
+    # Historical Context: Frontier fortifications defended against repeated invasions.
+    fort_level = 1
+    siege_defense = 0.06
+}
+
+aus_traditions_feudal_administration = {
+    icon = "gfx/interface/icons/advances/aus_traditions_feudal_administration.dds"
+    age = age_traditions
+    # Historical Context: Administrative reforms improved tax collection and governance.
+    admin_power = 0.06
+    tax_income = 0.05
+}
+
+aus_renaissance_habsburg_patronage = {
+    icon = "gfx/interface/icons/advances/aus_renaissance_habsburg_patronage.dds"
+    age = age_renaissance
+    # Historical Context: Court patronage increased prestige and cultural influence.
+    prestige = 0.08
+    production_efficiency = 0.04
+}
+
+aus_renaissance_reorganized_army = {
+    icon = "gfx/interface/icons/advances/aus_renaissance_reorganized_army.dds"
+    age = age_renaissance
+    # Historical Context: Reorganization improved battlefield performance and cohesion.
+    discipline = 0.05
+    infantry_power = 0.06
+}
+
+aus_renaissance_imperial_bureaucracy = {
+    icon = "gfx/interface/icons/advances/aus_renaissance_imperial_bureaucracy.dds"
+    age = age_renaissance
+    # Historical Context: Centralized bureaucracy strengthened imperial administration.
+    admin_power = 0.08
+    stability_cost = -0.04
+}
+
+aus_renaissance_vassal_management = {
+    icon = "gfx/interface/icons/advances/aus_renaissance_vassal_management.dds"
+    age = age_renaissance
+    # Historical Context: Systems to manage vassals increased cohesion and manpower.
+    global_manpower_modifier = 0.06
+    improve_relations_modifier = 0.04
+}
+
+aus_discovery_diplomatic_marriage_networks = {
+    icon = "gfx/interface/icons/advances/aus_discovery_diplomatic_marriage_networks.dds"
+    age = age_discovery
+    # Historical Context: Dynastic marriages extended Habsburg influence across Europe.
+    diplomatic_capacity = 1
+    prestige = 0.05
+}
+
+aus_discovery_frontier_colonies = {
+    icon = "gfx/interface/icons/advances/aus_discovery_frontier_colonies.dds"
+    age = age_discovery
+    # Historical Context: Peripheral colonies and outposts supported trade and projection.
+    colonial_migration_size = 1
+    colonial_migration_size_modifier = 0.05
+}
+
+aus_discovery_logistics_reforms = {
+    icon = "gfx/interface/icons/advances/aus_discovery_logistics_reforms.dds"
+    age = age_discovery
+    # Historical Context: Improved logistics sustained campaigns across the continent.
+    global_regiment_recruit_speed = 0.05
+    manpower = 0.08
+}
+
+aus_discovery_habsburg_trade_firms = {
+    icon = "gfx/interface/icons/advances/aus_discovery_habsburg_trade_firms.dds"
+    age = age_discovery
+    # Historical Context: Chartered firms expanded Austrian commercial reach.
+    global_trade_power = 0.06
+    trade_efficiency = 0.04
+}
+
+aus_reformation_imperial_council = {
+    icon = "gfx/interface/icons/advances/aus_reformation_imperial_council.dds"
+    age = age_reformation
+    # Historical Context: Imperial institutions moderated religious and political disputes.
+    stability_cost = -0.05
+    admin_power = 0.06
+}
+
+aus_reformation_guarded_borders = {
+    icon = "gfx/interface/icons/advances/aus_reformation_guarded_borders.dds"
+    age = age_reformation
+    # Historical Context: Border policies reduced incursions and improved defense.
+    fort_level = 1
+    fort_maintenance = -0.05
+}
+
+aus_reformation_approved_royal_army = {
+    icon = "gfx/interface/icons/advances/aus_reformation_approved_royal_army.dds"
+    age = age_reformation
+    # Historical Context: Reforms professionalized the royal army for sustained campaigns.
+    discipline = 0.06
+    global_regiment_recruit_speed = 0.06
+}
+
+aus_reformation_dynamic_diplomacy = {
+    icon = "gfx/interface/icons/advances/aus_reformation_dynamic_diplomacy.dds"
+    age = age_reformation
+    # Historical Context: Active diplomacy preserved influence without constant war.
+    improve_relations_modifier = 0.06
+    diplomatic_capacity = 1
+}
+
+aus_absolutism_habsburg_streamlined_finance = {
+    icon = "gfx/interface/icons/advances/aus_absolutism_habsburg_streamlined_finance.dds"
+    age = age_absolutism
+    # Historical Context: Financial centralization funded larger standing forces.
+    tax_income = 0.10
+    monthly_gold_income = 1
+}
+
+aus_absolutism_grand_army_reforms = {
+    icon = "gfx/interface/icons/advances/aus_absolutism_grand_army_reforms.dds"
+    age = age_absolutism
+    # Historical Context: Reforms increased army size and operational efficiency.
+    manpower = 0.14
+    discipline = 0.07
+}
+
+aus_absolutism_infrastructure_investment = {
+    icon = "gfx/interface/icons/advances/aus_absolutism_infrastructure_investment.dds"
+    age = age_absolutism
+    # Historical Context: Investment in roads and institutions improved internal trade.
+    production_efficiency = 0.07
+    global_trade_power = 0.05
+}
+
+aus_absolutism_habsburg_heritage = {
+    icon = "gfx/interface/icons/advances/aus_absolutism_habsburg_heritage.dds"
+    age = age_absolutism
+    # Historical Context: Dynastic prestige bolstered international standing.
+    prestige = 0.10
+    stability_cost = -0.06
+}
+
+aus_revolutions_national_consortium = {
+    icon = "gfx/interface/icons/advances/aus_revolutions_national_consortium.dds"
+    age = age_revolutions
+    # Historical Context: Modern institutions reorganized state power for the industrial era.
+    admin_power = 0.12
+    global_production_efficiency = 0.10
+}
+
+aus_revolutions_mass_reforms = {
+    icon = "gfx/interface/icons/advances/aus_revolutions_mass_reforms.dds"
+    age = age_revolutions
+    # Historical Context: Broad reforms expanded the manpower and fiscal base.
+    manpower = 0.18
+    tax_income = 0.07
+}
+
+aus_revolutions_modern_diplomacy = {
+    icon = "gfx/interface/icons/advances/aus_revolutions_modern_diplomacy.dds"
+    age = age_revolutions
+    # Historical Context: Modern diplomatic tools preserved influence in a changing order.
+    diplomatic_capacity = 2
+    improve_relations_modifier = 0.08
+}
+
+aus_revolutions_integration_reforms = {
+    icon = "gfx/interface/icons/advances/aus_revolutions_integration_reforms.dds"
+    age = age_revolutions
+    # Historical Context: Integration reforms centralized governance and logistics.
+    global_regiment_recruit_speed = 0.08
+    stability_cost = -0.08
+}
+
+
 
 
 
