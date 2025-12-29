@@ -747,45 +747,67 @@ cas_revolutions_trade_corporations = {
 # Portugal (POR)
 ########################
 
-por_battle_ourique = { 
+# Traditions (Age 1)
+por_traditions_shipwrights = {
     potential = { has_or_had_tag = POR }
     age = age_1_traditions
-    # Historical Context: Early Portuguese battlefield traditions and national identity.
-    infantry_power = 0.10
+    monthly_navy_tradition = 0.08
+    navy_movement_speed = 0.06
 }
 
-por_establishment_portuguese_navy = { 
+por_traditions_coastal_levies = {
     potential = { has_or_had_tag = POR }
     age = age_1_traditions
-    monthly_navy_tradition = 0.10
-    navy_movement_speed = 0.10
-    requires = ship_building_advance
+    manpower = 0.08
+    global_regiment_recruit_speed = 0.04
 }
 
-por_estimulate_rural_areas = { 
+por_traditions_port_guards = {
+    potential = { has_or_had_tag = POR }
+    age = age_1_traditions
+    naval_forcelimit_modifier = 0.05
+    naval_morale = 0.04
+}
+
+por_traditions_merchant_havens = {
+    potential = { has_or_had_tag = POR }
+    age = age_1_traditions
+    global_trade_power = 0.05
+    trade_efficiency = 0.03
+}
+
+# Renaissance (Age 2)
+por_renaissance_navigational_instruments = {
     potential = { has_or_had_tag = POR }
     age = age_2_renaissance
-    global_raw_material_output = 0.10
+    navy_movement_speed = 0.10
+    exploration_mission_speed = 0.08
     requires = renaissance_thought
 }
 
-por_pursuing_waves = { 
+por_renaissance_drydocks = {
     potential = { has_or_had_tag = POR }
     age = age_2_renaissance
-    colonial_range_modifier = 0.20
-    exploration_mission_speed = 0.10
-    requires = trade_range_advance_age_2
+    global_ship_build_speed = 0.08
+    naval_forcelimit_modifier = 0.06
 }
 
-por_bombardeiros = { 
+por_renaissance_trade_houses = {
     potential = { has_or_had_tag = POR }
-    age = age_3_discovery
-    navy_heavy_ship_power = 0.10
-    blockade_efficiency = 0.25
-    requires = correct_box_advance_discovery
+    age = age_2_renaissance
+    global_trade_power = 0.08
+    trade_efficiency = 0.05
 }
 
-por_feitorias = { 
+por_renaissance_agricultural_improvement = {
+    potential = { has_or_had_tag = POR }
+    age = age_2_renaissance
+    global_raw_material_output = 0.06
+    tax_income = 0.04
+}
+
+# Discovery (Age 3)
+por_discovery_feitorias = {
     potential = { has_or_had_tag = POR }
     age = age_3_discovery
     global_merchant_power = 0.10
@@ -794,47 +816,112 @@ por_feitorias = {
     requires = trade_range_advance_age_3
 }
 
-por_ordenancas = { 
+por_discovery_heavy_guns = {
     potential = { has_or_had_tag = POR }
-    age = age_4_reformation 
-    monthly_army_tradition = 0.05
-    requires = flintlock_gun
+    age = age_3_discovery
+    navy_heavy_ship_power = 0.10
+    army_artillery_power = 0.06
 }
 
-por_the_bandeirantes = { 
+por_discovery_colonial_administration = {
+    potential = { has_or_had_tag = POR }
+    age = age_3_discovery
+    colonial_migration_size = 1
+    colonial_range_modifier = 0.15
+}
+
+por_discovery_privateering = {
+    potential = { has_or_had_tag = POR }
+    age = age_3_discovery
+    blockade_efficiency = 0.20
+    trade_income = 0.06
+}
+
+# Reformation (Age 4)
+por_reformation_ordenancas = {
     potential = { has_or_had_tag = POR }
     age = age_4_reformation
-    colonial_migration_size_modifier = 0.25
-    requires = confessional_court
+    monthly_army_tradition = 0.06
+    discipline = 0.03
 }
 
-por_colonial_governors = {
+por_reformation_missionary_governance = {
+    potential = { has_or_had_tag = POR }
+    age = age_4_reformation
+    colonial_migration_size_modifier = 0.20
+    subject_loyalty = 2
+}
+
+por_reformation_maritime_code = {
+    potential = { has_or_had_tag = POR }
+    age = age_4_reformation
+    trade_efficiency = 0.06
+    naval_morale = 0.03
+}
+
+por_reformation_coastal_forts = {
+    potential = { has_or_had_tag = POR }
+    age = age_4_reformation
+    fort_level = 1
+    siege_defense = 0.04
+}
+
+# Absolutism (Age 5)
+por_absolutism_royal_administration = {
+    potential = { has_or_had_tag = POR }
+    age = age_5_absolutism
+    admin_power = 0.08
+    tax_income = 0.06
+}
+
+por_absolutism_colonial_governors = {
     potential = { has_or_had_tag = POR }
     age = age_5_absolutism
     subject_loyalty = 5
+    global_crown_estate_power = 0.15
     requires = maritime_advance_age_5
 }
 
-por_royal_absolutism = {
+por_absolutism_naval_retooling = {
     potential = { has_or_had_tag = POR }
     age = age_5_absolutism
-    global_crown_estate_power = 0.25
-    requires = absolute_rulership
+    global_ship_build_speed = 0.10
+    global_naval_forcelimit_modifier = 0.08
 }
 
-por_royal_military_academy = { 
+por_absolutism_commercial_code = {
     potential = { has_or_had_tag = POR }
-    age = age_6_revolutions 
+    age = age_5_absolutism
+    global_trade_power = 0.10
+    global_merchant_power = 0.05
+}
+
+# Revolutions (Age 6)
+por_revolutions_military_academy = {
+    potential = { has_or_had_tag = POR }
+    age = age_6_revolutions
     army_artillery_power = 0.10
-    global_defensive = 0.10
-    requires = artillery_vs_fort_age_6_revolutions
+    global_regiment_recruit_speed = 0.06
 }
 
-por_vinho_porto = {
+por_revolutions_industrial_foundations = {
     potential = { has_or_had_tag = POR }
-    age = age_6_revolutions 
+    age = age_6_revolutions
+    production_efficiency = 0.10
+    tax_income = 0.04
+}
+
+por_revolutions_global_trade_networks = {
+    potential = { has_or_had_tag = POR }
+    age = age_6_revolutions
+    global_trade_power = 0.12
+    trade_efficiency = 0.08
+}
+
+por_revolutions_vinho_industry = {
+    potential = { has_or_had_tag = POR }
+    age = age_6_revolutions
     global_wine_output_modifier = 0.33
-    requires = rgo_size_advance_revolutions
 }
 
 ########################
