@@ -66,12 +66,15 @@ plague_carrier = {
 	
 	modifier = {
 		stability_cost = 0.75
-		subject_loyalty = -25
+		subject_loyalty = -12.5
 		monthly_devotion = -0.25
 		monthly_war_exhaustion = 0.5
 		global_estate_target_satisfaction = -50
 		tax_income_efficiency = -0.75
 		army_movement_speed = -0.75
+	}
+	chance = {
+		base = 0.5
 	}
 }
 
@@ -85,15 +88,19 @@ tyrant_despot = {
 	flavor = personality
 	
 	modifier = {
-		subject_loyalty = -50
-		monthly_towards_serfdom = -0.5
-		control_importance_modifier = 0.75
-		peace_offer_negotiation_power = -1.0
-		antagonism_received_modifier = 0.5
-		war_declaration_stab_hit_tolerance = 30
-		aggressiveness_modifier = 0.75
-		bias_for_militarist_policies = 50
+		subject_loyalty = -25
+		monthly_towards_serfdom = -0.25
+		control_importance_modifier = 0.375
+		peace_offer_negotiation_power = -0.5
+		antagonism_received_modifier = 0.25
+		war_declaration_stab_hit_tolerance = 15
+		aggressiveness_modifier = 0.375
+		bias_for_militarist_policies = 25
 	}
+	chance = {
+		base = 0.5
+	}
+
 }
 
 economically_ruined = {
@@ -233,6 +240,10 @@ lucky_merchant = {
 		peace_offer_negotiation_power = 0.15
 		bias_for_capitalist_policies = 20
 	}
+
+chance = {
+    base = 0.75
+}
 }
 
 battle_hardened = {
@@ -251,6 +262,10 @@ battle_hardened = {
 		army_movement_speed = 0.2
 		land_unit_attrition = -0.1
 	}
+
+chance = {
+    base = 0.5
+}
 }
 
 diplomatic_genius = {
@@ -270,6 +285,10 @@ diplomatic_genius = {
 		antagonism_received_modifier = -0.15
 		bias_for_diplomat_policies = 40
 	}
+
+chance = {
+    base = 0.5
+}
 }
 
 strategic_mind = {
@@ -288,6 +307,10 @@ strategic_mind = {
 		research_speed_modifier = 0.15
 		stability_importance_modifier = 0.1
 	}
+
+chance = {
+    base = 0.75
+}
 }
 
 ###################################
@@ -311,6 +334,10 @@ naval_supremacist = {
 		prestige_from_naval_battle = 0.75
 		navy_tradition_from_battle = 0.75
 	}
+
+chance = {
+    base = 0.5
+}
 }
 
 absolute_authority = {
@@ -323,12 +350,16 @@ absolute_authority = {
 	flavor = government_approach
 	
 	modifier = {
-		monthly_legitimacy = 0.3
-		subject_loyalty = 25
-		antagonism_tolerance = 25
-		stability_cost = -0.15
-		control_importance_modifier = 0.2
+		monthly_legitimacy = 0.15
+		subject_loyalty = 12.5
+		antagonism_tolerance = 12.5
+		stability_cost = -0.075
+		control_importance_modifier = 0.1
 	}
+	chance = {
+		base = 0.5
+	}
+
 }
 
 economic_titan = {
@@ -349,6 +380,10 @@ economic_titan = {
 		monthly_legitimacy = 0.15
 		research_speed_modifier = 0.1
 	}
+
+chance = {
+    base = 0.75
+}
 }
 
 ###################################
@@ -367,16 +402,20 @@ conquerer_supreme = {
 	flavor = government_approach
 	
 	modifier = {
-		siege_ability = 0.75
-		military_tactics = 0.5
-		prestige_from_land_battle = 1.0
-		army_tradition_from_battle = 1.0
-		army_movement_speed = 0.5
-		land_unit_attrition = -0.3
-		army_cavalry_power = 0.2
-		army_infantry_power = 0.2
-		war_declaration_stab_hit_tolerance = 50
+		siege_ability = 0.375
+		military_tactics = 0.25
+		prestige_from_land_battle = 0.5
+		army_tradition_from_battle = 0.5
+		army_movement_speed = 0.25
+		land_unit_attrition = -0.15
+		army_cavalry_power = 0.1
+		army_infantry_power = 0.1
+		war_declaration_stab_hit_tolerance = 25
 	}
+	chance = {
+		base = 0.5
+	}
+
 }
 
 godlike_ruler = {
@@ -395,22 +434,26 @@ godlike_ruler = {
 	flavor = personality
 	
 	modifier = {
-		monthly_legitimacy = 0.5
-		stability_cost = -0.5
-		tax_income_efficiency = 0.75
-		peace_offer_negotiation_power = 0.75
-		research_speed_modifier = 0.5
-		military_tactics = 0.5
-		prestige_from_land_battle = 1.5
-		army_tradition_from_battle = 1.5
-		prestige_from_naval_battle = 1.5
-		navy_tradition_from_battle = 1.5
-		subject_loyalty = 50
-		stability_importance_modifier = 0.25
-		control_importance_modifier = 0.25
-		bias_for_balanced_policies = 50
-		monthly_war_exhaustion = -0.1
-		aggressiveness_modifier = 0.1
+		monthly_legitimacy = 0.25
+		stability_cost = -0.25
+		tax_income_efficiency = 0.375
+		peace_offer_negotiation_power = 0.375
+		research_speed_modifier = 0.25
+		military_tactics = 0.25
+		prestige_from_land_battle = 0.75
+		army_tradition_from_battle = 0.75
+		prestige_from_naval_battle = 0.75
+		navy_tradition_from_battle = 0.75
+		subject_loyalty = 25
+		stability_importance_modifier = 0.125
+		control_importance_modifier = 0.125
+		bias_for_balanced_policies = 25
+		monthly_war_exhaustion = -0.05
+		aggressiveness_modifier = 0.05
 	}
+	chance = {
+		base = 0.5
+	}
+
 }
 
