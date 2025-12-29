@@ -1780,6 +1780,480 @@ aus_revolutions_integration_reforms = {
     stability_cost = -0.08
 }
 
+########################
+# Batch 2: Central & Southern Europe
+########################
+
+########################
+# Bohemia (BOH)
+########################
+
+boh_traditions_hussite_wagons = {
+    icon = "gfx/interface/icons/advances/boh_traditions_hussite_wagons.dds"
+    age = age_traditions
+    # Historical Context: Hussite wagons revolutionised defensive field tactics.
+    infantry_power = 0.08
+    discipline = 0.04
+}
+
+boh_traditions_glassmaking_centres = {
+    icon = "gfx/interface/icons/advances/boh_traditions_glassmaking_centres.dds"
+    age = age_traditions
+    # Historical Context: Glass industries boosted craft output and trade goods.
+    production_efficiency = 0.06
+    global_trade_power = 0.03
+}
+
+boh_traditions_imperial_electorate = {
+    icon = "gfx/interface/icons/advances/boh_traditions_imperial_electorate.dds"
+    age = age_traditions
+    # Historical Context: Electorship status increased diplomatic leverage in the HRE.
+    diplomatic_capacity = 1
+    improve_relations_modifier = 0.04
+}
+
+boh_traditions_local_militia = {
+    icon = "gfx/interface/icons/advances/boh_traditions_local_militia.dds"
+    age = age_traditions
+    # Historical Context: Well-organised militias provided defensive resilience.
+    manpower = 0.10
+    global_regiment_recruit_speed = 0.04
+}
+
+boh_renaissance_prague_university = {
+    icon = "gfx/interface/icons/advances/boh_renaissance_prague_university.dds"
+    age = age_renaissance
+    # Historical Context: Centers of learning increased administrative capacity.
+    admin_power = 0.06
+    prestige = 0.04
+}
+
+boh_renaissance_hussite_traditions = {
+    icon = "gfx/interface/icons/advances/boh_renaissance_hussite_traditions.dds"
+    age = age_renaissance
+    # Historical Context: Religious-military traditions influenced doctrine and morale.
+    morale = 0.06
+    discipline = 0.03
+}
+
+boh_discovery_glass_exports = {
+    icon = "gfx/interface/icons/advances/boh_discovery_glass_exports.dds"
+    age = age_discovery
+    # Historical Context: Glass exports linked Bohemia into wider trade networks.
+    trade_income = 0.06
+    local_trade_power = 0.05
+}
+
+boh_reformation_unity_reforms = {
+    icon = "gfx/interface/icons/advances/boh_reformation_unity_reforms.dds"
+    age = age_reformation
+    # Historical Context: Political reforms eased internal religious tensions.
+    stability_cost = -0.05
+    religious_unity = 0.04
+}
+
+boh_absolutism_imperial_reform = {
+    icon = "gfx/interface/icons/advances/boh_absolutism_imperial_reform.dds"
+    age = age_absolutism
+    # Historical Context: Administrative changes improved tax collection.
+    tax_income = 0.08
+    admin_power = 0.05
+}
+
+boh_revolutions_national_identity = {
+    icon = "gfx/interface/icons/advances/boh_revolutions_national_identity.dds"
+    age = age_revolutions
+    # Historical Context: National consolidation increased manpower and cohesion.
+    manpower = 0.14
+    stability_cost = -0.06
+}
+
+########################
+# Brandenburg/Prussia (BRA)
+########################
+
+bra_traditions_space_marine_doctrine = {
+    icon = "gfx/interface/icons/advances/bra_traditions_space_marine_doctrine.dds"
+    age = age_traditions
+    # Historical Context: Early professional soldiering emphasized elite shock troops.
+    discipline = 0.07
+    infantry_power = 0.06
+}
+
+bra_traditions_prussian_discipline = {
+    icon = "gfx/interface/icons/advances/bra_traditions_prussian_discipline.dds"
+    age = age_traditions
+    # Historical Context: Rigorous drill and standards forged exceptional discipline.
+    discipline = 0.08
+    global_regiment_recruit_speed = 0.04
+}
+
+bra_traditions_bureaucratic_reforms = {
+    icon = "gfx/interface/icons/advances/bra_traditions_bureaucratic_reforms.dds"
+    age = age_traditions
+    # Historical Context: Bureaucratic centralization improved administration and conscription.
+    admin_power = 0.06
+    diplomatic_capacity = 1
+}
+
+bra_renaissance_military_reforms = {
+    icon = "gfx/interface/icons/advances/bra_renaissance_military_reforms.dds"
+    age = age_renaissance
+    # Historical Context: Reforms professionalised command structures and logistics.
+    global_regiment_recruit_speed = 0.06
+    infantry_power = 0.05
+}
+
+bra_discovery_prussian_drill_centers = {
+    icon = "gfx/interface/icons/advances/bra_discovery_prussian_drill_centers.dds"
+    age = age_discovery
+    # Historical Context: Training centers produced well-drilled units quickly.
+    global_regiment_recruit_speed = 0.08
+    manpower = 0.08
+}
+
+bra_reformation_frederician_administration = {
+    icon = "gfx/interface/icons/advances/bra_reformation_frederician_administration.dds"
+    age = age_reformation
+    # Historical Context: Administrative centralisation financed larger armies.
+    tax_income = 0.07
+    admin_power = 0.06
+}
+
+bra_absolutism_discipline_cult = {
+    icon = "gfx/interface/icons/advances/bra_absolutism_discipline_cult.dds"
+    age = age_absolutism
+    # Historical Context: Cultural emphasis on military service bolstered discipline.
+    discipline = 0.10
+    prestige = 0.04
+}
+
+bra_revolutions_modern_prussian_army = {
+    icon = "gfx/interface/icons/advances/bra_revolutions_modern_prussian_army.dds"
+    age = age_revolutions
+    # Historical Context: Modern reforms produced efficient mass armies.
+    manpower = 0.18
+    global_regiment_recruit_speed = 0.10
+}
+
+########################
+# Holland/Netherlands (HOL)
+########################
+
+hol_traditions_merchant_republic = {
+    icon = "gfx/interface/icons/advances/hol_traditions_merchant_republic.dds"
+    age = age_traditions
+    # Historical Context: Maritime republics prioritized trade and finance.
+    trade_income = 0.08
+    global_trade_power = 0.06
+}
+
+hol_renaissance_spice_trade = {
+    icon = "gfx/interface/icons/advances/hol_renaissance_spice_trade.dds"
+    age = age_renaissance
+    # Historical Context: Access to spices created vast profits and global links.
+    trade_efficiency = 0.07
+    global_trade_power = 0.08
+}
+
+hol_discovery_banking_infrastructure = {
+    icon = "gfx/interface/icons/advances/hol_discovery_banking_infrastructure.dds"
+    age = age_discovery
+    # Historical Context: Early banking supported commerce and government finance.
+    monthly_gold_income = 2
+    trade_income = 0.05
+}
+
+hol_reformation_polder_engineering = {
+    icon = "gfx/interface/icons/advances/hol_reformation_polder_engineering.dds"
+    age = age_reformation
+    # Historical Context: Land reclamation increased productive area and development.
+    production_efficiency = 0.06
+    local_development_cost_modifier = -0.05
+}
+
+hol_absolutism_naval_capacity = {
+    icon = "gfx/interface/icons/advances/hol_absolutism_naval_capacity.dds"
+    age = age_absolutism
+    # Historical Context: Naval investment supported a large merchant and war fleet.
+    global_naval_forcelimit_modifier = 0.10
+    global_ship_build_speed = 0.06
+}
+
+hol_revolutions_international_finance = {
+    icon = "gfx/interface/icons/advances/hol_revolutions_international_finance.dds"
+    age = age_revolutions
+    # Historical Context: Financial institutions underpinned global capital flows.
+    trade_income = 0.10
+    monthly_gold_income = 2
+}
+
+########################
+# Venice (VEN)
+########################
+
+ven_traditions_galley_mastery = {
+    icon = "gfx/interface/icons/advances/ven_traditions_galley_mastery.dds"
+    age = age_traditions
+    # Historical Context: Galleys were central to Venetian naval power in the Mediterranean.
+    naval_movement = 0.08
+    naval_forcelimit_modifier = 0.06
+}
+
+ven_renaissance_arsenal = {
+    icon = "gfx/interface/icons/advances/ven_renaissance_arsenal.dds"
+    age = age_renaissance
+    # Historical Context: Arsenal facilities increased shipbuilding speed and output.
+    global_ship_build_speed = 0.10
+    global_naval_forcelimit_modifier = 0.05
+}
+
+ven_discovery_republic_tradition = {
+    icon = "gfx/interface/icons/advances/ven_discovery_republic_tradition.dds"
+    age = age_discovery
+    # Historical Context: Republican institutions sustained maritime commerce and stability.
+    trade_income = 0.07
+    improve_relations_modifier = 0.04
+}
+
+ven_reformation_silk_road_links = {
+    icon = "gfx/interface/icons/advances/ven_reformation_silk_road_links.dds"
+    age = age_reformation
+    # Historical Context: Overland and maritime links with the Silk Road enriched Venice.
+    trade_efficiency = 0.06
+    local_trade_power = 0.05
+}
+
+ven_absolutism_condotierri_integration = {
+    icon = "gfx/interface/icons/advances/ven_absolutism_condotierri_integration.dds"
+    age = age_absolutism
+    # Historical Context: Professional mercenary integration strengthened military effectiveness.
+    discipline = 0.05
+    manpower = 0.08
+}
+
+ven_revolutions_maritime_revival = {
+    icon = "gfx/interface/icons/advances/ven_revolutions_maritime_revival.dds"
+    age = age_revolutions
+    # Historical Context: Revived maritime trade supported economic resurgence.
+    global_trade_power = 0.10
+    global_ship_build_speed = 0.06
+}
+
+########################
+# Florence/Tuscany (FLR)
+########################
+
+flr_traditions_medicibanking = {
+    icon = "gfx/interface/icons/advances/flr_traditions_medicibanking.dds"
+    age = age_traditions
+    # Historical Context: The Medici banking network financed state power and culture.
+    monthly_gold_income = 2
+    trade_income = 0.05
+}
+
+flr_renaissance_patrons_of_art = {
+    icon = "gfx/interface/icons/advances/flr_renaissance_patrons_of_art.dds"
+    age = age_renaissance
+    # Historical Context: Patronage catalysed Renaissance artistic achievements.
+    prestige = 0.08
+}
+
+flr_discovery_condottieri_system = {
+    icon = "gfx/interface/icons/advances/flr_discovery_condottieri_system.dds"
+    age = age_discovery
+    # Historical Context: Mercenary companies provided flexible military options.
+    manpower = 0.06
+    global_regiment_recruit_speed = 0.04
+}
+
+flr_reformation_tuscan_reforms = {
+    icon = "gfx/interface/icons/advances/flr_reformation_tuscan_reforms.dds"
+    age = age_reformation
+    # Historical Context: Civic reforms improved governance and trade.
+    admin_power = 0.05
+    trade_income = 0.04
+}
+
+########################
+# Milan (MLN)
+########################
+
+mln_traditions_plate_infantry = {
+    icon = "gfx/interface/icons/advances/mln_traditions_plate_infantry.dds"
+    age = age_traditions
+    # Historical Context: Improved infantry armor increased battlefield survivability.
+    infantry_power = 0.07
+    discipline = 0.03
+}
+
+mln_renaissance_condottieri_mercs = {
+    icon = "gfx/interface/icons/advances/mln_renaissance_condottieri_mercs.dds"
+    age = age_renaissance
+    # Historical Context: Mercenary companies were central to Milanese warfare.
+    manpower = 0.08
+    trade_income = 0.03
+}
+
+mln_discovery_sforza_castles = {
+    icon = "gfx/interface/icons/advances/mln_discovery_sforza_castles.dds"
+    age = age_discovery
+    # Historical Context: Sforza fortifications controlled Lombardy and trade routes.
+    fort_level = 1
+    siege_defense = 0.06
+}
+
+mln_reformation_infantry_drill = {
+    icon = "gfx/interface/icons/advances/mln_reformation_infantry_drill.dds"
+    age = age_reformation
+    # Historical Context: Drill and discipline improved Milanese infantry performance.
+    discipline = 0.05
+    infantry_power = 0.05
+}
+
+########################
+# Naples (NAP)
+########################
+
+nap_traditions_med_seafaring = {
+    icon = "gfx/interface/icons/advances/nap_traditions_med_seafaring.dds"
+    age = age_traditions
+    # Historical Context: Coastal fleets dominated local Mediterranean trade lanes.
+    naval_movement = 0.06
+    trade_income = 0.04
+}
+
+nap_renaissance_mercantile_ports = {
+    icon = "gfx/interface/icons/advances/nap_renaissance_mercantile_ports.dds"
+    age = age_renaissance
+    # Historical Context: Port investment increased harbour suitability and trade.
+    local_trade_power = 0.06
+    global_trade_power = 0.04
+}
+
+nap_discovery_med_dominance = {
+    icon = "gfx/interface/icons/advances/nap_discovery_med_dominance.dds"
+    age = age_discovery
+    # Historical Context: Naval focus secured Mediterranean trade and influence.
+    global_naval_forcelimit_modifier = 0.06
+    trade_income = 0.05
+}
+
+nap_reformation_strategic_ports = {
+    icon = "gfx/interface/icons/advances/nap_reformation_strategic_ports.dds"
+    age = age_reformation
+    # Historical Context: Strategic port control enabled power projection.
+    naval_forcelimit_modifier = 0.05
+    global_ship_build_speed = 0.04
+}
+
+########################
+# Papal States (PAP)
+########################
+
+pap_traditions_papal_influence = {
+    icon = "gfx/interface/icons/advances/pap_traditions_papal_influence.dds"
+    age = age_traditions
+    # Historical Context: Papal influence shaped European politics and faith.
+    improve_relations_modifier = 0.06
+    prestige = 0.05
+}
+
+pap_renaissance_vatican_library = {
+    icon = "gfx/interface/icons/advances/pap_renaissance_vatican_library.dds"
+    age = age_renaissance
+    # Historical Context: The Vatican Library supported scholarship and authority.
+    admin_power = 0.05
+    prestige = 0.06
+}
+
+pap_discovery_excommunication = {
+    icon = "gfx/interface/icons/advances/pap_discovery_excommunication.dds"
+    age = age_discovery
+    # Historical Context: The papacy's spiritual sanctioning power could isolate rulers.
+    # Uses opinion modifier; define `papal_excommunication` in biases/static modifiers if needed.
+    add_opinion = { modifier = papal_excommunication target = root }
+}
+
+pap_reformation_swiss_guard = {
+    icon = "gfx/interface/icons/advances/pap_reformation_swiss_guard.dds"
+    age = age_reformation
+    # Historical Context: The Swiss Guard provided elite personal protection to the Pope.
+    discipline = 0.04
+    infantry_power = 0.04
+}
+
+########################
+# Hungary (HUN)
+########################
+
+hun_traditions_black_army = {
+    icon = "gfx/interface/icons/advances/hun_traditions_black_army.dds"
+    age = age_traditions
+    # Historical Context: The Black Army was a highly effective professional force.
+    infantry_power = 0.09
+    discipline = 0.05
+}
+
+hun_traditions_border_forts = {
+    icon = "gfx/interface/icons/advances/hun_traditions_border_forts.dds"
+    age = age_traditions
+    # Historical Context: Forts on the frontier slowed invaders and protected hinterlands.
+    fort_level = 1
+    siege_defense = 0.06
+}
+
+hun_renaissance_cavalry_traditions = {
+    icon = "gfx/interface/icons/advances/hun_renaissance_cavalry_traditions.dds"
+    age = age_renaissance
+    # Historical Context: Hungarian cavalry were feared across the region.
+    cavalry_power = 0.08
+}
+
+hun_reformation_border_reforms = {
+    icon = "gfx/interface/icons/advances/hun_reformation_border_reforms.dds"
+    age = age_reformation
+    # Historical Context: Reforms improved border defense and garrison capability.
+    global_garrison_size_modifier = 0.06
+    global_manpower_modifier = 0.05
+}
+
+########################
+# Switzerland (SWI)
+########################
+
+swi_traditions_mercenary_discipline = {
+    icon = "gfx/interface/icons/advances/swi_traditions_mercenary_discipline.dds"
+    age = age_traditions
+    # Historical Context: Swiss mercenaries were renowned for discipline and reliability.
+    discipline = 0.08
+    manpower = 0.06
+}
+
+swi_renaissance_fort_defense = {
+    icon = "gfx/interface/icons/advances/swi_renaissance_fort_defense.dds"
+    age = age_renaissance
+    # Historical Context: Mountain fortifications made Switzerland hard to conquer.
+    fort_level = 1
+    fort_maintenance = -0.04
+}
+
+swi_reformation_neutrality_doctrine = {
+    icon = "gfx/interface/icons/advances/swi_reformation_neutrality_doctrine.dds"
+    age = age_reformation
+    # Historical Context: Neutrality preserved Swiss independence and commerce.
+    improve_relations_modifier = 0.05
+    trade_income = 0.04
+}
+
+swi_absolutism_canton_cohesion = {
+    icon = "gfx/interface/icons/advances/swi_absolutism_canton_cohesion.dds"
+    age = age_absolutism
+    # Historical Context: Canton structures improved internal stability and mobilization.
+    stability_cost = -0.05
+    global_regiment_recruit_speed = 0.05
+}
+
 
 
 
