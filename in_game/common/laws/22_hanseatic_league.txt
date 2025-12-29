@@ -318,7 +318,7 @@ hl_economic_cooperation = {
             }
             monthly_gold_income = 0.01
         }
-        country_modifier = { global_production_efficiency = 0.05 }
+        country_modifier = { production_efficiency = 0.05 }
     }
 }
 

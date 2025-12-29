@@ -1,4 +1,4 @@
-l_english:
+﻿l_english:
   # Batch 1 — generated short localisation for initial tags
   # England (ENG)
   eng_traditions_longbow_mastery: "Longbow Mastery"
@@ -466,6 +466,36 @@ l_english:
   aus_renaissance_habsburg_patronage_desc: "Adds bonuses related to Habsburg Patronage."
   aus_renaissance_reorganized_army: "Reorganized Army"
   aus_renaissance_reorganized_army_desc: "Adds bonuses related to Reorganized Army."
+  
+  # Missing AUS placeholders (auto-added)
+  aus_discovery_logistics_reforms: "Logistics Reforms"
+  aus_discovery_logistics_reforms_desc: "Placeholder: logistics and supply reforms."
+  aus_discovery_habsburg_trade_firms: "Habsburg Trade Firms"
+  aus_discovery_habsburg_trade_firms_desc: "Placeholder: merchant firms expanding Habsburg commerce."
+  aus_reformation_imperial_council: "Imperial Council"
+  aus_reformation_imperial_council_desc: "Placeholder: administrative reforms via the imperial council."
+  aus_reformation_guarded_borders: "Guarded Borders"
+  aus_reformation_guarded_borders_desc: "Placeholder: strengthened frontier defences and patrols."
+  aus_reformation_approved_royal_army: "Approved Royal Army"
+  aus_reformation_approved_royal_army_desc: "Placeholder: formalization of royal standing forces."
+  aus_reformation_dynamic_diplomacy: "Dynamic Diplomacy"
+  aus_reformation_dynamic_diplomacy_desc: "Placeholder: diplomatic institutions increase influence."
+  aus_absolutism_habsburg_streamlined_finance: "Streamlined Finance"
+  aus_absolutism_habsburg_streamlined_finance_desc: "Placeholder: fiscal reforms and centralised accounting."
+  aus_absolutism_grand_army_reforms: "Grand Army Reforms"
+  aus_absolutism_grand_army_reforms_desc: "Placeholder: organisational reforms for larger armies."
+  aus_absolutism_infrastructure_investment: "Infrastructure Investment"
+  aus_absolutism_infrastructure_investment_desc: "Placeholder: state investment in roads and logistics."
+  aus_absolutism_habsburg_heritage: "Habsburg Heritage"
+  aus_absolutism_habsburg_heritage_desc: "Placeholder: cultural-political legacy supporting legitimacy."
+  aus_revolutions_national_consortium: "National Consortium"
+  aus_revolutions_national_consortium_desc: "Placeholder: coordinated national economic efforts."
+  aus_revolutions_mass_reforms: "Mass Reforms"
+  aus_revolutions_mass_reforms_desc: "Placeholder: sweeping institutional and social reforms."
+  aus_revolutions_modern_diplomacy: "Modern Diplomacy"
+  aus_revolutions_modern_diplomacy_desc: "Placeholder: updated diplomatic corps and practices."
+  aus_revolutions_integration_reforms: "Integration Reforms"
+  aus_revolutions_integration_reforms_desc: "Placeholder: administrative integration of new territories."
   aus_renaissance_imperial_bureaucracy: "Imperial Bureaucracy"
   aus_renaissance_imperial_bureaucracy_desc: "Adds bonuses related to Imperial Bureaucracy."
   aus_renaissance_vassal_management: "Vassal Management"
