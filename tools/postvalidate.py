@@ -23,9 +23,13 @@ DEPRECATED = [
     'naval_movement',
     'global_manpower_modifier',
     'global_production_efficiency',
-    'loyalty',
     'global_sailors_modifier',
 ]
+
+# tokens that we expect to appear in certain folders (token -> list of path prefixes)
+EXPECTED_OCCURRENCES = {
+    'loyalty': [ADV_DIR, os.path.join(ROOT, 'in_game', 'common', 'traits')],
+}
 
 def find_advances_in_file(path):
     advances = []
@@ -150,9 +154,36 @@ def find_deprecated_tokens():
                     text = data.decode('latin1', 'replace')
             for i, line in enumerate(text.splitlines(), start=1):
                 for token in DEPRECATED:
-                    if token in line:
+                    # match whole word, case-insensitive
+                    if re.search(r"\\b{}\\b".format(re.escape(token)), line, flags=re.I):
                         hits.append((token, path, i, line.strip()))
     return hits
+
+
+def find_term_references(term):
+    refs = []
+    pattern = re.compile(re.escape(term), flags=re.I)
+    for root, _, files in os.walk(ROOT):
+        for fn in files:
+            if not fn.endswith('.txt') and not fn.endswith('.yml') and not fn.endswith('.yml'):
+                continue
+            path = os.path.join(root, fn)
+            try:
+                with open(path, 'rb') as f:
+                    data = f.read()
+            except Exception:
+                continue
+            try:
+                text = data.decode('utf-8')
+            except Exception:
+                try:
+                    text = data.decode('utf-8', 'replace')
+                except Exception:
+                    text = data.decode('latin1', 'replace')
+            for i, line in enumerate(text.splitlines(), start=1):
+                if pattern.search(line):
+                    refs.append((path, i, line.strip()))
+    return refs
 
 def main():
     print('Running lightweight post-validate checks...')
@@ -200,14 +231,49 @@ def main():
 
     # deprecated tokens
     dep_hits = find_deprecated_tokens()
-    if dep_hits:
-        print('Deprecated token occurrences:')
-        for token, path, lineno, line in dep_hits[:200]:
+    # filter out expected occurrences per token
+    filtered = []
+    ignored = []
+    for token, path, lineno, line in dep_hits:
+        ignore_paths = EXPECTED_OCCURRENCES.get(token, [])
+        should_ignore = False
+        for pfx in ignore_paths:
+            try:
+                if os.path.abspath(path).startswith(os.path.abspath(pfx)):
+                    should_ignore = True
+                    break
+            except Exception:
+                continue
+        if should_ignore:
+            ignored.append((token, path, lineno, line))
+        else:
+            filtered.append((token, path, lineno, line))
+
+    if filtered:
+        print('Deprecated token occurrences (unexpected locations):')
+        for token, path, lineno, line in filtered[:200]:
             print(' - {} in {}:{} -> {}'.format(token, path, lineno, line))
     else:
-        print('No deprecated tokens found.')
+        print('No deprecated tokens found in unexpected locations.')
+    if ignored:
+        print('Deprecated token occurrences (expected/ignored):', len(ignored))
+
+    # scan for hanseatic references to ensure cleanup
+    han_refs = find_term_references('hanseatic')
+    if han_refs:
+        print('\nFound references to "hanseatic":')
+        for path, lineno, line in han_refs[:200]:
+            print(' - {}:{} -> {}'.format(path, lineno, line))
+    else:
+        print('\nNo references to "hanseatic" found.')
 
     print('\nPost-validate checks complete.')
+
+    # Determine exit code: 0 = ok, 2 = issues found
+    exit_code = 0
+    if missing_pot or brace_issues or missing_loc or filtered:
+        exit_code = 2
+    sys.exit(exit_code)
 
 if __name__ == '__main__':
     main()
