@@ -1,0 +1,6 @@
+﻿l_english:
+#Hansa Formable Buildings
+ release_city: "Release Hanseatic City"
+ release_city_entry: "[target.GetOwner.GetFlagIcon] Release [target.GetName] as a free Hanseatic member"
+ release_city_entry_short: "Release [target.GetName] as Hanseatic City"
+ release_city_desc: "Release [target.GetName] as a free Hanseatic member"

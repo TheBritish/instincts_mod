@@ -1,0 +1,3 @@
+hanseatic_recruiting_office_max_level = {
+	positive = "gfx/interface/icons/modifier_types/hanseatic_shipwright_guild_max_level.dds" 
+}

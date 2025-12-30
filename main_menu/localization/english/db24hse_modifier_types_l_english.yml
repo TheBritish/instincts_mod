@@ -1,0 +1,4 @@
+﻿l_english:
+#Hansa modifier Types
+ MODIFIER_TYPE_NAME_hanseatic_recruiting_office_max_level: "Hanseatic Recruiting Office Max Level"
+ MODIFIER_TYPE_DESC_hanseatic_recruiting_office_max_level: "This impacts the number of Hanseatic Recruiting Offices that can be built in a location"

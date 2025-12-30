@@ -1,0 +1,79 @@
+﻿hanseatic_recruiting_office = {
+	is_foreign = yes
+	need_good_relation = yes
+	
+	pop_type = burghers
+	max_levels = hanseatic_recruiting_office_max_level
+	increase_per_level_cost = 0.5
+	category = military_category
+	country_potential = {
+		modifier:allows_hanseatic_federation_buildings = yes
+	}
+	location_potential = {
+		owner = { is_subject_of = c:HSA }
+		is_port = yes
+	}
+	allow = {
+
+		scope:actor = {
+			has_or_had_tag = HSA
+		}
+	}
+	employment_size = 0.25
+	pop_size_created = 0.25
+	town = yes
+	city = yes
+	build_time = medium_port_building_time
+	expensive = yes
+	icon = trade_company_governance
+	unique_production_methods = {
+		burgher_volunteer_recruitment_maintenance = {
+			firearms = 0.5
+			leather = 0.5
+			cloth = 0.10
+			paper = 0.20
+			weaponry = 0.5
+			category = building_maintenance
+		}
+	}
+	construction_demand = port_building_construction
+	modifier = {
+		manpower_to_building_owner = 0.0035
+		can_recruit_regiment_in_this_location = yes
+	}
+}
+#dummy entry to make the building show up as an unlock in the advance, since unlocked buildings are bugged when building in vassals
+hanseatic_recruiting_office_dummy = {
+	is_foreign = yes
+	need_good_relation = yes
+	
+	pop_type = burghers
+	max_levels = 1
+	increase_per_level_cost = 0.5
+	category = military_category
+	country_potential = {
+		modifier:allows_hanseatic_federation_buildings = no
+	}
+	employment_size = 0.25
+	pop_size_created = 0.25
+	town = yes
+	city = yes
+	build_time = medium_port_building_time
+	expensive = yes
+	icon = trade_company_governance
+	unique_production_methods = {
+		burgher_volunteer_recruitment_maintenance_dummy = {
+			firearms = 0.5
+			leather = 0.5
+			cloth = 0.10
+			paper = 0.20
+			weaponry = 0.5
+			category = building_maintenance
+		}
+	}
+	construction_demand = port_building_construction
+	modifier = {
+		manpower_to_building_owner = 0.0035
+		can_recruit_regiment_in_this_location = yes
+	}
+}

@@ -1,0 +1,109 @@
+﻿release_city = {
+	
+	category = country
+	cost = {
+		add = {
+			desc = "DIPLOREASON_BASE"
+			value = "scope:target.location_peace_cost(scope:loser|scope:winner)"
+			multiply = 6
+		}
+		add = {
+			desc = "population of target country"
+			value = scope:loser.total_population
+			multiply = -0.01
+		}
+		add = {
+			desc = "population of target city"
+			value = scope:target.population
+			multiply = 0.5
+		}
+	}
+	base_antagonism = {
+		add = {
+			desc = "game_concept_population"
+			value = scope:target.population
+			multiply = 0.08
+		}
+	}
+	#base_antagonism = 4
+	antagonism_type = antagonism_subjugated_nation
+
+	are_targets_exclusive = yes
+
+	potential = {
+		scope:winner = {
+			has_or_had_tag = HSA
+		}
+		scope:loser = {
+			 num_locations_owned_or_owned_by_subjects > 10
+		}
+	}
+	 
+	select_trigger = {
+		looking_for_a = location
+		source = recipient
+		target_flag = target
+        visible = {
+			is_city = yes
+			is_port = yes
+			owner = scope:recipient
+		}
+    }
+	
+	allow = {
+	}
+
+	effect = {
+		scope:target = { 
+				create_country_from_location  = { #create_Hanseatic_city_in_location
+				unlock_government_reform_effect = { type = merchant_republic }
+				make_subject_of = {
+				target = scope:winner
+				type = subject_type:hanseatic_member
+				war = scope:war
+			}
+				
+
+				reforms = {
+					merchant_republic
+				}
+				save_scope_as = hanseatic_city_tag_scope
+
+				hidden_effect = {
+					change_heir_selection = heir_selection:elective_succession
+					change_government_type = government_type:republic
+				}
+				add_gold = {
+					value = root.monthly_income_trade_and_tax
+					multiply = 4
+				}
+				change_culture = root.culture
+				change_religion = root.religion
+				create_character = {
+					estate = estate_type:burghers_estate
+					culture = root.culture
+					religion = root.religion
+					save_scope_as = republic_ruler_scope
+				}
+				set_new_ruler = scope:republic_ruler_scope
+				change_religion_for_ruler_and_family = { country = this religion = root.religion }
+
+			}
+		}
+	}
+
+	ai_desire = {
+		if = {
+			limit = {
+				scope:target = {
+					within_colonial_range_of = scope:winner
+				}
+			}
+			add = {
+				desc = "DIPLOREASON_WITHIN_RANGE_OF_CAPITAL"
+				value = 20
+			}
+		}
+	}
+}
+

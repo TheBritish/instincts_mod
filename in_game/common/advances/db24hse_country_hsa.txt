@@ -1,0 +1,28 @@
+﻿#Age of Discovery
+hanseatic_private_security_advance = {
+	age = age_3_discovery 
+    potential = {
+		has_or_had_tag = HSA
+	}
+	icon = armory_advance
+	#dummy entry to make the building show up as an unlock in the advance, since unlocked buildings are bugged when building in vassals
+	unlock_building = hanseatic_recruiting_office_dummy
+	hanseatic_recruiting_office_max_level = 1
+	requires = training_fields_advance
+}
+
+
+
+
+
+#Age of Reformation
+hanseatic_recruiting_drive_advance = {
+	age = age_4_reformation
+    potential = {
+		has_or_had_tag = HSA
+	}
+	icon = barracks_advance
+	#unlock_building = hanseatic_recruiting_office
+	hanseatic_recruiting_office_max_level = 2
+	requires = trade_companies_advance
+}

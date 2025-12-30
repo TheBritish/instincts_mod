@@ -1,0 +1,8 @@
+﻿l_english:
+#Hansa Formable Buildings
+ hanseatic_recruiting_office: "Hanseatic Recruiting Office"
+ hanseatic_recruiting_office_desc: "The local recruiting office of the Hansa, recruiting and training private security which shall enforce the interests of the league."
+
+#dummy entry to make the building show up as an unlock in the advance, since unlocked buildings are bugged when building in vassals
+ hanseatic_recruiting_office_dummy: "Hanseatic Recruiting Office"
+ hanseatic_recruiting_office_dummy_desc: "The local recruiting office of the Hansa, recruiting and training private security which shall enforce the interests of the league."
