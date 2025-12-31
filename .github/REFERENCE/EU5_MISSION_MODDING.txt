@@ -1,0 +1,309 @@
+# EU5 Mission Modding - Official Wiki Reference
+
+**Source:** https://eu5.paradoxwikis.com/Mission_modding
+
+## Overview
+
+Mission modding covers creation and modification of missions - task trees that guide countries through specific objectives with rewards.
+
+**Location:** `/Europa Universalis V/game/in_game/common/missions/` (`.txt` files)
+
+## Mission Structure
+
+```
+mission_pack_name = {
+    icon = mission_icon_name
+    repeatable = yes                    # Whether mission can be done again
+    player_playstyle = administrative   # Categorization for player preferences
+
+    visible = {
+        # Conditions for mission to appear
+        game_has_missions_enabled = yes
+        has_enabled_mission_trigger = { type = mission_pack_name }
+    }
+
+    enabled = {
+        # Conditions for mission to be available
+        exists = capital.market
+    }
+
+    chance = 3600    # AI weight to pick this mission
+
+    select_trigger = {
+        # Optional selection UI for mission targets
+        looking_for_a = market
+        target_flag = mission_target_market
+        name = "mission_select_market"
+    }
+
+    on_start = {
+        # Effects when mission is started
+    }
+
+    on_completion = {
+        # Effects when all tasks complete
+    }
+
+    on_abort = {
+        # Cleanup when mission is abandoned
+    }
+
+    # Mission tasks defined below
+    mission_task_name = {
+        icon = task_icon
+        requires = { previous_task }
+        enabled = { trigger }
+        duration = 365       # Days to complete (0 = instant)
+        on_completion = { effect }
+    }
+}
+```
+
+## Mission Task Structure
+
+Tasks are individual objectives within a mission:
+
+```
+task_name = {
+    icon = icon_name
+    requires = { prerequisite_task_1 prerequisite_task_2 }
+
+    visible = { trigger }           # When task appears in tree
+    enabled = { trigger }           # Conditions to complete task
+    bypass = { trigger }            # Conditions to skip task
+
+    duration = 365                  # Days required (0 = instant completion)
+    final = yes                     # If yes, completing this ends mission
+
+    highlight = { trigger }         # Highlight locations on map
+
+    modifier_while_progressing = {
+        # Modifiers applied during duration countdown
+    }
+
+    on_start = { effect }
+    on_completion = { effect }
+    on_persistent_completion = { effect }   # Also runs for select_trigger
+    on_monthly = { effect }
+
+    select_trigger = {
+        # Optional: choose target when completing
+        looking_for_a = location
+        target_flag = target_location
+    }
+}
+```
+
+## Key Attributes
+
+| Attribute | Description |
+|-----------|-------------|
+| `icon` | Icon identifier for mission/task display |
+| `repeatable` | Whether mission can be undertaken multiple times |
+| `player_playstyle` | Category: administrative, diplomatic, military |
+| `chance` | AI selection weight |
+| `requires` | List of prerequisite tasks that must complete first |
+| `duration` | Days to complete task (0 for instant) |
+| `final` | If true, completing this task completes the mission |
+| `bypass` | Conditions that allow skipping this task |
+
+## Select Trigger Options
+
+Used to let players choose targets:
+
+```
+select_trigger = {
+    looking_for_a = location|market|goods|character
+    source = actor
+    target_flag = scope_name
+    name = "localization_key"
+    none_available_msg_key = "no_options_key"
+    column = {
+        data = name|population|development
+    }
+    visible = { trigger }
+    enabled = { trigger }
+}
+```
+
+## Playstyle Categories
+
+- `administrative` - Economy and development focused
+- `diplomatic` - Relations and expansion focused
+- `military` - War and conquest focused
+
+## Complete Example
+
+```
+my_custom_mission = {
+    icon = my_mission_icon
+    repeatable = no
+    player_playstyle = military
+
+    visible = {
+        game_has_missions_enabled = yes
+        tag = ENG
+    }
+
+    enabled = {
+        army_size >= 10
+    }
+
+    chance = 1000
+
+    on_completion = {
+        add_prestige = 10
+    }
+
+    task_build_army = {
+        icon = military_icon
+        requires = { }
+        enabled = {
+            army_size >= 20
+        }
+        duration = 0
+        on_completion = {
+            add_military_power = 50
+        }
+    }
+
+    task_win_battle = {
+        icon = battle_icon
+        requires = { task_build_army }
+        enabled = {
+            has_won_battle = yes
+        }
+        duration = 0
+        final = yes
+        on_completion = {
+            add_country_modifier = {
+                modifier = victorious_army
+                years = 10
+            }
+        }
+    }
+}
+```
+
+## Mission Effects and Scopes
+
+### Effects Blocks
+
+- `on_start`: Executed when mission begins
+- `on_completion`: Executed when all tasks complete (mission completion)
+- `on_abort`: Executed when mission is abandoned (cleanup)
+- `on_persistent_completion`: Runs for select_trigger interactions
+- `on_monthly`: Executed monthly while task is active
+
+### Available Scopes
+
+Scopes from interaction targets (select_trigger) are available in:
+- `on_start`
+- `on_completion`
+- `on_monthly`
+
+AI evaluates best possible targets for the mission when necessary.
+
+## Task Prerequisites
+
+```
+task_name = {
+    requires = { task_1 task_2 task_3 }
+    # Task only appears after task_1, task_2, and task_3 are completed
+}
+```
+
+## Task Bypass
+
+```
+task_name = {
+    bypass = {
+        # Conditions that allow skipping this task
+        is_at_war = yes
+    }
+}
+```
+
+If bypass conditions are met, task is automatically completed without executing `on_completion`.
+
+## Duration and Progress
+
+- `duration = 0`: Instant completion when `enabled` trigger is met
+- `duration = 365`: Requires 365 days after `enabled` is met
+- `modifier_while_progressing`: Modifiers applied during countdown
+
+```
+task_name = {
+    duration = 365
+    modifier_while_progressing = {
+        local_manpower_modifier = 0.1
+        monthly_prestige = 0.5
+    }
+}
+```
+
+## Highlight
+
+```
+task_name = {
+    highlight = {
+        # Trigger to highlight locations on map
+        is_capital = yes
+        owner = ROOT
+    }
+}
+```
+
+Highlights map locations that fulfill the trigger, helping players identify task targets.
+
+## AI Chance
+
+```
+chance = 3600  # AI weight to pick this mission
+```
+
+Higher values make AI more likely to select this mission. Compared against other available missions.
+
+## Mission Visibility and Availability
+
+- `visible`: Determines if mission appears in mission list
+- `enabled`: Determines if mission can be started
+- Common pattern:
+  ```
+  visible = {
+      game_has_missions_enabled = yes
+      has_enabled_mission_trigger = { type = mission_pack_name }
+  }
+  ```
+
+## Interaction Targets in Missions
+
+Missions can use the interaction target syntax (select_trigger) for versatile task targeting. This allows players to choose specific targets (countries, locations, markets, etc.) when completing missions.
+
+```
+select_trigger = {
+    looking_for_a = country
+    target_flag = mission_target_country
+    source = actor
+    
+    column = {
+        data = name
+    }
+    column = {
+        data = population
+    }
+    
+    visible = {
+        is_neighbor_of = ROOT
+    }
+}
+```
+
+Scopes saved via select_trigger are available in task effects and mission effects.
+
+## References
+
+- Main article: [Mission modding](https://eu5.paradoxwikis.com/Mission_modding)
+- See also: [Action modding](https://eu5.paradoxwikis.com/Action_modding) (for select_trigger syntax)
+
+**Last verified:** Version 1.0

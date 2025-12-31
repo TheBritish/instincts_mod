@@ -1,0 +1,223 @@
+# EU5 Unit Modding Reference
+
+**Source**: [Unit modding - EU5 Wiki](https://eu5.paradoxwikis.com/Unit_modding)  
+**Verified for**: EU5 version 1.0
+
+## Overview
+
+Units modding covers the creation and modification of military units in Europa Universalis V. Units are the combat forces that make up armies and navies. Unit types are stored in `/Europa Universalis V/game/in_game/common/unit_types/` as `.txt` files organized by age and type.
+
+## Unit Type Structure
+
+```
+unit_type_name = {
+    category = army_infantry            # Unit category
+    buildable = yes                     # Can be recruited
+
+    age = "age_3_discovery"             # Age availability
+
+    max_strength = 0.4                  # Maximum regiment strength
+    combat_power = 1                    # Base combat power
+
+    # Terrain impact modifiers (movement)
+    impact = {
+        jungle = 0.10
+        wetlands = 0.10
+        mountains = 0.10
+    }
+
+    # Terrain combat modifiers
+    combat = {
+        jungle = -0.10
+        wetlands = -0.10
+        mountains = -0.10
+    }
+
+    # Artillery specific
+    bombard_efficiency = 0.15           # Siege effectiveness
+    artillery_barrage = 4               # Barrage power
+
+    # Costs
+    maintenance_demand = early_infantry_maintenance
+    construction_demand = early_infantry_construction
+}
+```
+
+## Key Attributes
+
+| Attribute | Description |
+|-----------|-------------|
+| `category` | Unit category (see below) |
+| `buildable` | If yes, can be recruited by players |
+| `age` | Age when unit becomes available |
+| `max_strength` | Maximum regiment strength value |
+| `combat_power` | Base combat power multiplier |
+| `impact` | Movement speed modifiers by terrain |
+| `combat` | Combat effectiveness modifiers by terrain |
+| `bombard_efficiency` | Siege effectiveness (artillery) |
+| `artillery_barrage` | Artillery barrage power |
+| `maintenance_demand` | Monthly maintenance cost script value |
+| `construction_demand` | Recruitment cost script value |
+
+## Unit Categories
+
+### Land units
+
+- `army_infantry` - Infantry regiments
+- `army_cavalry` - Cavalry regiments
+- `army_artillery` - Artillery regiments
+- `army_auxiliary` - Supply units
+
+### Naval units
+
+- `navy_heavy_ship` - Ships of the line
+- `navy_light_ship` - Trade/patrol ships
+- `navy_transport` - Troop transports
+- `navy_galley` - Galley ships
+
+## Ages
+
+Unit availability by age:
+
+- `age_1_traditions` - Medieval units
+- `age_2_renaissance` - Renaissance units
+- `age_3_discovery` - Early gunpowder units
+- `age_4_reformation` - Mid-game units
+- `age_5_absolutism` - Line infantry era
+- `age_6_revolutions` - Late game units
+
+## Terrain Modifiers
+
+### impact
+
+Affects movement speed:
+
+```
+impact = {
+    jungle = 0.10       # +10% movement cost in jungle
+    wetlands = 0.10
+    mountains = 0.10
+    hills = 0.05
+    forest = 0.05
+}
+```
+
+### combat
+
+Affects combat effectiveness:
+
+```
+combat = {
+    jungle = -0.10      # -10% combat power in jungle
+    wetlands = -0.10
+    mountains = -0.10
+    plains = 0.10       # +10% combat power in plains
+}
+```
+
+## Template Units
+
+Template units (buildable = no) define base stats that other units inherit:
+
+```
+a_age_3_discovery_infantry = {
+    category = army_infantry
+    buildable = no              # Template only
+    max_strength = 0.4
+    combat_power = 1
+    age = "age_3_discovery"
+}
+```
+
+## Base Game Unit Progression
+
+### Infantry strength progression
+
+| Age | Max Strength | Combat Power |
+| --- | --- | --- |
+| Traditions | 0.1 | 1 |
+| Renaissance | 0.2 | 1 |
+| Discovery | 0.4 | 1 |
+| Reformation | 0.8 | 1.5 |
+| Absolutism | 1.6 | 2.25 |
+| Revolutions | 3.2 | 3 |
+
+### Artillery progression
+
+| Age | Max Strength | Combat Power | Bombard Efficiency |
+| --- | --- | --- | --- |
+| Traditions | 0.01 | 2 | 0.1 |
+| Renaissance | 0.05 | 3 | 0.125 |
+| Discovery | 0.1 | 4 | 0.15 |
+| Reformation | 0.3 | 5 | 0.20 |
+| Absolutism | 0.6 | 6 | 0.25 |
+| Revolutions | 1.2 | 8 | 0.25 |
+
+## Example
+
+```
+my_custom_unit = {
+    category = army_infantry
+    buildable = yes
+
+    age = "age_4_reformation"
+
+    max_strength = 1.0
+    combat_power = 1.75
+
+    impact = {
+        mountains = 0.05        # Better in mountains than average
+        jungle = 0.15
+    }
+
+    combat = {
+        mountains = 0.10        # Combat bonus in mountains
+        jungle = -0.05
+        plains = -0.05          # Penalty in open terrain
+    }
+
+    maintenance_demand = custom_infantry_maintenance
+    construction_demand = custom_infantry_construction
+}
+```
+
+## Unique Units
+
+Countries can have unique units unlocked through advances:
+
+```
+english_longbowmen = {
+    category = army_infantry
+    buildable = yes
+    age = "age_2_renaissance"
+
+    max_strength = 0.25
+    combat_power = 1.5
+
+    # Special bonuses for this unit
+    combat = {
+        plains = 0.15
+        farmland = 0.15
+    }
+}
+```
+
+## Best Practices
+
+1. **Age progression**: Follow vanilla progression curves for `max_strength` and `combat_power` to maintain game balance
+2. **Template units**: Use `buildable = no` for template units that define base stats for inherited units
+3. **Terrain modifiers**: Balance `impact` (movement penalty) and `combat` (combat effectiveness) for unit specialization
+4. **Artillery**: Use `bombard_efficiency` and `artillery_barrage` for artillery units; these don't apply to other unit types
+5. **Costs**: Reference script values for `maintenance_demand` and `construction_demand` for dynamic cost scaling
+6. **Age gating**: Set appropriate `age` to control when units become available (earlier ages = weaker units)
+7. **Unique units**: Create country-specific units with unique terrain bonuses for historical flavor
+8. **Combat power scaling**: Each age roughly doubles max_strength and increases combat_power gradually (see progression tables)
+9. **Terrain specialization**: Use positive `combat` modifiers for unit strengths (e.g., cavalry in plains) and negative for weaknesses (infantry in mountains)
+10. **Unlock via advances**: Link unique units to advances using `unlock_unit` attribute in advance definitions
+
+## Related Files
+
+- Unit type definitions: `/game/in_game/common/unit_types/*.txt`
+- Script values (costs, etc.): `/game/in_game/common/script_values/*.txt`
+- Localization: `/game/in_game/localization/english/*_l_english.yml`
+- Unlock in advances: `/game/in_game/common/advances/*.txt` (use `unlock_unit = unit_type_name`)

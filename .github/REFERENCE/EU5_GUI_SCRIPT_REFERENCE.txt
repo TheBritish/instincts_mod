@@ -1,0 +1,882 @@
+## EU5 GUI Script Reference
+## Source: https://eu5.paradoxwikis.com/GUI_script + Vanilla GUI Files
+## Last Updated: December 5, 2025
+
+⚠️ **NOTE: The wiki page for GUI Script has incomplete documentation!**
+This reference combines wiki content with analysis of vanilla GUI files from game/in_game/gui/.
+
+======================
+WHAT IS GUI SCRIPT?
+======================
+GUI Script is the scripting language used to define user interfaces in EU5. It controls layout, 
+data binding, interaction, and dynamic behavior of all UI elements in the game.
+
+Key GUI files location: game/in_game/gui/**/*.gui
+Primary reference file: game/in_game/gui/ui_library.gui
+
+======================
+BASIC SYNTAX
+======================
+
+NAMING CONVENTION
+----------------------------------
+GUI script uses CamelCase or PascalCase naming:
+
+✅ Good Examples:
+- MyWindowName
+- ButtonTemplate
+- CountryFlagIcon
+- ResourceDisplayPanel
+
+❌ Bad Examples:
+- my_window_name          # Wrong: snake_case
+- button-template         # Wrong: kebab-case
+- resourcedisplay         # Wrong: unclear
+
+BLOCK STRUCTURE
+----------------------------------
+type TypeName = {
+    property = value
+    nested_block = {
+        property = value
+    }
+}
+
+SQUARE BRACKET ENCLOSURE
+----------------------------------
+All GUI elements are enclosed in square brackets:
+
+window = {
+    name = "MyWindow"
+    [ElementName] {
+        property = value
+    }
+}
+
+DOT CHAINING
+----------------------------------
+Access nested properties using dot notation:
+
+datacontext = "[Country.GetRuler.GetName]"
+visible = "[Country.IsPlayer]"
+
+======================
+DATA TYPES
+======================
+
+CFIXEDVALUE (Numbers)
+----------------------------------
+64-bit signed fixed-point number with 16 bits of fractional precision.
+
+Range: -2^47 to 2^47 - 1
+Precision: 1/65536 (~0.000015)
+
+size = { 100 50 }                     # Width=100, Height=50
+alpha = 0.8                           # 80% opacity
+position = { 10 20 }                  # X=10, Y=20
+
+STRING
+----------------------------------
+Text values, often localization keys:
+
+text = "COUNTRY_NAME"                 # Localization key
+text = "[Country.GetName]"            # Data binding
+tooltip = "BUTTON_TOOLTIP"
+
+BOOLEAN
+----------------------------------
+True/false values:
+
+visible = yes
+visible = no
+enabled = "[Country.IsAtWar]"        # Data-bound boolean
+
+COLOR
+----------------------------------
+RGBA color values:
+
+color = { 1.0 0.0 0.0 1.0 }          # Red (R G B A)
+color = { 0.5 0.5 0.5 1.0 }          # Gray
+tintcolor = "[Country.GetPrimaryColor]"  # Data-bound color
+
+======================
+DATA BINDING (DATACONTEXT)
+======================
+
+WHAT IS DATACONTEXT?
+----------------------------------
+Datacontext binds a GUI element to game data, allowing dynamic updates.
+
+# Bind to current country
+datacontext = "[GetPlayer]"
+
+# Bind to ruler of current country
+datacontext = "[Country.GetRuler]"
+
+# Nested datacontext
+flowcontainer = {
+    datacontext = "[Country.GetRuler]"
+    
+    textbox = {
+        # Now relative to ruler
+        text = "[Character.GetName]"
+    }
+}
+
+DATAMODEL (Lists/Arrays)
+----------------------------------
+Iterate over collections:
+
+flowcontainer = {
+    datamodel = "[Country.GetNeighbors]"
+    
+    item = {
+        # Repeated for each neighbor
+        textbox = {
+            text = "[Neighbor.GetName]"
+        }
+    }
+}
+
+======================
+CONST vs NON-CONST ACCESS
+======================
+
+CONST (Read-Only)
+----------------------------------
+Use "Access" functions for const (read-only) data:
+
+visible = "[CountryPanel.AccessIsVisible]"
+text = "[Country.AccessName]"
+
+NON-CONST (Modifiable)
+----------------------------------
+Use "Get" functions for data that might change:
+
+text = "[Country.GetName]"            # Can change (country renamed)
+visible = "[Country.IsAtWar]"        # Can change (war status)
+
+RULE OF THUMB
+----------------------------------
+- If data is static/unchanging: Use "Access" functions
+- If data is dynamic/changing: Use "Get" functions
+- When in doubt: Use "Get" functions (always safe)
+
+======================
+COMMON GUI ELEMENTS
+======================
+
+WINDOW
+----------------------------------
+Top-level container for GUI screens:
+
+window = {
+    name = "MyWindow"
+    size = { 600 400 }
+    position = { 100 100 }
+    
+    [ContentBlock] {
+        # Window contents
+    }
+}
+
+CONTAINER (Layout)
+----------------------------------
+Generic container for organizing elements:
+
+container = {
+    name = "MyContainer"
+    position = { 10 10 }
+    
+    [ChildElement1] { }
+    [ChildElement2] { }
+}
+
+FLOWCONTAINER
+----------------------------------
+Automatic layout (horizontal or vertical):
+
+flowcontainer = {
+    direction = vertical              # or horizontal
+    spacing = 5
+    
+    [Child1] { }
+    [Child2] { }
+    [Child3] { }
+}
+
+TEXTBOX
+----------------------------------
+Display text:
+
+textbox = {
+    name = "MyTextBox"
+    text = "LOCALIZATION_KEY"
+    fontsize = 16
+    fontcolor = { 1.0 1.0 1.0 1.0 }   # White
+    align = left                      # left, center, right
+}
+
+BUTTON
+----------------------------------
+Interactive button element:
+
+button = {
+    name = "MyButton"
+    size = { 120 30 }
+    
+    [Background] {
+        texture = "gfx/button_bg.dds"
+    }
+    
+    [Label] {
+        text = "BUTTON_TEXT"
+    }
+    
+    onclick = "[ExecuteAction]"
+    tooltip = "BUTTON_TOOLTIP"
+    enabled = "[CanExecuteAction]"
+}
+
+ICON
+----------------------------------
+Display images:
+
+icon = {
+    name = "MyIcon"
+    texture = "gfx/icons/my_icon.dds"
+    size = { 32 32 }
+}
+
+PROGRESSBAR
+----------------------------------
+Visual progress indicator:
+
+progressbar = {
+    name = "MyProgressBar"
+    size = { 200 20 }
+    value = "[GetProgressValue]"      # 0.0 to 1.0
+    
+    [Bar] {
+        texture = "gfx/progress_fill.dds"
+    }
+}
+
+SCROLLBAR
+----------------------------------
+Scrollable content:
+
+scrollarea = {
+    name = "MyScrollArea"
+    size = { 300 400 }
+    
+    scrollbarpolicy_horizontal = hidden
+    scrollbarpolicy_vertical = always_visible
+    
+    scrollwidget = {
+        [ScrollContent] {
+            # Content that might overflow
+        }
+    }
+}
+
+======================
+LAYOUT & POSITIONING
+======================
+
+ABSOLUTE POSITIONING
+----------------------------------
+position = { X Y }                    # Fixed position
+
+# Position from different anchors:
+parentanchor = top|left               # Anchor to top-left
+parentanchor = center|center          # Anchor to center
+parentanchor = bottom|right           # Anchor to bottom-right
+
+RELATIVE POSITIONING
+----------------------------------
+Position relative to parent:
+
+container = {
+    parentanchor = center|center
+    position = { 0 0 }                # Centered in parent
+}
+
+container = {
+    parentanchor = top|left
+    position = { 10 10 }              # 10px from top-left
+}
+
+SIZE
+----------------------------------
+size = { Width Height }
+
+# Fixed size:
+size = { 200 100 }
+
+# Percentage of parent:
+size = { 100% 50% }
+
+# Mixed:
+size = { 200 100% }
+
+MARGINS & SPACING
+----------------------------------
+margin = { Left Right }
+margin = { Left Top Right Bottom }
+spacing = 5                           # For flowcontainer
+
+======================
+VISIBILITY & STATES
+======================
+
+VISIBLE
+----------------------------------
+visible = yes                         # Always visible
+visible = no                          # Always hidden
+visible = "[SomeCondition]"           # Data-bound visibility
+
+ENABLED
+----------------------------------
+enabled = yes                         # Always enabled
+enabled = no                          # Always disabled
+enabled = "[CanPerformAction]"       # Data-bound enabled state
+
+ALPHA (Opacity)
+----------------------------------
+alpha = 1.0                           # Fully opaque
+alpha = 0.5                           # 50% transparent
+alpha = 0.0                           # Fully transparent
+
+STATES (Animation)
+----------------------------------
+state = {
+    name = "my_state"
+    
+    trigger_on_create = yes
+    duration = 0.3
+    
+    alpha = 1.0
+    position = { 100 100 }
+}
+
+state = {
+    name = "hidden"
+    
+    alpha = 0.0
+    position = { 100 50 }
+}
+
+======================
+TEMPLATES (REUSABILITY)
+======================
+
+DEFINE TEMPLATE
+----------------------------------
+type MyButtonTemplate = button {
+    size = { 120 30 }
+    
+    [Background] {
+        texture = "gfx/button.dds"
+    }
+    
+    [Label] {
+        text = "[ButtonText]"         # Parameter
+        parentanchor = center|center
+    }
+}
+
+USE TEMPLATE
+----------------------------------
+[MyCustomButton] : MyButtonTemplate {
+    blockoverride "ButtonText" {
+        text = "MY_BUTTON_TEXT"
+    }
+}
+
+BLOCKOVERRIDE
+----------------------------------
+Templates can define override points:
+
+type MyTemplate = container {
+    [DefaultBlock] {
+        blockoverride "CustomContent" {
+            # Default content
+            textbox = {
+                text = "Default"
+            }
+        }
+    }
+}
+
+# Override when using:
+[MyInstance] : MyTemplate {
+    blockoverride "CustomContent" {
+        textbox = {
+            text = "Custom"
+        }
+    }
+}
+
+======================
+COMMON GUI PATTERNS
+======================
+
+COUNTRY FLAG ICON
+----------------------------------
+icon = {
+    datacontext = "[Country]"
+    texture = "[Country.GetFlag]"
+    size = { 32 24 }
+    tooltip = "[Country.GetName]"
+}
+
+CHARACTER PORTRAIT
+----------------------------------
+icon = {
+    datacontext = "[Character]"
+    texture = "[Character.GetPortrait]"
+    size = { 64 64 }
+    tooltip = "[Character.GetFullName]"
+}
+
+RESOURCE DISPLAY
+----------------------------------
+container = {
+    icon = {
+        texture = "gfx/icons/gold.dds"
+        size = { 16 16 }
+    }
+    
+    textbox = {
+        text = "[Country.GetGold]"
+        position = { 20 0 }
+        fontcolor = { 1.0 0.84 0.0 1.0 }  # Gold color
+    }
+}
+
+CONDITIONAL VISIBILITY
+----------------------------------
+container = {
+    visible = "[Country.IsAtWar]"
+    
+    icon = {
+        texture = "gfx/icons/war.dds"
+    }
+    
+    textbox = {
+        text = "AT_WAR"
+    }
+}
+
+LIST OF ITEMS
+----------------------------------
+scrollarea = {
+    size = { 300 400 }
+    
+    scrollwidget = {
+        flowcontainer = {
+            direction = vertical
+            spacing = 5
+            
+            datamodel = "[Country.GetProvinces]"
+            
+            item = {
+                # Repeated for each province
+                container = {
+                    size = { 280 30 }
+                    
+                    textbox = {
+                        text = "[Province.GetName]"
+                    }
+                }
+            }
+        }
+    }
+}
+
+TOOLTIP SYSTEM
+----------------------------------
+button = {
+    tooltip = "SIMPLE_TOOLTIP_KEY"
+}
+
+# Complex tooltip:
+button = {
+    using = tooltip_complex
+    
+    tooltipwidget = {
+        [TooltipContent] {
+            textbox = {
+                text = "CUSTOM_TOOLTIP_HEADER"
+            }
+            
+            textbox = {
+                text = "CUSTOM_TOOLTIP_BODY"
+            }
+        }
+    }
+}
+
+======================
+DATA FUNCTIONS (Partial List)
+======================
+
+⚠️ **The wiki's function table has errors. Here are common patterns:**
+
+COUNTRY FUNCTIONS
+----------------------------------
+[Country.GetName]                     # Country name
+[Country.GetFlag]                     # Flag texture path
+[Country.GetRuler]                    # Access ruler (returns Character)
+[Country.IsPlayer]                    # Is this the player's country?
+[Country.IsAtWar]                     # Is country at war?
+[Country.GetGold]                     # Treasury amount
+[Country.GetManpower]                 # Available manpower
+[Country.GetPrimaryColor]             # Country's primary color
+[Country.GetProvinces]                # List of provinces (for datamodel)
+
+CHARACTER FUNCTIONS
+----------------------------------
+[Character.GetName]                   # Character's first name
+[Character.GetFullName]               # Full name with title
+[Character.GetPortrait]               # Portrait texture path
+[Character.GetAge]                    # Age in years
+[Character.GetAdm]                    # Administrative skill
+[Character.GetDip]                    # Diplomatic skill
+[Character.GetMil]                    # Military skill
+[Character.IsDead]                    # Is character dead?
+[Character.GetTraits]                 # List of traits (for datamodel)
+
+PROVINCE FUNCTIONS
+----------------------------------
+[Province.GetName]                    # Province name
+[Province.GetOwner]                   # Owning country
+[Province.GetDevelopment]             # Total development
+[Province.GetTax]                     # Tax income
+[Province.GetProduction]              # Production value
+[Province.GetManpower]                # Manpower contribution
+
+GENERAL FUNCTIONS
+----------------------------------
+[GetPlayer]                           # Player's country
+[GetCurrentDate]                      # Current game date
+[GetGameSpeed]                        # Current speed setting
+
+======================
+BEST PRACTICES
+======================
+
+1. NAMING
+----------------------------------
+✅ Use clear, descriptive names
+✅ Follow PascalCase convention
+✅ Prefix templates with "Template" or "Type"
+❌ Don't use abbreviations unless very common
+
+2. LAYOUT
+----------------------------------
+✅ Use flowcontainer for automatic layout
+✅ Use consistent spacing values
+✅ Define sizes in ui_library.gui for reuse
+❌ Don't use magic numbers everywhere
+
+3. DATA BINDING
+----------------------------------
+✅ Check data existence before accessing
+✅ Use appropriate Get/Access functions
+✅ Minimize datacontext switches (performance)
+❌ Don't create circular datacontext references
+
+4. TEMPLATES
+----------------------------------
+✅ Create templates for repeated UI patterns
+✅ Use blockoverride for customization
+✅ Define templates in ui_library.gui or shared/
+❌ Don't duplicate code across GUI files
+
+5. PERFORMANCE
+----------------------------------
+✅ Cache datacontext when used multiple times
+✅ Use visible=no instead of removing elements
+✅ Limit datamodel iterations (large lists)
+❌ Don't create deeply nested datacontext chains
+
+6. LOCALIZATION
+----------------------------------
+✅ All user-visible text in localization files
+✅ Use descriptive localization keys
+✅ Test with different languages (text length)
+❌ Don't hardcode text strings in GUI
+
+======================
+COMMON ERRORS & FIXES
+======================
+
+❌ ERROR: Wrong case naming
+type my_window = window { }
+
+✅ FIX: Use PascalCase
+type MyWindow = window { }
+
+❌ ERROR: Missing square brackets
+container = {
+    MyElement {
+        # ...
+    }
+}
+
+✅ FIX: Use square brackets
+container = {
+    [MyElement] {
+        # ...
+    }
+}
+
+❌ ERROR: Invalid datacontext chain
+datacontext = "[Country.GetRuler.GetCountry.GetRuler]"
+
+✅ FIX: Use simpler chain or intermediate datacontext
+datacontext = "[Country.GetRuler]"
+
+❌ ERROR: Hardcoded text
+textbox = {
+    text = "France"
+}
+
+✅ FIX: Use localization
+textbox = {
+    text = "COUNTRY_FRANCE_NAME"
+}
+
+# Or data binding:
+textbox = {
+    text = "[Country.GetName]"
+}
+
+❌ ERROR: Missing texture file
+icon = {
+    texture = "gfx/my_icon.dds"       # File doesn't exist
+}
+
+✅ FIX: Verify texture path and file existence
+icon = {
+    texture = "gfx/interface/icons/my_icon.dds"
+}
+
+======================
+DEBUGGING GUI
+======================
+
+ENABLE GUI EDITOR
+----------------------------------
+1. Launch game with -debug_mode flag
+2. Press Shift+Alt+D to open GUI editor
+3. Inspect elements, see property values
+4. Test changes in real-time
+
+CONSOLE COMMANDS
+----------------------------------
+gui.debug                             # Toggle GUI debug overlay
+gui.reload                            # Reload all GUI files
+gui.show <window_name>                # Open specific window
+
+LOG OUTPUT
+----------------------------------
+Check logs in: Documents\Paradox Interactive\Europa Universalis V\logs\
+
+Look for:
+- GUI parsing errors
+- Missing texture warnings
+- Datacontext errors
+
+COMMON DEBUG STEPS
+----------------------------------
+1. Check syntax (brackets, braces, equals signs)
+2. Verify datacontext is valid
+3. Ensure textures exist at specified paths
+4. Test localization keys exist
+5. Check element visibility/enabled states
+6. Validate data function calls
+
+======================
+VANILLA GUI REFERENCE FILES
+======================
+
+KEY FILES TO STUDY
+----------------------------------
+📄 game/in_game/gui/ui_library.gui
+   - Master template library
+   - Standard UI components
+   - Layout helpers
+   - Color definitions
+
+📄 game/in_game/gui/shared/
+   - Common UI elements
+   - Reusable templates
+   - Standard patterns
+
+📄 game/in_game/gui/window_country.gui
+   - Country window example
+   - Complex data binding
+   - Multiple tabs
+
+📄 game/in_game/gui/topbar.gui
+   - Top bar UI
+   - Resource displays
+   - Icon arrays
+
+📄 game/in_game/gui/window_character.gui
+   - Character panel
+   - Portrait system
+   - Trait displays
+
+LEARNING APPROACH
+----------------------------------
+1. Start with ui_library.gui (understand basics)
+2. Study shared/ templates (learn patterns)
+3. Examine complete windows (see integration)
+4. Copy and modify existing patterns
+5. Test incrementally
+
+======================
+PRACTICAL EXAMPLES
+======================
+
+EXAMPLE 1: Simple Country Info Panel
+----------------------------------
+type CountryInfoPanel = container {
+    name = "CountryInfoPanel"
+    datacontext = "[GetPlayer]"
+    
+    flowcontainer = {
+        direction = vertical
+        spacing = 5
+        
+        # Country name
+        textbox = {
+            text = "[Country.GetName]"
+            fontsize = 20
+            fontcolor = { 1.0 1.0 1.0 1.0 }
+        }
+        
+        # Flag
+        icon = {
+            texture = "[Country.GetFlag]"
+            size = { 64 48 }
+        }
+        
+        # Ruler name
+        container = {
+            datacontext = "[Country.GetRuler]"
+            
+            textbox = {
+                text = "RULER_LABEL"
+            }
+            
+            textbox = {
+                text = "[Character.GetFullName]"
+                position = { 100 0 }
+            }
+        }
+    }
+}
+
+EXAMPLE 2: Resource Display with Icon
+----------------------------------
+type ResourceDisplay = container {
+    name = "ResourceDisplay"
+    size = { 100 20 }
+    
+    icon = {
+        name = "ResourceIcon"
+        texture = "[GetResourceTexture]"    # Parameter
+        size = { 16 16 }
+        parentanchor = left|center
+    }
+    
+    textbox = {
+        name = "ResourceValue"
+        text = "[GetResourceValue]"         # Parameter
+        position = { 20 0 }
+        parentanchor = left|center
+        fontcolor = "[GetResourceColor]"    # Parameter
+    }
+}
+
+EXAMPLE 3: Province List
+----------------------------------
+type ProvinceListPanel = window {
+    name = "ProvinceListPanel"
+    size = { 400 600 }
+    
+    scrollarea = {
+        size = { 380 560 }
+        position = { 10 10 }
+        
+        scrollwidget = {
+            flowcontainer = {
+                direction = vertical
+                spacing = 2
+                
+                datamodel = "[GetPlayer.GetProvinces]"
+                
+                item = {
+                    container = {
+                        size = { 360 40 }
+                        
+                        # Province name
+                        textbox = {
+                            text = "[Province.GetName]"
+                            position = { 5 5 }
+                        }
+                        
+                        # Development
+                        textbox = {
+                            text = "[Province.GetDevelopment]"
+                            position = { 200 5 }
+                        }
+                        
+                        # Owner flag
+                        icon = {
+                            datacontext = "[Province.GetOwner]"
+                            texture = "[Country.GetFlag]"
+                            size = { 24 18 }
+                            position = { 300 5 }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+EXAMPLE 4: Conditional Warning Icon
+----------------------------------
+type WarningIndicator = container {
+    name = "WarningIndicator"
+    
+    # Only show if country is at war
+    visible = "[Country.IsAtWar]"
+    
+    icon = {
+        texture = "gfx/interface/icons/warning.dds"
+        size = { 24 24 }
+    }
+    
+    textbox = {
+        text = "AT_WAR_WARNING"
+        position = { 30 0 }
+        fontcolor = { 1.0 0.0 0.0 1.0 }     # Red
+    }
+}
+
+======================
+CROSS-REFERENCES
+======================
+📄 Related Files:
+- EU5_LOCALIZATION_REFERENCE.txt - Text display and formatting
+- game/in_game/gui/ui_library.gui - Master GUI template library
+- game/in_game/gui/shared/ - Common UI components
+- game/in_game/gfx/images/00_images.txt - Texture definitions
+- EU5_TRIGGERS_REFERENCE.txt - Conditions for visible/enabled

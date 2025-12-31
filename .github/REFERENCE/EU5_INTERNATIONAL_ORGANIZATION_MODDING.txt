@@ -1,0 +1,446 @@
+# EU5 International Organization Modding Reference
+
+**Source:** https://eu5.paradoxwikis.com/International_organization_modding  
+**Verified for:** EU5 version 1.0
+**Last Updated:** December 10, 2025
+
+## Overview
+
+International organization modding covers the creation and modification of international organizations in Europa Universalis V. These include organizations like the Holy Roman Empire, coalitions, crusades, and defensive leagues.
+
+International organizations are stored in `/Europa Universalis V/game/in_game/common/international_organizations/` as individual `.txt` files.
+
+## Organization Structure
+
+```
+organization_name = {
+    # Basic configuration
+    has_target = no
+    unique = yes
+    expel_members_who_are_targets_of_other_members = no
+    show_leave_message = no
+    use_laws_as_join_reason = no
+    
+    # Leadership configuration
+    has_leader_country = yes
+    leader_title_key = "LEADER_TITLE"
+    use_regnal_number = yes
+    leader_type = character             # character or country
+    leader_change_trigger_type = rulerchange
+    leader_change_method = vote
+    disband_if_no_leader = no
+    
+    # Parliament configuration
+    has_parliament = yes
+    parliament_type = assembly_type
+    resolution_widget = parliament
+    has_dynastic_power = yes
+    
+    # War mechanics
+    only_leader_country_joins_defensive_wars = yes
+    gives_military_access_to_all_when_at_war = yes
+    join_defensive_wars_always = { trigger }
+    join_defensive_wars_auto_call = { trigger }
+    can_declare_war = { trigger }
+    
+    # Membership modifiers
+    modifier = {
+        block_from_change_to_kingdom_rank = yes
+    }
+    leader_modifier = {
+        diplomatic_capacity = 1
+    }
+    international_organization_modifier = {
+        max_elector = 4
+    }
+    
+    # Membership triggers
+    create_visible_trigger = { trigger }
+    invite_visible_trigger = { trigger }
+    can_lead_trigger = { trigger }
+    can_join_trigger = { trigger }
+    can_leave_trigger = { trigger }
+    auto_leave_trigger = { trigger }
+    auto_disband_trigger = { trigger }
+    can_vote_in_parliament = { trigger }
+    
+    # Effects
+    on_joined = { effect }
+    on_left = { effect }
+    monthly_effect = { effect }
+    
+    # Variables
+    variables = {
+        variable_name = {
+            format = "FORMAT_KEY"
+            min = 0
+            max = 100
+            monthly_change = { script_value }
+        }
+    }
+    
+    # Special statuses
+    special_statuses_implemented = {
+        status_1
+        status_2
+    }
+    
+    # AI decision making
+    ai_desire_to_join = { script_value }
+    ai_desire_to_allow_new_member = { script_value }
+    ai_issue_voting_bias = { script_value }
+    
+    # Land ownership rules
+    land_ownership_rule = rule_name
+    antagonism_modifier_for_taking_land_from_fellow_member = 0.75
+    no_cb_price_modifier_for_fellow_member = 0.75
+}
+```
+
+## Key Attributes
+
+| Attribute | Description |
+|-----------|-------------|
+| `has_target` | Whether organization targets specific countries |
+| `unique` | If true, only one instance can exist |
+| `has_leader_country` | Whether organization has a leading country |
+| `leader_type` | `character` or `country` |
+| `leader_change_method` | How leader changes: `vote`, `hereditary` |
+| `leader_change_trigger_type` | When leader changes: `rulerchange`, etc. |
+| `has_parliament` | Whether organization has voting parliament |
+| `parliament_type` | Type of parliament assembly |
+| `has_dynastic_power` | Whether dynasties have power in organization |
+| `disband_if_no_leader` | Whether org disbands if leader is removed |
+
+## Modifier Blocks
+
+### modifier
+
+Applied to **all member countries:**
+
+```
+modifier = {
+    block_from_change_to_kingdom_rank = yes
+    reject_subjugation_reasons = 25
+}
+```
+
+### leader_modifier
+
+Applied **only to the leading country:**
+
+```
+leader_modifier = {
+    diplomatic_capacity = 1
+    great_power_score_exempt_from_forfeit = 250
+}
+```
+
+### international_organization_modifier
+
+Applied **to the organization itself:**
+
+```
+international_organization_modifier = {
+    hre_max_elector = 4
+    hre_max_archbishop_elector = 3
+}
+```
+
+## Variables
+
+Organizations can track custom variables with monthly changes:
+
+```
+variables = {
+    imperial_authority = {
+        format = "IMPERIAL_AUTHORITY_DISPLAY"
+        change_format = "VARIABLE_CHANGE_FORMAT"
+        min = 0
+        max = 100
+        monthly_change = {
+            add = {
+                desc = "INTERNAL_PEACE"
+                if = {
+                    limit = {
+                        international_organization_has_internal_peace = no
+                    }
+                    value = 0
+                }
+                else = {
+                    value = 0.05
+                }
+            }
+        }
+    }
+}
+```
+
+**Fields:**
+- `format` - Localization key for display format
+- `change_format` - Localization key for change format
+- `min` - Minimum value
+- `max` - Maximum value
+- `monthly_change` - Script value for monthly change (supports conditionals)
+
+## Special Statuses
+
+Define special positions within the organization:
+
+```
+special_statuses_implemented = {
+    emperor
+    elector
+    archbishop_elector
+    free_city
+}
+```
+
+These statuses can have associated privileges and powers defined elsewhere.
+
+## War Mechanics
+
+```
+# Leader joining
+only_leader_country_joins_defensive_wars = yes
+
+# Military access
+gives_military_access_to_all_when_at_war = yes
+
+# Automatic war joining
+join_defensive_wars_always = {
+    is_subject_of = scope:target
+}
+
+join_defensive_wars_auto_call = {
+    scope:target = { is_neighbor_of = root }
+}
+
+# War declaration control
+can_declare_war = {
+    NOT = { is_target_of_international_organization = scope:target }
+}
+```
+
+## Membership Triggers
+
+```
+# Visibility
+create_visible_trigger = {
+    has_dlc = "Conquest of Paradise"
+}
+
+invite_visible_trigger = {
+    is_neighbor_of_international_organization = scope:recipient
+}
+
+# Eligibility
+can_lead_trigger = {
+    government_rank = 3
+}
+
+can_join_trigger = {
+    religion = scope:recipient.GetStateReligion
+}
+
+can_leave_trigger = {
+    NOT = { is_leader_of_international_organization = scope:recipient }
+}
+
+# Automatic actions
+auto_leave_trigger = {
+    NOT = { religion = scope:recipient.GetStateReligion }
+}
+
+auto_disband_trigger = {
+    num_of_members < 3
+}
+
+# Parliament voting
+can_vote_in_parliament = {
+    has_special_status_in_international_organization = {
+        international_organization = scope:recipient
+        status = elector
+    }
+}
+```
+
+## Effects
+
+```
+on_joined = {
+    add_prestige = 10
+    add_opinion = {
+        target = scope:international_organization.leader
+        modifier = joined_organization
+    }
+}
+
+on_left = {
+    add_prestige = -5
+}
+
+monthly_effect = {
+    if = {
+        limit = { is_leader_of_international_organization = scope:recipient }
+        add_diplomatic_reputation = 0.01
+    }
+}
+```
+
+## AI Decision Making
+
+```
+ai_desire_to_join = {
+    add = {
+        desc = "BASE_VALUE"
+        value = 10
+    }
+    
+    multiply = {
+        desc = "THREATENED"
+        if = {
+            limit = {
+                any_neighbor_country = { is_threat_to = root }
+            }
+            value = 2.0
+        }
+    }
+}
+
+ai_desire_to_allow_new_member = {
+    add = 50
+    
+    subtract = {
+        desc = "RIVAL"
+        if = {
+            limit = { is_rival_of = scope:actor }
+            value = 100
+        }
+    }
+}
+
+ai_issue_voting_bias = {
+    # Script value for parliament voting behavior
+}
+```
+
+## Base Game Organizations
+
+- `hre` - Holy Roman Empire
+- `catholic_church` - Catholic Church
+- `coalition` - Anti-aggressor coalitions
+- `crusade` - Religious crusades
+- `defensive_league` - Defensive alliances
+- `independence_movement` - Independence wars
+
+## Example: Custom League
+
+```
+my_custom_league = {
+    has_target = no
+    unique = no
+    
+    has_leader_country = yes
+    leader_title_key = "LEAGUE_LEADER"
+    leader_type = country
+    leader_change_method = vote
+    disband_if_no_leader = yes
+    
+    modifier = {
+        defensive_war_morale = 0.1
+    }
+    
+    leader_modifier = {
+        diplomatic_reputation = 1
+    }
+    
+    can_join_trigger = {
+        is_neighbor_of_international_organization = scope:recipient
+    }
+    
+    can_leave_trigger = {
+        NOT = { is_leader_of_international_organization = scope:recipient }
+    }
+    
+    on_joined = {
+        add_prestige = 5
+    }
+    
+    ai_desire_to_join = {
+        add = {
+            desc = "THREATENED"
+            if = {
+                limit = {
+                    any_neighbor_country = { is_threat_to = root }
+                }
+                value = 50
+            }
+        }
+    }
+}
+```
+
+## Best Practices
+
+1. **Unique vs multiple instances** - Use `unique = yes` for singular orgs (HRE), `no` for repeatable (defensive leagues)
+2. **Leader type consistency** - Match `leader_type` to organization purpose (character for dynasties, country for alliances)
+3. **Disband conditions** - Set `disband_if_no_leader` based on org stability (yes for player-created, no for historical)
+4. **Modifier separation** - Use distinct modifier blocks for members, leaders, and organization itself
+5. **Variable tracking** - Track organization health metrics with variables (authority, cohesion, etc.)
+6. **War mechanics** - Configure war joining carefully to avoid cascade effects
+7. **Auto leave triggers** - Implement for religion/government changes that violate org rules
+8. **Parliament voting** - Restrict voting to special statuses for realistic governance
+9. **AI desire weighting** - Use descriptive `desc` keys for AI decision transparency
+10. **Land ownership rules** - Use modifiers to penalize internal aggression
+
+## Localization
+
+```yaml
+<organization_name>: "Organization Name"
+<organization_name>_desc: "Organization description"
+<leader_title_key>: "Emperor"  # or whatever leader title
+```
+
+## IO Events
+
+International Organization events should be **regular events**, not Dynamic Historical Events (DHE).
+
+**❌ WRONG - Do not use DHE for IO events:**
+```
+io_events.1 = {
+    type = country_event
+    dynamic_historical_event = {
+        tag = HSA  # Only fires for HSA, not other members
+        # ...
+    }
+}
+```
+
+**✅ CORRECT - Use regular events:**
+```
+io_events.1 = {
+    type = country_event
+    fire_only_once = yes
+    
+    trigger = {
+        is_member_of_international_organization = international_organization:io_name
+        # Other conditions...
+    }
+    
+    # Event content...
+}
+```
+
+**Key Points:**
+- IO events fire for **any current member** when trigger conditions are met
+- Use `is_member_of_international_organization = international_organization:<io_key>` in triggers
+- Late-joining members can still experience events (unlike DHE which are tag-restricted)
+- No special `category = io_event` needed (base game IO events don't use categories)
+- Examples: HRE events, Jurchen Confederation events, Colonial Federation events
+
+## Related Files
+
+- `/game/in_game/common/international_organizations/` - Organization definitions
+- `/game/main_menu/setup/start/` - Organization setup (initial members, leaders)
+- `/game/in_game/localization/` - Organization localization

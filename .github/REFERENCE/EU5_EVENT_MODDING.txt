@@ -1,0 +1,429 @@
+# EU5 Event Modding - Official Wiki Reference
+
+**Source:** https://eu5.paradoxwikis.com/Event_modding
+
+## Overview
+
+Events present choices or notifications to countries. Easy to learn, fundamental content type.
+
+**Location:** `/Europa Universalis V/game/<top_folder>/in_game/events/` (`.txt` files, can use subfolders)
+
+## File Structure
+
+```
+namespace = test_events
+
+scripted_trigger test_trigger = {
+    # Inline scripted trigger (file-local only)
+}
+
+scripted_effect test_effect = {
+    # Inline scripted effect (file-local only)
+}
+
+test_events.1 = {
+    type = country_event
+    title = test_events.1.title
+    desc = test_events.1.desc
+    # ...
+}
+```
+
+### Namespace
+
+Format: `namespace.integer` where integer is > 0 and < 10000.
+
+### Inline Scripted Triggers/Effects
+
+- Must be preceded by `scripted_effect` or `scripted_trigger`
+- Usable only in the file they're defined in
+- Cannot overlap with regular scripted triggers/effects
+
+## Basic Event Structure
+
+```
+test_events.1 = {
+    type = country_event               # Event type
+    title = test_events.1.title        # Localized title
+    desc = test_events.1.desc          # Localized description
+    historical_info = test_events.1.historical_info  # Optional historical context
+    
+    trigger = {
+        # Requirements for event to fire
+        is_subject = no
+    }
+    
+    fire_only_once = yes               # May fire only once per campaign
+    
+    dynamic_historical_event = {
+        tag = FRA                      # Tag this event can fire for (can have multiple)
+        from = 1400.1.1                # Earliest date
+        to = 1500.1.1                  # Latest date
+        monthly_chance = 10            # Monthly chance (10 = 10%)
+    }
+    
+    option = {
+        name = test_events.1.a
+        historical_option = yes        # Mark as historical
+        add_gold = 25
+    }
+    
+    option = {
+        name = test_events.1.b
+        # ...
+    }
+}
+```
+
+## Event Types and Categories
+
+### Event Types
+
+| Type | Scope | Info |
+|------|-------|------|
+| country_event | country | Regular country events |
+| location_event | location | Regular location events |
+| exploration_event | exploration | For on_exploration_monthly_pulse |
+| unit_event | unit | Unused |
+| age_event | country | Exclusively for ages_of_eu.1 (special graphics) |
+
+### Categories
+
+Additional graphics and icon paths:
+
+| Category | Icon Path |
+|----------|-----------|
+| situation_event | situations/ |
+| disaster_event | disasters/ |
+
+```
+test_events.2 = {
+    type = country_event
+    category = situation_event
+    # ...
+}
+```
+
+## Title, Description, and Historical Info
+
+All non-hidden events need localized `title`, `desc`, and optional `historical_info`.
+
+### Dynamic Localization
+
+```
+title = {
+    first_valid = {
+        triggered_desc = {
+            desc = test_events.3.title_1
+            trigger = {
+                # Triggers for this title
+            }
+        }
+        triggered_desc = {
+            desc = test_events.3.title_2
+            trigger = {
+                # Triggers for this title
+            }
+        }
+        desc = test_events.3.fallback_title  # Fallback
+    }
+}
+```
+
+**Alternative:** Use `random_valid` instead of `first_valid` for random selection.
+
+**Nesting:** Can nest `first_valid`/`random_valid` inside `triggered_desc`:
+
+```
+title = {
+    first_valid = {
+        triggered_desc = {
+            trigger = { prestige >= 50 }
+            desc = {
+                random_valid = {
+                    desc = test_events.3.title.random.a
+                    desc = test_events.3.title.random.b
+                    desc = test_events.3.title.random.c
+                }
+            }
+        }
+        desc = test_events.3.title_fallback
+    }
+}
+```
+
+**Switch Statement:**
+
+```
+title = {
+    switch = {
+        fallback = test_events.3.title.fallback
+        trigger = has_local_variable
+        success = test_events.3.title.success
+        failure = test_events.3.title.failed_the_war
+    }
+}
+```
+
+## Immediate and After
+
+- `immediate`: Execute effects before/as event is shown (scopes saved here available in localization and illustration)
+- `after`: Execute effects after an option is selected (shown in each option after other effects, recommended for cleanup)
+
+## Trigger
+
+- `trigger`: Determine if event can fire (if false, event won't fire and weight won't be considered in on_actions)
+- `on_trigger_fail`: Effects executed when event fails to fire due to trigger
+
+```
+test_events.1 = {
+    trigger = {
+        has_variable = has_won_war_against_france
+    }
+    
+    on_trigger_fail = {
+        trigger_event_non_silently = test_event.2  # Failed to defeat France
+    }
+}
+```
+
+## Fire Only Once and Orphan
+
+- `fire_only_once = yes`: Event fires only once per game (globally, not per country). Sets global variable `<event_name>_fire_only_once`.
+- `orphan = yes`: Prevent errors for events not fired from known sources (on_action, trigger_event, dynamic_historical_event). Used for debug events.
+
+## Dynamic Historical Event
+
+```
+test_events.1 = {
+    dynamic_historical_event = {
+        tag = POL         # May fire for POL
+        tag = PLC         # May also fire for PLC
+        from = 1444.1.1   # Check after this date
+        to = 1500.1.1     # Stop checking after this date
+        monthly_chance = 10  # 10% monthly chance
+    }
+}
+```
+
+**Note:** Dynamic historical events should have `fire_only_once = yes` (error message if missing).
+
+## Major Events
+
+```
+test_events.1 = {
+    major = yes
+    major_trigger = {
+        gold >= 100
+        opinion(scope:from) > 100  # scope:from = country that fired original event
+    }
+}
+```
+
+- `major = yes` and `major_trigger`: Announce event to nations fulfilling major_trigger
+- ROOT = country being given popup
+- `scope:from` = nation which got original event
+
+## Hidden Events
+
+`hidden = yes`: Event won't show to player, option picked immediately according to AI weight.
+
+## Interface Lock
+
+By default, events pause the game. Use `interface_lock = no` to disable.
+
+## Weight Multiplier
+
+Increase/decrease chance when listed in `random_events`:
+
+```
+random_events = {
+    100 = 0
+    10 = test_events.1  # If weight_multiplier evaluates to 2, chance = (10*2) / ((10*2) + 10 + 100)
+    10 = test_events.2
+}
+```
+
+**MTTH Notation:**
+
+```
+test_events.1 = {
+    weight_multiplier = {
+        base = 10
+        
+        modifier = {
+            factor = 2
+            trigger = {
+                legitimacy >= 50
+            }
+        }
+        modifier = {
+            add = 5
+            trigger = {
+                prestige >= 50
+            }
+        }
+    }
+}
+```
+
+**Calculation Examples:**
+- >= 50 legitimacy, < 50 prestige: (10*2)/10 = 2
+- < 50 legitimacy, >= 50 prestige: (10+5)/10 = 1.5
+- Both >= 50: ((10*2)+5)/10 = 2.5
+- Neither: 10/10 = 1
+
+## Outcome
+
+```
+outcome = positive  # or negative, or neutral (default)
+```
+
+Adds sound effect for event outcome.
+
+## Option Structure
+
+```
+option = {
+    name = test_events.1.a
+    historical_option = yes  # Mark as historical
+    
+    trigger = {
+        prestige >= 25  # Requirements for option to show
+    }
+    
+    add_gold = 25  # Effects when option selected
+}
+```
+
+**Note:** Only 5 event options visible at a time (scrollbar for extras).
+
+### Dynamic Option Names
+
+```
+option = {
+    name = {
+        text = test_events.1.a.a
+        trigger = {
+            prestige > 20
+        }
+    }
+    name = {
+        text = test_events.1.a.b
+        trigger = {
+            prestige <= 20
+        }
+    }
+    name = test_events.1.a.c
+    name = test_events.1.a.d
+    # ...
+}
+```
+
+If multiple names' triggers return true, one chosen at random.
+
+### AI Selection
+
+**ai_will_select** or **ai_weight** (ai_will_select takes priority if both present):
+
+```
+option = {
+    name = test_events.1.a
+    ai_will_select = { value = 100 }
+}
+
+option = {
+    name = test_events.1.b
+    ai_will_select = { value = 30 }
+}
+
+option = {
+    name = test_events.1.c
+    ai_will_select = { value = 20 }
+}
+```
+
+**Weight calculation:** Total = 100 + 30 + 20 = 150
+- Option A: 100/150 = ~67%
+- Option B: 30/150 = 20%
+- Option C: 20/150 = ~13%
+
+- `ai_will_select`: Uses script value
+- `ai_weight`: Uses MTTH syntax
+
+### Historical Option
+
+```
+historical_option = yes
+```
+
+Mark option as historical. If Historical AI gamerule is on, AI always picks these (weighted if multiple available).
+
+### Unused Fields (GUI Scripting)
+
+| Field | GUI Function |
+|-------|--------------|
+| moral_option | EventOption.IsMoral |
+| evil_option | EventOption.IsEvil |
+| high_risk_option | EventOption.IsHighRisk |
+| high_reward_option | EventOption.IsHighReward |
+
+## Illustrations
+
+### Illustration Tags
+
+`illustration_tags`: Modify pops in event picture (found in `gfx/illustrations/database/`)
+
+**Character Portraits:**
+- Maximum 2 character portraits (saved as scopes)
+- `hide_portraits = yes`: Hide character portraits
+
+```
+test_events.1 = {
+    # hide_portraits = yes  # Optional: hide portraits
+    
+    immediate = {
+        ruler = {
+            save_scope_as = target_character  # First portrait
+        }
+        random_neighboring_country = {
+            ruler = {
+                save_scope_as = target_character2  # Second portrait
+            }
+        }
+        random_cabinet_character = {
+            save_scope_as = target_character3  # Not shown (only 2 slots)
+        }
+    }
+}
+```
+
+### Custom Image
+
+```
+image = "gfx/interface/illustrations/international_organization_types/autocephalous_patriarchate.dds"
+```
+
+### Automatic Picture Generation
+
+Factors:
+1. First two saved pop scopes determine visible pops (mood modified by illustration_tags)
+2. Saved location scope determines background
+3. If no location scope, tries exploration scope (reversed for exploration events)
+4. Falls back to character's location
+5. Last resort: capital location
+
+## Firing an Event
+
+Three main ways:
+
+1. **On Actions:** In `events` field
+2. **Regular Effects:** Using `trigger_event_silently` or `trigger_event_non_silently`
+3. **Dynamic Historical Event:** `dynamic_historical_event` clause in event
+
+## References
+
+- Main article: [Event modding](https://eu5.paradoxwikis.com/Event_modding)
+- See also: [On action](https://eu5.paradoxwikis.com/On_action), [Effect](https://eu5.paradoxwikis.com/Effect), [Trigger](https://eu5.paradoxwikis.com/Trigger)
+
+**Last verified:** Pre-release version (some sections)

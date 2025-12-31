@@ -1,0 +1,824 @@
+## EU5 Macros Reference
+## Source: https://eu5.paradoxwikis.com/Macros + Practical Modding Knowledge
+## Last Updated: December 5, 2025
+
+⚠️ **NOTE: The wiki page for Macros is currently empty!**
+This reference is compiled from practical modding experience and vanilla game file analysis.
+
+======================
+WHAT ARE MACROS?
+======================
+
+Macros are reusable code templates that allow you to define common patterns once and use them throughout your mod files. They function like "find and replace" operations that happen when the game loads your scripts.
+
+Think of macros as shortcuts:
+- Instead of writing the same trigger block 50 times, define it once as a macro
+- Instead of repeating complex effects, create a macro template
+- Similar to functions in programming, but work via text substitution
+
+Common uses:
+- Scripted effects that you call with custom parameters
+- Scripted triggers that check common conditions
+- Scripted modifiers for MTTH weight calculations
+- Reusable code blocks across events, traits, laws, etc.
+
+======================
+MACRO TYPES IN EU5
+======================
+
+There are three main types of macros in EU5:
+
+1. SCRIPTED EFFECTS (common/scripted_effects/)
+----------------------------------
+Reusable effect blocks that can be called from any effect context.
+
+Example uses:
+- Common state changes (add resources, change stability)
+- Character manipulation (add traits, kill characters)
+- Country-wide transformations
+
+2. SCRIPTED TRIGGERS (common/scripted_triggers/)
+----------------------------------
+Reusable trigger blocks that can be called from any trigger context.
+
+Example uses:
+- Checking if a country is powerful
+- Validating character eligibility
+- Complex multi-condition checks
+
+3. SCRIPTED MODIFIERS (common/scripted_modifiers/)
+----------------------------------
+Reusable weight/MTTH modifier blocks.
+
+Example uses:
+- Common weight calculations for random events
+- Reusable MTTH patterns for trait chances
+- Shared probability modifiers
+
+======================
+SCRIPTED EFFECTS
+======================
+
+LOCATION
+----------------------------------
+All scripted effects are defined in:
+common/scripted_effects/
+
+FILE STRUCTURE
+----------------------------------
+# File: common/scripted_effects/my_effects.txt
+
+add_prestige_and_legitimacy = {
+    add_prestige = 10
+    add_legitimacy = 5
+}
+
+remove_bad_traits = {
+    remove_trait = incompetent
+    remove_trait = drunkard
+    remove_trait = cruel
+}
+
+USAGE
+----------------------------------
+# In an event or other effect context:
+effect = {
+    add_prestige_and_legitimacy = yes
+    remove_bad_traits = yes
+}
+
+PARAMETERS
+----------------------------------
+Scripted effects can accept parameters using $PARAMETER$ syntax:
+
+# Definition:
+add_custom_prestige = {
+    add_prestige = $AMOUNT$
+}
+
+# Usage:
+effect = {
+    add_custom_prestige = {
+        AMOUNT = 50
+    }
+}
+
+MULTIPLE PARAMETERS
+----------------------------------
+# Definition:
+reward_character = {
+    add_prestige = $PRESTIGE$
+    add_gold = $GOLD$
+    
+    if = {
+        limit = { $ADD_TRAIT$ = yes }
+        add_trait = $TRAIT$
+    }
+}
+
+# Usage:
+effect = {
+    reward_character = {
+        PRESTIGE = 25
+        GOLD = 100
+        ADD_TRAIT = yes
+        TRAIT = renowned
+    }
+}
+
+SCOPE CONTEXT
+----------------------------------
+Scripted effects execute in the scope they're called from:
+
+# Definition (operates on country scope):
+lose_stability = {
+    add_stability = -1
+    add_prestige = -10
+}
+
+# Usage in country scope:
+ROOT = {
+    lose_stability = yes  # Affects ROOT country
+}
+
+NESTED PARAMETERS
+----------------------------------
+Parameters can be used inside nested blocks:
+
+# Definition:
+grant_trait_to_ruler = {
+    ruler = {
+        add_trait = $TRAIT$
+    }
+}
+
+# Usage:
+effect = {
+    grant_trait_to_ruler = {
+        TRAIT = strategic_genius
+    }
+}
+
+======================
+SCRIPTED TRIGGERS
+======================
+
+LOCATION
+----------------------------------
+All scripted triggers are defined in:
+common/scripted_triggers/
+
+FILE STRUCTURE
+----------------------------------
+# File: common/scripted_triggers/my_triggers.txt
+
+is_powerful_country = {
+    total_development >= 100
+    num_owned_provinces >= 20
+    is_great_power = yes
+}
+
+has_unstable_government = {
+    OR = {
+        stability < 0
+        legitimacy < 50
+        war_exhaustion >= 10
+    }
+}
+
+USAGE
+----------------------------------
+# In a trigger context:
+trigger = {
+    is_powerful_country = yes
+    NOT = { has_unstable_government = yes }
+}
+
+INVERTED USAGE
+----------------------------------
+# Check if trigger is NOT true:
+trigger = {
+    is_powerful_country = no
+    # or
+    NOT = { is_powerful_country = yes }
+}
+
+PARAMETERS
+----------------------------------
+Scripted triggers can also use parameters:
+
+# Definition:
+has_minimum_development = {
+    total_development >= $MIN_DEV$
+}
+
+# Usage:
+trigger = {
+    has_minimum_development = {
+        MIN_DEV = 50
+    }
+}
+
+SCOPE PARAMETERS
+----------------------------------
+You can pass scopes as parameters:
+
+# Definition:
+is_rival_of_target = {
+    has_rival = $TARGET$
+    $TARGET$ = {
+        has_rival = ROOT
+    }
+}
+
+# Usage:
+trigger = {
+    is_rival_of_target = {
+        TARGET = scope:my_country
+    }
+}
+
+COMPLEX TRIGGERS
+----------------------------------
+# Definition:
+eligible_for_elite_trait = {
+    age >= $MIN_AGE$
+    
+    OR = {
+        adm >= $MIN_SKILL$
+        dip >= $MIN_SKILL$
+        mil >= $MIN_SKILL$
+    }
+    
+    NOT = {
+        has_trait = incompetent
+    }
+}
+
+# Usage:
+trigger = {
+    eligible_for_elite_trait = {
+        MIN_AGE = 25
+        MIN_SKILL = 4
+    }
+}
+
+======================
+SCRIPTED MODIFIERS
+======================
+
+LOCATION
+----------------------------------
+All scripted modifiers are defined in:
+common/scripted_modifiers/
+
+FILE STRUCTURE
+----------------------------------
+# File: common/scripted_modifiers/my_modifiers.txt
+
+prestige_based_weight = {
+    modifier = {
+        add = prestige
+        divide = 10
+    }
+}
+
+development_multiplier = {
+    modifier = {
+        factor = {
+            value = total_development
+            divide = 50
+        }
+    }
+}
+
+USAGE IN MTTH/WEIGHT
+----------------------------------
+# In a weight or MTTH context:
+weight = {
+    base = 100
+    prestige_based_weight = yes
+    development_multiplier = yes
+}
+
+PARAMETERS IN SCRIPTED MODIFIERS
+----------------------------------
+# Definition:
+scaled_by_stat = {
+    modifier = {
+        factor = {
+            value = $STAT$
+            divide = $DIVISOR$
+        }
+    }
+}
+
+# Usage:
+weight = {
+    base = 100
+    scaled_by_stat = {
+        STAT = stability
+        DIVISOR = 10
+    }
+}
+
+CONDITIONAL MODIFIERS
+----------------------------------
+# Definition:
+great_power_bonus = {
+    modifier = {
+        factor = $MULTIPLIER$
+        trigger = {
+            is_great_power = yes
+        }
+    }
+}
+
+# Usage:
+weight = {
+    base = 50
+    great_power_bonus = {
+        MULTIPLIER = 2.0
+    }
+}
+
+======================
+PARAMETER SYNTAX
+======================
+
+BASIC REPLACEMENT
+----------------------------------
+Parameters use $PARAMETER_NAME$ syntax:
+
+# Definition:
+my_macro = {
+    add_gold = $AMOUNT$
+}
+
+# Usage:
+my_macro = { AMOUNT = 100 }
+
+CONDITIONAL PARAMETERS
+----------------------------------
+Check if a parameter was provided:
+
+# Definition:
+optional_trait_effect = {
+    if = {
+        limit = { always = $ADD_TRAIT|no$ }  # Default to 'no'
+        add_trait = $TRAIT$
+    }
+}
+
+# Usage with trait:
+optional_trait_effect = {
+    ADD_TRAIT = yes
+    TRAIT = renowned
+}
+
+# Usage without trait:
+optional_trait_effect = {}  # ADD_TRAIT defaults to 'no'
+
+DEFAULT VALUES
+----------------------------------
+Provide default values with |:
+
+# Definition:
+add_resources = {
+    add_gold = $GOLD|100$           # Default 100
+    add_manpower = $MANPOWER|500$   # Default 500
+}
+
+# Usage with custom values:
+add_resources = {
+    GOLD = 200
+    MANPOWER = 1000
+}
+
+# Usage with defaults:
+add_resources = {}  # Uses 100 gold, 500 manpower
+
+MULTIPLE USES
+----------------------------------
+Parameters can be used multiple times:
+
+# Definition:
+balanced_reward = {
+    add_prestige = $AMOUNT$
+    add_legitimacy = $AMOUNT$
+    add_stability = $AMOUNT$
+}
+
+# Usage:
+balanced_reward = { AMOUNT = 1 }
+
+======================
+SCOPE HANDLING
+======================
+
+SCOPE INHERITANCE
+----------------------------------
+Macros inherit the scope they're called from:
+
+# Definition (expects country scope):
+country_macro = {
+    add_stability = 1
+    capital = {
+        add_prosperity = 10
+    }
+}
+
+# Called from country:
+ROOT = {
+    country_macro = yes  # ROOT is the country
+}
+
+# Called from character:
+ruler = {
+    employer = {
+        country_macro = yes  # employer (country) executes macro
+    }
+}
+
+PASSING SCOPES AS PARAMETERS
+----------------------------------
+# Definition:
+transfer_prestige = {
+    add_prestige = -10
+    $TARGET$ = {
+        add_prestige = 10
+    }
+}
+
+# Usage:
+effect = {
+    transfer_prestige = {
+        TARGET = scope:rival_country
+    }
+}
+
+SCOPE VALIDATION
+----------------------------------
+Always validate scopes in macro definitions:
+
+# Definition:
+safe_character_effect = {
+    if = {
+        limit = { exists = ruler }
+        ruler = {
+            add_trait = $TRAIT$
+        }
+    }
+}
+
+======================
+PRACTICAL EXAMPLES
+======================
+
+EXAMPLE 1: Common Event Reward
+----------------------------------
+# Definition (common/scripted_effects/rewards.txt):
+standard_event_reward = {
+    add_prestige = $PRESTIGE|10$
+    add_gold = $GOLD|50$
+    
+    if = {
+        limit = { $ADD_MODIFIER|no$ = yes }
+        add_modifier = {
+            name = $MODIFIER$
+            duration = $DURATION|1825$
+        }
+    }
+}
+
+# Usage in event:
+event = {
+    option = {
+        name = "Accept reward"
+        standard_event_reward = {
+            PRESTIGE = 25
+            GOLD = 100
+            ADD_MODIFIER = yes
+            MODIFIER = blessed_by_fortune
+            DURATION = 3650
+        }
+    }
+}
+
+EXAMPLE 2: Eligibility Check
+----------------------------------
+# Definition (common/scripted_triggers/eligibility.txt):
+eligible_for_election = {
+    age >= $MIN_AGE|25$
+    age <= $MAX_AGE|65$
+    
+    NOT = { has_trait = incapable }
+    
+    OR = {
+        adm >= $MIN_SKILL|3$
+        dip >= $MIN_SKILL|3$
+        mil >= $MIN_SKILL|3$
+    }
+}
+
+# Usage in event:
+trigger = {
+    any_character = {
+        eligible_for_election = {
+            MIN_AGE = 30
+            MIN_SKILL = 4
+        }
+    }
+}
+
+EXAMPLE 3: Weight Modifier
+----------------------------------
+# Definition (common/scripted_modifiers/weights.txt):
+skill_based_weight = {
+    modifier = {
+        add = {
+            value = adm
+            multiply = $ADM_MULT|1$
+        }
+    }
+    
+    modifier = {
+        add = {
+            value = dip
+            multiply = $DIP_MULT|1$
+        }
+    }
+    
+    modifier = {
+        add = {
+            value = mil
+            multiply = $MIL_MULT|1$
+        }
+    }
+}
+
+# Usage in random character selection:
+random_character = {
+    weight = {
+        base = 10
+        skill_based_weight = {
+            ADM_MULT = 2
+            DIP_MULT = 1
+            MIL_MULT = 1
+        }
+    }
+}
+
+EXAMPLE 4: Complex State Change
+----------------------------------
+# Definition (common/scripted_effects/state_changes.txt):
+crisis_response = {
+    add_stability = -$STABILITY_LOSS|1$
+    add_war_exhaustion = $WAR_EXHAUSTION|5$
+    
+    random_owned_location = {
+        limit = { is_capital = no }
+        add_unrest = $UNREST|10$
+    }
+    
+    if = {
+        limit = { $LOSE_PRESTIGE|yes$ = yes }
+        add_prestige = -$PRESTIGE_LOSS|20$
+    }
+}
+
+# Usage:
+effect = {
+    crisis_response = {
+        STABILITY_LOSS = 2
+        WAR_EXHAUSTION = 10
+        UNREST = 15
+        LOSE_PRESTIGE = yes
+        PRESTIGE_LOSS = 30
+    }
+}
+
+EXAMPLE 5: Trait Grant System
+----------------------------------
+# Definition (common/scripted_effects/traits.txt):
+grant_trait_if_eligible = {
+    if = {
+        limit = {
+            NOT = { has_trait = $TRAIT$ }
+            NOT = { has_trait = $OPPOSITE_TRAIT$ }
+            $CUSTOM_TRIGGER|always$ = yes
+        }
+        add_trait = $TRAIT$
+    }
+}
+
+# Usage:
+ruler = {
+    grant_trait_if_eligible = {
+        TRAIT = strategic_genius
+        OPPOSITE_TRAIT = incompetent_strategist
+        CUSTOM_TRIGGER = "adm >= 5"
+    }
+}
+
+======================
+BEST PRACTICES
+======================
+
+1. NAMING CONVENTIONS
+----------------------------------
+✅ Use descriptive, clear names:
+add_standard_event_reward
+is_eligible_for_cabinet
+prestige_based_weight_modifier
+
+❌ Avoid cryptic abbreviations:
+asre
+iec
+pbwm
+
+2. DOCUMENTATION
+----------------------------------
+✅ Comment macro purpose and parameters:
+# Grants standard event reward with optional modifier
+# Parameters:
+# - PRESTIGE: Amount of prestige (default 10)
+# - GOLD: Amount of gold (default 50)
+# - ADD_MODIFIER: Whether to add modifier (default no)
+# - MODIFIER: Modifier to add (required if ADD_MODIFIER = yes)
+
+❌ Don't leave macros unexplained
+
+3. DEFAULT VALUES
+----------------------------------
+✅ Provide sensible defaults for all parameters:
+add_gold = $GOLD|100$
+duration = $DURATION|1825$
+
+❌ Don't force users to specify every parameter
+
+4. SCOPE SAFETY
+----------------------------------
+✅ Validate scope existence:
+if = {
+    limit = { exists = ruler }
+    ruler = { ... }
+}
+
+❌ Don't assume scopes always exist
+
+5. REUSABILITY
+----------------------------------
+✅ Design macros to be flexible:
+# Good - reusable across many contexts
+add_scaled_resources = {
+    add_gold = { value = $BASE$ multiply = $MULTIPLIER|1$ }
+}
+
+❌ Don't make macros too specific:
+# Bad - only works in one exact scenario
+add_exactly_237_gold_if_tuesday = { ... }
+
+6. PARAMETER VALIDATION
+----------------------------------
+✅ Provide clear parameter names and document types:
+# AMOUNT = integer (positive or negative)
+# TARGET = country scope
+# ENABLED = yes/no boolean
+
+❌ Don't leave parameter types ambiguous
+
+======================
+DEBUGGING MACROS
+======================
+
+COMMON ERRORS
+----------------------------------
+❌ ERROR: Parameter not replaced
+Cause: Typo in parameter name ($AMONT$ vs $AMOUNT$)
+
+✅ FIX: Check spelling matches exactly between definition and usage
+
+❌ ERROR: Scope mismatch
+Cause: Macro expects country scope, called from character
+
+✅ FIX: Add scope validation or document required scope
+
+❌ ERROR: Missing required parameter
+Cause: No default provided, parameter not specified
+
+✅ FIX: Add default value or document as required
+
+TESTING MACROS
+----------------------------------
+# Create test event:
+test_macro.1 = {
+    title = "Test Macro"
+    
+    trigger = {
+        always = yes
+    }
+    
+    option = {
+        name = "Test"
+        my_macro = {
+            PARAM1 = value1
+            PARAM2 = value2
+        }
+        log = "Macro executed successfully"
+    }
+}
+
+# Run in console:
+event test_macro.1
+
+LOGGING
+----------------------------------
+# Add logging to macro definition:
+my_macro = {
+    log = "Executing my_macro with PARAM=$PARAM$"
+    # ... macro effects ...
+    log = "my_macro complete"
+}
+
+======================
+MACRO ORGANIZATION
+======================
+
+FILE STRUCTURE
+----------------------------------
+common/scripted_effects/
+    00_core_effects.txt       # Essential, frequently used
+    01_character_effects.txt  # Character-specific
+    02_country_effects.txt    # Country-specific
+    03_event_rewards.txt      # Event rewards/consequences
+    99_mod_specific.txt       # Your mod's custom effects
+
+common/scripted_triggers/
+    00_core_triggers.txt      # Essential checks
+    01_character_triggers.txt # Character validation
+    02_country_triggers.txt   # Country validation
+    03_eligibility.txt        # Eligibility checks
+
+common/scripted_modifiers/
+    00_core_modifiers.txt     # Common weight patterns
+    01_skill_modifiers.txt    # Skill-based weights
+    02_state_modifiers.txt    # State-based weights
+
+VANILLA OVERRIDE
+----------------------------------
+To override vanilla macros, use exact same name:
+
+# Your mod file:
+# Replaces vanilla definition
+vanilla_macro_name = {
+    # Your custom implementation
+}
+
+======================
+ADVANCED TECHNIQUES
+======================
+
+CHAINING MACROS
+----------------------------------
+# Definition:
+apply_full_reward = {
+    add_prestige_and_gold = { PRESTIGE = $P$ GOLD = $G$ }
+    grant_random_trait = { POOL = $TRAIT_POOL$ }
+}
+
+# Calls other macros internally
+
+CONDITIONAL MACRO CALLS
+----------------------------------
+# Definition:
+conditional_effect = {
+    if = {
+        limit = { $CONDITION$ = yes }
+        $TRUE_EFFECT$ = { $PARAMS$ }
+    }
+    else = {
+        $FALSE_EFFECT$ = { $PARAMS$ }
+    }
+}
+
+# Usage:
+conditional_effect = {
+    CONDITION = is_at_war
+    TRUE_EFFECT = war_effect
+    FALSE_EFFECT = peace_effect
+    PARAMS = "AMOUNT = 100"
+}
+
+======================
+CROSS-REFERENCES
+======================
+📄 Related Files:
+- EU5_EFFECTS_REFERENCE.txt - Understanding effects
+- EU5_TRIGGERS_REFERENCE.txt - Understanding triggers
+- EU5_SCRIPT_VALUES_REFERENCE.txt - Script value syntax
+- EU5_ON_ACTIONS_REFERENCE.txt - Using macros in on_actions
+- EU5_MEAN_TIME_TO_HAPPEN_REFERENCE.txt - MTTH and scripted modifiers
+- common/scripted_effects/ - Vanilla scripted effects
+- common/scripted_triggers/ - Vanilla scripted triggers
+- common/scripted_modifiers/ - Vanilla scripted modifiers

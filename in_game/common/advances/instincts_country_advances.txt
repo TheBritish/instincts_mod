@@ -1,4 +1,4 @@
-###########################################################
+﻿###########################################################
 # Instincts Mod - Country-specific Advances
 # Generated: 2025-12-26
 # Contains 4 advances per Age (Traditions, Renaissance,

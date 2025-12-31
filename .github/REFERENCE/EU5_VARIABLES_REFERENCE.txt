@@ -1,0 +1,714 @@
+## EU5 Variables Reference
+## Source: https://eu5.paradoxwikis.com/Variables + Vanilla Game Files
+## Last Updated: December 5, 2025
+
+⚠️ **NOTE: The wiki page for Variables is currently empty!**
+This reference is compiled from vanilla game file analysis and practical modding experience.
+
+======================
+WHAT ARE VARIABLES?
+======================
+Variables are dynamic storage containers that allow you to save and reference values (numbers, 
+scopes, or flags) during script execution. Unlike defines (which are static), variables can 
+change during gameplay and are scoped to specific objects.
+
+Think of variables as temporary memory that persists for the lifetime of the object they're 
+attached to (country, character, location, etc.).
+
+======================
+VARIABLE TYPES
+======================
+
+NUMERIC VARIABLES
+----------------------------------
+Store numerical values (integers or decimals).
+
+set_variable = {
+    name = my_counter
+    value = 10
+}
+
+change_variable = {
+    name = my_counter
+    add = 5                           # Now equals 15
+}
+
+SCOPE VARIABLES
+----------------------------------
+Store references to game objects (countries, characters, locations, etc.).
+
+save_scope_as = target_nation         # Save current scope
+# Later access via: scope:target_nation
+
+set_variable = {
+    name = investigation_target_country
+    value = scope:target_country     # Store the scope reference
+}
+
+FLAG VARIABLES (Boolean)
+----------------------------------
+Store yes/no states (true/false flags).
+
+set_variable = {
+    name = has_completed_mission
+    value = yes
+}
+
+======================
+VARIABLE SCOPES
+======================
+
+GLOBAL VARIABLES
+----------------------------------
+Persist across all saves and accessible from anywhere.
+
+set_global_variable = {
+    name = world_plague_active
+    value = yes
+}
+
+# Access via: global_var:world_plague_active
+
+if = {
+    limit = { has_global_variable = world_plague_active }
+    # Do something
+}
+
+COUNTRY VARIABLES
+----------------------------------
+Attached to a specific country, persist as long as country exists.
+
+# In country scope:
+set_variable = {
+    name = rebellion_threat_level
+    value = 50
+}
+
+# Access later in same country scope:
+if = {
+    limit = { 
+        check_variable = { 
+            which = rebellion_threat_level
+            value >= 75
+        }
+    }
+}
+
+CHARACTER VARIABLES
+----------------------------------
+Attached to a character, lost when character dies.
+
+# In character scope:
+ruler = {
+    set_variable = {
+        name = loyalty_score
+        value = 100
+    }
+}
+
+LOCATION VARIABLES
+----------------------------------
+Attached to a specific province/location.
+
+# In location scope:
+capital = {
+    set_variable = {
+        name = prosperity_modifier
+        value = 1.5
+    }
+}
+
+LOCAL VARIABLES
+----------------------------------
+Temporary variables that only exist within current execution block.
+
+save_temporary_scope_as = temp_country
+# Only valid until end of current block
+
+======================
+VARIABLE OPERATIONS
+======================
+
+SET VARIABLE
+----------------------------------
+set_variable = {
+    name = variable_name
+    value = 10                        # Direct value
+}
+
+set_variable = {
+    name = target
+    value = scope:saved_country       # Scope reference
+}
+
+set_variable = {
+    name = flag
+    value = yes                       # Boolean
+}
+
+CHANGE VARIABLE (Arithmetic)
+----------------------------------
+change_variable = {
+    name = counter
+    add = 5                           # Add 5
+}
+
+change_variable = {
+    name = counter
+    subtract = 3                      # Subtract 3
+}
+
+change_variable = {
+    name = multiplier
+    multiply = 2                      # Multiply by 2
+}
+
+change_variable = {
+    name = divisor
+    divide = 4                        # Divide by 4
+}
+
+CHECK VARIABLE (Triggers)
+----------------------------------
+has_variable = variable_name          # Check if variable exists
+
+check_variable = {
+    which = counter
+    value >= 10                       # Greater than or equal
+}
+
+check_variable = {
+    which = counter
+    value < 5                         # Less than
+}
+
+check_variable = {
+    which = counter
+    value = 7                         # Equals
+}
+
+REMOVE VARIABLE
+----------------------------------
+remove_variable = variable_name       # Delete the variable
+
+clear_variable = variable_name        # Alternative syntax
+
+======================
+VARIABLE NAMING CONVENTIONS
+======================
+
+BEST PRACTICES
+----------------------------------
+✅ Use descriptive names: investigation_target_country
+❌ Avoid generic names: temp, x, var1
+
+✅ Use snake_case: rebellion_threat_level
+❌ Don't use camelCase: rebellionThreatLevel
+
+✅ Prefix with mod name for globals: mymod_plague_counter
+❌ Risk conflicts: plague_counter
+
+✅ Use clear flag names: has_completed_quest
+❌ Ambiguous flags: quest_state
+
+======================
+COMMON VARIABLE PATTERNS
+======================
+
+COUNTER PATTERN
+----------------------------------
+# Initialize counter
+set_variable = {
+    name = event_count
+    value = 0
+}
+
+# Increment on each occurrence
+change_variable = {
+    name = event_count
+    add = 1
+}
+
+# Check threshold
+if = {
+    limit = {
+        check_variable = {
+            which = event_count
+            value >= 3
+        }
+    }
+    # Trigger something after 3 events
+}
+
+ACCUMULATOR PATTERN
+----------------------------------
+# Accumulate values over time
+every_owned_location = {
+    limit = { development >= 10 }
+    ROOT = {
+        change_variable = {
+            name = total_high_dev_locations
+            add = 1
+        }
+    }
+}
+
+TIMER PATTERN
+----------------------------------
+# Set timer
+set_variable = {
+    name = investigation_timer
+    value = 12                        # 12 months
+}
+
+# Decrease each month (in on_action)
+change_variable = {
+    name = investigation_timer
+    subtract = 1
+}
+
+# Check if expired
+if = {
+    limit = {
+        check_variable = {
+            which = investigation_timer
+            value <= 0
+        }
+    }
+    # Timer expired, do something
+}
+
+PERCENTAGE TRACKER PATTERN
+----------------------------------
+# Track completion percentage
+set_variable = {
+    name = mission_progress
+    value = 0
+}
+
+# Update progress
+change_variable = {
+    name = mission_progress
+    add = 25                          # 25% complete
+}
+
+# Check completion
+if = {
+    limit = {
+        check_variable = {
+            which = mission_progress
+            value >= 100
+        }
+    }
+    # Mission complete
+}
+
+STATE MACHINE PATTERN
+----------------------------------
+# Track state of a complex system
+set_variable = {
+    name = investigation_state
+    value = 0                         # 0 = not started
+}
+
+# State 1: Investigation begun
+set_variable = {
+    name = investigation_state
+    value = 1
+}
+
+# State 2: Clues found
+set_variable = {
+    name = investigation_state
+    value = 2
+}
+
+# State 3: Culprit identified
+set_variable = {
+    name = investigation_state
+    value = 3
+}
+
+# Check state
+if = {
+    limit = {
+        check_variable = {
+            which = investigation_state
+            value = 2
+        }
+    }
+    # In "clues found" state
+}
+
+RELATIONSHIP TRACKING PATTERN
+----------------------------------
+# Save relationship target
+random_neighbor_country = {
+    limit = { is_rival = ROOT }
+    save_scope_as = rival_neighbor
+}
+
+set_variable = {
+    name = primary_rival
+    value = scope:rival_neighbor
+}
+
+# Access later
+if = {
+    limit = { exists = var:primary_rival }
+    var:primary_rival = {
+        # Do something to the rival
+    }
+}
+
+======================
+VARIABLE PERSISTENCE
+======================
+
+SAVE GAME PERSISTENCE
+----------------------------------
+Most variables persist across save/load:
+- Country variables: Yes
+- Character variables: Yes (until character dies)
+- Location variables: Yes
+- Global variables: Yes
+- Local/temporary variables: No (cleared on save)
+
+SCOPE LIFETIME
+----------------------------------
+Country variables: Until country is destroyed
+Character variables: Until character dies
+Location variables: Permanent (location always exists)
+Global variables: Permanent (across all games)
+Temporary variables: Current execution block only
+
+======================
+VARIABLES IN LOCALIZATION
+======================
+
+ACCESS VARIABLE VALUE
+----------------------------------
+my_event_desc: "We have investigated [ROOT.GetVariable('investigation_count')] times."
+
+# For scope variables:
+my_event_desc: "Our target is [ROOT.Var('target_country').GetName]."
+
+======================
+VARIABLES vs SAVED SCOPES
+======================
+
+SAVED SCOPES
+----------------------------------
+save_scope_as = my_target             # Save scope for immediate use
+scope:my_target = { ... }             # Access in same event/effect chain
+
+Pros:
+- Simple syntax
+- Type-safe (knows it's a country/character/etc.)
+
+Cons:
+- Don't persist long-term
+- Limited to current execution context
+
+SCOPE VARIABLES
+----------------------------------
+set_variable = {
+    name = investigation_target
+    value = scope:target_country
+}
+
+# Much later, even in different events:
+var:investigation_target = { ... }
+
+Pros:
+- Persist across events/saves
+- Can store with the object (country/character)
+
+Cons:
+- More verbose syntax
+- Need to ensure scope still exists
+
+======================
+DEBUGGING VARIABLES
+======================
+
+LOG VARIABLE VALUES
+----------------------------------
+log = "Counter value: [ROOT.GetVariable('counter')]"
+log = "Has flag: [ROOT.HasVariable('my_flag')]"
+
+CHECK EXISTENCE
+----------------------------------
+if = {
+    limit = { has_variable = my_var }
+    log = "Variable exists"
+}
+else = {
+    log = "Variable does not exist"
+}
+
+TRACE VARIABLE CHANGES
+----------------------------------
+# Before change
+log = "Before: [ROOT.GetVariable('counter')]"
+
+change_variable = {
+    name = counter
+    add = 10
+}
+
+# After change
+log = "After: [ROOT.GetVariable('counter')]"
+
+======================
+COMMON ERRORS & FIXES
+======================
+
+❌ ERROR: Accessing non-existent variable
+check_variable = {
+    which = my_var
+    value >= 10
+}
+# ERROR if my_var doesn't exist
+
+✅ FIX: Check existence first
+if = {
+    limit = { has_variable = my_var }
+    check_variable = {
+        which = my_var
+        value >= 10
+    }
+}
+
+❌ ERROR: Wrong scope for variable
+ROOT.var:character_specific_var       # ERROR if ROOT is country
+
+✅ FIX: Ensure correct scope
+ROOT.ruler.var:character_specific_var
+
+❌ ERROR: Using temporary scope later
+save_temporary_scope_as = temp
+# ... much later in different event ...
+scope:temp = { ... }                  # ERROR: scope no longer exists
+
+✅ FIX: Use permanent variable
+save_scope_as = saved_target
+set_variable = {
+    name = target
+    value = scope:saved_target
+}
+# Later:
+var:target = { ... }
+
+❌ ERROR: Variable name conflicts
+set_variable = {
+    name = count                      # Generic name
+    value = 1
+}
+
+✅ FIX: Use descriptive, namespaced names
+set_variable = {
+    name = mymod_rebellion_count
+    value = 1
+}
+
+======================
+PRACTICAL EXAMPLES
+======================
+
+EXAMPLE 1: Investigation System
+----------------------------------
+# Event 1: Start investigation
+immediate = {
+    set_variable = {
+        name = investigation_active
+        value = yes
+    }
+    set_variable = {
+        name = investigation_clues
+        value = 0
+    }
+    random_neighbor_country = {
+        save_scope_as = target_country
+    }
+    set_variable = {
+        name = investigation_target_country
+        value = scope:target_country
+    }
+}
+
+# Event 2: Find clue
+immediate = {
+    change_variable = {
+        name = investigation_clues
+        add = 1
+    }
+}
+
+# Event 3: Solve investigation
+trigger = {
+    has_variable = investigation_active
+    check_variable = {
+        which = investigation_clues
+        value >= 3
+    }
+}
+
+immediate = {
+    var:investigation_target_country = {
+        # Do something to the target
+    }
+    remove_variable = investigation_active
+    remove_variable = investigation_clues
+    remove_variable = investigation_target_country
+}
+
+EXAMPLE 2: Relationship Tracker
+----------------------------------
+# Track opinion change over time
+immediate = {
+    # Store initial opinion
+    set_variable = {
+        name = initial_opinion_of_france
+        value = ROOT.GetOpinion(c:FRA)
+    }
+}
+
+# Later check change
+if = {
+    limit = {
+        has_variable = initial_opinion_of_france
+    }
+    # Calculate difference
+    set_variable = {
+        name = opinion_change
+        value = ROOT.GetOpinion(c:FRA)
+    }
+    change_variable = {
+        name = opinion_change
+        subtract = var:initial_opinion_of_france
+    }
+    
+    # Check if improved
+    if = {
+        limit = {
+            check_variable = {
+                which = opinion_change
+                value >= 20
+            }
+        }
+        # Opinion improved significantly
+    }
+}
+
+EXAMPLE 3: Dynamic Event Chain
+----------------------------------
+# Event chain that remembers choices
+event = {
+    id = mymod.1
+    
+    immediate = {
+        set_variable = {
+            name = event_chain_active
+            value = yes
+        }
+        set_variable = {
+            name = player_choices
+            value = 0                 # Track alignment
+        }
+    }
+    
+    option = {
+        # Aggressive choice
+        change_variable = {
+            name = player_choices
+            add = 1
+        }
+    }
+    
+    option = {
+        # Peaceful choice
+        change_variable = {
+            name = player_choices
+            subtract = 1
+        }
+    }
+}
+
+# Final event checks accumulated choices
+event = {
+    id = mymod.10
+    
+    trigger = {
+        has_variable = event_chain_active
+    }
+    
+    immediate = {
+        if = {
+            limit = {
+                check_variable = {
+                    which = player_choices
+                    value >= 5
+                }
+            }
+            # Player chose aggressive path
+        }
+        else_if = {
+            limit = {
+                check_variable = {
+                    which = player_choices
+                    value <= -5
+                }
+            }
+            # Player chose peaceful path
+        }
+        
+        remove_variable = event_chain_active
+        remove_variable = player_choices
+    }
+}
+
+======================
+PERFORMANCE CONSIDERATIONS
+======================
+
+1. Clean up variables when done
+   - Remove variables that are no longer needed
+   - Don't accumulate unused variables
+
+2. Use appropriate scope
+   - Don't use global variables for country-specific data
+   - Use temporary scopes for short-lived data
+
+3. Limit variable checks in triggers
+   - Checking variables is relatively fast, but don't overdo it
+   - Combine multiple checks efficiently
+
+4. Name variables clearly
+   - Helps debugging and maintenance
+   - Prevents accidental conflicts
+
+======================
+BEST PRACTICES SUMMARY
+======================
+
+1. Always check variable existence before accessing
+2. Use descriptive, namespaced names
+3. Clean up variables when no longer needed
+4. Document complex variable systems
+5. Use appropriate variable scope (global/country/local)
+6. Initialize variables before use
+7. Test variable persistence across saves
+8. Use logging to debug variable values
+9. Prefer saved scopes for short-term, variables for long-term
+10. Follow consistent naming conventions
+
+======================
+CROSS-REFERENCES
+======================
+📄 Related Files:
+- EU5_SCOPES_REFERENCE.txt - Understanding scope system
+- EU5_SCOPE_LINKS_REFERENCE.txt - Accessing scopes
+- EU5_EFFECTS_REFERENCE.txt - set_variable, change_variable effects
+- EU5_TRIGGERS_REFERENCE.txt - has_variable, check_variable triggers
+- SCRIPT_VALUES_RESEARCH.md - Using variables in calculations

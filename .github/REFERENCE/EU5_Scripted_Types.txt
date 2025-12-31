@@ -1,0 +1,966 @@
+=== BUILDINGS ===
+Source: https://eu5.paradoxwikis.com/Building_modding
+
+1. STRUCTURE
+   building_name = {
+       category = infrastructure_category # Categories: infrastructure, basic_industry, military, rgo
+       max_levels = 5
+       is_foreign = no               # Can be built in foreign territory?
+       build_time = script_value
+       construction_demand = script_value
+       
+       # Location Restrictions
+       location_potential = {
+           has_river = yes
+           development >= 10
+       }
+       
+       # Production Methods
+       unique_production_methods = {
+           method_name = {
+               goods_input = amount
+               produced = output_good
+               output = amount
+           }
+       }
+   }
+
+======================
+FULL BUILDING MODDING FROM WIKI
+======================
+# Complete documentation from https://eu5.paradoxwikis.com/Building_modding
+
+## Building structure
+
+A building definition specifies construction requirements, modifiers, and production:
+
+building_name = {
+   is_foreign = no                 # Can be built in foreign territory
+   max_levels = 5                  # Maximum building levels (can use script value)
+   pop_type = laborers             # Pop type employed by building
+   category = infrastructure_category    # Building category
+   employment_size = generic_peasant_building_employment
+
+   # Location type restrictions
+   rural_settlement = yes
+   town = yes
+   city = yes
+
+   location_potential = {
+       # Triggers for where building can be built
+       has_river = yes
+   }
+
+   allow = {
+       # Additional triggers to allow construction
+   }
+
+   build_time = infrastructure_build_time    # Script value for construction time
+   modifier = {
+       # Modifiers provided by building
+       local_population_capacity = 1.0
+       local_monthly_food_modifier = 0.05
+   }
+
+   unique_production_methods = {
+       method_name = {
+           goods_input = 0.1
+           produced = output_goods
+           output = 1.0
+           category = building_maintenance
+       }
+   }
+
+   possible_production_methods = {
+       production_method_name
+   }
+
+   construction_demand = village_construction
+}
+
+## Key attributes
+
+| Attribute | Description |
+| --- | --- |
+| is_foreign | Whether building can be constructed in foreign territory |
+| max_levels | Maximum number of levels this building can reach |
+| pop_type | The pop type employed: peasants, laborers, burghers, etc. |
+| category | Building category for UI organization |
+| employment_size | Script value for number of pops employed |
+| rural_settlement | If yes, can be built in rural locations |
+| town | If yes, can be built in towns |
+| city | If yes, can be built in cities |
+| location_potential | Trigger block for valid build locations |
+| allow | Additional conditions to allow construction |
+| build_time | Script value for construction duration |
+| modifier | Static modifiers provided by the building |
+| unique_production_methods | Production methods unique to this building |
+| possible_production_methods | Production methods that can be selected |
+| construction_demand | Script value for construction goods required |
+
+## Building categories
+
+Common building categories:
+
+`infrastructure_category` - Roads, bridges, canals
+`basic_industry_category` - Workshops and manufactories
+`rgo_building_category` - Resource extraction buildings
+`government_category` - Administrative buildings
+`military_category` - Forts and military structures
+
+## Production methods
+
+Buildings can have production methods that consume and produce goods:
+
+unique_production_methods = {
+   stone_bricks = {
+       stone = 0.4
+       produced = masonry
+       output = 0.5
+       category = guild_input
+   }
+   clay_bricks = {
+       clay = 0.8
+       produced = masonry
+       output = 0.5
+       category = guild_input
+   }
+}
+
+## Location potentials
+
+Common location requirements:
+
+location_potential = {
+   # Geographic
+   has_river = yes
+   is_coastal = yes
+   is_adjacent_to_lake = yes
+
+   # Topography
+   topography = mountains
+   topography = plateau
+   topography = hills
+
+   # Climate
+   climate = mediterranean
+   climate = continental
+
+   # Vegetation
+   vegetation = woods
+   vegetation = forest
+   vegetation = jungle
+
+   # Resources
+   raw_material = goods:iron
+   NOT = { raw_material = goods:stone }
+
+   # Development
+   development >= 20
+}
+
+## Example
+
+my_custom_building = {
+   is_foreign = no
+   max_levels = 3
+   pop_type = laborers
+   category = basic_industry_category
+   employment_size = advanced_peasant_building_employment
+
+   rural_settlement = no
+   town = yes
+   city = yes
+
+   location_potential = {
+       development >= 10
+       has_river = yes
+   }
+
+   build_time = guild_build_time
+
+   modifier = {
+       local_production_efficiency = 0.1
+       local_monthly_development_modifier = 0.02
+   }
+
+   unique_production_methods = {
+       my_building_maintenance = {
+           tools = 0.2
+           lumber = 0.1
+           category = building_maintenance
+       }
+   }
+
+   construction_demand = basic_construction_needs
+}
+
+======================
+END OF BUILDINGS SECTION
+======================
+
+=== GOODS ===
+Source: https://eu5.paradoxwikis.com/Goods_modding
+
+1. STRUCTURE
+   goods_name = {
+       category = raw_material       # Categories: raw_material, plantation, produced, food
+       method = farming              # Methods: farming, mining, forestry, hunting
+       default_market_price = 3
+       base_production = 0.2
+       transport_cost = 1
+       
+       # Demand Logic
+       demand_add = {
+           nobles = 0.25             # Flat demand per pop type
+           all = 0.001
+       }
+       demand_multiply = {
+           upper = 2.0               # Multiplier for social class
+       }
+   }
+
+======================
+FULL GOODS MODDING FROM WIKI
+======================
+# Complete documentation from https://eu5.paradoxwikis.com/Goods_modding
+
+## Goods structure
+
+A goods definition specifies production method, pricing, and demand:
+
+goods_name = {
+   method = farming                    # Production method
+   category = raw_material             # Goods category
+   color = goods_color                 # Color for UI display
+   default_market_price = 3            # Base market price
+   transport_cost = 2                  # Cost to transport
+   base_production = 0.2               # Base production amount
+   inflation = yes                     # Causes inflation (precious metals)
+   ai_rgo_size_importance = 10         # AI preference for RGO expansion
+   ai_rgo_expansion_priority = 0.2     # AI priority for expanding production
+   development_threshold = 20          # Minimum development for demand
+
+   # Pop demand additions
+   demand_add = {
+       nobles = 0.25
+       burghers = 0.01
+       clergy = 0.01
+       all = 0.0004
+   }
+
+   # Pop demand multipliers
+   demand_multiply = {
+       upper = 2.5
+       nobles = 1.5
+   }
+
+   # Wealth thresholds for consumption
+   wealth_impact_threshold = {
+       all = 1.05
+       nobles = 1.5
+   }
+
+   custom_tags = { old_world_goods new_world_goods }
+}
+
+## Key attributes
+
+| Attribute | Description |
+| --- | --- |
+| method | Production method: farming, mining, gathering, forestry, hunting |
+| category | Goods category: raw_material, plantation, produced, food |
+| color | Color identifier for UI |
+| default_market_price | Base price in markets |
+| transport_cost | Cost added for transportation |
+| base_production | Default production amount without buildings |
+| inflation | If yes, producing this causes inflation (gold, silver) |
+| ai_rgo_size_importance | AI preference to avoid building cities on this RGO |
+| ai_rgo_expansion_priority | AI priority for expanding production |
+| development_threshold | Minimum development for demand to exist |
+| demand_add | Flat demand additions per pop type |
+| demand_multiply | Demand multipliers per pop type |
+| wealth_impact_threshold | Wealth level at which consumption changes |
+| custom_tags | Tags for scripting: old_world_goods, new_world_goods |
+
+## Production methods
+
+`farming` - Agricultural production (horses, silk, wine)
+`mining` - Extracted from the ground (iron, gold, coal)
+`gathering` - Collected resources (salt, pearls, sand)
+`forestry` - Wood and forest products (lumber)
+`hunting` - Animal products (ivory)
+
+## Goods categories
+
+`raw_material` - Basic unprocessed resources
+`plantation` - Plantation crops (sugar, tobacco, cotton)
+`produced` - Manufactured goods
+`food` - Consumable food products
+
+## Demand system
+
+### demand_add
+
+Flat demand additions per pop:
+
+demand_add = {
+   nobles = 0.25      # Nobles add 0.25 demand
+   burghers = 0.01
+   all = 0.0004       # All pops add this amount
+}
+
+### demand_multiply
+
+Multipliers to base demand:
+
+demand_multiply = {
+   upper = 2.5        # Upper class multiplier
+   nobles = 1.5       # Nobles-specific multiplier
+}
+
+### wealth_impact_threshold
+
+Wealth level thresholds:
+
+wealth_impact_threshold = {
+   all = 1.05         # All pops: 105% wealth threshold
+   nobles = 1.5       # Nobles: 150% wealth threshold
+}
+
+## Base game goods categories
+
+### Raw Materials
+
+Iron, copper, tin, lead, coal, stone, sand, clay, lumber, horses
+
+### Precious Goods
+
+Gold, silver, gems, pearls, amber, marble
+
+### Luxury Goods
+
+Silk, dyes, incense, tea, coffee, cocoa, spices (pepper, cloves, saffron, chili)
+
+### Agricultural
+
+Wine, fiber crops, medicaments, salt, fruit
+
+### Special
+
+Elephants, ivory, saltpeter, alum, mercury
+
+## Example
+
+my_custom_goods = {
+   method = farming
+   category = raw_material
+   color = goods_custom
+   default_market_price = 4
+   transport_cost = 1
+   demand_add = {
+       nobles = 0.1
+       burghers = 0.05
+       all = 0.001
+   }
+   demand_multiply = {
+       upper = 2.0
+   }
+   wealth_impact_threshold = {
+       all = 1.0
+   }
+   custom_tags = { old_world_goods }
+}
+
+======================
+END OF GOODS SECTION
+======================
+
+=== ESTATES ===
+Source: https://eu5.paradoxwikis.com/Estate_modding
+
+1. STRUCTURE
+   estate_name = {
+       color = estate_color
+       power_per_pop = 25
+       tax_per_pop = 150
+       
+       # Modifiers based on status
+       satisfaction = { global_unrest = -1 }
+       high_power = { tax_efficiency = 0.1 }
+       
+       # Diplomatic Opinions
+       opinion = {
+           add = { value = 10 condition = { is_same_religion = yes } }
+       }
+   }
+
+======================
+FULL ESTATE MODDING FROM WIKI
+======================
+# Complete documentation from https://eu5.paradoxwikis.com/Estate_modding
+
+## Estate structure
+
+An estate definition specifies power calculations, modifiers, and opinion factors:
+
+estate_name = {
+   color = estate_color                    # Color identifier for UI
+   power_per_pop = 25                      # Power gained per pop
+   tax_per_pop = 150                       # Tax income per pop
+   rival = -0.01                           # Rivalry factor with other estates
+   alliance = 0.01                         # Alliance factor with other estates
+   revolt_court_language = court_language  # Language used in revolts
+
+   # Character spawning rules
+   characters_have_dynasty = always        # always, sometimes, never
+   can_spawn_random_characters = yes
+   can_generate_mercenary_leaders = yes
+   use_diminutive = no
+
+   bank = yes                              # Can loan money
+
+   # Ruler estate specific
+   ruler = yes
+   priority_for_dynasty_head = yes
+
+   # Satisfaction modifiers (multiplied by satisfaction - threshold)
+   satisfaction = {
+       counter_espionage = 0.2
+       monthly_prestige = 0.2
+   }
+
+   # High power modifiers (when power > threshold)
+   high_power = {
+       nobles_estate_max_tax = -0.5
+       levy_combat_efficiency_modifier = 1.0
+   }
+
+   # Low power modifiers (when power < threshold)
+   low_power = {
+       nobles_estate_max_tax = 0.5
+   }
+
+   # Power-based modifiers (scaled by power)
+   power = {
+       parliament_base_support = 0.5
+       trade_income = 1.0
+   }
+
+   # Opinion calculations for diplomacy
+   opinion = {
+       add = {
+           desc = "ESTATE_OPINION_BASE"
+           value = "opinion(scope:target)"
+           multiply = 0.05
+       }
+   }
+}
+
+## Key attributes
+
+| Attribute | Description |
+| --- | --- |
+| color | Color identifier for UI display |
+| power_per_pop | Estate power gained per pop of this type |
+| tax_per_pop | Tax income generated per pop |
+| rival | Natural rivalry with other estates (negative = rivalry) |
+| alliance | Natural alliance with other estates |
+| revolt_court_language | Language rebels use: court_language, common_language, liturgical_language |
+| characters_have_dynasty | always, sometimes, never |
+| can_generate_mercenary_leaders | Whether estate can provide mercenary leaders |
+| bank | Whether estate can provide loans |
+| ruler | If true, this is the ruling estate (crown) |
+| use_diminutive | Use diminutive names for characters |
+
+## Modifier blocks
+
+### satisfaction
+
+Modifiers scaled by `(satisfaction - LOW_SATISFACTION_THRESHOLD)`
+
+### high_power
+
+Modifiers applied when `(relative_power - LOW_POWER_THRESHOLD) > 0`
+
+### low_power
+
+Modifiers applied when `(relative_power - LOW_POWER_THRESHOLD) < 0`
+
+### power
+
+Static modifiers scaled by estate power
+
+## Opinion block
+
+Calculates diplomatic opinion from this estate toward other countries:
+
+opinion = {
+   add = {
+       desc = "DESCRIPTION_KEY"
+       value = some_value
+       multiply = 0.05
+   }
+
+   if = {
+       limit = { condition }
+       add = {
+           desc = "CONDITIONAL_OPINION"
+           value = 10
+       }
+   }
+}
+
+## Base game estates
+
+`crown_estate` - The ruling power
+`nobles_estate` - Aristocracy
+`clergy_estate` - Religious leaders
+`burghers_estate` - Merchant class
+`peasants_estate` - Common farmers
+`dhimmi_estate` - Protected religious minorities
+`tribes_estate` - Tribal peoples
+`cossacks_estate` - Cossack communities
+
+## Example
+
+my_custom_estate = {
+   color = custom_estate_color
+   power_per_pop = 5
+   tax_per_pop = 50
+   rival = -0.01
+   alliance = 0.01
+
+   revolt_court_language = common_language
+   characters_have_dynasty = sometimes
+   can_generate_mercenary_leaders = yes
+
+   satisfaction = {
+       global_unrest = -0.5
+       research_speed_modifier = 0.1
+   }
+
+   high_power = {
+       global_monthly_development_modifier = 0.1
+       monthly_towards_innovative = societal_value_significant_monthly_move
+   }
+
+   low_power = {
+       global_monthly_development_modifier = -0.1
+   }
+
+   opinion = {
+       add = {
+           desc = "ESTATE_OPINION_BASE"
+           value = "opinion(scope:target)"
+           multiply = 0.05
+       }
+   }
+}
+
+======================
+END OF ESTATES SECTION
+======================
+
+=== LAWS ===
+Source: https://eu5.paradoxwikis.com/Law_modding
+
+1. STRUCTURE
+   law_group_name = {
+       law_category = administrative # Categories: administrative, military, economic, religious
+       law_gov_group = monarchy      # Groups: monarchy, republic, tribe
+       
+       potential = { ... }           # Visibility trigger
+       
+       # Law Options
+       option_name = {
+           country_modifier = { stability_cost = -0.1 }
+           estate_preferences = { clergy_estate nobles_estate }
+           allow = { ... }           # Selection trigger
+           years = 10                # Cooldown
+       }
+   }
+
+======================
+FULL LAW MODDING FROM WIKI
+======================
+# Complete documentation from https://eu5.paradoxwikis.com/Law_modding
+
+## Law structure
+
+A law definition specifies categories, options, and modifiers:
+
+law_group_name = {
+   law_category = administrative       # Law category for UI
+   law_gov_group = monarchy            # Government type restriction
+
+   potential = {
+       # Conditions for law group to appear
+       government_type = government_type:monarchy
+   }
+
+   # Law options
+   option_name = {
+       unique = yes                    # Only one country can have this
+
+       potential = {
+           # When this option appears
+           tag = XXX
+       }
+
+       allow = {
+           # Conditions to select this option
+           current_age = age_5_absolutism
+       }
+
+       country_modifier = {
+           # Modifiers applied when selected
+           monthly_legitimacy = 0.05
+       }
+
+       stability_investment = small_stability_investment
+
+       estate_preferences = {
+           # Which estates prefer this option
+           clergy_estate
+           nobles_estate
+       }
+
+       years = 2                       # Cooldown before changing
+   }
+}
+
+## Key attributes
+
+| Attribute | Description |
+| --- | --- |
+| law_category | Category: administrative, military, economic |
+| law_gov_group | Government type: monarchy, republic, theocracy, tribe |
+| potential | Trigger block for when law group appears |
+| unique | If yes, only one country can select this option |
+| allow | Conditions required to select the option |
+| country_modifier | Modifiers applied when option is active |
+| estate_preferences | Estates that favor this option |
+| years | Cooldown years before law can be changed |
+
+## Law categories
+
+`administrative` - Government and bureaucracy
+`military` - Military organization and levies
+`economic` - Trade and taxation
+`religious` - Religious policies
+`legal` - Legal systems
+
+## Government groups
+
+`monarchy` - Monarchical governments
+`republic` - Republican governments
+`theocracy` - Religious governments
+`tribe` - Tribal governments
+
+## Estate preferences
+
+Estates that prefer certain law options:
+
+estate_preferences = {
+   crown_estate
+   nobles_estate
+   clergy_estate
+   burghers_estate
+   peasants_estate
+}
+
+## Base game law groups
+
+### Monarchy Laws
+
+`feudal_de_jure_law` - Land inheritance (by tradition/by blood)
+`medieval_levy_law` - Military levy organization
+`royal_court_customs_law` - Court policy
+`legitimization_of_power_law` - Rulership philosophy
+`harem_law` - Harem policy (for applicable cultures)
+
+### Military Laws
+
+`medieval_levy_law` - Levy recruitment policies
+
+## Example
+
+my_custom_law = {
+   law_category = administrative
+   law_gov_group = monarchy
+
+   potential = {
+       government_type = government_type:monarchy
+   }
+
+   traditional_approach = {
+       country_modifier = {
+           stability_cost = -0.1
+           monthly_towards_traditionalist = societal_value_monthly_move
+       }
+       estate_preferences = {
+           clergy_estate
+           nobles_estate
+       }
+       years = 2
+   }
+
+   progressive_approach = {
+       country_modifier = {
+           research_speed_modifier = 0.1
+           monthly_towards_innovative = societal_value_monthly_move
+       }
+       allow = {
+           current_age = age_3_discovery
+       }
+       estate_preferences = {
+           burghers_estate
+       }
+       years = 2
+   }
+
+   unique_country_approach = {
+       unique = yes
+       potential = {
+           tag = ENG
+       }
+       country_modifier = {
+           diplomatic_reputation = 1
+           global_monthly_development_modifier = 0.05
+       }
+       estate_preferences = {
+           crown_estate
+       }
+       years = 2
+   }
+}
+
+======================
+END OF LAWS SECTION
+======================
+
+=== POPS ===
+Source: https://eu5.paradoxwikis.com/Pop_modding
+
+1. STRUCTURE
+   pop_type_name = {
+       color = pop_color
+       pop_food_consumption = 2.0
+       upper = yes/no                # Is upper class?
+       migration_factor = 0.5        # Willingness to migrate
+       promotion_factor = 0.3
+       
+       # Estate Mapping
+       nobles_estate = { }           # Default estate
+       dhimmi_estate = { is_dhimmi = yes } # Conditional estate
+   }
+
+======================
+FULL POP MODDING FROM WIKI
+======================
+# Complete documentation from https://eu5.paradoxwikis.com/Pop_modding
+
+## Pop type structure
+
+A pop type definition specifies behavior, estate assignment, and modifiers:
+
+pop_type_name = {
+   color = pop_color                   # Color for UI display
+   editor = 0.05                       # Editor spawn weight
+   assimilation_conversion_factor = 0.05   # Speed of cultural/religious change
+   pop_food_consumption = 20.0         # Food consumed per pop
+   city_graphics = 1.0                 # Contribution to city appearance
+
+   # Estate assignments (conditions for which estate)
+   dhimmi_estate = { is_dhimmi = yes }
+   tribes_estate = { is_gaelic_clans = yes }
+   nobles_estate = {}
+
+   promotion_factor = 0.1              # Speed of promotion to other types
+   migration_factor = 0.5              # Willingness to migrate
+
+   upper = yes                         # Is upper class
+   has_cap = yes                       # Has population cap
+   grow = yes                          # Can grow naturally
+   counts_towards_market_language = yes    # Affects market language
+
+   # Promotion paths
+   promote_to = burghers
+   promote_to = clergy
+   promote_to = nobles
+
+   # Literacy effects
+   literacy_impact = {
+       local_cultural_tradition = 0.2
+       local_monthly_control = 0.01
+   }
+
+   # Pop percentage effects
+   pop_percentage_impact = {
+       local_distance_from_capital_cost_modifier = 0.5
+   }
+}
+
+## Key attributes
+
+| Attribute | Description |
+| --- | --- |
+| color | Color identifier for UI display |
+| editor | Weight for spawning in map editor |
+| assimilation_conversion_factor | Speed of cultural/religious conversion |
+| pop_food_consumption | Food consumed per pop unit |
+| city_graphics | Contribution to city visual appearance |
+| promotion_factor | Rate at which pops promote |
+| migration_factor | Willingness to migrate |
+| upper | If yes, considered upper class |
+| has_cap | If yes, has a maximum population |
+| grow | If yes, can grow naturally |
+| tribal_rules | If yes, uses special tribal promotion |
+| promote_to | Pop types this can promote to |
+| counts_towards_market_language | Affects market language determination |
+
+## Estate assignments
+
+Pops can belong to different estates based on conditions:
+
+# Default assignment (empty condition)
+nobles_estate = {}
+
+# Conditional assignment
+dhimmi_estate = { is_dhimmi = yes }
+tribes_estate = { is_gaelic_clans = yes }
+cossacks_estate = { is_cossacks = yes }
+
+## Impact modifiers
+
+### literacy_impact
+
+Modifiers scaled by literacy level:
+
+literacy_impact = {
+   local_cultural_tradition = 0.2
+   local_monthly_control = 0.01
+   local_production_efficiency = medium_production_efficiency_bonus
+}
+
+### pop_percentage_impact
+
+Modifiers scaled by pop percentage:
+
+pop_percentage_impact = {
+   local_distance_from_capital_cost_modifier = 0.5
+   local_unrest = 0.2
+}
+
+## Base game pop types
+
+### Upper Class
+
+`nobles` - Aristocracy, military leadership
+`clergy` - Religious figures, scholars
+`burghers` - Merchants, urban middle class
+
+### Working Class
+
+`laborers` - Urban workers, craftsmen
+`soldiers` - Military personnel
+`peasants` - Rural farmers (base pop type, promotes to others)
+
+### Special
+
+`tribesmen` - Tribal peoples (can promote to peasants)
+`slaves` - Enslaved population
+
+## Promotion chains
+
+tribesmen -> peasants -> laborers/soldiers/burghers/clergy/nobles
+
+## Example
+
+my_custom_pop = {
+   color = custom_pop_color
+   editor = 0.2
+   assimilation_conversion_factor = 0.2
+   pop_food_consumption = 2.0
+   city_graphics = 0.5
+
+   # Belongs to burghers estate
+   burghers_estate = {}
+   promotion_factor = 0.3
+   migration_factor = 0.2
+
+   upper = no
+   has_cap = yes
+   grow = no
+
+   promote_to = burghers
+
+   literacy_impact = {
+       local_production_efficiency = 0.1
+       local_monthly_development_modifier = 0.05
+   }
+}
+
+======================
+END OF POPS SECTION
+======================
+
+=== ADVANCES (TECHNOLOGY) ===
+Source: https://eu5.paradoxwikis.com/Advance_modding
+
+1. STRUCTURE
+   advance_name = {
+       icon = icon_key
+       age = age_5_absolutism
+       requires = previous_advance   # Parent advance
+       
+       # Permanent Effects
+       global_tax_modifier = 0.1
+       
+       # Research Progress Modifiers
+       modifier_while_progressing = {
+           scale = { value = 1 }
+           potential_trigger = { government_type = monarchy }
+       }
+   }
+
+=== UNITS ===
+Source: https://eu5.paradoxwikis.com/Unit_modding
+
+1. STRUCTURE
+   unit_type_name = {
+       category = army_infantry      # Categories: army_infantry, army_cavalry, navy_light_ship
+       buildable = yes
+       age = "age_3_discovery"       # Availability era
+       max_strength = 0.4
+       combat_power = 1.0
+       
+       # Terrain Modifiers
+       impact = {                    # Movement cost
+           jungle = 0.10
+           mountains = 0.10
+       }
+       combat = {                    # Combat bonus/malus
+           plains = 0.10
+           wetlands = -0.10
+       }
+   }
+
+=== SUBJECT TYPES ===
+Source: https://eu5.paradoxwikis.com/Subject_type_modding
+
+1. STRUCTURE
+   subject_type_name = {
+       level = 2                     # Hierarchy level
+       subject_pays = script_value   # Payment calculation
+       annexation_speed = 1.0
+       
+       # Modifiers
+       overlord_modifier = { diplomatic_reputation = 0.5 }
+       subject_modifier = { army_maintenance_cost = -0.1 }
+       
+       # War Behavior
+       join_offensive_wars_always = { ... }
+       join_defensive_wars_always = { always = yes }
+   }

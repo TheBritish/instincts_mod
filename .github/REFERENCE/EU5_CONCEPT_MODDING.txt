@@ -1,0 +1,182 @@
+# EU5 Concept Modding Reference
+
+**Source:** https://eu5.paradoxwikis.com/Concept_modding  
+**Verified for:** EU5 version 1.0
+
+## Overview
+
+Concept modding involves the creation of new game concepts to be usable in Europa Universalis V. Game concepts are tooltip-enabled terms that appear in localization text with special formatting and help documentation.
+
+Game concepts are located in `common/game_concepts`, usually in the `main_menu` top folder.
+
+## Basic Syntax
+
+```
+concept_key = {
+    alias = { alias_key_1 alias_key_2 }
+    texture = "gfx/interface/icons/path/to/icon.dds"
+}
+```
+
+**Example:**
+
+```
+reformation = {
+    alias = { protestant protestants }
+    texture = "gfx/interface/icons/situations/reformation.dds"
+}
+```
+
+**Fields:**
+- `concept_key` - The name of the game concept (localization key base)
+- `alias` - Alternative keys that reference the same concept
+- `texture` - Icon texture path (no implicit assignment, must be specified)
+
+## Family and Parent
+
+Game concepts can be organized hierarchically:
+
+```
+my_concept = {
+    family = parent_concept      # Shows parent in tooltip
+    parent = parent_concept_2    # Unused, but accessible via GUI
+    texture = "..."
+}
+```
+
+- `family` - The concept's family parent (shown in tooltip)
+- `parent` - Parent concept (unused, but accessible via `GameConceptTooltip.GetParentText` in GUI)
+
+## Europedia and Loading Screen
+
+Control where concepts appear:
+
+```
+my_concept = {
+    shown_in_encyclopedia = no       # Default: yes
+    shown_in_loading_screen = yes    # Default: no
+    texture = "..."
+}
+```
+
+- `shown_in_encyclopedia` - Whether concept appears in Europedia (default: `yes`)
+- `shown_in_loading_screen` - Whether concept appears in loading screens (default: `no`)
+
+## Map Mode
+
+Override the current map mode when hovering the concept:
+
+```
+my_concept = {
+    tooltip_map_mode = trade_power_map_mode
+    texture = "..."
+}
+```
+
+- `tooltip_map_mode` - Map mode to display (keys from `gfx/map/map_modes/`)
+
+## Localization
+
+**Required localization keys:**
+
+```yaml
+game_concept_<key>: "Concept Title"
+game_concept_<key>_desc: "Concept description"
+```
+
+**Alias localization:**
+
+```yaml
+game_concept_<alias_key>: "Alias Title"
+```
+
+- Aliases use the main concept's description
+- No separate description needed for aliases
+
+**Usage in localization:**
+
+- `[concept_key]` - Plain text with tooltip
+- `[concept_key|e]` - Colored text (concept light blue) with tooltip
+
+**Example:**
+
+```yaml
+game_concept_reformation: "Reformation"
+game_concept_reformation_desc: "The Protestant Reformation was a movement..."
+game_concept_protestant: "Protestant"
+game_concept_protestants: "Protestants"
+```
+
+In event text:
+```
+"The [reformation|e] has begun! [protestant|e] movements are spreading."
+```
+
+## GUI Datacontext Usage
+
+**Global promote:**
+
+```
+GC( Arg0 )
+```
+- `Arg0`: Game concept key
+- Returns: Tooltip for the concept
+
+**Custom concept tooltip:**
+
+```
+Concept( Arg0, Arg1 )
+```
+- `Arg0`: Concept key
+- `Arg1`: Text to display (different from expected alias)
+
+**Conditional concept selection:**
+
+```
+SelectGameConcept( Arg0, Arg1, Arg2 )
+```
+- `Arg0`: Conditional statement
+- `Arg1`: Concept key if true
+- `Arg2`: Concept key if false
+
+## Example: Trade Concept
+
+```
+trade = {
+    alias = { merchant merchants trade_route trade_routes }
+    texture = "gfx/interface/icons/concepts/trade.dds"
+    shown_in_encyclopedia = yes
+    family = economy
+}
+```
+
+**Localization:**
+
+```yaml
+game_concept_trade: "Trade"
+game_concept_trade_desc: "Trade represents the exchange of goods..."
+game_concept_merchant: "Merchant"
+game_concept_merchants: "Merchants"
+game_concept_trade_route: "Trade Route"
+game_concept_trade_routes: "Trade Routes"
+```
+
+## Best Practices
+
+1. **Always specify texture** - No implicit icon assignment; define path for every concept
+2. **Use meaningful aliases** - Create plural forms and common variations
+3. **Organize with families** - Group related concepts under parent families
+4. **Europedia control** - Hide implementation-detail concepts with `shown_in_encyclopedia = no`
+5. **Use |e formatting** - Apply `[concept|e]` for colored concept text in events/tooltips
+6. **Map mode integration** - Use `tooltip_map_mode` for map-related concepts (trade, religion, culture)
+7. **Complete localization** - Provide both title and description for main concepts
+8. **Alias efficiency** - Reuse main concept's description for aliases
+9. **Consistent naming** - Use clear, descriptive keys for concepts
+10. **GUI integration** - Leverage `GC()` and related functions in custom GUI elements
+
+## Related Files
+
+- `/main_menu/common/game_concepts/` - Concept definitions
+- `/main_menu/localization/` - Concept localization
+- `/gfx/interface/icons/` - Concept icons
+- `/gfx/map/map_modes/` - Map mode definitions

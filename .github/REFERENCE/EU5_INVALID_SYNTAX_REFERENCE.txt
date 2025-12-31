@@ -1,0 +1,204 @@
+## EU5 Invalid Syntax Reference
+## Common Mistakes and Invalid Code Patterns
+## Source: Practical modding experience and error analysis
+## Last Updated: December 10, 2025
+
+⚠️ **CRITICAL: This file documents what DOESN'T work in EU5**
+Many patterns from EU4 and other Paradox games are INVALID in EU5.
+Always verify against EU5_EFFECTS_REFERENCE.txt and EU5_TRIGGERS_REFERENCE.txt first!
+
+======================
+INVALID EFFECTS (DO NOT USE)
+======================
+
+❌ **Direct Effects That Don't Exist**:
+----------------------------------
+add_diplomatic_capacity                    # INVALID - Use custom modifiers instead
+add_local_unrest                           # INVALID - Use custom modifiers instead
+add_diplomatic_reputation                  # INVALID - Use custom modifiers instead
+add_trade_efficiency                       # INVALID - Use custom modifiers instead
+add_naval_morale_modifier                  # INVALID - Use custom modifiers instead
+add_stability_cost_modifier                # INVALID - Use custom modifiers instead
+add_tolerance_heretic                      # INVALID - Use custom modifiers instead
+add_army_professionalism                   # INVALID - Use add_army_tradition instead
+add_mercantilism                           # INVALID - Use change_societal_value instead
+add_innovative                             # INVALID - Use change_societal_value instead
+add_army_tradition                         # INVALID - Wait, this DOES exist! Use it.
+add_research_progress                      # INVALID - Use research_advance for advances
+add_advance                                # INVALID - Use research_advance instead
+create_advisor                             # INVALID - Use create_character instead
+create_general                             # INVALID - Use create_character instead
+change_state_loyalty                       # INVALID - No state system exists in EU5
+change_state_tax_capacity                  # INVALID - No state system exists in EU5
+add_base_tax                               # INVALID - EU4 only
+add_base_production                        # INVALID - EU4 only
+add_base_manpower                          # INVALID - EU4 only
+
+❌ **Invalid Effect Syntax**:
+----------------------------------
+add_opinion = { target = X value = 50 }    # INVALID - Use modifier-based opinion effects
+set_government_rank = N                    # INVALID - Use set_government_rank_value = N
+
+======================
+INVALID TRIGGERS (DO NOT USE)
+======================
+
+❌ **Province Ownership (Most Common Mistake)**:
+----------------------------------
+owns = 54                                 # INVALID - Causes PostValidate failures!
+owns = 61                                 # INVALID - Makes events orphaned!
+owns = 66                                 # INVALID - Always use location names!
+owns = 67                                 # INVALID - Never use province IDs!
+
+✅ **CORRECT**: location:magdeburg = { owner ?= root }
+✅ **CORRECT**: location:leipzig = { owner ?= root }
+✅ **CORRECT**: location:nuremberg = { owner ?= root }
+✅ **CORRECT**: location:augsburg = { owner ?= root }
+
+❌ **Other Invalid Triggers**:
+----------------------------------
+trade_efficiency > 0.5                    # INVALID - Not a valid trigger
+diplomatic_capacity > 50                   # INVALID - Not a valid trigger
+any_rival_country = { ... }                # INVALID - Not a valid trigger
+any_location = { ... }                     # INVALID - Use any_owned_province instead
+
+❌ **Invalid Scope Access**:
+----------------------------------
+root.primary_culture                       # INVALID - Use root.GetPrimaryCulture
+root.state_religion                        # INVALID - Use root.GetStateReligion
+root.ruler                                 # INVALID - Use root.GetRuler
+
+❌ **Invalid Geography Filters**:
+----------------------------------
+location_region = region:brabant_region    # INVALID - Use region ?= region:brabant_region
+location_area = area:picardy_area          # INVALID - Use area ?= area:picardy_area
+region = brabant_region                    # INVALID - Use proper scope prefixes
+
+======================
+INVALID MODIFIER PATTERNS
+======================
+
+❌ **Wrong Modifier Categories**:
+----------------------------------
+# Opinion modifiers in static_modifiers:
+burgundy_relations_positive = {           # INVALID LOCATION!
+    value = 50
+    yearly_decay = 5
+}
+# Should be in main_menu/common/biases/*.txt
+
+# Static modifiers without game_data:
+country_modifier_name = {                 # INVALID - Missing game_data wrapper
+    local_development_cost = -0.1
+}
+# Should be: game_data = { category = country }
+
+======================
+INVALID EVENT CATEGORIES
+======================
+
+❌ **Unused Categories**:
+----------------------------------
+category = io_event                        # INVALID - Not used in base game IO events
+# Base game IO events don't use categories. Remove this line.
+
+======================
+INVALID EVENT PATTERNS
+======================
+
+❌ **DHE Events**:
+----------------------------------
+dynamic_historical_event = {
+    tag = c:BUR                            # INVALID - Use BARE tags: tag = BUR
+    from = 1390.1.1
+    to = 1400.12.31
+    monthly_chance = 100
+    # MISSING: illustration_tags required!
+}
+
+❌ **Event Flags**:
+----------------------------------
+country_event = {
+    is_triggered_only = yes                # INVALID - This flag doesn't exist in EU5
+    fire_only_once = yes                   # ✅ CORRECT - Use this instead
+}
+
+======================
+INVALID IO PATTERNS
+======================
+
+❌ **IO Setup Files**:
+----------------------------------
+# Copying entire vanilla setup files:
+15_international_organizations.txt         # INVALID - Causes conflicts, use separate files
+# Should be: 15_custom_io.txt
+
+❌ **IO Definition Properties**:
+----------------------------------
+international_organization = {
+    map_color = { 100 150 200 }           # INVALID - Setup only, not definition
+    leader_title_key = "HSA_LEADER"       # INVALID - Setup only, not definition
+}
+
+======================
+COMMON VALIDATION ERRORS
+======================
+
+❌ **PostValidate Failures**:
+----------------------------------
+"orphaned event"                           # Events with invalid triggers become orphaned
+"unknown data type"                        # Invalid scope access like root.primary_culture
+"Unexpected token: ï»¿"                    # Missing UTF-8 BOM encoding
+
+======================
+EU4 → EU5 MIGRATION TRAPS
+======================
+
+❌ **EU4 Patterns That Don't Work in EU5**:
+----------------------------------
+add_base_tax = 2                          # EU4 only - No base tax in EU5
+add_base_production = 1                    # EU4 only - No base production in EU5
+add_base_manpower = 1                      # EU4 only - No base manpower in EU5
+add_stability = 1                          # EU4 only - Use add_prestige or custom modifiers
+add_adm_power = 50                         # EU4 only - Use add_adm_tech instead
+add_dip_power = 50                         # EU4 only - Use add_dip_tech instead
+add_mil_power = 50                         # EU4 only - Use add_mil_tech instead
+
+❌ **EU4 Scope Patterns**:
+----------------------------------
+FROM                                     # EU4 only - Use proper EU5 scope navigation
+ROOT                                     # EU4 only - Use root, scope:recipient, etc.
+owner = { controller = { ... } }         # EU4 only - Use different ownership checks
+
+======================
+DEBUGGING CHECKLIST
+======================
+
+When your mod doesn't work:
+1. Check error.log for "orphaned event" messages
+2. Verify all effects exist in EU5_EFFECTS_REFERENCE.txt
+3. Verify all triggers exist in EU5_TRIGGERS_REFERENCE.txt
+4. Check for invalid scope access (use Get* methods)
+5. Ensure UTF-8 with BOM encoding
+6. Test location names against EU5_LOCATIONS_REFERENCE.txt
+7. Verify modifier categories (static_modifiers vs biases)
+
+======================
+QUICK REFERENCE
+======================
+
+❌ DON'T USE:
+owns = <id>
+add_opinion = { value = N }
+root.primary_culture
+add_diplomatic_capacity
+is_triggered_only = yes
+add_base_tax
+
+✅ DO USE:
+location:<name> = { owner ?= root }
+add_opinion = { modifier = name }
+root.GetPrimaryCulture
+custom modifiers in static_modifiers
+fire_only_once = yes
+custom modifiers for tax/production

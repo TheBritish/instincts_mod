@@ -1,0 +1,48 @@
+# Reference Index (EU5)
+
+## Guides (how-to summaries)
+- EU5_ACTION_MODDING.txt
+- EU5_ADVANCE_MODDING.txt
+- EU5_BUILDING_MODDING.txt
+- EU5_CHARACTER_MODDING.txt
+- EU5_CONCEPT_MODDING.txt
+- EU5_CULTURE_MODDING.txt
+- EU5_ESTATE_MODDING.txt
+- EU5_EVENT_MODDING.txt
+- EU5_GOODS_MODDING.txt
+- EU5_INTERNATIONAL_ORGANIZATION_MODDING.txt
+- EU5_LAW_MODDING.txt
+- EU5_MISSION_MODDING.txt
+- EU5_MODIFIER_MODDING.txt
+- EU5_POP_MODDING.txt
+- EU5_SCRIPTED_GUI.txt
+- EU5_SUBJECT_TYPE_MODDING.txt
+- EU5_UNIT_MODDING.txt
+
+## Official Reference (canonical Paradox dumps)
+- EU5_DEFINES_REFERENCE.txt
+- EU5_EFFECTS_REFERENCE.txt
+- EU5_GUI_SCRIPT_REFERENCE.txt
+- EU5_LOCALIZATION_REFERENCE.txt
+- EU5_MACROS_REFERENCE.txt
+- EU5_MEAN_TIME_TO_HAPPEN_REFERENCE.txt
+- EU5_MODIFIERS_REFERENCE.txt
+- EU5_MODIFIER_TYPES_REFERENCE.txt
+- EU5_ON_ACTIONS_REFERENCE.txt
+- EU5_SCOPES_REFERENCE.txt
+- EU5_SCOPE_LINKS_REFERENCE.txt
+- EU5_Scripted_Content.txt
+- EU5_Scripted_Types.txt
+- EU5_Systems.txt
+- EU5_SCRIPT_VALUES_REFERENCE.txt
+- EU5_TRIGGERS_REFERENCE.txt
+- EU5_VARIABLES_REFERENCE.txt
+
+## Samples / Misc
+- EU5_ALL_MODIFIERS_SAMPLE.txt
+- 00_README.txt
+
+Notes:
+- Guides summarize wiki content; use them for quick syntax and best practices.
+- Official references are the authoritative dumps; prefer these when verifying exact keys/fields.
+- Keep both sets; they serve different purposes.

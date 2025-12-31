@@ -1,0 +1,190 @@
+# EU5 Pop Modding Reference
+
+**Source**: [Pop modding - EU5 Wiki](https://eu5.paradoxwikis.com/Pop_modding)  
+**Verified for**: EU5 version 1.0
+
+## Overview
+
+Pops modding covers the creation and modification of population types in Europa Universalis V. Pops represent different social classes and occupations in society. Pop types are stored in `/Europa Universalis V/game/in_game/common/pop_types/` as `.txt` files.
+
+## Pop Type Structure
+
+```
+pop_type_name = {
+    color = pop_color                   # Color for UI display
+
+    editor = 0.05                       # Editor spawn weight
+
+    assimilation_conversion_factor = 0.05   # Speed of cultural/religious change
+
+    pop_food_consumption = 20.0         # Food consumed per pop
+
+    city_graphics = 1.0                 # Contribution to city appearance
+
+    # Estate assignments (conditions for which estate)
+    dhimmi_estate = { is_dhimmi = yes }
+    tribes_estate = { is_gaelic_clans = yes }
+    nobles_estate = {}
+
+    promotion_factor = 0.1              # Speed of promotion to other types
+    migration_factor = 0.5              # Willingness to migrate
+
+    upper = yes                         # Is upper class
+    has_cap = yes                       # Has population cap
+    grow = yes                          # Can grow naturally
+
+    counts_towards_market_language = yes    # Affects market language
+
+    # Promotion paths
+    promote_to = burghers
+    promote_to = clergy
+    promote_to = nobles
+
+    # Literacy effects
+    literacy_impact = {
+        local_cultural_tradition = 0.2
+        local_monthly_control = 0.01
+    }
+
+    # Pop percentage effects
+    pop_percentage_impact = {
+        local_distance_from_capital_cost_modifier = 0.5
+    }
+}
+```
+
+## Key Attributes
+
+| Attribute | Description |
+|-----------|-------------|
+| `color` | Color identifier for UI display |
+| `editor` | Weight for spawning in map editor |
+| `assimilation_conversion_factor` | Speed of cultural/religious conversion |
+| `pop_food_consumption` | Food consumed per pop unit |
+| `city_graphics` | Contribution to city visual appearance |
+| `promotion_factor` | Rate at which pops promote |
+| `migration_factor` | Willingness to migrate |
+| `upper` | If yes, considered upper class |
+| `has_cap` | If yes, has a maximum population |
+| `grow` | If yes, can grow naturally |
+| `tribal_rules` | If yes, uses special tribal promotion |
+| `promote_to` | Pop types this can promote to |
+| `counts_towards_market_language` | Affects market language determination |
+
+## Estate Assignments
+
+Pops can belong to different estates based on conditions:
+
+```
+# Conditional assignment
+dhimmi_estate = { is_dhimmi = yes }
+tribes_estate = { is_gaelic_clans = yes }
+cossacks_estate = { is_cossacks = yes }
+
+# Default assignment (empty condition)
+nobles_estate = {}
+```
+
+## Impact Modifiers
+
+### literacy_impact
+
+Modifiers scaled by literacy level:
+
+```
+literacy_impact = {
+    local_cultural_tradition = 0.2
+    local_monthly_control = 0.01
+    local_production_efficiency = medium_production_efficiency_bonus
+}
+```
+
+### pop_percentage_impact
+
+Modifiers scaled by pop percentage:
+
+```
+pop_percentage_impact = {
+    local_distance_from_capital_cost_modifier = 0.5
+    local_unrest = 0.2
+}
+```
+
+## Base Game Pop Types
+
+### Upper Class
+
+- `nobles` - Aristocracy, military leadership
+- `clergy` - Religious figures, scholars
+- `burghers` - Merchants, urban middle class
+
+### Working Class
+
+- `laborers` - Urban workers, craftsmen
+- `soldiers` - Military personnel
+- `peasants` - Rural farmers (base pop type, promotes to others)
+
+### Special
+
+- `tribesmen` - Tribal peoples (can promote to peasants)
+- `slaves` - Enslaved population
+
+## Promotion Chains
+
+```
+tribesmen -> peasants -> laborers/soldiers/burghers/clergy/nobles
+```
+
+## Example
+
+```
+my_custom_pop = {
+    color = custom_pop_color
+
+    editor = 0.2
+
+    assimilation_conversion_factor = 0.2
+
+    pop_food_consumption = 2.0
+
+    city_graphics = 0.5
+
+    # Belongs to burghers estate
+    burghers_estate = {}
+
+    promotion_factor = 0.3
+    migration_factor = 0.2
+
+    upper = no
+    has_cap = yes
+    grow = no
+
+    promote_to = burghers
+
+    literacy_impact = {
+        local_production_efficiency = 0.1
+        local_monthly_development_modifier = 0.05
+    }
+}
+```
+
+## Best Practices
+
+1. **Class distinction**: Set `upper = yes` for nobles/clergy/burghers; `upper = no` for laborers/peasants
+2. **Food consumption**: Scale `pop_food_consumption` by pop wealth/status (nobles consume more than peasants)
+3. **Growth mechanics**: Use `grow = yes` for base pop types (peasants); `grow = no` for promoted types (they grow through promotion)
+4. **Population caps**: Use `has_cap = yes` for upper class pops to prevent over-promotion
+5. **Promotion paths**: Define `promote_to` to create social mobility chains (peasants → laborers/burghers → nobles/clergy)
+6. **Migration**: Set higher `migration_factor` for mobile pops (laborers, soldiers); lower for settled pops (nobles, clergy)
+7. **Assimilation**: Use `assimilation_conversion_factor` to control cultural/religious conversion speed (higher for assimilating pops like burghers)
+8. **Estate assignment**: Use conditional estate assignment for culture-specific estates (dhimmi, tribes, cossacks); use default for universal estates
+9. **Literacy effects**: Grant production/cultural bonuses via `literacy_impact` for educated pops (clergy, burghers)
+10. **Pop percentage effects**: Use `pop_percentage_impact` for location-level effects that scale with pop concentration
+11. **City graphics**: Higher `city_graphics` for urban pops (burghers, laborers) to reflect urbanization
+12. **Editor weight**: Use `editor` to control map editor spawn probability (higher for common pops like peasants)
+
+## Related Files
+
+- Pop type definitions: `/game/in_game/common/pop_types/*.txt`
+- Script values (promotion factors, consumption, etc.): `/game/in_game/common/script_values/*.txt`
+- Localization: `/game/in_game/localization/english/*_l_english.yml`

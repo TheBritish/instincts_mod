@@ -1,0 +1,195 @@
+# EU5 Building Modding Reference
+
+**Source**: [Building modding - EU5 Wiki](https://eu5.paradoxwikis.com/Building_modding)  
+**Verified for**: EU5 version 1.0
+
+## Overview
+
+Buildings provide economic, military, and other bonuses to locations and countries in Europa Universalis V. Buildings are defined in `/Europa Universalis V/game/in_game/common/building_types/` as `.txt` files organized by category.
+
+## Building Structure
+
+```
+building_name = {
+    is_foreign = no                 # Can be built in foreign territory
+    max_levels = 5                  # Maximum building levels (can use script value)
+    pop_type = laborers             # Pop type employed by building
+
+    category = infrastructure_category    # Building category
+    employment_size = generic_peasant_building_employment
+
+    # Location type restrictions
+    rural_settlement = yes
+    town = yes
+    city = yes
+
+    location_potential = {
+        # Triggers for where building can be built
+        has_river = yes
+    }
+
+    allow = {
+        # Additional triggers to allow construction
+    }
+
+    build_time = infrastructure_build_time    # Script value for construction time
+
+    modifier = {
+        # Modifiers provided by building
+        local_population_capacity = 1.0
+        local_monthly_food_modifier = 0.05
+    }
+
+    unique_production_methods = {
+        method_name = {
+            goods_input = 0.1
+            produced = output_goods
+            output = 1.0
+            category = building_maintenance
+        }
+    }
+
+    possible_production_methods = {
+        production_method_name
+    }
+
+    construction_demand = village_construction   # Goods required to build
+}
+```
+
+## Key Attributes
+
+| Attribute | Description |
+|-----------|-------------|
+| `is_foreign` | Whether building can be constructed in foreign territory |
+| `max_levels` | Maximum number of levels this building can reach |
+| `pop_type` | The pop type employed: peasants, laborers, burghers, etc. |
+| `category` | Building category for UI organization |
+| `employment_size` | Script value for number of pops employed |
+| `rural_settlement` | If yes, can be built in rural locations |
+| `town` | If yes, can be built in towns |
+| `city` | If yes, can be built in cities |
+| `location_potential` | Trigger block for valid build locations |
+| `allow` | Additional conditions to allow construction |
+| `build_time` | Script value for construction duration |
+| `modifier` | Static modifiers provided by the building |
+| `construction_demand` | Script value for construction goods required |
+
+## Building Categories
+
+Common building categories:
+
+- `infrastructure_category` - Roads, bridges, canals
+- `basic_industry_category` - Workshops and manufactories
+- `rgo_building_category` - Resource extraction buildings
+- `government_category` - Administrative buildings
+- `military_category` - Forts and military structures
+
+## Production Methods
+
+Buildings can have production methods that consume and produce goods:
+
+```
+unique_production_methods = {
+    stone_bricks = {
+        stone = 0.4          # Input: 0.4 stone
+        produced = masonry   # Output type
+        output = 0.5         # Output amount
+        category = guild_input
+    }
+    clay_bricks = {
+        clay = 0.8
+        produced = masonry
+        output = 0.5
+        category = guild_input
+    }
+}
+```
+
+## Location Potentials
+
+Common location requirements:
+
+```
+location_potential = {
+    # Geographic
+    has_river = yes
+    is_coastal = yes
+    is_adjacent_to_lake = yes
+
+    # Topography
+    topography = mountains
+    topography = plateau
+    topography = hills
+
+    # Climate
+    climate = mediterranean
+    climate = continental
+
+    # Vegetation
+    vegetation = woods
+    vegetation = forest
+    vegetation = jungle
+
+    # Resources
+    raw_material = goods:iron
+    NOT = { raw_material = goods:stone }
+
+    # Development
+    development >= 20
+}
+```
+
+## Example
+
+```
+my_custom_building = {
+    is_foreign = no
+    max_levels = 3
+    pop_type = laborers
+
+    category = basic_industry_category
+    employment_size = advanced_peasant_building_employment
+
+    rural_settlement = no
+    town = yes
+    city = yes
+
+    location_potential = {
+        development >= 10
+        has_river = yes
+    }
+
+    build_time = guild_build_time
+
+    modifier = {
+        local_production_efficiency = 0.1
+        local_monthly_development_modifier = 0.02
+    }
+
+    unique_production_methods = {
+        my_building_maintenance = {
+            tools = 0.2
+            lumber = 0.1
+            category = building_maintenance
+        }
+    }
+
+    construction_demand = basic_construction_needs
+}
+```
+
+## Best Practices
+
+1. **Location type restrictions**: Use `rural_settlement`, `town`, and `city` booleans to control where buildings can appear
+2. **Location potential**: Use triggers to restrict buildings to appropriate terrain/climate/resources
+3. **Max levels**: Can use script values for dynamic max levels based on game state
+4. **Production methods**: Use `unique_production_methods` for building-specific consumption/production; use `possible_production_methods` to reference shared methods
+5. **Construction demand**: Reference script values from `/common/script_values/` for construction costs
+6. **Employment size**: Use script values to scale employment with building levels
+
+## Related Files
+
+- Building definitions: `/game/in_game/common/building_types/*.txt`
+- Script values (build time, employment, etc.): `/game/in_game/common/script_values/*.txt`
+- Localization: `/game/in_game/localization/english/*_l_english.yml`

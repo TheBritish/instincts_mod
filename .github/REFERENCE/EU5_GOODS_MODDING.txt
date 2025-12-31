@@ -1,0 +1,193 @@
+# EU5 Goods Modding Reference
+
+**Source**: [Goods modding - EU5 Wiki](https://eu5.paradoxwikis.com/Goods_modding)  
+**Verified for**: EU5 version 1.0
+
+## Overview
+
+Goods modding covers the creation and modification of trade goods in Europa Universalis V. Goods are resources that are produced, traded, and consumed in the game economy. Goods are stored in `/Europa Universalis V/game/in_game/common/goods/` as `.txt` files organized by category.
+
+## Goods Structure
+
+```
+goods_name = {
+    method = farming                    # Production method
+    category = raw_material             # Goods category
+
+    color = goods_color                 # Color for UI display
+
+    default_market_price = 3            # Base market price
+    transport_cost = 2                  # Cost to transport
+
+    base_production = 0.2               # Base production amount
+
+    inflation = yes                     # Causes inflation (precious metals)
+
+    ai_rgo_size_importance = 10         # AI preference for RGO expansion
+    ai_rgo_expansion_priority = 0.2     # AI priority for expanding production
+
+    development_threshold = 20          # Minimum development for demand
+
+    # Pop demand additions
+    demand_add = {
+        nobles = 0.25
+        burghers = 0.01
+        clergy = 0.01
+        all = 0.0004
+    }
+
+    # Pop demand multipliers
+    demand_multiply = {
+        upper = 2.5
+        nobles = 1.5
+    }
+
+    # Wealth thresholds for consumption
+    wealth_impact_threshold = {
+        all = 1.05
+        nobles = 1.5
+    }
+
+    custom_tags = { old_world_goods new_world_goods }
+}
+```
+
+## Key Attributes
+
+| Attribute | Description |
+|-----------|-------------|
+| `method` | Production method: farming, mining, gathering, forestry, hunting |
+| `category` | Goods category: raw_material, plantation, produced, food |
+| `color` | Color identifier for UI |
+| `default_market_price` | Base price in markets |
+| `transport_cost` | Cost added for transportation |
+| `base_production` | Default production amount without buildings |
+| `inflation` | If yes, producing this causes inflation (gold, silver) |
+| `ai_rgo_size_importance` | AI preference to avoid building cities on this RGO |
+| `ai_rgo_expansion_priority` | AI priority for expanding production |
+| `development_threshold` | Minimum development for demand to exist |
+| `demand_add` | Flat demand additions per pop type |
+| `demand_multiply` | Demand multipliers per pop type |
+| `wealth_impact_threshold` | Wealth level at which consumption changes |
+| `custom_tags` | Tags for scripting: old_world_goods, new_world_goods |
+
+## Production Methods
+
+- `farming` - Agricultural production (horses, silk, wine)
+- `mining` - Extracted from the ground (iron, gold, coal)
+- `gathering` - Collected resources (salt, pearls, sand)
+- `forestry` - Wood and forest products (lumber)
+- `hunting` - Animal products (ivory)
+
+## Goods Categories
+
+- `raw_material` - Basic unprocessed resources
+- `plantation` - Plantation crops (sugar, tobacco, cotton)
+- `produced` - Manufactured goods
+- `food` - Consumable food products
+
+## Demand System
+
+### demand_add
+
+Flat demand additions per pop:
+
+```
+demand_add = {
+    nobles = 0.25      # Nobles add 0.25 demand
+    burghers = 0.01
+    all = 0.0004       # All pops add this amount
+}
+```
+
+### demand_multiply
+
+Multipliers to base demand:
+
+```
+demand_multiply = {
+    upper = 2.5        # Upper class multiplier
+    nobles = 1.5       # Nobles-specific multiplier
+}
+```
+
+### wealth_impact_threshold
+
+Wealth level thresholds:
+
+```
+wealth_impact_threshold = {
+    all = 1.05         # All pops: 105% wealth threshold
+    nobles = 1.5       # Nobles: 150% wealth threshold
+}
+```
+
+## Base Game Goods Categories
+
+### Raw Materials
+
+Iron, copper, tin, lead, coal, stone, sand, clay, lumber, horses
+
+### Precious Goods
+
+Gold, silver, gems, pearls, amber, marble
+
+### Luxury Goods
+
+Silk, dyes, incense, tea, coffee, cocoa, spices (pepper, cloves, saffron, chili)
+
+### Agricultural
+
+Wine, fiber crops, medicaments, salt, fruit
+
+### Special
+
+Elephants, ivory, saltpeter, alum, mercury
+
+## Example
+
+```
+my_custom_goods = {
+    method = farming
+    category = raw_material
+    color = goods_custom
+
+    default_market_price = 4
+    transport_cost = 1
+
+    demand_add = {
+        nobles = 0.1
+        burghers = 0.05
+        all = 0.001
+    }
+
+    demand_multiply = {
+        upper = 2.0
+    }
+
+    wealth_impact_threshold = {
+        all = 1.0
+    }
+
+    custom_tags = { old_world_goods }
+}
+```
+
+## Best Practices
+
+1. **Production method**: Match method to how the good is obtained (farming for crops, mining for metals, gathering for rare materials)
+2. **Category**: Use appropriate category for economic simulation (raw_material vs produced affects trade dynamics)
+3. **Market price**: Balance `default_market_price` and `transport_cost` to create realistic trade economics
+4. **Demand system**: Use `demand_add` for baseline consumption and `demand_multiply` for luxury goods (high upper class consumption)
+5. **Wealth thresholds**: Set `wealth_impact_threshold` higher for luxury goods (only consumed when pop wealth is high)
+6. **AI priorities**: Use `ai_rgo_size_importance` and `ai_rgo_expansion_priority` to guide AI production decisions
+7. **Development threshold**: Set `development_threshold` for luxury/advanced goods that require developed provinces
+8. **Inflation**: Only use `inflation = yes` for precious metals (gold, silver) to simulate historical inflation
+9. **Custom tags**: Use `custom_tags` for scripting support (e.g., `old_world_goods` vs `new_world_goods` for events/modifiers)
+10. **Pop type demand**: Differentiate demand by pop type (nobles consume luxury goods, peasants consume basics)
+
+## Related Files
+
+- Goods definitions: `/game/in_game/common/goods/*.txt`
+- Script values (production, demand, etc.): `/game/in_game/common/script_values/*.txt`
+- Localization: `/game/in_game/localization/english/*_l_english.yml`

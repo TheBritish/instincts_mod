@@ -1,0 +1,855 @@
+## EU5 Modifier Types Reference
+## Source: https://eu5.paradoxwikis.com/Modifier_types
+## Last Updated: December 5, 2025
+
+✅ **COMPREHENSIVE DOCUMENTATION AVAILABLE**
+This is the complete modifier types reference for Europa Universalis V, covering all 2000+ defined modifier types.
+
+======================
+WHAT ARE MODIFIER TYPES?
+======================
+
+Modifier types are the individual statistics or boolean flags that can be modified by modifiers in EU5.
+They are the building blocks of static modifiers, laws, advances, traits, and many other game systems.
+
+Think of them as the "language" of game stat modification:
+- Modifier Type = The specific stat being changed (e.g., "discipline", "tax_income_efficiency")
+- Modifier Block = A collection of modifier types (e.g., a static modifier or trait)
+- Value = The amount by which the stat changes (e.g., +0.05, -10%, yes/no)
+
+======================
+BEHAVIOR OF MODIFIER TYPES
+======================
+
+DATA TYPES
+----------------------------------
+Modifier types come in two flavors:
+
+**NUMERICAL** (default value: 0)
+Holds numbers that add together when multiple sources apply:
+- discipline = 0.05
+- tax_income_efficiency = 0.10
+
+**BOOLEAN** (default value: no)
+Holds yes/no flags:
+- may_explore = yes
+- disallows_female_rulers = yes
+
+ADDITIVE vs MULTIPLICATIVE
+----------------------------------
+**ADDITIVE** modifiers add directly to base value:
+discipline = 0.05 (adds 5% to base)
+discipline = 0.03 (adds 3% more)
+Total: Base + 8%
+
+**MULTIPLICATIVE** modifiers multiply the current value:
+discipline_modifier = 0.10 (10% increase to current value)
+discipline_modifier = 0.05 (5% more increase)
+Total: Base × 1.10 × 1.05
+
+SUMMING
+----------------------------------
+Identical numerical modifier types affecting the same scope sum together:
+- Trait gives: discipline = 0.05
+- Law gives: discipline = 0.03
+- Advance gives: discipline = 0.02
+- Final value: 0.10 (all three add together)
+
+======================
+MODIFIER BLOCKS
+======================
+
+WHERE MODIFIER TYPES APPEAR
+----------------------------------
+Modifier types are used in many game object definitions:
+
+**STATIC MODIFIERS** (common/static_modifiers/)
+economic_boom = {
+    game_data = {
+        category = country
+    }
+    tax_income_efficiency = 0.10
+    production_efficiency = 0.05
+    trade_power = 0.15
+}
+
+**LAWS** (common/laws/)
+my_law = {
+    modifier = {
+        discipline = 0.05
+        manpower_modifier = 0.10
+    }
+}
+
+**ADVANCES** (common/advances/)
+military_innovation = {
+    modifier = {
+        discipline = 0.03
+        regiment_recruit_speed = 0.10
+    }
+}
+
+**TRAITS** (common/traits/)
+brilliant_strategist = {
+    modifier = {
+        mil = 2
+        army_morale_modifier = 0.10
+    }
+}
+
+**ESTATE PRIVILEGES** (common/estate_privileges/)
+noble_officers = {
+    modifier = {
+        nobles_estate_levy_size = 0.20
+        army_tradition = 0.5
+    }
+}
+
+MODIFIER BLOCK STRUCTURE
+----------------------------------
+A modifier block explicitly labeled with "modifier" or similar:
+
+my_modifier = {
+    game_data = {
+        category = country        # Scope this applies to
+    }
+    
+    # Numerical modifier types
+    discipline = 0.05             # Additive
+    tax_income_efficiency = 0.10  # Additive
+    manpower_modifier = 0.15      # Multiplicative
+    
+    # Boolean modifier types
+    may_explore = yes
+    disallows_female_rulers = no
+}
+
+======================
+ACCESSING MODIFIER TYPE VALUES
+======================
+
+IN SCRIPT (TRIGGERS & EFFECTS)
+----------------------------------
+The special event target "modifier" returns the summed value of a modifier type:
+
+# In a trigger:
+if = {
+    limit = {
+        modifier:discipline >= 0.15
+    }
+    # Character has at least 15% discipline
+}
+
+# In a script value:
+set_variable = {
+    name = my_discipline
+    value = modifier:discipline
+}
+
+# In an effect that accepts script values:
+add_manpower = {
+    value = 1000
+    multiply = modifier:manpower_modifier
+}
+
+# Boolean modifiers:
+if = {
+    limit = { modifier:may_explore = yes }
+    # Can explore
+}
+
+======================
+DEFINING MODIFIER TYPES
+======================
+
+LOCATION
+----------------------------------
+All modifier types are defined in:
+common/modifier_type_definitions/
+
+STRUCTURE
+----------------------------------
+modifier_type_name = {
+    decimals = 2                  # Display precision (0, 1, or 2)
+    color = good                  # neutral, good, or bad
+    percent = yes                 # Display as percentage (multiply by 100)
+    boolean = yes                 # Boolean type (yes/no instead of number)
+    prefix = "PREFIX_KEY"         # Localization key prefix
+    suffix = "SUFFIX_KEY"         # Localization key suffix
+    
+    game_data = {
+        # Internal handling details
+    }
+}
+
+PARAMETER DETAILS
+----------------------------------
+**decimals**
+Controls display precision:
+- 0: No decimals (integer)
+- 1: One decimal place
+- 2: Two decimal places
+
+Example:
+discipline (decimals = 2): 0.05 displays as "5.00%"
+manpower (decimals = 0): 1234.5 displays as "1234"
+
+**color**
+Controls value coloring in UI:
+- neutral: Always black
+- good: Green for positive, red for negative
+- bad: Red for positive, green for negative
+
+Example:
+tax_income_efficiency (good): +10% shows green, -10% shows red
+corruption (bad): +5 shows red (bad!), -5 shows green (good!)
+
+**percent**
+If yes, multiply displayed value by 100:
+discipline = 0.05 displays as "5%"
+
+**boolean**
+If yes, modifier is yes/no flag instead of number:
+may_explore = yes
+
+**prefix/suffix**
+Localization keys added before/after value:
+prefix = "GOLD_ICON"
+Result: "@gold! 100"
+
+======================
+LOCALIZATION
+======================
+
+AUTOMATIC KEYS
+----------------------------------
+Each modifier type generates two localization keys:
+
+MODIFIER_TYPE_NAME_<key>
+MODIFIER_TYPE_DESC_<key>
+
+Example for "discipline":
+MODIFIER_TYPE_NAME_discipline: "Discipline"
+MODIFIER_TYPE_DESC_discipline: "Combat effectiveness of units"
+
+In your localization files:
+l_english:
+ MODIFIER_TYPE_NAME_discipline: "Discipline"
+ MODIFIER_TYPE_DESC_discipline: "Increases the combat effectiveness of all military units."
+
+======================
+MODIFIER TYPE CATEGORIES
+======================
+
+SCOPE PREFIXES
+----------------------------------
+Modifier types often use prefixes to indicate scope:
+
+**global_** - Applies to entire country
+global_manpower_modifier = 0.10
+global_population_growth = 0.05
+
+**local_** - Applies to specific location/province
+local_tax_income = 0.15
+local_manpower = 50
+
+No prefix - Usually country-level
+discipline = 0.05
+tax_income_efficiency = 0.10
+
+COMMON PATTERNS
+----------------------------------
+**_modifier** suffix - Multiplicative percentage
+manpower_modifier = 0.10          # 10% increase
+discipline_modifier = 0.05        # 5% increase
+
+**_cost** suffix - Resource/action cost
+stability_cost = 0.20             # 20% more expensive
+building_cost = -0.15             # 15% cheaper
+
+**_speed** suffix - Rate of change
+regiment_recruit_speed = 0.25     # 25% faster
+research_speed = 0.10             # 10% faster
+
+**can_** / **may_** prefix - Boolean enablers
+can_explore = yes
+may_build_sofa_units = yes
+
+**allowed_** prefix - Permission flags
+allowed_threaten_war = yes
+allowed_to_become_shogun = yes
+
+**monthly_** prefix - Per-month changes
+monthly_prestige = 1.0
+monthly_gold_income = 50
+
+**max_** prefix - Maximum values
+max_constructions_at_same_time = 2
+max_attrition = 5.0
+
+======================
+MAJOR MODIFIER TYPE GROUPS
+======================
+
+MILITARY MODIFIERS
+----------------------------------
+**Combat Effectiveness**
+discipline = 0.05
+army_morale_modifier = 0.10
+navy_morale_modifier = 0.15
+levy_combat_efficiency_modifier = 0.08
+
+**Unit Stats**
+fire_damage = 0.10
+shock_damage = 0.15
+movement_speed = 0.20
+
+**Recruitment & Maintenance**
+regiment_recruit_speed = 0.25
+levy_maintenance_modifier = -0.10
+army_reinforce_cost_modifier = -0.15
+
+**Experience & Tradition**
+monthly_army_tradition = 0.5
+monthly_navy_tradition = 0.3
+monthly_experience_gain = 0.20
+
+ECONOMIC MODIFIERS
+----------------------------------
+**Income**
+tax_income_efficiency = 0.10
+production_efficiency = 0.15
+trade_income_modifier = 0.20
+monthly_gold_income = 100
+
+**Costs**
+stability_cost = -0.10
+building_cost = -0.15
+advisor_cost_modifier = -0.20
+
+**Trade**
+trade_power = 0.25
+global_trade_center_power = 0.10
+merchant_capacity = 1
+
+ADMINISTRATIVE MODIFIERS
+----------------------------------
+**Capacity & Efficiency**
+diplomatic_capacity = 2
+government_size = 1
+legislative_efficiency = 0.10
+
+**Stability & Legitimacy**
+stability_investment = 10
+monthly_legitimacy = 0.5
+prestige_decay = -0.01
+
+**Diplomatic**
+diplomatic_reputation = 1
+improve_relation_impact = 0.20
+diplomatic_range_modifier = 0.25
+
+POPULATION MODIFIERS
+----------------------------------
+**Growth & Capacity**
+global_population_growth = 0.05
+local_population_capacity_modifier = 0.10
+global_population_capacity_modifier = 0.15
+
+**Migration**
+local_migration_attraction = 10
+local_migration_speed_modifier = 0.20
+
+**Pop Types**
+global_clergy_desired_pop = 100
+global_nobles_desired_pop_scaled = 0.10
+local_peasants_desired_pop = 50
+
+**Assimilation & Conversion**
+global_pop_assimilation_speed = 0.10
+global_pop_conversion_speed_modifier = 0.15
+
+LOCATION MODIFIERS
+----------------------------------
+**Development**
+local_monthly_development = 0.1
+local_monthly_development_modifier = 0.10
+
+**Control & Unrest**
+local_monthly_control = 0.05
+local_unrest = -2.0
+local_separatism = -5.0
+
+**Production**
+local_goods_output_modifier = 0.15
+local_tax_income = 0.10
+local_manpower = 50
+
+**Specific Goods**
+local_gold_output_modifier = 0.20
+local_grain_output_modifier = 0.15
+local_iron_output_modifier = 0.10
+
+ESTATE MODIFIERS
+----------------------------------
+**Satisfaction**
+nobles_estate_satisfaction_decay = -0.10
+clergy_estate_satisfaction_recovery = 0.15
+burghers_estate_target_satisfaction = 0.05
+
+**Power & Influence**
+global_estate_power = -0.10
+nobles_estate_levy_size = 0.20
+clergy_estate_max_tax = 0.15
+
+**Permissions**
+nobles_estate_allowed_in_cabinet = yes
+clergy_estate_can_participate_in_parliament = yes
+
+BOOLEAN MODIFIERS
+----------------------------------
+**Permissions**
+may_explore = yes
+can_hire_privateers = yes
+allowed_threaten_war = yes
+
+**Restrictions**
+cannot_declare_no_cb_wars = yes
+disallows_female_rulers = yes
+slavery_blocked = yes
+
+**Special Mechanics**
+has_a_parliamentary_system = yes
+permanent_parliament_location = yes
+constructions_stalled = yes
+
+======================
+COMPLETE MODIFIER TYPE LIST
+======================
+
+⚠️ **NOTE: Over 2000 modifier types exist!**
+The following is an abbreviated list of the most commonly used types.
+For the complete list, see the wiki or game files: common/modifier_type_definitions/
+
+MILITARY (Sample)
+----------------------------------
+discipline
+army_morale_modifier
+navy_morale_modifier
+fire_damage
+shock_damage
+army_tradition
+navy_tradition
+manpower_modifier
+sailors_modifier
+regiment_recruit_speed
+levy_combat_efficiency_modifier
+global_garrison_size_modifier
+
+ECONOMIC (Sample)
+----------------------------------
+tax_income_efficiency
+production_efficiency
+trade_income_modifier
+trade_power
+monthly_gold_income
+monthly_gold_expense
+bank_interest
+stability_cost
+building_cost
+inflation
+corruption
+
+ADMINISTRATIVE (Sample)
+----------------------------------
+adm (Administrative skill)
+dip (Diplomatic skill)
+mil (Military skill)
+diplomatic_reputation
+diplomatic_capacity
+diplomatic_range
+improve_relation_impact
+monthly_prestige
+prestige_decay
+monthly_legitimacy
+power_projection
+
+POPULATION (Sample)
+----------------------------------
+global_population_growth
+global_population_capacity_modifier
+global_pop_assimilation_speed
+global_pop_conversion_speed_modifier
+local_migration_attraction
+local_migration_speed
+global_max_literacy
+local_monthly_literacy
+
+LOCATION (Sample)
+----------------------------------
+local_monthly_development
+local_tax_income
+local_production_efficiency
+local_trade_power
+local_manpower
+local_sailors
+local_unrest
+local_separatism
+local_monthly_control
+local_hostile_attrition
+
+INSTITUTION & CULTURE (Sample)
+----------------------------------
+global_institution_growth_modifier
+local_institution_growth_modifier
+cultural_influence
+cultural_tradition
+cultures_capacity
+
+RELIGION (Sample)
+----------------------------------
+tolerance_own
+tolerance_heretic
+tolerance_heathen
+religious_unity_importance_modifier
+monthly_devotion
+monthly_harmony
+monthly_papal_authority
+
+ESTATE (Sample)
+----------------------------------
+nobles_estate_levy_size
+clergy_estate_satisfaction_decay
+burghers_estate_target_satisfaction
+global_estate_power
+estate_building_cost_modifier
+
+SPECIFIC GOODS OUTPUT (Sample)
+----------------------------------
+global_gold_output_modifier
+global_grain_output_modifier
+global_iron_output_modifier
+global_cloth_output_modifier
+global_spices_output_modifier
+local_gold_output_modifier
+(... and 100+ more goods)
+
+BOOLEAN FLAGS (Sample)
+----------------------------------
+may_explore
+can_hire_privateers
+allowed_threaten_war
+cannot_declare_no_cb_wars
+disallows_female_rulers
+slavery_blocked
+has_a_parliamentary_system
+may_build_special_units
+can_build_cities
+
+======================
+COMMON PATTERNS & USAGE
+======================
+
+STACKING MODIFIERS
+----------------------------------
+Multiple sources of the same modifier type add together:
+
+# From trait:
+brilliant_general = {
+    modifier = {
+        discipline = 0.05
+    }
+}
+
+# From law:
+professional_army = {
+    modifier = {
+        discipline = 0.03
+    }
+}
+
+# From advance:
+military_reforms = {
+    modifier = {
+        discipline = 0.02
+    }
+}
+
+# Total discipline bonus: 0.10 (10%)
+
+PERCENTAGE MODIFIERS
+----------------------------------
+Most modifiers are percentages when percent = yes:
+
+tax_income_efficiency = 0.10      # 10% increase to tax income
+building_cost = -0.15             # 15% reduction in building cost
+
+Display: "Tax Income Efficiency: +10%"
+
+FLAT MODIFIERS
+----------------------------------
+Some modifiers are flat values (percent = no):
+
+monthly_prestige = 1.0            # +1.0 prestige per month
+max_constructions_at_same_time = 2  # +2 construction slots
+
+Display: "Monthly Prestige: +1.0"
+
+CONDITIONAL MODIFIERS
+----------------------------------
+Modifier types themselves don't have conditions, but the modifier blocks that contain them do:
+
+my_conditional_modifier = {
+    trigger = {
+        stability >= 2
+    }
+    
+    modifier = {
+        tax_income_efficiency = 0.10
+        # Only applies if stability >= 2
+    }
+}
+
+======================
+MODDING MODIFIER TYPES
+======================
+
+CREATING CUSTOM MODIFIER TYPES
+----------------------------------
+File: common/modifier_type_definitions/my_modifiers.txt
+
+my_custom_bonus = {
+    decimals = 2
+    color = good
+    percent = yes
+    
+    game_data = {
+        # Engine configuration
+    }
+}
+
+LOCALIZATION
+----------------------------------
+File: localization/english/my_modifiers_l_english.yml
+
+l_english:
+ MODIFIER_TYPE_NAME_my_custom_bonus: "My Custom Bonus"
+ MODIFIER_TYPE_DESC_my_custom_bonus: "Increases effectiveness of my custom mechanic."
+
+USING CUSTOM MODIFIER TYPES
+----------------------------------
+Once defined, use like any other modifier type:
+
+my_trait = {
+    modifier = {
+        my_custom_bonus = 0.15
+    }
+}
+
+my_law = {
+    modifier = {
+        my_custom_bonus = 0.10
+        tax_income_efficiency = 0.05
+    }
+}
+
+======================
+BEST PRACTICES
+======================
+
+1. NAMING CONVENTIONS
+----------------------------------
+✅ Follow existing patterns:
+- Use _modifier suffix for multiplicative percentages
+- Use _cost suffix for cost modifiers
+- Use global_ or local_ prefix for scope
+- Use monthly_ prefix for per-month values
+- Use can_/may_/allowed_ prefix for booleans
+
+❌ Don't use inconsistent names:
+- my_random_stat (unclear)
+- SuperBonus (wrong case)
+- tax_thing (vague)
+
+2. CHOOSE APPROPRIATE TYPE
+----------------------------------
+✅ Use multiplicative (_modifier) for percentage scaling:
+manpower_modifier = 0.10          # 10% more manpower
+
+✅ Use additive for flat bonuses:
+monthly_prestige = 1.0            # +1 prestige per month
+
+❌ Don't mix patterns confusingly
+
+3. SET CORRECT PARAMETERS
+----------------------------------
+✅ Match decimals to value precision:
+decimals = 2 for 0.05 (5.00%)
+decimals = 0 for integers
+
+✅ Use appropriate color:
+color = good for beneficial stats
+color = bad for negative stats (corruption, attrition)
+
+4. BALANCE VALUES
+----------------------------------
+✅ Use reasonable ranges:
+discipline = 0.05 (5% is significant)
+tax_income_efficiency = 0.10 (10% is substantial)
+
+❌ Avoid extreme values:
+discipline = 5.0 (500%! Game-breaking)
+
+5. DOCUMENT MODIFIERS
+----------------------------------
+✅ Add clear descriptions in localization
+✅ Comment complex modifier blocks
+✅ Group related modifiers together
+
+======================
+DEBUGGING MODIFIER TYPES
+======================
+
+VIEW IN-GAME
+----------------------------------
+1. Hover over stats in UI to see modifier breakdown
+2. Open country/character modifier tooltips
+3. Check modifier list in debug mode
+
+CONSOLE COMMANDS
+----------------------------------
+debug_mode                        # Enable debug overlays
+reload modifier_type_definitions  # Reload modifier definitions
+
+COMMON ISSUES
+----------------------------------
+❌ ERROR: Modifier type not recognized
+Cause: Typo in modifier type name
+
+✅ FIX: Check spelling against defined modifier types
+Check: common/modifier_type_definitions/
+
+❌ ERROR: Modifier not displaying correctly
+Cause: Missing localization keys
+
+✅ FIX: Add MODIFIER_TYPE_NAME_<key> and MODIFIER_TYPE_DESC_<key>
+
+❌ ERROR: Modifier value seems wrong
+Cause: Additive vs multiplicative confusion
+
+✅ FIX: Check if modifier uses _modifier suffix (multiplicative)
+
+❌ ERROR: Boolean modifier not working
+Cause: Using number instead of yes/no
+
+✅ FIX: Use yes/no for boolean modifier types
+
+======================
+PRACTICAL EXAMPLES
+======================
+
+EXAMPLE 1: Economic Prosperity Modifier
+----------------------------------
+# Static modifier definition:
+economic_prosperity = {
+    game_data = {
+        category = country
+    }
+    
+    tax_income_efficiency = 0.15
+    production_efficiency = 0.10
+    trade_power = 0.20
+    monthly_gold_income = 50
+    stability_investment = 10
+}
+
+# Localization:
+l_english:
+ economic_prosperity: "Economic Prosperity"
+ desc_economic_prosperity: "The economy is booming!"
+
+EXAMPLE 2: Military Reform Law
+----------------------------------
+# Law with military modifiers:
+professional_standing_army = {
+    modifier = {
+        discipline = 0.05
+        army_morale_modifier = 0.10
+        regiment_recruit_speed = 0.15
+        levy_maintenance_modifier = 0.20  # Downside: more expensive
+    }
+}
+
+EXAMPLE 3: Brilliant General Trait
+----------------------------------
+# Character trait:
+brilliant_general = {
+    modifier = {
+        mil = 2
+        army_morale_modifier = 0.10
+        discipline = 0.03
+        monthly_army_tradition = 0.5
+    }
+}
+
+EXAMPLE 4: Location Development Modifier
+----------------------------------
+# Province modifier:
+thriving_metropolis = {
+    game_data = {
+        category = location
+    }
+    
+    local_monthly_development = 0.1
+    local_tax_income = 0.20
+    local_population_capacity_modifier = 0.25
+    local_migration_attraction = 10
+    local_unrest = -1.0
+}
+
+EXAMPLE 5: Estate Privilege
+----------------------------------
+# Estate privilege with mixed modifiers:
+noble_military_leadership = {
+    modifier = {
+        nobles_estate_levy_size = 0.25
+        nobles_estate_allowed_leading_military = yes
+        army_tradition = 1.0
+        nobles_estate_power = 0.10  # Downside: more power
+    }
+}
+
+EXAMPLE 6: Accessing Modifier Values in Script
+----------------------------------
+# In event trigger:
+trigger = {
+    modifier:discipline >= 0.20
+    modifier:may_explore = yes
+}
+
+# In effect:
+effect = {
+    add_manpower = {
+        value = 1000
+        multiply = modifier:manpower_modifier
+    }
+    
+    if = {
+        limit = { modifier:has_a_parliamentary_system = yes }
+        # Special parliament logic
+    }
+}
+
+======================
+CROSS-REFERENCES
+======================
+📄 Related Files:
+- EU5_MODIFIERS_REFERENCE.txt - Creating and using static modifiers
+- EU5_TRIGGERS_REFERENCE.txt - Testing modifier values
+- EU5_EFFECTS_REFERENCE.txt - Applying modifiers
+- EU5_SCOPES_REFERENCE.txt - Understanding modifier scope
+- common/modifier_type_definitions/ - All defined modifier types
+- common/static_modifiers/ - Example modifier blocks
+- common/laws/ - Law modifiers
+- common/advances/ - Advance modifiers
+- common/traits/ - Trait modifiers

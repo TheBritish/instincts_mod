@@ -1,0 +1,965 @@
+## EU5 Script Values Reference
+## Source: https://eu5.paradoxwikis.com/Script_values + Vanilla Game Files
+## Last Updated: December 10, 2025
+
+⚠️ **NOTE: The wiki page for Script values is currently empty!**
+This reference is compiled from vanilla game file analysis in common/script_values/ and practical modding experience.
+
+======================
+STANDARD SCRIPT VALUE CONSTANTS
+======================
+
+From main_menu/common/script_values/default_values.txt - These are the standard constants used throughout EU5:
+
+STABILITY VALUES:
+----------------------------------
+stability_radical_penalty = -100
+stability_ultimate_penalty = -50
+stability_very_extreme_penalty = -25
+stability_extreme_penalty = -20
+stability_severe_penalty = -12
+stability_mild_penalty = -7
+stability_weak_penalty = -2.5
+stability_weak_bonus = 2.5
+stability_mild_bonus = 7
+stability_severe_bonus = 12
+stability_extreme_bonus = 20
+stability_very_extreme_bonus = 25
+stability_ultimate_bonus = 50
+stability_radical_bonus = 100
+
+PRESTIGE VALUES:
+----------------------------------
+prestige_radical_penalty = -100
+prestige_ultimate_penalty = -50
+prestige_extreme_penalty = -20
+prestige_severe_penalty = -15
+prestige_mild_penalty = -10
+prestige_weak_penalty = -5
+prestige_weak_bonus = 5
+prestige_mild_bonus = 10
+prestige_severe_bonus = 15
+prestige_extreme_bonus = 20
+prestige_ultimate_bonus = 50
+prestige_radical_bonus = 100
+
+MONTHLY PRESTIGE VALUES:
+----------------------------------
+monthly_prestige_radical_penalty = -1.0
+monthly_prestige_ultimate_penalty = -0.5
+monthly_prestige_extreme_penalty = -0.33
+monthly_prestige_severe_penalty = -0.25
+monthly_prestige_mild_penalty = -0.1
+monthly_prestige_weak_penalty = -0.05
+monthly_prestige_very_weak_penalty = -0.02
+monthly_prestige_very_weak_bonus = 0.02
+monthly_prestige_weak_bonus = 0.05
+monthly_prestige_mild_bonus = 0.1
+monthly_prestige_severe_bonus = 0.25
+monthly_prestige_extreme_bonus = 0.33
+monthly_prestige_ultimate_bonus = 0.5
+monthly_prestige_radical_bonus = 1.0
+
+GOVERNMENT POWER VALUES:
+----------------------------------
+government_power_radical_penalty = -50
+government_power_ultimate_penalty = -25
+government_power_extreme_penalty = -10
+government_power_severe_penalty = -7.5
+government_power_mild_penalty = -5
+government_power_weak_penalty = -2.5
+government_power_weak_bonus = 2.5
+government_power_mild_bonus = 5
+government_power_severe_bonus = 7.5
+government_power_extreme_bonus = 10
+government_power_ultimate_bonus = 25
+government_power_radical_bonus = 50
+
+LEGITIMACY VALUES:
+----------------------------------
+legitimacy_radical_penalty = -100
+legitimacy_ultimate_penalty = -50
+legitimacy_extreme_penalty = -20
+legitimacy_severe_penalty = -15
+legitimacy_mild_penalty = -10
+legitimacy_weak_penalty = -5
+legitimacy_weak_bonus = 5
+legitimacy_mild_bonus = 10
+legitimacy_severe_bonus = 15
+legitimacy_extreme_bonus = 20
+legitimacy_ultimate_bonus = 50
+legitimacy_radical_bonus = 100
+
+DEVOTION VALUES:
+----------------------------------
+devotion_radical_penalty = -100
+devotion_ultimate_penalty = -50
+devotion_extreme_penalty = -20
+devotion_severe_penalty = -15
+devotion_mild_penalty = -10
+devotion_weak_penalty = -5
+devotion_weak_bonus = 5
+devotion_mild_bonus = 10
+devotion_severe_bonus = 15
+devotion_extreme_bonus = 20
+devotion_ultimate_bonus = 50
+devotion_radical_bonus = 100
+
+REPUBLICAN TRADITION VALUES:
+----------------------------------
+republican_tradition_radical_penalty = -100
+republican_tradition_ultimate_penalty = -50
+republican_tradition_extreme_penalty = -20
+republican_tradition_severe_penalty = -15
+republican_tradition_mild_penalty = -10
+republican_tradition_weak_penalty = -5
+republican_tradition_weak_bonus = 5
+republican_tradition_mild_bonus = 10
+republican_tradition_severe_bonus = 15
+republican_tradition_extreme_bonus = 20
+republican_tradition_ultimate_bonus = 50
+republican_tradition_radical_bonus = 100
+
+GAME DEFINE CONSTANTS:
+----------------------------------
+From in_game/common/script_values/define_values.txt:
+
+# Character Actions
+DISINHERIT_PRESTIGE_HIT = -50
+ABDICATE_PRESTIGE_HIT = -50
+ABDICATE_GOVERNMENT_POWER_HIT = -20
+REMOVE_CONSORT_PRESTIGE_HIT = -30
+
+# War & Diplomacy
+MONTHS_BEFORE_OVERLORD_CAN_JOIN_CIVIL_WAR = 6
+HIGH_WAR_EXHAUSTION = 10
+
+# Horde Civil War
+HORDE_CIVIL_WAR_END_STABILITY = 25
+HORDE_CIVIL_WAR_END_HORDE_UNITY = 90
+HORDE_CIVIL_WAR_PRE_END_STABILITY = 15
+HORDE_CIVIL_WAR_PRE_END_HORDE_UNITY = 70
+
+# International Organizations
+INTERNATIONAL_ORGANIZATION_SAME_AGENDA_COOLDOWN_YEARS = 2
+
+# Personal Union Laws
+UNION_SAME_INHERITANCE_LEVEL = 2
+UNION_SAME_LAWS_LEVEL = 5
+MIN_YEARS_IN_ORGANIZATION_REQUIRED = 5
+
+# Holy Roman Empire
+LONG_IMPERIAL_REGENCY_YEARS = 5
+
+# Subject Relations
+MIN_SUBJECT_LOYALTY_FOR_ACTION = 50
+MAX_SUBJECT_LIBERTY_DESIRE_FOR_ACTION = 50
+LIBERTY_DESIRE_AUTONOMY_GRANTED_VALUE = -10
+LIBERTY_DESIRE_AUTONOMY_REVOKED_VALUE = 25
+
+# Red Turban Rebellions
+RTR_IS_LOYAL_VALUE = 50
+RTR_IS_NEUTRAL_VALUE = 0
+
+======================
+WHAT ARE SCRIPT VALUES?
+======================
+
+Script values are dynamic calculations that return numerical values based on game state.
+They allow complex math, conditional logic, and data queries to compute values on-the-fly.
+
+Think of script values as "formulas" or "calculated fields":
+- Instead of hardcoded "100 gold", use a formula: "100 * country_development"
+- Instead of fixed "5% bonus", calculate: "base_value + (ruler_skill * 0.01)"
+
+Script values are used in:
+- Triggers (comparing calculated values)
+- Effects (setting dynamic amounts)
+- Modifiers (calculating modifier strength)
+- Events (determining outcomes)
+
+======================
+WHERE TO DEFINE SCRIPT VALUES
+======================
+
+LOCATION
+----------------------------------
+All script values are defined in:
+common/script_values/
+
+FILE STRUCTURE
+----------------------------------
+# File: common/script_values/my_values.txt
+
+my_calculated_value = {
+    value = 100                    # Base value
+    
+    add = 50                       # Add 50
+    multiply = 2                   # Multiply result by 2
+    
+    if = {
+        limit = { stability >= 2 }
+        add = 25                   # Add 25 if stable
+    }
+}
+
+another_value = {
+    value = ROOT.GetGold           # Use game data
+    multiply = 0.1                 # 10% of gold
+}
+
+======================
+BASIC SYNTAX
+======================
+
+SIMPLE VALUE
+----------------------------------
+my_value = {
+    value = 100
+}
+
+# Returns: 100
+
+ARITHMETIC OPERATIONS
+----------------------------------
+my_calculation = {
+    value = 50
+    add = 25           # Now 75
+    subtract = 10      # Now 65
+    multiply = 2       # Now 130
+    divide = 5         # Now 26
+}
+
+ORDER OF OPERATIONS
+----------------------------------
+Operations execute TOP TO BOTTOM (not mathematical order):
+
+my_value = {
+    value = 10
+    add = 5            # 15
+    multiply = 2       # 30 (not 10 + (5*2) = 20!)
+}
+
+To control order, nest operations or use separate script values.
+
+======================
+CONDITIONAL LOGIC
+======================
+
+IF BLOCKS
+----------------------------------
+my_conditional_value = {
+    value = 100
+    
+    if = {
+        limit = { stability >= 2 }
+        add = 50
+    }
+    
+    if = {
+        limit = { stability < 0 }
+        subtract = 50
+    }
+}
+
+ELSE_IF
+----------------------------------
+my_tiered_value = {
+    value = 0
+    
+    if = {
+        limit = { development >= 20 }
+        add = 100
+    }
+    else_if = {
+        limit = { development >= 10 }
+        add = 50
+    }
+    else = {
+        add = 25
+    }
+}
+
+NESTED CONDITIONS
+----------------------------------
+complex_value = {
+    value = 100
+    
+    if = {
+        limit = {
+            is_at_war = yes
+            war_exhaustion >= 5
+        }
+        
+        multiply = 0.5
+        
+        if = {
+            limit = { stability < 0 }
+            multiply = 0.5  # Stack penalties
+        }
+    }
+}
+
+======================
+DATA ACCESS
+======================
+
+SCOPE DATA FUNCTIONS
+----------------------------------
+Script values can access game data via scope functions:
+
+country_gold_value = {
+    value = ROOT.GetGold
+}
+
+ruler_skill_bonus = {
+    value = ROOT.GetRuler.GetAdm
+    add = ROOT.GetRuler.GetDip
+    add = ROOT.GetRuler.GetMil
+}
+
+location_development = {
+    value = ROOT.GetDevelopment
+}
+
+MODIFIER VALUES
+----------------------------------
+Access modifier type values using modifier: prefix:
+
+discipline_value = {
+    value = modifier:discipline
+    multiply = 100  # Convert to percentage
+}
+
+combined_income = {
+    value = modifier:tax_income_efficiency
+    add = modifier:production_efficiency
+    add = modifier:trade_income_modifier
+}
+
+VARIABLES
+----------------------------------
+Access saved variables:
+
+investigation_progress = {
+    value = ROOT.GetVariable('investigation_count')
+    multiply = 10
+}
+
+custom_calculation = {
+    value = var:my_stored_value
+    add = 50
+}
+
+DEFINES
+----------------------------------
+Access game defines:
+
+manpower_calculation = {
+    value = define:NCountry|BASE_MANPOWER
+    multiply = ROOT.GetDevelopment
+}
+
+======================
+ADVANCED OPERATIONS
+======================
+
+MIN/MAX
+----------------------------------
+capped_value = {
+    value = ROOT.GetGold
+    min = 100          # Never less than 100
+    max = 1000         # Never more than 1000
+}
+
+ROUND/FLOOR/CEILING
+----------------------------------
+rounded_value = {
+    value = 123.456
+    round = yes        # 123
+}
+
+floored_value = {
+    value = 123.456
+    floor = yes        # 123
+}
+
+ceiling_value = {
+    value = 123.456
+    ceiling = yes      # 124
+}
+
+ABSOLUTE VALUE
+----------------------------------
+absolute_value = {
+    value = -50
+    abs = yes          # 50
+}
+
+CLAMP
+----------------------------------
+clamped_value = {
+    value = ROOT.GetStability
+    min = -3
+    max = 3
+}
+
+======================
+SCOPE CHAINING
+======================
+
+DOT NOTATION
+----------------------------------
+ruler_admin_value = {
+    value = ROOT.GetRuler.GetAdm
+}
+
+capital_development = {
+    value = ROOT.GetCapital.GetDevelopment
+}
+
+SCOPE ITERATION
+----------------------------------
+# Count items in a scope list
+province_count = {
+    value = 0
+    
+    every_owned_location = {
+        ROOT = {
+            add = 1
+        }
+    }
+}
+
+# Sum values from list
+total_development = {
+    value = 0
+    
+    every_owned_location = {
+        ROOT = {
+            add = PREV.GetDevelopment
+        }
+    }
+}
+
+SAVED SCOPES
+----------------------------------
+target_country_gold = {
+    value = scope:target_country.GetGold
+}
+
+rival_strength = {
+    value = scope:rival.GetMilitaryPower
+}
+
+======================
+USING SCRIPT VALUES
+======================
+
+IN TRIGGERS
+----------------------------------
+trigger = {
+    # Compare to script value
+    gold >= my_gold_requirement
+    
+    # Use script value in comparison
+    ROOT.ScriptValue('my_calculated_value') >= 100
+}
+
+IN EFFECTS
+----------------------------------
+effect = {
+    # Add dynamic amount
+    add_gold = my_gold_bonus
+    
+    # Use in set effects
+    set_variable = {
+        name = my_var
+        value = my_calculated_value
+    }
+    
+    # Scale effects
+    add_manpower = {
+        value = 1000
+        multiply = manpower_bonus_multiplier
+    }
+}
+
+IN MODIFIERS
+----------------------------------
+# Modifier that uses script value
+my_modifier = {
+    modifier = {
+        discipline = my_discipline_calculation
+    }
+}
+
+# Note: Script values in modifiers recalculate dynamically
+
+IN LOCALIZATION
+----------------------------------
+l_english:
+ my_event_desc: "Gold bonus: [ROOT.ScriptValue('my_gold_bonus')]"
+ calculated_text: "Your score is [ROOT.ScriptValue('player_score')|0]"
+
+======================
+COMMON PATTERNS
+======================
+
+SCALING BY DEVELOPMENT
+----------------------------------
+development_scaled_bonus = {
+    value = ROOT.GetDevelopment
+    multiply = 0.5
+    max = 100
+}
+
+RULER SKILL BONUS
+----------------------------------
+ruler_total_skill = {
+    value = ROOT.GetRuler.GetAdm
+    add = ROOT.GetRuler.GetDip
+    add = ROOT.GetRuler.GetMil
+    
+    # Bonus if all skills high
+    if = {
+        limit = {
+            ROOT.GetRuler.GetAdm >= 4
+            ROOT.GetRuler.GetDip >= 4
+            ROOT.GetRuler.GetMil >= 4
+        }
+        add = 5
+    }
+}
+
+PERCENTAGE CALCULATION
+----------------------------------
+tax_efficiency_percentage = {
+    value = modifier:tax_income_efficiency
+    multiply = 100
+    round = yes
+}
+
+PROGRESSIVE SCALING
+----------------------------------
+progressive_cost = {
+    value = 100  # Base cost
+    
+    if = {
+        limit = { ROOT.GetNumProvinces <= 10 }
+        multiply = 1.0
+    }
+    else_if = {
+        limit = { ROOT.GetNumProvinces <= 25 }
+        multiply = 1.5
+    }
+    else_if = {
+        limit = { ROOT.GetNumProvinces <= 50 }
+        multiply = 2.0
+    }
+    else = {
+        multiply = 3.0
+    }
+}
+
+RISK/REWARD CALCULATION
+----------------------------------
+rebellion_risk_value = {
+    value = 0
+    
+    # Base risk from unrest
+    add = ROOT.GetAverageUnrest
+    
+    # Increase if at war
+    if = {
+        limit = { is_at_war = yes }
+        add = 5
+    }
+    
+    # Increase if low stability
+    if = {
+        limit = { stability < 0 }
+        add = ROOT.GetStability
+        abs = yes
+        multiply = 2
+    }
+    
+    # Decrease if high legitimacy
+    if = {
+        limit = { legitimacy >= 75 }
+        subtract = 3
+    }
+}
+
+======================
+PRACTICAL EXAMPLES
+======================
+
+EXAMPLE 1: Dynamic Event Reward
+----------------------------------
+# Script value definition:
+event_gold_reward = {
+    value = 50                     # Base reward
+    
+    # Scale by development
+    add = ROOT.GetDevelopment
+    multiply = 2
+    
+    # Bonus for high admin ruler
+    if = {
+        limit = { ROOT.GetRuler.GetAdm >= 5 }
+        add = 100
+    }
+    
+    # Cap maximum
+    max = 500
+}
+
+# In event:
+event = {
+    id = my_event.1
+    
+    option = {
+        name = "Accept reward"
+        add_gold = event_gold_reward
+        
+        # Show amount in tooltip
+        tooltip = {
+            add_gold = event_gold_reward
+        }
+    }
+}
+
+# In localization:
+l_english:
+ my_event_desc: "We gain [ROOT.ScriptValue('event_gold_reward')|0] gold!"
+
+EXAMPLE 2: Tiered Military Bonus
+----------------------------------
+military_investment_bonus = {
+    value = 0
+    
+    # Count military buildings
+    every_owned_location = {
+        limit = { has_building = barracks }
+        ROOT = { add = 1 }
+    }
+    
+    # Multiply by ruler military skill
+    multiply = ROOT.GetRuler.GetMil
+    
+    # Add discipline modifier
+    add = modifier:discipline
+    multiply = 100
+    
+    # Round to integer
+    round = yes
+}
+
+# Usage in effect:
+add_army_tradition = military_investment_bonus
+
+EXAMPLE 3: Province Value Calculator
+----------------------------------
+province_strategic_value = {
+    value = ROOT.GetDevelopment
+    multiply = 10
+    
+    # Bonus for capital
+    if = {
+        limit = { is_capital = yes }
+        add = 100
+    }
+    
+    # Bonus for coastal
+    if = {
+        limit = { is_coastal = yes }
+        add = 25
+    }
+    
+    # Bonus for trade center
+    if = {
+        limit = { has_building = trade_depot }
+        add = 50
+    }
+    
+    # Penalty for low control
+    if = {
+        limit = { control < 50 }
+        multiply = 0.5
+    }
+}
+
+EXAMPLE 4: Dynamic Mission Requirement
+----------------------------------
+mission_development_requirement = {
+    value = 20                     # Base requirement
+    
+    # Scale by game year
+    add = ROOT.GetCurrentDate.GetYear
+    subtract = 1444                # Years since start
+    divide = 10                    # 1 per decade
+    
+    # Cap growth
+    max = 40
+}
+
+# In mission:
+my_mission = {
+    trigger = {
+        total_development >= mission_development_requirement
+    }
+}
+
+EXAMPLE 5: Cost Scaling System
+----------------------------------
+action_cost_multiplier = {
+    value = 1.0                    # Base multiplier
+    
+    # Increase for large nations
+    if = {
+        limit = { num_owned_provinces >= 50 }
+        multiply = 1.5
+    }
+    
+    # Increase if at war
+    if = {
+        limit = { is_at_war = yes }
+        multiply = 1.25
+    }
+    
+    # Decrease for good economy
+    if = {
+        limit = {
+            gold >= 1000
+            monthly_gold_income >= 50
+        }
+        multiply = 0.9
+    }
+    
+    # Round to 2 decimals
+    round = 2
+}
+
+# Usage:
+effect = {
+    add_gold = {
+        value = -500
+        multiply = action_cost_multiplier
+    }
+}
+
+EXAMPLE 6: Complex Scoring System
+----------------------------------
+player_achievement_score = {
+    value = 0
+    
+    # Points for development
+    add = ROOT.GetTotalDevelopment
+    multiply = 2
+    
+    # Points for provinces
+    add = ROOT.GetNumProvinces
+    multiply = 10
+    
+    # Points for prestige
+    add = ROOT.GetPrestige
+    
+    # Points for great power status
+    if = {
+        limit = { is_great_power = yes }
+        add = 500
+    }
+    
+    # Bonus for completed missions
+    add = ROOT.GetCompletedMissionsCount
+    multiply = 50
+    
+    # Penalty for being at war
+    if = {
+        limit = { is_at_war = yes }
+        multiply = 0.9
+    }
+    
+    round = yes
+}
+
+======================
+DEBUGGING SCRIPT VALUES
+======================
+
+TESTING IN EVENTS
+----------------------------------
+# Create debug event:
+debug_event.1 = {
+    title = "Debug Script Value"
+    desc = "Value is: [ROOT.ScriptValue('my_value')]"
+    
+    trigger = {
+        always = yes
+    }
+    
+    option = {
+        name = "OK"
+        log = "Script value result: [ROOT.ScriptValue('my_value')]"
+    }
+}
+
+LOGGING
+----------------------------------
+effect = {
+    log = "My value: [ROOT.ScriptValue('my_calculated_value')]"
+    log = "Base: [ROOT.GetGold]"
+    log = "Development: [ROOT.GetDevelopment]"
+}
+
+CONSOLE TESTING
+----------------------------------
+reload script_values                # Reload script values
+run_event debug_event.1             # Test debug event
+
+COMMON ERRORS
+----------------------------------
+❌ ERROR: Script value returns 0 unexpectedly
+Causes:
+- Division by zero
+- Wrong scope context
+- Undefined variable
+
+✅ FIX: Add logging, check scope, validate variables exist
+
+❌ ERROR: Value too large/small
+Cause: Missing min/max caps
+
+✅ FIX: Add min/max to reasonable range
+
+❌ ERROR: Wrong calculation order
+Cause: Operations execute top-to-bottom
+
+✅ FIX: Reorder operations or use nested script values
+
+❌ ERROR: Scope doesn't exist
+Cause: Accessing scope that may not be valid
+
+✅ FIX: Add exists checks in limit blocks
+
+======================
+BEST PRACTICES
+======================
+
+1. NAMING
+----------------------------------
+✅ Use descriptive names:
+development_scaled_bonus
+ruler_skill_total
+province_strategic_value
+
+❌ Avoid vague names:
+value1
+calc
+bonus
+
+2. DOCUMENTATION
+----------------------------------
+✅ Comment complex calculations:
+# Calculates gold reward based on:
+# - Base 50 gold
+# - +2 per development
+# - +100 if high admin ruler
+# - Capped at 500
+
+❌ Don't leave calculations unexplained
+
+3. RANGE CAPPING
+----------------------------------
+✅ Always set reasonable min/max:
+my_value = {
+    value = calculated_amount
+    min = 10
+    max = 1000
+}
+
+❌ Don't allow unbounded growth
+
+4. PERFORMANCE
+----------------------------------
+✅ Minimize scope iteration:
+# Bad: Iterate twice
+total_dev = { every_owned_location = { ... } }
+total_tax = { every_owned_location = { ... } }
+
+# Good: Combine if possible
+combined_value = {
+    every_owned_location = {
+        ROOT = {
+            add = PREV.GetDevelopment
+            add = PREV.GetTaxIncome
+        }
+    }
+}
+
+5. TESTING
+----------------------------------
+✅ Test edge cases:
+- Value = 0
+- Very large values
+- Very small values
+- Missing scopes
+- Invalid data
+
+6. LOCALIZATION
+----------------------------------
+✅ Format numbers appropriately:
+[ROOT.ScriptValue('gold_value')|0]  # No decimals
+[ROOT.ScriptValue('percentage')|2]  # Two decimals
+
+======================
+SCRIPT VALUES vs DEFINES
+======================
+
+DEFINES
+----------------------------------
+- Static values in common/defines/
+- Set at game start
+- Don't change based on game state
+- Fast to access
+
+define:NCountry|BASE_MANPOWER = 1000
+
+SCRIPT VALUES
+----------------------------------
+- Dynamic calculations
+- Recalculate each time accessed
+- Can use conditionals and game state
+- Slower than defines (but flexible)
+
+manpower_bonus = {
+    value = define:NCountry|BASE_MANPOWER
+    multiply = ROOT.GetDevelopment
+}
+
+WHEN TO USE EACH
+----------------------------------
+Use DEFINES for:
+- Fixed game constants
+- Base values that never change
+- Performance-critical values
+
+Use SCRIPT VALUES for:
+- Dynamic calculations
+- Conditional logic
+- Scaling based on game state
+- Complex formulas
+
+======================
+CROSS-REFERENCES
+======================
+📄 Related Files:
+- EU5_TRIGGERS_REFERENCE.txt - Using script values in triggers
+- EU5_EFFECTS_REFERENCE.txt - Using script values in effects
+- EU5_SCOPES_REFERENCE.txt - Understanding scope context
+- EU5_VARIABLES_REFERENCE.txt - Storing calculated values
+- EU5_DEFINES_REFERENCE.txt - Static game values
+- EU5_LOCALIZATION_REFERENCE.txt - Displaying script values
+- common/script_values/ - Vanilla script value definitions
+- game/in_game/common/script_values/_script_values.info - Official documentation

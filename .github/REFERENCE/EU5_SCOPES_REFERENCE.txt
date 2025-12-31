@@ -1,0 +1,490 @@
+## EU5 Scopes Reference
+## Source: https://eu5.paradoxwikis.com/Scopes
+## Last Updated: December 5, 2025
+
+======================
+WHAT ARE SCOPES?
+======================
+Scopes define the context in which effects and triggers operate. They determine what object 
+(country, character, location, etc.) an effect will modify or a trigger will check.
+
+Understanding scopes is CRITICAL for EU5 modding - using the wrong scope will cause silent 
+failures or errors.
+
+======================
+SCOPE NAVIGATION
+======================
+
+DOT CHAIN SYNTAX
+----------------------------------
+Scopes can be chained using dots (.) to navigate relationships:
+
+Examples:
+- ROOT.capital                     # Current country's capital location
+- ROOT.ruler.father               # Current country's ruler's father
+- scope:target_country.overlord   # Saved scope's overlord
+- c:FRA.capital.province          # France's capital's province
+
+SPECIAL SCOPE KEYWORDS
+----------------------------------
+ROOT      # The primary scope (event receiver, decision taker, etc.)
+THIS      # Current scope in context
+PREV      # Previous scope before entering current scope
+FROM      # The scope that triggered this (rarely used in EU5)
+
+======================
+PRIMARY SCOPE TYPES
+======================
+
+COUNTRY SCOPE
+----------------------------------
+Represents a playable nation/country in the game.
+
+Access via:
+- c:TAG                           # Direct country reference (c:FRA, c:ENG, c:HAN)
+- ROOT (in country events)
+- owner (from location/building)
+- overlord (from subject country)
+- ruler.employer (from character)
+
+Valid triggers in country scope:
+- tag = TAG
+- capital = { <location conditions> }
+- has_law = <law>
+- rank = <rank>
+- is_subject = yes/no
+- num_of_provinces >= X
+- gold >= X
+- manpower >= X
+
+Valid effects in country scope:
+- add_gold = X
+- add_manpower = X
+- add_stability = X
+- change_government = <type>
+- create_character = { ... }
+- every_owned_location = { ... }
+
+CHARACTER SCOPE
+----------------------------------
+Represents an individual person (rulers, heirs, admirals, etc.).
+
+Access via:
+- character:key
+- ROOT.ruler
+- ROOT.heir
+- ROOT.regent
+- location.governor
+- unit.leader
+
+Valid triggers in character scope:
+- age >= X
+- has_trait = <trait>
+- culture = <culture>
+- religion = <religion>
+- is_ruler = yes/no
+- is_heir = yes/no
+
+Valid effects in character scope:
+- add_trait = <trait>
+- remove_trait = <trait>
+- kill_character = yes
+- add_age = X
+- change_culture = <culture>
+
+LOCATION SCOPE
+----------------------------------
+Represents a single province/location on the map.
+
+Access via:
+- location:id
+- ROOT.capital
+- province.capital
+- character.location
+- building.location
+
+Valid triggers in location scope:
+- development >= X
+- has_building = <building>
+- province = <province>
+- region = <region>
+- has_owner = yes/no
+- controller = <country>
+
+Valid effects in location scope:
+- add_development = X
+- add_building = <building>
+- change_owner = <country>
+- spawn_disease = { ... }
+
+PROVINCE SCOPE
+----------------------------------
+Represents a group of locations (EU5's version of EU4's states).
+
+Access via:
+- province:id
+- location.province
+- ROOT.capital.province
+
+Valid triggers in province scope:
+- num_of_locations >= X
+- is_capital_province = yes/no
+- any_province_location = { ... }
+
+Valid effects in province scope:
+- every_province_location = { ... }
+- capital.add_development = X
+
+AREA SCOPE
+----------------------------------
+Represents a geographic area containing multiple provinces.
+
+Access via:
+- area:key
+- location.area
+- province.area
+
+REGION SCOPE
+----------------------------------
+Represents a large geographic region containing multiple areas.
+
+Access via:
+- region:key
+- area.region
+- location.region
+
+Common regions:
+- region:low_countries_region
+- region:north_german_region
+- region:scandinavia_region
+- region:italy_region
+- region:iberia_region
+
+BUILDING SCOPE
+----------------------------------
+Represents a specific building in a location.
+
+Access via:
+- building:key (in location scope)
+- location.building:<building_type>
+
+Valid triggers in building scope:
+- building_type = <type>
+- is_complete = yes/no
+- level >= X
+
+Valid effects in building scope:
+- add_building_level = X
+- destroy_building = yes
+
+MARKET SCOPE
+----------------------------------
+Represents a trade market.
+
+Access via:
+- location.market
+- ROOT.capital.market
+
+INTERNATIONAL ORGANIZATION SCOPE
+----------------------------------
+Represents IOs like Hanseatic League, HRE, etc.
+
+Access via:
+- international_organization:key
+- ROOT.autocephalous_patriarchate
+- ROOT.union
+- ROOT.marriage_union
+
+Valid triggers in IO scope:
+- is_member = <country>
+- has_leader = yes/no
+- has_policy = <policy>
+
+Valid effects in IO scope:
+- add_member = <country>
+- remove_member = <country>
+- set_law_policy = { ... }
+
+WAR SCOPE
+----------------------------------
+Represents an ongoing war.
+
+Access via:
+- ROOT.civil_war
+- war scope in on_actions
+
+Valid triggers in war scope:
+- attacker_leader = <country>
+- defender_leader = <country>
+- any_attacker = { ... }
+- any_defender = { ... }
+
+UNIT SCOPE
+----------------------------------
+Represents a military unit (army/fleet).
+
+Access via:
+- character.unit (for commanders)
+
+Valid triggers in unit scope:
+- location = <location>
+- strength >= X
+- morale >= X
+
+TRAIT SCOPE
+----------------------------------
+Represents a character trait.
+
+Access via:
+- trait:key
+- character has_trait checks
+
+POP SCOPE
+----------------------------------
+Represents a population group.
+
+Access via:
+- location.any_pop = { ... }
+
+Valid triggers in pop scope:
+- pop_type = <type>
+- size >= X
+- culture = <culture>
+- religion = <religion>
+
+CULTURE SCOPE
+----------------------------------
+Represents a culture.
+
+Access via:
+- culture:key
+- character.culture
+- pop.culture
+
+RELIGION SCOPE
+----------------------------------
+Represents a religion.
+
+Access via:
+- religion:key
+- character.religion
+- location.dominant_religion
+
+GOODS SCOPE
+----------------------------------
+Represents a trade good.
+
+Access via:
+- goods:key
+- location.raw_material
+
+======================
+SCOPE FLOW CONTROL
+======================
+
+CONDITIONAL SCOPING
+----------------------------------
+if = {
+    limit = { <triggers in current scope> }
+    <effects in current scope>
+}
+else_if = {
+    limit = { <triggers> }
+    <effects>
+}
+else = {
+    <effects>
+}
+
+ITERATIVE SCOPING
+----------------------------------
+every_owned_location = {          # Iterate all owned locations
+    limit = { <optional filters> }
+    <effects on each location>
+}
+
+random_owned_location = {          # Pick one random location
+    limit = { <optional filters> }
+    <effects on that location>
+}
+
+ordered_owned_location = {         # Ordered by some criterion
+    order_by = development
+    limit = { <optional filters> }
+    <effects starting with highest>
+}
+
+SCOPE SAVING
+----------------------------------
+save_scope_as = my_target          # Save current scope for later reference
+# Later access via: scope:my_target
+
+save_temporary_scope_as = temp     # Temporary scope (lasts only in current block)
+
+======================
+SCOPE TRANSITION EXAMPLES
+======================
+
+COUNTRY → LOCATION
+----------------------------------
+ROOT.capital = {                   # Country's capital location
+    add_development = 5
+}
+
+ROOT.every_owned_location = {      # All owned locations
+    limit = { development >= 10 }
+    add_building = building:temple
+}
+
+LOCATION → COUNTRY
+----------------------------------
+ROOT.owner = {                     # Location's owner country
+    add_gold = 100
+}
+
+COUNTRY → CHARACTER
+----------------------------------
+ROOT.ruler = {                     # Country's ruler
+    add_trait = trait:ambitious
+}
+
+ROOT.create_character = {          # Create new character in country scope
+    age = 25
+    culture = ROOT.culture
+    save_scope_as = new_admiral
+}
+
+CHARACTER → COUNTRY
+----------------------------------
+ROOT.employer = {                  # Character's employer country
+    add_prestige = 10
+}
+
+LOCATION → PROVINCE → COUNTRY
+----------------------------------
+ROOT.province.owner = {            # Location → Province → Owner
+    add_stability = 5
+}
+
+COMPLEX CHAIN
+----------------------------------
+ROOT.ruler.father.employer.capital.province.owner = {
+    # Current ruler's father's employer's capital province's owner
+    add_diplomatic_power = 50
+}
+
+======================
+SCOPE VALIDATION
+======================
+
+SAFE ACCESSOR (?=)
+----------------------------------
+capital ?= {                       # Only execute if capital exists
+    add_development = 1
+}
+
+# Without ?=, accessing non-existent scope causes error
+# With ?=, silently skips if scope doesn't exist
+
+EXISTS CHECK
+----------------------------------
+if = {
+    limit = { exists = capital }   # Check if scope exists
+    capital = { ... }
+}
+
+SCOPE TYPE CHECKS
+----------------------------------
+if = {
+    limit = { 
+        is_character = yes         # Check if current scope is character
+        is_ruler = yes
+    }
+    add_trait = trait:skilled
+}
+
+======================
+COMMON SCOPE ERRORS
+======================
+
+❌ WRONG: Using character effect in country scope
+ROOT = {                           # Country scope
+    add_trait = trait:ambitious    # ERROR: add_trait is character scope only
+}
+
+✅ CORRECT:
+ROOT.ruler = {                     # Character scope
+    add_trait = trait:ambitious    # OK
+}
+
+❌ WRONG: Using country trigger in location scope
+ROOT.capital = {                   # Location scope
+    tag = FRA                      # ERROR: tag is country scope only
+}
+
+✅ CORRECT:
+ROOT.capital.owner = {             # Country scope
+    tag = FRA                      # OK
+}
+
+❌ WRONG: Breaking scope chain
+ROOT.owner.capital.tag = FRA       # ERROR: can't get tag from location
+
+✅ CORRECT:
+ROOT.owner = {                     # Transition to country scope
+    tag = FRA                      # OK
+}
+
+======================
+DEBUGGING SCOPES
+======================
+
+LOG CURRENT SCOPE
+----------------------------------
+log = "Current scope: [This.GetName]"
+log = "Root scope: [Root.GetName]"
+log = "Target scope: [scope:target.GetName]"
+
+CHECK SCOPE TYPE
+----------------------------------
+if = {
+    limit = { 
+        log = "This is a [This.GetType] scope"
+    }
+}
+
+TRACE SCOPE CHAIN
+----------------------------------
+ROOT = {
+    log = "ROOT: [This.GetName]"
+    capital = {
+        log = "Capital: [This.GetName]"
+        owner = {
+            log = "Owner: [This.GetName]"
+        }
+    }
+}
+
+======================
+BEST PRACTICES
+======================
+
+1. Always validate scope types before using scope-specific effects/triggers
+2. Use save_scope_as when you need to reference a scope multiple times
+3. Use ?= accessor when scope might not exist
+4. Document complex scope chains with comments
+5. Test scope navigation with log statements
+6. Prefer direct scope navigation over saving temporary scopes
+7. Use limit = { } to filter iteration scopes
+8. Be careful with nested scopes - ROOT/THIS meaning changes
+9. Use descriptive names for saved scopes (scope:target_country not scope:t)
+10. Remember that some scopes (like prev) are context-dependent
+
+======================
+CROSS-REFERENCES
+======================
+📄 Related Files:
+- EU5_SCOPE_LINKS_REFERENCE.txt - Scope link navigation syntax
+- EU5_EFFECTS_REFERENCE.txt - Valid effects by scope
+- EU5_TRIGGERS_REFERENCE.txt - Valid triggers by scope
+- EU5_MODIFIERS_REFERENCE.txt - Modifiers and their scopes

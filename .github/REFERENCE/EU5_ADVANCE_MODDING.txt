@@ -1,0 +1,221 @@
+# EU5 Advance Modding Reference
+
+**Source**: [Advance modding - EU5 Wiki](https://eu5.paradoxwikis.com/Advance_modding)  
+**Verified for**: EU5 version 1.0
+
+## Overview
+
+Advance modding involves the creation of new advances - the Europa Universalis V representation of technological progress. Advance definitions are stored in `/Europa Universalis V/game/in_game/common/advances/` organized by age. They are usually placed in the `common` top folder.
+
+## Basic Syntax
+
+```
+ostentatious_clothing = {		# Key of the advance
+	icon = fla_cloth
+	age = age_5_absolutism
+	
+	requires = lead_ore_dressing
+	
+	global_alum_output_modifier = 0.1
+	global_dyes_output_modifier = 0.1
+}
+```
+
+## Age Requirement
+
+Every advance requires the `age` argument to determine which age tab the advance belongs to.
+
+## Modifiers
+
+Advances are implicit modifier blocks, which allow modifier types that affect the nation once the advance has been researched.
+
+### modifier_while_progressing
+
+An advance can also be given modifier types that are applied during the research process using `modifier_while_progressing` blocks. There can be multiple blocks which can hold any number of modifier types. Each block has:
+
+- `scale` - A script value that determines the strength of the modifier
+- `potential_trigger` - Determines if the modifier applies at all
+
+Example:
+
+```
+modifier_while_progressing = {
+	scale = {
+		value = 1 	# 100% of the modifier is given at a time
+		add = {	 	# which can be increased by another 100% based on legitimacy
+			value = legitimacy
+			divide = 100
+		}
+	}
+	potential_trigger = {	# but only if the country is a monarchy
+		government_type = government_type:monarchy
+	}
+	monthly_prestige = 0.05
+}
+```
+
+## Other Requirements
+
+### requires
+
+Advances can have only a single prerequisite advance via `requires`. This creates a simple tree structure with a number of "root" advances that branch out to "children". Prerequisite advances must be defined before the advance requiring it.
+
+Advances without a defined prerequisite are semi-randomly assigned to the tree.  To ensure that a given advance never becomes a "parent", `allow_children = no` can be used.
+
+### potential and allow
+
+- `potential` - Determines whether the advance is visible
+- `allow` - Determines if the advance can be researched (researching country as root scope)
+
+Most base game advances have neither; some "regional" advances use `potential` to limit the advance to that geographical region while most "root" advances use `allow` to require the related institution to be embraced.
+
+While an advance can graphically require only one advance, other advances can be required in the `allow` trigger block.
+
+### Special Requirement Flags
+
+| Token name | Right-side argument | GUI script function | Additional information |
+|-----------|---------------------|---------------------|------------------------|
+| `government` | Government Type (common/government_types) | AdvanceItem.IsGovernmentUnlock | Requires the country to have the selected government type for potential and shows up under the "Government Type" bonuses in main menu content tab |
+| `country_type` | Country Type (location, building, pop, army, navy) | AdvanceItem.IsCountryTypeUnlock | Requires the country to be of the country type for potential and shows up under the "Country Type" bonuses in main menu content tab |
+
+### Implicit Categories
+
+Additionally, the game implicitly assigns advances to additional categories based on triggers in `potential`:
+
+| Category | Trigger | GUI script function |
+|----------|---------|---------------------|
+| "Country" advance | Presence of tag or has_or_had_tag triggers in potential | AdvanceItem.IsCountryUnlock |
+| "Religion" advance | Presence of religion comparison triggers in the potential | AdvanceItem.IsReligionUnlock |
+
+## Controlling Tree Generation
+
+- `depth` - Integer that determines at which level the advance will be placed (0 = top). Using other integers is usually futile as placement is generated using `requires` statement
+- Required advances must be loaded before the advance that requires them
+
+## Controlling AI Bias
+
+### ai_weight
+
+A scripted value evaluated on the country which adds additional weight for the country AI to research this advance specifically.
+
+### ai_preference_tags
+
+A set of preference tags that are combined with country's setup research preferences to increase the AI's likelihood to research this advance by that amount.
+
+## Research Cost
+
+Every advance has its research cost. The base research cost is determined by the BASE_RESEARCH_COST define (Vanilla value: `25`), but can be further modified using:
+
+- `research_cost` - Floating point value added on top of the original cost (`research_cost = 1.0` gives a penalty of +100.0%)
+- **Hardcoded age penalties**:
+  - Outdated ages get a reduction of PREVIOUS_AGE_REDUCTION define (Vanilla value: `-8`)
+  - Every age ahead of traditions gets a penalty of AGE_RESEARCH_MODIFIER define (Vanilla value: `0.15`) times the amount of ages that passed
+
+## Unlocking Capabilities
+
+Advances provide an easy interface for unlocking many different scripted types:
+
+| Unlock key | Type unlocked | Type location |
+|-----------|---------------|---------------|
+| `unlock_road_type` | Road type | common/road_types |
+| `unlock_employment_system` | Employment system | common/employment_systems |
+| `unlock_unit` | Unit type | common/unit_types |
+| `unlock_ability` | Unit ability | common/unit_abilities |
+| `unlock_interaction` | Character interaction | common/character_interactions |
+| `unlock_country_interaction` | Country interaction | common/country_interactions |
+| `unlock_estate_privilege` | Estate privilege | common/estate_privileges |
+| `unlock_relation_type` | Relation type | common/scripted_relations |
+| `unlock_building` | Building type | common/building_types |
+| `unlock_law` | Law | common/laws |
+| `unlock_policy` | Policy | common/laws |
+| `unlock_levy` | levy type | common/levies |
+| `unlock_heir_selection` | Heir selection | common/heir_selections |
+| `unlock_government_reform` | Government reform | common/government_reforms |
+| `unlock_casus_belli` | Casus belli | common/casus_belli |
+| `unlock_cabinet_action` | Cabinet action | common/cabinet_actions |
+| `unlock_subject_type` | Subject type | common/subject_types |
+| `unlock_production_method` | Production method | common/building_types |
+| `unlock_diplomacy` | Diplomatic action | Not extendable (uses different syntax - lists) |
+
+## Starting Technology Level
+
+`starting_technology_level` is an integer that is used to setup starting research for countries (see Setup modding).
+
+## Icon
+
+`icon` attribute is used to set a custom icon key for the advance. Otherwise, the advance key is used as the icon name.
+
+Advance icons are stored in ADVANCE_ICON_PATH define (Vanilla value: `"gfx/interface/advance"`).
+
+Example:
+
+```
+zan_gold_trade_of_africa = {
+	...
+}
+coffea_arabica = {
+	icon = origin_of_coffee
+	...
+}
+```
+
+The first advance uses `zan_gold_trade_of_africa.dds` as its icon, while the latter uses `origin_of_coffee.dds`.
+
+## Ages Event and New Unlocks
+
+### for attribute
+
+`for` attribute is used to set an advance as unlocked by a specific chosen age preference. It accepts one of three values:
+
+- `adm`
+- `dip`
+- `mil`
+
+Age-preference advances get a special texture in the GUI, which is done with `AdvanceItem.IsChoiceUnlock`.
+
+### Setting age preference
+
+Age preference is set using `set_age_preference` effect, which sets the age preference for the current age. It accepts the same values as the `for` advance attribute.
+
+## Localization
+
+Advances only need two keys for localization:
+
+- `<key>` - Name of the advance
+- `<key>_desc` - Description of the advance
+
+## Script Involving Advances
+
+### Effects
+
+- `research_advance` - In `country` scope, researches the `advance` scope on the right-hand side
+- `advance_type:` - Global data scope link used to fetch the advance type for a given key
+
+### Triggers
+
+- `can_research_advance` - `country` scope trigger that checks if the country can research a not-yet researched advance scope on the right
+- `has_advance` - `country` scope trigger that checks if the country has the advance identified by the key
+- `has_advance_available` - `country` scope trigger that checks if the country has the advance researched or it is available to research
+- `num_of_advances_researched` - `country` scope value trigger that checks if the country has researched a certain amount of advances
+- `has_advance_for_employment_system` - `country` scope value trigger that checks if the country has researched an advance that has a `unlock_employment_system` pointing towards the scope on the right
+- `has_advance_for_succession_law` - `country` scope value trigger that checks if the country has researched an advance that has a `unlock_heir_selection` pointing towards the scope on the right
+
+## Best Practices
+
+1. **Tree structure**: Use `requires` to create logical progression paths; use `depth = 0` for root advances
+2. **Allow vs potential**: Use `potential` for regional/cultural restrictions; use `allow` for institutional prerequisites
+3. **Research cost**: Balance `research_cost` to make powerful advances more expensive (typical range: -0.5 to 2.0)
+4. **Modifiers during research**: Use `modifier_while_progressing` to provide gradual benefits as research progresses
+5. **AI preferences**: Set `ai_preference_tags` to align with country setup research preferences; use `ai_weight` for specific AI behavior
+6. **Unlock capabilities**: Use `unlock_*` attributes instead of manual `allow` checks in scripted types
+7. **Age assignment**: Place advances in appropriate age for game balance and historical flavor
+8. **Prerequisites**: Ensure prerequisite advances are loaded first (file load order matters)
+9. **Icons**: Provide custom icons via `.dds` files in `gfx/interface/advance/`
+10. **Localization**: Always provide both name and description keys for player clarity
+
+## Related Files
+
+- Advance definitions: `/game/in_game/common/advances/*.txt`
+- Script values (research costs, AI weights, etc.): `/game/in_game/common/script_values/*.txt`
+- Icons: `/game/in_game/gfx/interface/advance/*.dds`
+- Localization: `/game/in_game/localization/english/*_l_english.yml`

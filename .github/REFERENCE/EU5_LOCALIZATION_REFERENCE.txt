@@ -1,0 +1,968 @@
+## EU5 Localization Reference
+## Source: https://eu5.paradoxwikis.com/Localization
+## Last Updated: December 5, 2025
+
+✅ **COMPREHENSIVE DOCUMENTATION AVAILABLE**
+This is the complete localization system reference for Europa Universalis V.
+
+======================
+SUPPORTED LANGUAGES
+======================
+
+EU5 supports 11 languages:
+
+1. english          (English)
+2. braz_por         (Brazilian Portuguese)
+3. french           (French)
+4. german           (German)
+5. polish           (Polish)
+6. russian          (Russian)
+7. spanish          (Spanish)
+8. japanese         (Japanese)
+9. simp_chinese     (Simplified Chinese)
+10. korean          (Korean)
+11. turkish         (Turkish)
+
+======================
+FILE FORMAT & STRUCTURE
+======================
+
+FILE NAMING CONVENTION
+----------------------------------
+Filename MUST end with: _l_<language>.yml
+
+✅ CORRECT:
+- events_l_english.yml
+- traits_l_german.yml
+- my_mod_content_l_spanish.yml
+
+❌ INCORRECT:
+- events_english.yml              # Missing _l_
+- events.yml                      # Missing language code
+- events_l_english.txt            # Wrong extension (.txt instead of .yml)
+
+FILE ENCODING
+----------------------------------
+⚠️ CRITICAL: Files MUST be saved as UTF-8 with BOM (Byte Order Mark)
+
+In most editors:
+- VS Code: "UTF-8 with BOM"
+- Notepad++: Encoding > UTF-8-BOM
+- Sublime Text: File > Save with Encoding > UTF-8 with BOM
+
+Without BOM, the engine may fail to load the file!
+
+BASIC STRUCTURE
+----------------------------------
+l_english:                            # Language header (REQUIRED)
+ key1: "Localized text"               # Key-value pair
+ key2: "More text"
+ key3: "Text with [data]"
+
+⚠️ IMPORTANT RULES:
+1. First line MUST be: l_<language>:
+2. Use ONE SPACE (not tab) for indentation
+3. Key and value separated by colon and space: key: "value"
+4. Values MUST be in double quotes: "text"
+5. Keys use snake_case: my_event_title
+
+COMPLETE EXAMPLE
+----------------------------------
+l_english:
+ my_event_title: "A Strange Discovery"
+ my_event_desc: "Our scholars have found something unusual in [target_country.GetName]."
+ my_event_option_a: "Investigate further"
+ my_event_option_b: "Ignore this oddity"
+ my_trait_name: "Brilliant Strategist"
+ desc_brilliant_strategist: "This character has exceptional military insight."
+
+======================
+LOAD ORDER
+======================
+
+FILE LOADING SEQUENCE
+----------------------------------
+Files are loaded in REVERSE ALPHABETICAL ORDER (Z to A).
+
+Example load order:
+1. z_my_overrides_l_english.yml       # Loaded FIRST
+2. events_l_english.yml
+3. countries_l_english.yml
+4. 00_base_l_english.yml              # Loaded LAST
+
+OVERRIDING LOCALIZATION
+----------------------------------
+To override existing keys, use the 'replace' folder:
+
+game/in_game/localization/replace/my_overrides_l_english.yml
+
+Keys in 'replace' folder override vanilla keys.
+
+MOD LOAD ORDER
+----------------------------------
+Mods load after vanilla, so mod localization automatically overrides vanilla 
+localization for matching keys.
+
+======================
+BASIC SYNTAX
+======================
+
+SIMPLE KEY-VALUE
+----------------------------------
+l_english:
+ my_key: "My localized text"
+
+MULTILINE TEXT
+----------------------------------
+For very long text, use literal block scalar (|):
+
+l_english:
+ long_description: |
+  This is a very long description
+  that spans multiple lines.
+  Each line will be preserved.
+
+Or folded scalar (>):
+
+l_english:
+ long_description: >
+  This is a very long description
+  that will be folded into a single
+  line with spaces.
+
+COMMENTS
+----------------------------------
+# This is a comment (ignored by parser)
+
+l_english:
+ my_key: "Value"                      # Inline comment
+
+======================
+LOCALIZATION REUSE
+======================
+
+EMBEDDING OTHER KEYS
+----------------------------------
+Use $key$ to embed another localization key:
+
+l_english:
+ country_france: "France"
+ ruler_of_france: "The ruler of $country_france$"
+ # Result: "The ruler of France"
+
+NESTED EMBEDDING
+----------------------------------
+l_english:
+ word_great: "Great"
+ word_power: "Power"
+ great_power: "$word_great$ $word_power$"
+ # Result: "Great Power"
+
+======================
+COLOR CODES
+======================
+
+SIMPLE COLOR CODES
+----------------------------------
+#R - Red
+#G - Green
+#E - Blue (historical reasons, "E" for "electricblue")
+#V - White (historical reasons, "V" for "ivory/Vanilla")
+#! - Reset to default color
+
+EXAMPLE:
+l_english:
+ warning_text: "#R Warning: #! This is dangerous!"
+ # Result: "Warning:" in red, "This is dangerous!" in default color
+
+NAMED COLOR CODES
+----------------------------------
+#color_yellow
+#color_gray
+#color_dark_gray
+#color_light_gray
+#color_orange
+#color_purple
+#color_pink
+#color_brown
+#color_black
+#color_white
+
+EXAMPLE:
+l_english:
+ gold_text: "#color_yellow 1000 Gold#!"
+ warning: "#color_red DANGER#!"
+
+HEX COLOR CODES
+----------------------------------
+Use hexadecimal RGB values:
+
+#RRGGBB
+
+EXAMPLE:
+l_english:
+ custom_color: "#FF5500 Custom orange text#!"
+ cyan_text: "#00FFFF Cyan text#!"
+
+======================
+TEXT FORMATTING
+======================
+
+BOLD
+----------------------------------
+#bold Text to be bold#!
+
+EXAMPLE:
+l_english:
+ important: "This is #bold very important#!"
+
+ITALIC
+----------------------------------
+#italic Text to be italic#!
+
+EXAMPLE:
+l_english:
+ emphasis: "This is #italic emphasized#!"
+
+COMBINING FORMATTING
+----------------------------------
+You can combine color and formatting:
+
+l_english:
+ formatted: "#R #bold Red and bold#! #G #italic Green and italic#!"
+
+======================
+TEXT ICONS
+======================
+
+COMMON ICONS
+----------------------------------
+EU5 uses @ symbols for inline icons:
+
+@time!                                # Clock icon
+@gold!                                # Gold/ducats icon
+@warning_icon!                        # Warning/alert icon
+@trigger_yes!                         # Green checkmark
+@trigger_no!                          # Red X
+@adm!                                 # Administrative power icon
+@dip!                                 # Diplomatic power icon
+@mil!                                 # Military power icon
+@manpower!                            # Manpower icon
+@prestige!                            # Prestige icon
+@legitimacy!                          # Legitimacy icon
+@stability!                           # Stability icon
+@corruption!                          # Corruption icon
+@war_exhaustion!                      # War exhaustion icon
+@army!                                # Army icon
+@navy!                                # Navy icon
+@fort!                                # Fort icon
+@trade!                               # Trade icon
+@production!                          # Production icon
+@tax!                                 # Tax icon
+@development!                         # Development icon
+@autonomy!                            # Autonomy icon
+@unrest!                              # Unrest icon
+@culture!                             # Culture icon
+@religion!                            # Religion icon
+@reform!                              # Reform icon
+@idea!                                # Idea icon
+@advisor!                             # Advisor icon
+@general!                             # General icon
+@admiral!                             # Admiral icon
+
+ICON USAGE EXAMPLES
+----------------------------------
+l_english:
+ cost_description: "Costs @gold! 100 ducats and @manpower! 5000 men"
+ requirement: "@trigger_yes! Has at least @adm! 5 Administrative skill"
+ warning: "@warning_icon! This action is risky!"
+ time_remaining: "@time! 12 months remaining"
+
+RESOURCE ICONS
+----------------------------------
+@laborers!                            # Labor force
+@wood!                                # Wood resource
+@stone!                               # Stone resource
+@iron!                                # Iron resource
+@grain!                               # Grain resource
+@livestock!                           # Livestock resource
+@fish!                                # Fish resource
+@salt!                                # Salt resource
+@wine!                                # Wine resource
+@cloth!                               # Cloth resource
+
+======================
+DATA FUNCTIONS
+======================
+
+DATA BINDING IN LOCALIZATION
+----------------------------------
+Use square brackets to insert dynamic game data:
+
+[ScopeName.FunctionName]
+
+COMMON SCOPE NAMES
+----------------------------------
+ROOT                                  # Current scope
+THIS                                  # Current scope (alias)
+PREV                                  # Previous scope
+target_country                        # Saved scope (via save_scope_as)
+saved_character                       # Saved scope
+
+GETNAME FUNCTION
+----------------------------------
+Get the name of a country/character/province:
+
+[Country.GetName]                     # Country name
+[Character.GetName]                   # Character name
+[Province.GetName]                    # Province name
+
+EXAMPLE:
+l_english:
+ event_desc: "The ruler of [ROOT.GetName] has died."
+ # Result: "The ruler of France has died." (if ROOT is France)
+
+GETNAMEWITHFLAG
+----------------------------------
+Get name with inline flag icon:
+
+[Country.GetNameWithFlag]
+
+EXAMPLE:
+l_english:
+ alliance: "We have allied with [target_country.GetNameWithFlag]."
+
+GETADJECTIVE
+----------------------------------
+Get the adjective form:
+
+[Country.GetAdjective]                # "French" instead of "France"
+
+EXAMPLE:
+l_english:
+ culture: "The [ROOT.GetAdjective] culture is dominant."
+ # Result: "The French culture is dominant."
+
+GETLAW FUNCTION
+----------------------------------
+Get the value/name of a law:
+
+[Country.GetLaw('law_key')]
+
+EXAMPLE:
+l_english:
+ current_law: "Current succession law: [ROOT.GetLaw('succession_law')]"
+
+SCRIPTVALUE FUNCTION
+----------------------------------
+Get calculated script values:
+
+[Country.ScriptValue('value_key')]
+
+EXAMPLE:
+l_english:
+ calculated: "Total power: [ROOT.ScriptValue('total_military_power')]"
+
+CHARACTER-SPECIFIC FUNCTIONS
+----------------------------------
+[Character.GetAbilityTooltipAsRuler]  # Ruler ability tooltip
+[Character.GetAge]                    # Character age
+[Character.GetDynasty]                # Dynasty name
+[Character.GetTitle]                  # Title (Duke, King, etc.)
+
+EXAMPLE:
+l_english:
+ ruler_info: "[ROOT.GetRuler.GetName], age [ROOT.GetRuler.GetAge], of the [ROOT.GetRuler.GetDynasty] dynasty"
+
+GETNAMEWITHNOFORCE (Historical)
+----------------------------------
+[Country.GetNameWithNoTooltip]        # Name without tooltip
+
+Useful when you don't want the hover tooltip on the country name.
+
+======================
+FUNCTION FORMATTING MODIFIERS
+======================
+
+These modifiers change how numerical values are displayed:
+
+PLUS/MINUS SIGN (=)
+----------------------------------
+=                                     # Always show +/- sign
+
+[Country.ScriptValue('value'|=)]
+
+EXAMPLE:
+ modifier_display: "Modifier: [value|=]"
+ # Result: "Modifier: +5" or "Modifier: -3"
+
+COLORED POSITIVE/NEGATIVE (+)
+----------------------------------
++                                     # Green for positive, red for negative
+
+[Country.ScriptValue('value'|+)]
+
+EXAMPLE:
+ opinion_change: "Opinion: [opinion|+]"
+ # Result: "Opinion: +20" (in green) or "Opinion: -10" (in red)
+
+INVERTED COLOR (-)
+----------------------------------
+-                                     # Red for positive, green for negative
+
+[Country.ScriptValue('corruption'|-)]
+
+EXAMPLE:
+ corruption_display: "Corruption: [corruption|-]"
+ # Result: "Corruption: +5" (in red - bad!) or "Corruption: -2" (in green - good!)
+
+UPPERCASE (U)
+----------------------------------
+U                                     # Convert to uppercase
+
+[Country.GetName|U]
+
+EXAMPLE:
+ title: "[ROOT.GetName|U]"
+ # Result: "FRANCE" instead of "France"
+
+PERCENTAGE (%)
+----------------------------------
+%                                     # Convert decimal to percentage
+
+[value|%]                             # 0.25 becomes 25%
+
+EXAMPLE:
+ tax_rate: "Tax rate: [tax|%]"
+ # Result: "Tax rate: 25%"
+
+DECIMAL PLACES (0-5)
+----------------------------------
+0 - No decimal places (integer)
+1 - One decimal place
+2 - Two decimal places
+3 - Three decimal places
+4 - Four decimal places
+5 - Five decimal places
+
+[value|2]                             # 3.14159 becomes 3.14
+
+EXAMPLE:
+ precise_value: "Modifier: [modifier|3]"
+ # Result: "Modifier: 1.234"
+
+THOUSANDS SEPARATOR (K)
+----------------------------------
+K                                     # Add thousands separator
+
+[value|K]                             # 1000 becomes 1,000
+
+EXAMPLE:
+ population: "Population: [pop|K]"
+ # Result: "Population: 1,500,000"
+
+COMBINING MODIFIERS
+----------------------------------
+You can chain multiple modifiers with pipes:
+
+[value|=2+]                           # Show sign, 2 decimals, colored
+
+EXAMPLE:
+ complex: "Value: [modifier|=2+]"
+ # Result: "Value: +1.25" (with green color for positive)
+
+======================
+CONCEPTS SYSTEM
+======================
+
+WHAT ARE CONCEPTS?
+----------------------------------
+Concepts are predefined tooltips for game mechanics, defined in:
+/common/game_concepts/
+
+Use them to provide consistent help tooltips.
+
+SYNTAX
+----------------------------------
+[concept_name|e]
+
+The |e adds the concept link with tooltip.
+
+EXAMPLES
+----------------------------------
+l_english:
+ help_text: "This affects your [concept_stability|e]."
+ # Hovering over "stability" shows the concept tooltip
+
+ tutorial: "Increase your [concept_prestige|e] to gain advantages."
+
+COMMON CONCEPTS
+----------------------------------
+concept_stability
+concept_prestige
+concept_legitimacy
+concept_administrative_power
+concept_diplomatic_power
+concept_military_power
+concept_development
+concept_autonomy
+concept_unrest
+concept_war_exhaustion
+concept_manpower
+concept_trade
+concept_production
+concept_tax
+
+======================
+CUSTOM TOOLTIPS
+======================
+
+BASIC CUSTOM TOOLTIP
+----------------------------------
+#TOOLTIP:tooltip_key visible_text#!
+
+When hovering over "visible_text", shows the tooltip defined by "tooltip_key".
+
+EXAMPLE:
+l_english:
+ event_option: "Choose this #TOOLTIP:option_a_tooltip option#!"
+ option_a_tooltip: "This option will give you +1 Stability but cost 50 gold."
+
+MULTIPLE TOOLTIPS
+----------------------------------
+You can have multiple custom tooltips in one string:
+
+l_english:
+ complex_text: "You can #TOOLTIP:tip1 do this#! or #TOOLTIP:tip2 do that#!."
+ tip1: "This gives +10% tax"
+ tip2: "This gives +5% manpower"
+
+======================
+SAVED SCOPES IN LOCALIZATION
+======================
+
+SCOUNTRY (Saved Country)
+----------------------------------
+Reference a saved country scope:
+
+SCOPE.sCountry('name')
+
+EXAMPLE:
+# In event script:
+random_neighbor_country = {
+    save_scope_as = rival_nation
+}
+
+# In localization:
+l_english:
+ event_desc: "Our rival [ROOT.sCountry('rival_nation').GetName] is weak!"
+
+SCHARACTER (Saved Character)
+----------------------------------
+Reference a saved character scope:
+
+SCOPE.sCharacter('name')
+
+EXAMPLE:
+# In event script:
+random_courtier = {
+    save_scope_as = traitor
+}
+
+# In localization:
+l_english:
+ event_desc: "The traitor [ROOT.sCharacter('traitor').GetName] has been found!"
+
+======================
+CUSTOMIZABLE LOCALIZATION
+======================
+
+WHAT IS CUSTOMIZABLE LOCALIZATION?
+----------------------------------
+Dynamic text generation based on conditions, defined in:
+/common/customizable_localization/
+
+USAGE SYNTAX
+----------------------------------
+Custom('customizable_name')
+
+DEFINING CUSTOMIZABLE LOCALIZATION
+----------------------------------
+File: /common/customizable_localization/my_custom_loc.txt
+
+customizable_name = {
+    type = character                  # country, character, etc.
+    
+    random_valid = {                  # Pick randomly from valid options
+        trigger = {
+            age >= 50
+        }
+        localization_key = "old_description"
+    }
+    
+    text = {
+        trigger = {
+            age < 30
+        }
+        localization_key = "young_description"
+    }
+    
+    text = {
+        trigger = {
+            always = yes              # Fallback
+        }
+        localization_key = "default_description"
+    }
+}
+
+USING IN LOCALIZATION
+----------------------------------
+l_english:
+ event_desc: "The character is [Character.Custom('customizable_name')]."
+ young_description: "young and vigorous"
+ old_description: "wise with age"
+ default_description: "in their prime"
+
+RANDOM_VALID
+----------------------------------
+If multiple triggers are valid, 'random_valid' picks one randomly.
+'text' blocks use first valid match.
+
+======================
+PRONOUN HANDLING
+======================
+
+GENDERED PRONOUNS
+----------------------------------
+Some functions automatically handle gendered pronouns:
+
+[Character.GetSheHe]                  # "she" or "he"
+[Character.GetHerHis]                 # "her" or "his"
+[Character.GetHerHim]                 # "her" or "him"
+[Character.GetHerselfHimself]         # "herself" or "himself"
+
+EXAMPLE:
+l_english:
+ event_desc: "[ROOT.GetRuler.GetName] has proven [Character.GetHerselfHimself] worthy."
+ # Result: "Elizabeth has proven herself worthy." or "Charles has proven himself worthy."
+
+CAPITALIZED PRONOUNS
+----------------------------------
+[Character.GetSheHeCap]               # "She" or "He" (capitalized)
+[Character.GetHerHisCap]              # "Her" or "His"
+
+======================
+BEST PRACTICES
+======================
+
+1. FILE ORGANIZATION
+----------------------------------
+✅ Group related keys in same file
+✅ Use descriptive filenames
+✅ Keep trait descriptions in traits/ subfolder
+✅ Keep event text in events/ subfolder
+
+EXAMPLE STRUCTURE:
+localization/
+  english/
+    events/
+      my_events_l_english.yml
+    traits/
+      my_traits_l_english.yml
+    modifiers/
+      my_modifiers_l_english.yml
+
+2. KEY NAMING CONVENTIONS
+----------------------------------
+✅ Use clear, descriptive names
+✅ Include context in key name
+✅ Use consistent prefixes
+
+EXAMPLES:
+event_mymod_1_title                   # Event title
+event_mymod_1_desc                    # Event description
+event_mymod_1_option_a                # Event option A
+trait_brilliant_general               # Trait name
+desc_brilliant_general                # Trait description (NOT brilliant_general_desc!)
+modifier_plague_effect                # Modifier name
+
+3. TRAIT DESCRIPTIONS
+----------------------------------
+⚠️ IMPORTANT: Use desc_<trait> pattern for trait descriptions!
+
+✅ CORRECT:
+trait_incompetent_fool: "Incompetent Fool"
+desc_incompetent_fool: "This character lacks basic competence."
+
+❌ WRONG (legacy pattern, don't use):
+incompetent_fool_desc: "..."
+
+4. SCOPES IN LOCALIZATION
+----------------------------------
+✅ Use save_scope_as for references
+✅ Document expected scopes in comments
+✅ Test with different scope contexts
+
+EXAMPLE:
+# Expects: ROOT = country, saved scope 'target_country' must exist
+l_english:
+ event_desc: "We have discovered [target_country.GetName]."
+
+5. DYNAMIC TEXT
+----------------------------------
+✅ Use data functions for dynamic values
+✅ Provide context for scope references
+✅ Handle edge cases (dead characters, destroyed countries)
+
+6. COLOR & FORMATTING
+----------------------------------
+✅ Use colors sparingly for emphasis
+✅ Always close formatting with #!
+✅ Test readability with all colors
+❌ Don't overuse bold/italic
+
+7. ICONS
+----------------------------------
+✅ Use icons for resources/stats
+✅ Be consistent with icon usage
+✅ Test icon display in UI
+
+8. TESTING
+----------------------------------
+✅ Test all languages (text length varies!)
+✅ Verify UTF-8 BOM encoding
+✅ Check for missing keys (logs)
+✅ Verify special characters display correctly
+✅ Test tooltip functionality
+
+======================
+COMMON ERRORS & FIXES
+======================
+
+❌ ERROR: Keys not loading
+Cause: File not UTF-8 with BOM
+
+✅ FIX: Save file as UTF-8 with BOM
+In VS Code: Bottom-right corner > "UTF-8 with BOM"
+
+❌ ERROR: Missing language header
+l_english                             # Missing colon!
+ my_key: "value"
+
+✅ FIX: Add colon
+l_english:
+ my_key: "value"
+
+❌ ERROR: Wrong indentation
+l_english:
+my_key: "value"                       # No indent!
+
+✅ FIX: Add one space indent
+l_english:
+ my_key: "value"
+
+❌ ERROR: Missing quotes
+l_english:
+ my_key: value                        # No quotes!
+
+✅ FIX: Add quotes
+l_english:
+ my_key: "value"
+
+❌ ERROR: Trait description not showing
+l_english:
+ my_trait: "Trait Name"
+ my_trait_desc: "Description"         # WRONG pattern!
+
+✅ FIX: Use desc_ prefix
+l_english:
+ my_trait: "Trait Name"
+ desc_my_trait: "Description"
+
+❌ ERROR: Color not resetting
+l_english:
+ my_text: "#R Red text that continues too long"
+
+✅ FIX: Close with #!
+l_english:
+ my_text: "#R Red text#! normal text"
+
+❌ ERROR: Scope doesn't exist
+l_english:
+ event_desc: "We found [target_country.GetName]."
+ # ERROR if target_country wasn't saved in script!
+
+✅ FIX: Ensure scope is saved
+# In event script:
+random_neighbor_country = {
+    save_scope_as = target_country
+}
+
+❌ ERROR: Icon not displaying
+l_english:
+ my_text: "@wrong_icon! Text"         # Icon doesn't exist
+
+✅ FIX: Use valid icon name
+l_english:
+ my_text: "@gold! Text"
+
+======================
+DEBUGGING LOCALIZATION
+======================
+
+ENABLE DEBUG MODE
+----------------------------------
+Add to launch options: -debug_mode
+
+VIEW LOCALIZATION KEYS
+----------------------------------
+Console command: debug_localization
+
+Shows keys instead of localized text.
+
+CHECK LOGS
+----------------------------------
+Location: Documents\Paradox Interactive\Europa Universalis V\logs\
+
+Look for:
+- Missing localization key warnings
+- File parsing errors
+- Encoding issues
+
+COMMON LOG MESSAGES
+----------------------------------
+"Missing localization for key: my_key"
+→ Key not defined in any localization file
+
+"Failed to parse localization file: my_file_l_english.yml"
+→ Syntax error or wrong encoding
+
+"Localization key 'my_key' defined multiple times"
+→ Duplicate key definition (last one wins)
+
+======================
+PRACTICAL EXAMPLES
+======================
+
+EXAMPLE 1: Complete Event Localization
+----------------------------------
+l_english:
+ # Event: Strange Discovery
+ event_mymod_discovery_1_title: "A Strange Discovery"
+ event_mymod_discovery_1_desc: "Our scholars have uncovered something unusual in [target_country.GetName]. The artifact appears to be of [target_country.GetAdjective] origin, dating back centuries. What shall we do?"
+ event_mymod_discovery_1_option_a: "Study it carefully"
+ event_mymod_discovery_1_option_a_tooltip: "Gain @adm! 50 Administrative Power"
+ event_mymod_discovery_1_option_b: "Display it publicly"
+ event_mymod_discovery_1_option_b_tooltip: "Gain @prestige! 10 Prestige"
+ event_mymod_discovery_1_option_c: "Return it to [target_country.GetName]"
+ event_mymod_discovery_1_option_c_tooltip: "Improve relations with [target_country.GetName]"
+
+EXAMPLE 2: Trait with Description
+----------------------------------
+l_english:
+ # Trait: Brilliant Strategist
+ brilliant_strategist: "Brilliant Strategist"
+ desc_brilliant_strategist: "This character has an exceptional gift for #bold military strategy#!. They can see patterns in battle that others miss and turn defeats into victories.\n\nEffects:\n@mil! +2 Military Skill\n@army! +10% Army Morale"
+
+EXAMPLE 3: Complex Modifier Display
+----------------------------------
+l_english:
+ modifier_economic_boom: "Economic Boom"
+ desc_modifier_economic_boom: "Our economy is thriving!\n\n#G Bonuses:#!\n@tax! Tax Income: [modifier|=2+%]\n@production! Production Efficiency: [modifier|=2+%]\n@trade! Trade Power: [modifier|=2+%]\n\nDuration: @time! [duration] months"
+
+EXAMPLE 4: Conditional Text with Custom Loc
+----------------------------------
+# Script: /common/customizable_localization/character_age.txt
+character_age_description = {
+    type = character
+    
+    text = {
+        trigger = { age < 20 }
+        localization_key = "age_young"
+    }
+    
+    text = {
+        trigger = { age >= 20 age < 40 }
+        localization_key = "age_adult"
+    }
+    
+    text = {
+        trigger = { age >= 40 age < 60 }
+        localization_key = "age_middle"
+    }
+    
+    text = {
+        trigger = { age >= 60 }
+        localization_key = "age_old"
+    }
+}
+
+# Localization:
+l_english:
+ character_description: "[Character.GetName] is [Character.Custom('character_age_description')]."
+ age_young: "#G young and energetic#!"
+ age_adult: "in their prime"
+ age_middle: "experienced and wise"
+ age_old: "#color_gray aged and venerable#!"
+
+EXAMPLE 5: Warning with Icons and Colors
+----------------------------------
+l_english:
+ rebellion_warning: "@warning_icon! #R REBELLION IMMINENT#!\n\nUnrest in [Province.GetName]: [unrest|=1]\nChance of revolt: [chance|=0%]\n\n#bold Recommended Actions:#!\n• Lower autonomy penalty\n• Station troops in province\n• Address rebel demands"
+
+EXAMPLE 6: Resource Display
+----------------------------------
+l_english:
+ treasury_report: "Treasury Report\n\n@gold! Gold: [Country.GetGold|K]\n@manpower! Manpower: [Country.GetManpower|K]\n@adm! Admin Power: [Country.GetAdmPower|0]\n@dip! Diplo Power: [Country.GetDipPower|0]\n@mil! Military Power: [Country.GetMilPower|0]"
+
+EXAMPLE 7: Relationship Display
+----------------------------------
+l_english:
+ relation_status: "Relations with [target_country.GetNameWithFlag]\n\nOpinion: [opinion|=+]\nTrust: [trust|=+]\nFavor: [favor|=+]\n\n[concept_opinion|e] determines diplomatic possibilities."
+
+======================
+LOCALIZATION WORKFLOW
+======================
+
+STEP-BY-STEP GUIDE
+----------------------------------
+1. Create localization file
+   - Name: <description>_l_english.yml
+   - Save as UTF-8 with BOM
+   - Add language header: l_english:
+
+2. Define keys
+   - Use descriptive snake_case names
+   - Indent with one space
+   - Wrap values in double quotes
+
+3. Add dynamic content
+   - Use [Scope.Function] for data
+   - Use @icon! for icons
+   - Use #color for colors
+
+4. Test in-game
+   - Launch game
+   - Check if keys display correctly
+   - Check logs for errors
+
+5. Refine
+   - Adjust text length for UI
+   - Test with different scopes
+   - Verify tooltips work
+
+6. Document
+   - Comment complex keys
+   - Note expected scopes
+   - Keep consistent style
+
+======================
+CROSS-REFERENCES
+======================
+📄 Related Files:
+- EU5_SCOPES_REFERENCE.txt - Understanding scope context
+- EU5_SCOPE_LINKS_REFERENCE.txt - Navigating between scopes
+- EU5_GUI_SCRIPT_REFERENCE.txt - Displaying localization in GUI
+- /common/game_concepts/ - Concept definitions
+- /common/customizable_localization/ - Dynamic text generation
+- game/in_game/localization/ - Vanilla localization files

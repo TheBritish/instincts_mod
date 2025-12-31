@@ -1,0 +1,842 @@
+## EU5 Mean Time To Happen (MTTH) Reference
+## Source: https://eu5.paradoxwikis.com/Mean_time_to_happen
+## Last Updated: December 5, 2025
+
+======================
+WHAT IS MEAN TIME TO HAPPEN?
+======================
+
+Mean Time To Happen (MTTH) is a calculation syntax used for:
+- Determining event frequencies (how often events fire)
+- Calculating weights in random selections
+- Probability calculations in various game systems
+
+Think of MTTH as a "probability calculator":
+- Higher values = more likely to happen / higher weight
+- Lower values = less likely to happen / lower weight
+- Base value modified by conditional multipliers/additions
+
+Common uses:
+- `weight` in events (relative probability)
+- `weight_multiplier` in event options
+- `spread` in institutions (adoption speed)
+- `weight` in on_actions (random event selection)
+- `weight` in random_* iterators (scope selection)
+
+======================
+WHERE MTTH IS USED
+======================
+
+EVENT WEIGHTS
+----------------------------------
+event = {
+    weight_multiplier = {
+        base = 100
+        # modifiers...
+    }
+}
+
+ON ACTION WEIGHTS
+----------------------------------
+on_action = {
+    random_events = {
+        100 = event1  # Fixed weight
+        
+        200 = {       # Dynamic weight
+            weight = {
+                base = 200
+                # modifiers...
+            }
+            event = event2
+        }
+    }
+}
+
+RANDOM ITERATORS
+----------------------------------
+random_character = {
+    weight = {
+        base = 1
+        # modifiers...
+    }
+    # effects...
+}
+
+INSTITUTION SPREAD
+----------------------------------
+institution = {
+    spread = {
+        base = 1.0
+        # modifiers...
+    }
+}
+
+TRAIT CHANCES
+----------------------------------
+trait = {
+    chance = {
+        base = 10
+        # modifiers...
+    }
+}
+
+======================
+BASIC SYNTAX
+======================
+
+SIMPLE WEIGHT
+----------------------------------
+weight = {
+    base = 100
+}
+
+# Result: Always 100
+
+WITH MODIFIERS
+----------------------------------
+weight = {
+    base = 100
+    
+    modifier = {
+        factor = 2          # Multiply by 2 (now 200)
+        is_at_war = yes     # Only if at war
+    }
+}
+
+MULTIPLE MODIFIERS
+----------------------------------
+weight = {
+    base = 100
+    
+    modifier = {
+        factor = 2
+        is_at_war = yes
+    }
+    
+    modifier = {
+        add = 50
+        stability >= 2
+    }
+}
+
+# If at war and stable: (100 * 2) + 50 = 250
+
+======================
+SETTING BASE VALUES
+======================
+
+USING BASE
+----------------------------------
+weight = {
+    base = 100
+}
+
+USING FACTOR
+----------------------------------
+weight = {
+    factor = 100
+}
+
+# base and factor are equivalent
+
+USING TIME UNITS
+----------------------------------
+weight = {
+    days = 365      # 365 days
+}
+
+weight = {
+    months = 12     # 12 * 30 = 360 days
+}
+
+weight = {
+    years = 1       # 1 * 365 = 365 days
+}
+
+ALL EQUIVALENT
+----------------------------------
+weight = { base = 10950 }
+weight = { factor = 10950 }
+weight = { days = 10950 }
+weight = { months = 365 }
+weight = { years = 30 }
+
+# All equal 30 years (10950 days)
+
+DEFAULT BASE
+----------------------------------
+weight = {
+    # No base specified
+    modifier = { ... }
+}
+
+# Default base = 1
+
+SCRIPT VALUES NOT ALLOWED
+----------------------------------
+❌ WRONG:
+weight = {
+    base = prestige  # Not allowed in base!
+}
+
+✅ CORRECT:
+weight = {
+    base = 1
+    modifier = {
+        multiply = prestige  # Use in modifiers
+    }
+}
+
+======================
+BASIC MODIFIERS
+======================
+
+MULTIPLICATION
+----------------------------------
+modifier = {
+    factor = 2              # Multiply current value by 2
+}
+
+modifier = {
+    factor = 0.5            # Multiply by 0.5 (halve)
+}
+
+ADDITION
+----------------------------------
+modifier = {
+    add = 50                # Add 50 to current value
+}
+
+modifier = {
+    add = -25               # Subtract 25
+}
+
+CONDITIONAL MODIFIERS
+----------------------------------
+modifier = {
+    factor = 10
+    trigger = {             # Only apply if true
+        is_great_power = yes
+    }
+}
+
+# Alternative (trigger block optional):
+modifier = {
+    factor = 10
+    is_great_power = yes    # Treated as trigger
+}
+
+======================
+SCRIPT VALUES IN MODIFIERS
+======================
+
+USING SCRIPT VALUES
+----------------------------------
+modifier = {
+    factor = {
+        value = 2
+        add = {
+            value = prestige
+            divide = 100
+        }
+        if = {
+            limit = { is_great_power = yes }
+            multiply = 2
+        }
+    }
+}
+
+# Complex calculations allowed in modifiers
+
+SIMPLE SCRIPT VALUE
+----------------------------------
+weight = {
+    base = 1
+    
+    modifier = {
+        multiply = prestige  # Multiply by prestige value
+    }
+}
+
+# Easiest way to make weight equal a trigger value
+
+COMPLEX CALCULATION
+----------------------------------
+modifier = {
+    add = {
+        value = total_development
+        divide = 10
+        min = 5
+        max = 50
+    }
+}
+
+======================
+FIRST VALID
+======================
+
+BASIC USAGE
+----------------------------------
+weight = {
+    base = 1
+    
+    first_valid = {
+        modifier = {
+            factor = 10
+            is_ruler = yes      # Check first
+        }
+        modifier = {
+            factor = 5
+            is_general = yes    # Check second
+        }
+    }
+}
+
+# Only first matching modifier is applied
+# If ruler: factor 10
+# If not ruler but general: factor 5
+# If neither: no change
+
+MULTIPLE FIRST_VALID
+----------------------------------
+weight = {
+    base = 1
+    
+    first_valid = {
+        modifier = { factor = 5; adm >= 5 }
+        modifier = { factor = 3; adm >= 3 }
+        modifier = { factor = 2; adm >= 1 }
+    }
+    
+    first_valid = {
+        modifier = { add = 20; prestige >= 50 }
+        modifier = { add = 10; prestige >= 25 }
+    }
+}
+
+# Each first_valid block independent
+
+======================
+COMPARE MODIFIERS
+======================
+
+BASIC COMPARE
+----------------------------------
+compare_modifier = {
+    value = total_development
+}
+
+# Adds total_development to weight
+
+WITH TARGET SCOPE
+----------------------------------
+compare_modifier = {
+    target = global_var:hre_emperor
+    value = total_abilities
+}
+
+# Adds total abilities of HRE emperor
+
+USING FACTOR (MULTIPLY)
+----------------------------------
+compare_modifier = {
+    target = capital
+    factor = development
+}
+
+# Multiplies weight by capital development
+
+OFFSET
+----------------------------------
+compare_modifier = {
+    value = prestige
+    offset = 100
+}
+
+# Adds (prestige + 100)
+
+MULTIPLIER
+----------------------------------
+compare_modifier = {
+    value = prestige
+    multiplier = 2
+}
+
+# Adds (prestige * 2)
+
+STEP (ROUNDING)
+----------------------------------
+compare_modifier = {
+    value = prestige
+    step = 5
+}
+
+# Rounds prestige to nearest 5
+# prestige 0-4 = 0
+# prestige 5-9 = 5
+# prestige 10-14 = 10
+
+MIN/MAX CLAMPING
+----------------------------------
+compare_modifier = {
+    value = prestige
+    min = 20
+    max = 80
+}
+
+# If prestige < 20: uses 20
+# If prestige > 80: uses 80
+# Otherwise: uses prestige
+
+COMPLEX COMPARE
+----------------------------------
+compare_modifier = {
+    target = global_var:hre_emperor
+    value = total_abilities
+    multiplier = 2
+    offset = 100
+    step = 5
+    min = 100
+    max = 600
+}
+
+# Complex calculation with all parameters
+# Note: NOT evaluated in order! All applied together
+
+SCRIPT VALUES IN COMPARE
+----------------------------------
+compare_modifier = {
+    value = {
+        value = prestige
+        multiply = 2
+        add = stability
+    }
+    offset = 50
+    multiplier = 1.5
+}
+
+======================
+PRACTICAL EXAMPLES
+======================
+
+EXAMPLE 1: Event Weight by Power
+----------------------------------
+weight_multiplier = {
+    base = 100
+    
+    # More likely for great powers
+    modifier = {
+        factor = 2
+        is_great_power = yes
+    }
+    
+    # More likely with high prestige
+    modifier = {
+        add = prestige
+    }
+    
+    # Less likely if at war
+    modifier = {
+        factor = 0.5
+        is_at_war = yes
+    }
+}
+
+EXAMPLE 2: Character Selection Weight
+----------------------------------
+random_character = {
+    weight = {
+        base = 10
+        
+        # Prefer high admin rulers
+        first_valid = {
+            modifier = {
+                factor = 10
+                is_ruler = yes
+                adm >= 5
+            }
+            modifier = {
+                factor = 5
+                is_general = yes
+            }
+            modifier = {
+                factor = 2
+                in_cabinet = yes
+            }
+        }
+        
+        # Scale by total skills
+        modifier = {
+            add = {
+                value = adm
+                add = dip
+                add = mil
+            }
+        }
+        
+        # Avoid incompetent
+        modifier = {
+            factor = 0.1
+            has_trait = incompetent
+        }
+    }
+    
+    # effects...
+}
+
+EXAMPLE 3: Province Selection
+----------------------------------
+random_owned_location = {
+    weight = {
+        base = 1
+        
+        # Prefer developed provinces
+        compare_modifier = {
+            value = development
+            step = 5
+        }
+        
+        # Avoid capital
+        modifier = {
+            factor = 0.1
+            is_capital = yes
+        }
+        
+        # Prefer coastal
+        modifier = {
+            factor = 1.5
+            is_coastal = yes
+        }
+    }
+    
+    # effects...
+}
+
+EXAMPLE 4: Institution Spread
+----------------------------------
+spread = {
+    base = 1.0
+    
+    # Faster in developed provinces
+    modifier = {
+        factor = {
+            value = development
+            divide = 20
+        }
+    }
+    
+    # Faster near capital
+    modifier = {
+        factor = 1.5
+        same_area_as_capital = yes
+    }
+    
+    # Slower if isolated
+    modifier = {
+        factor = 0.5
+        NOT = {
+            any_neighbor_location = {
+                has_institution = ROOT
+            }
+        }
+    }
+}
+
+EXAMPLE 5: Trait Acquisition
+----------------------------------
+chance = {
+    base = 10
+    
+    # Higher chance for high skill
+    compare_modifier = {
+        value = adm
+        multiplier = 5
+    }
+    
+    # Rulers more likely
+    modifier = {
+        factor = 2
+        is_ruler = yes
+    }
+    
+    # Never if already has opposite trait
+    modifier = {
+        factor = 0
+        has_trait = incompetent
+    }
+    
+    # Age-based
+    first_valid = {
+        modifier = {
+            factor = 2
+            age >= 50
+        }
+        modifier = {
+            factor = 1.5
+            age >= 35
+        }
+        modifier = {
+            factor = 1.2
+            age >= 25
+        }
+    }
+}
+
+EXAMPLE 6: On Action Event Selection
+----------------------------------
+monthly_country_pulse = {
+    random_events = {
+        100 = event1  # Fixed weight
+        
+        200 = {       # Dynamic weight
+            weight = {
+                base = 200
+                
+                modifier = {
+                    factor = 0
+                    has_country_flag = event2_cooldown
+                }
+                
+                modifier = {
+                    factor = 2
+                    is_great_power = yes
+                }
+                
+                modifier = {
+                    add = {
+                        value = prestige
+                        divide = 10
+                    }
+                }
+            }
+            event = event2
+        }
+    }
+}
+
+======================
+SCRIPTED MODIFIERS
+======================
+
+DEFINITION
+----------------------------------
+# File: common/scripted_modifiers/my_modifiers.txt
+
+prestige_based_weight = {
+    modifier = {
+        add = prestige
+        divide = 10
+    }
+}
+
+skill_multiplier = {
+    modifier = {
+        factor = {
+            value = adm
+            add = dip
+            add = mil
+            divide = 3
+        }
+    }
+}
+
+USAGE
+----------------------------------
+weight = {
+    base = 100
+    prestige_based_weight = yes
+    skill_multiplier = yes
+}
+
+WITH ARGUMENTS
+----------------------------------
+# Definition:
+scaled_by_stat = {
+    modifier = {
+        factor = {
+            value = $STAT$
+            divide = $DIVISOR$
+        }
+    }
+}
+
+# Usage:
+weight = {
+    base = 100
+    scaled_by_stat = {
+        STAT = stability
+        DIVISOR = 10
+    }
+}
+
+======================
+COMMON PATTERNS
+======================
+
+ZERO OUT WEIGHT
+----------------------------------
+modifier = {
+    factor = 0
+    # conditions that disqualify
+}
+
+# Ensures weight becomes 0
+
+DOUBLE IF CONDITION
+----------------------------------
+modifier = {
+    factor = 2
+    # condition
+}
+
+HALVE IF CONDITION
+----------------------------------
+modifier = {
+    factor = 0.5
+    # condition
+}
+
+ADD STAT VALUE
+----------------------------------
+modifier = {
+    add = prestige
+}
+
+# Adds prestige value directly
+
+SCALE BY PERCENTAGE
+----------------------------------
+modifier = {
+    factor = {
+        value = prestige
+        divide = 100
+    }
+}
+
+# prestige/100 as multiplier
+
+TIERED BONUSES
+----------------------------------
+first_valid = {
+    modifier = { factor = 5; prestige >= 75 }
+    modifier = { factor = 3; prestige >= 50 }
+    modifier = { factor = 2; prestige >= 25 }
+}
+
+# Grants bonus based on tier
+
+======================
+DEBUGGING MTTH
+======================
+
+TESTING WEIGHTS
+----------------------------------
+# Create test event:
+test_weight.1 = {
+    title = "Test Weight"
+    
+    option = {
+        name = "Test"
+        
+        random_character = {
+            weight = {
+                # Your weight calculation
+            }
+            
+            log = "Selected: [This.GetName]"
+        }
+    }
+}
+
+# Run multiple times to see distribution
+
+LOGGING CALCULATIONS
+----------------------------------
+# Add logging to understand values:
+weight = {
+    base = 100
+    
+    modifier = {
+        add = prestige
+        # Log: "prestige = [ROOT.GetPrestige]"
+    }
+}
+
+COMMON ERRORS
+----------------------------------
+❌ ERROR: Weight always 0
+Cause: factor = 0 modifier applied unconditionally
+
+✅ FIX: Add trigger to factor = 0
+
+❌ ERROR: Unexpected selection
+Cause: Weights not balanced properly
+
+✅ FIX: Log and test weight values
+
+❌ ERROR: Script value in base
+Cause: base = prestige (not allowed)
+
+✅ FIX: Use modifier instead
+
+======================
+BEST PRACTICES
+======================
+
+1. READABILITY
+----------------------------------
+✅ Comment your modifiers:
+modifier = {
+    factor = 2
+    # Double chance for great powers
+    is_great_power = yes
+}
+
+2. BALANCE
+----------------------------------
+✅ Keep weights in reasonable ranges:
+base = 100 (not 10000000)
+
+3. ZERO SAFETY
+----------------------------------
+✅ Be careful with factor = 0:
+modifier = {
+    factor = 0
+    trigger = { ... }  # Always use trigger!
+}
+
+4. SCRIPT VALUE PLACEMENT
+----------------------------------
+✅ Use script values in modifiers:
+modifier = { multiply = prestige }
+
+❌ Don't use in base:
+base = prestige  # ERROR
+
+5. TESTING
+----------------------------------
+✅ Test weight distributions:
+- Run events multiple times
+- Log selected items
+- Verify probabilities match intent
+
+6. DOCUMENTATION
+----------------------------------
+✅ Document complex calculations:
+# Weight calculation:
+# - Base 100
+# - +prestige/10
+# - x2 if great power
+# - x0.5 if at war
+
+======================
+CROSS-REFERENCES
+======================
+📄 Related Files:
+- EU5_MACROS_REFERENCE.txt - Scripted modifiers
+- EU5_ON_ACTIONS_REFERENCE.txt - Using MTTH in on_actions
+- EU5_SCRIPT_VALUES_REFERENCE.txt - Script value syntax
+- EU5_TRIGGERS_REFERENCE.txt - Trigger syntax for modifiers
+- common/scripted_modifiers/ - Vanilla scripted modifiers
+- common/traits/_traits.info - MTTH in trait chances
+- common/on_action/on_actions.info - MTTH in on actions

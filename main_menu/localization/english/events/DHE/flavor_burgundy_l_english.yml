@@ -1,119 +1,104 @@
 ﻿l_english:
-	# ===== BURGUNDY HISTORICAL EVENT CHAIN =====
-
-	# Event 100: The Capetian Extinction (1361)
-	flavor_burgundy.100.t:0 "The Capetian Extinction"
-	flavor_burgundy.100.d:0 "Philip of Rouvres, Duke of Burgundy, has died without an heir at the age of fifteen. The Capetian line that ruled Burgundy since 1032 is extinct. King [france_country.GetName] claims the duchy should revert to the Crown, while Franche-Comté passes to other claimants."
-	flavor_burgundy.100.a:0 "The Duchy Reverts to France"
-	flavor_burgundy.100.a.tt:0 "Franche-Comté lands are separated from Burgundy and Burgundy becomes a fiefdom under direct French control"
-	flavor_burgundy.100.b:0 "Resist French Claims"
-	flavor_burgundy.100.b.tt:0 "Risk conflict with France but maintain independence"
-
-	# Event 101: The Valois Appanage (1363)
-	flavor_burgundy.101.t:0 "The Valois Appanage"
-	flavor_burgundy.101.d:0 "[france_country.GetName] grants the Duchy of Burgundy to his youngest son, Philip the Bold, as an appanage. At twenty-two years of age, Philip brings ambition, [france_country.GetAdjective] connections, and the full backing of the Valois monarchy to Dijon.\n\nPhilip becomes Duke of Burgundy, establishing the House of Valois's dominion over the duchy. A new era of prosperity and expansion awaits."
-	flavor_burgundy.101.a:0 "Welcome Philip the Bold"
-	flavor_burgundy.101.a.tt:0 "#G Philip the Bold #! is established as Duke of Burgundy under Valois rule"
-	flavor_burgundy.101.b:0 "Reject the #R Valois #! Heir"
-	flavor_burgundy.101.b.tt:0 "Risk conflict with France but maintain Burgundian independence"
-
-	# Event 102: Consolidation of Power (1380-1395)
-	flavor_burgundy.102.t:0 "The Battle of Roosebeke and Expansion"
-	flavor_burgundy.102.d:0 "Following victory at the Battle of Roosebeke, Burgundy moves decisively to consolidate its power in the Low Countries. We seize the opportunity to annex the County of Bar and Franche-Comté, eliminating rivals and securing strategic territories. With these acquisitions, our influence over [flanders_country.GetName] grows, and the foundations of Burgundian dominance in the region are firmly established."
-	flavor_burgundy.102.a:0 "Seize Bar and Franche-Comté"
-	flavor_burgundy.102.a.tt:0 "#G Annexes #! Bar and Franche-Comté, #G improving relations #! with [flanders_country.GetName]"
-	flavor_burgundy.102.b:0 "Maintain Our Current Course"
-	flavor_burgundy.102.b.tt:0 "Pass this opportunity and consolidate existing holdings"
-	flavor_burgundy.102.historical_info:0 "The Battle of Roosebeke (1382) saw Burgundian forces suppress Flemish uprisings and enabled territorial consolidation in the Low Countries."
-
-	# Event 103: The Golden Age (1400-1430)
-	flavor_burgundy.103.t:0 "The Golden Age"
-	flavor_burgundy.103.d:0 "Burgundy has entered its golden age. With control of the prosperous Low Countries and a ducal court renowned throughout Christendom, we stand as one of Europe's great powers.\n\nOur lands are centers of art, culture, and commerce. The future seems boundless as we consolidate our vast territories."
-	flavor_burgundy.103.a:0 "Embrace Our Golden Age"
-	flavor_burgundy.103.a.tt:0 "#G Gain prestige #! and apply a prosperity modifier"
-	flavor_burgundy.103.b:0 "Focus on Stability"
-	flavor_burgundy.103.b.tt:0 "#G Gain stability #! and prestige at a slower pace"
-	flavor_burgundy.103.historical_info:0 "Burgundy's Golden Age combined wealth, art, and administration, strengthening ducal authority across its domains."
-
-	# Event 104: Purchase of Namur (1421)
-	flavor_burgundy.104.t:0 "The Purchase of [namur_country.GetName]"
-	flavor_burgundy.104.d:0 "An opportunity arises to purchase the county of [namur_country.GetName] from its current rulers. [namur_country.GetAdjective] territory is strategically important to the Low Countries, controlling key trade routes and providing additional strength to our growing domain."
-	flavor_burgundy.104.a.tt:0 "#R Costs @gold! 200 ducats #! but #G annexes [namur_country.GetName] #! and adds #G cores #!"
-	flavor_burgundy.104.historical_info:0 "Strategic acquisitions such as Namur expanded Burgundian control of trade routes and regional influence."
-
-	# Event 105: Brabant Succession (1430)
-	flavor_burgundy.105.t:0 "The [brabant_country.GetAdjective] Succession"
-	flavor_burgundy.105.d:0 "The Duke of [brabant_country.GetName] has died without a clear heir. As the dominant power in the Low Countries, Burgundy has the opportunity to claim this rich and prosperous duchy. However, such action would not go unchallenged."
-	flavor_burgundy.105.a:0 "Inherit [brabant_country.GetName]"
-	flavor_burgundy.105.historical_info:0 "The Brabant succession solidified Burgundian dominance in the Low Countries and brought great wealth and influence."
-
-	# Event 106: Treaty of Delft (1433)
-	flavor_burgundy.106.t:0 "The Treaty of Delft"
-	flavor_burgundy.106.d:0 "Through skillful diplomacy and the demonstrated weight of our military power, Burgundy negotiates the absorption of [holland_country.GetName] and [hainault_country.GetName]. The Low Countries are finally unified under Burgundian rule, creating a powerful territorial bloc at the heart of Western Europe."
-	flavor_burgundy.106.a:0 "Accept the Treaty"
-	flavor_burgundy.106.a.tt:0 "#G Annexes [holland_country.GetName] and [hainault_country.GetName] #! and unifies the Low Countries"
-	flavor_burgundy.106.historical_info:0 "Through treaties and diplomacy, Burgundy extended its hegemony, uniting key Low Countries territories under ducal authority."
-
-	# Event 107: Treaty of Arras (1435)
-	flavor_burgundy.107.t:0 "The Treaty of Arras"
-	flavor_burgundy.107.d:0 "[france_country.GetName], recognizing Burgundian dominance in the Low Countries and seeking to neutralize us as a threat, cedes the county of Picardy to our rule. This represents the apex of Burgundian power and marks a fundamental shift in the balance of power in Western Europe."
-	flavor_burgundy.107.a:0 "Ratify the Treaty"
-	flavor_burgundy.107.a.tt:0 "#G Annexes Picardy #!, #G improves relations #! with [france_country.GetName], but #R breaks #! alliance with [england_country.GetName]"
-	flavor_burgundy.107.historical_info:0 "The Treaty of Arras (1435) realigned Burgundian and French interests, strengthening Burgundian position in northern France."
-
-	# Event 108: Luxembourg Succession (1450)
-	flavor_burgundy.108.t:0 "The [luxembourg_country.GetAdjective] Succession"
-	flavor_burgundy.108.d:0 "The county of [luxembourg_country.GetName], caught between the great powers, offers itself to Burgundy for protection and incorporation into our growing realm. Yet the Holy Roman Emperor, determined to maintain his influence in the region, may contest this acquisition."
-	flavor_burgundy.108.a:0 "Acquire [luxembourg_country.GetName]"
-	flavor_burgundy.108.a.tt:0 "#R Costs @gold! 300 ducats #! but #G annexes [luxembourg_country.GetName] #! and #R antagonizes #! HRE Emperor"
-	flavor_burgundy.108.historical_info:0 "Acquiring Luxembourg extended Burgundian reach into the contested borderlands between France and the Empire."
-
-	# Event 109: The Crisis of Succession (1467-1477)
-	flavor_burgundy.109.t:0 "The Crisis of Succession"
-	flavor_burgundy.109.d:0 "Death claims our great Duke, and the succession hangs in perilous balance. The neighboring powers circle like wolves, sensing an opportunity to carve up our territory.\n\nCharles the Bold must navigate treacherous waters to maintain Burgundy's independence and greatness during this dangerous transition."
-	flavor_burgundy.109.a:0 "We Shall Endure"
-	flavor_burgundy.109.b:0 "Accept Our Limitations"
-	flavor_burgundy.109.b.tt:0 "#R Lose prestige #! and #R stability #!, but reduce immediate threat"
-	flavor_burgundy.109.historical_info:0 "The crisis of succession threatened Burgundy's continuity and drew the attention of neighboring powers seeking advantage."
-
-	# Event 110: The Burgundian Circle (1500-1525)
-	flavor_burgundy.110.t:0 "The Burgundian Circle"
-	flavor_burgundy.110.d:0 "After decades of struggle and consolidation, Burgundy has established itself as a dominant power in the Low Countries. The Pragmatic Sanction has secured our succession rights and territorial integrity.\n\nThe Burgundian Circle stands as a formidable political and cultural entity, commanding respect from the great powers of Europe."
-	flavor_burgundy.110.a:0 "Apply the Pragmatic Sanction"
-	flavor_burgundy.110.a.tt:0 "#G Applies Pragmatic Sanction modifier #! for 15 years and #G improves government rank #!"
-	flavor_burgundy.110.b:0 "Focus on Prosperity"
-	flavor_burgundy.110.b.tt:0 "#G Gain stability #! and #G prestige #! at a modest rate"
-	flavor_burgundy.110.historical_info:0 "The Pragmatic Sanction codified Burgundian succession and institutionalized the Burgundian Circle's political structure."
-
-	# Event 111: Religious Tensions (1550-1580)
-	flavor_burgundy.111.t:0 "Religious Tensions"
-	flavor_burgundy.111.d:0 "Reformation-era tensions in the Low Countries created deep religious and political cleavages, undermining Burgundian stability."
-	flavor_burgundy.111.a:0 "Accommodate [spain_country.GetName]"
-	flavor_burgundy.111.a.tt:0 "#G Gain stability #! but #R religious tensions persist #! in our Low Countries"
-	flavor_burgundy.111.b:0 "Support the Dutch Resistance"
-	flavor_burgundy.111.b.tt:0 "#R Lose stability #! with [spain_country.GetName] but #G support local rebels #!"
-	flavor_burgundy.111.historical_info:0 "Reformation-era tensions in the Low Countries created deep religious and political cleavages, undermining Burgundian stability."
-
-	# ===== MODIFIERS & DESCRIPTIONS =====
-	loyal_appanage_desc:0 "Burgundy is granted as a royal appanage by the King of France. Though independent in governance, we remain loyal subjects of the Crown."
-	succession_crisis_modifier:0 "Succession Crisis"
-	succession_crisis_modifier_desc:0 "The death of our Duke has thrown the realm into chaos. Uncertainty and danger plague our lands."
-	flanders_marriage_alliance:0 "Flanders Marriage Alliance"
-	burgundian_golden_age:0 "Burgundian Golden Age"
-	burgundian_golden_age_desc:0 "Under our wise rule, Burgundy enters a period of exceptional cultural, economic, and military prosperity."
-	burgundy_pragmatic_sanction:0 "Pragmatic Sanction"
-	burgundy_pragmatic_sanction_desc:0 "The Pragmatic Sanction establishes our succession rights and integrates our diverse territories."
-	religious_tensions:0 "Religious Tensions"
-	religious_tensions_desc:0 "Religious fervor and sectarian conflicts create instability within our Low Countries territories."
-	burgundy_relations_positive:0 "Positive Relations with France"
-	burgundy_relations_positive_desc:0 "Our relationship with France has improved."
-	burgundy_relations_negative:0 "Negative Relations with France"
-	burgundy_relations_negative_desc:0 "Our relationship with France has deteriorated."
-	brabantian_privileges:0 "Brabantian Privileges"
-	brabantian_privileges_desc:0 "We have granted the Brabantine nobility special privileges in exchange for their acceptance of Burgundian rule."
-	treaty_of_arras_alliance:0 "Treaty of Arras Alliance"
-	treaty_of_arras_alliance_desc:0 "A strategic alliance sealed by the Treaty of Arras has strengthened our bonds with France."
-	luxembourg_succession_dispute:0 "Luxembourg Succession Dispute"
-	luxembourg_succession_dispute_desc:0 "The Holy Roman Emperor contests our acquisition of Luxembourg, creating diplomatic tensions."
-
-
+ # ===== BURGUNDY HISTORICAL EVENT CHAIN =====
+ # Event 100: The Capetian Extinction (1361)
+ flavor_burgundy.100.t:0 "The Capetian Extinction"
+ flavor_burgundy.100.d:0 "Philip of Rouvres, Duke of Burgundy, has died without an heir at the age of fifteen. The Capetian line that ruled Burgundy since 1032 is extinct. King [france_country.GetName] claims the duchy should revert to the Crown, while Franche-Comté passes to other claimants."
+ flavor_burgundy.100.a:0 "The Duchy Reverts to France"
+ flavor_burgundy.100.a.tt:0 "Franche-Comté lands are separated from Burgundy and Burgundy becomes a fiefdom under direct French control"
+ flavor_burgundy.100.b:0 "Resist French Claims"
+ flavor_burgundy.100.b.tt:0 "Risk conflict with France but maintain independence" 
+ # Event 101: The Valois Appanage (1363)
+ flavor_burgundy.101.t:0 "The Valois Appanage"
+ flavor_burgundy.101.d:0 "[france_country.GetName] grants the Duchy of Burgundy to his youngest son, Philip the Bold, as an appanage. At twenty-two years of age, Philip brings ambition, [france_country.GetAdjective] connections, and the full backing of the Valois monarchy to Dijon.\n\nPhilip becomes Duke of Burgundy, establishing the House of Valois's dominion over the duchy. A new era of prosperity and expansion awaits."
+ flavor_burgundy.101.a:0 "Welcome Philip the Bold"
+ flavor_burgundy.101.a.tt:0 "#G Philip the Bold #! is established as Duke of Burgundy under Valois rule"
+ flavor_burgundy.101.b:0 "Reject the #R Valois #! Heir"
+ flavor_burgundy.101.b.tt:0 "Risk conflict with France but maintain Burgundian independence" 
+ # Event 102: Consolidation of Power (1380-1395)
+ flavor_burgundy.102.t:0 "The Battle of Roosebeke and Expansion"
+ flavor_burgundy.102.d:0 "Following victory at the Battle of Roosebeke, Burgundy moves decisively to consolidate its power in the Low Countries. We seize the opportunity to annex the County of Bar and Franche-Comté, eliminating rivals and securing strategic territories. With these acquisitions, our influence over [flanders_country.GetName] grows, and the foundations of Burgundian dominance in the region are firmly established."
+ flavor_burgundy.102.a:0 "Seize Bar and Franche-Comté"
+ flavor_burgundy.102.a.tt:0 "#G Annexes #! Bar and Franche-Comté, #G improving relations #! with [flanders_country.GetName]"
+ flavor_burgundy.102.b:0 "Maintain Our Current Course"
+ flavor_burgundy.102.b.tt:0 "Pass this opportunity and consolidate existing holdings"
+ flavor_burgundy.102.historical_info:0 "The Battle of Roosebeke (1382) saw Burgundian forces suppress Flemish uprisings and enabled territorial consolidation in the Low Countries." 
+ # Event 103: The Golden Age (1400-1430)
+ flavor_burgundy.103.t:0 "The Golden Age"
+ flavor_burgundy.103.d:0 "Burgundy has entered its golden age. With control of the prosperous Low Countries and a ducal court renowned throughout Christendom, we stand as one of Europe's great powers.\n\nOur lands are centers of art, culture, and commerce. The future seems boundless as we consolidate our vast territories."
+ flavor_burgundy.103.a:0 "Embrace Our Golden Age"
+ flavor_burgundy.103.a.tt:0 "#G Gain prestige #! and apply a prosperity modifier"
+ flavor_burgundy.103.b:0 "Focus on Stability"
+ flavor_burgundy.103.b.tt:0 "#G Gain stability #! and prestige at a slower pace"
+ flavor_burgundy.103.historical_info:0 "Burgundy's Golden Age combined wealth, art, and administration, strengthening ducal authority across its domains." 
+ # Event 104: Purchase of Namur (1421)
+ flavor_burgundy.104.t:0 "The Purchase of [namur_country.GetName]"
+ flavor_burgundy.104.d:0 "An opportunity arises to purchase the county of [namur_country.GetName] from its current rulers. [namur_country.GetAdjective] territory is strategically important to the Low Countries, controlling key trade routes and providing additional strength to our growing domain."
+ flavor_burgundy.104.a.tt:0 "#R Costs @gold! 200 ducats #! but #G annexes [namur_country.GetName] #! and adds #G cores #!"
+ flavor_burgundy.104.historical_info:0 "Strategic acquisitions such as Namur expanded Burgundian control of trade routes and regional influence." 
+ # Event 105: Brabant Succession (1430)
+ flavor_burgundy.105.t:0 "The [brabant_country.GetAdjective] Succession"
+ flavor_burgundy.105.d:0 "The Duke of [brabant_country.GetName] has died without a clear heir. As the dominant power in the Low Countries, Burgundy has the opportunity to claim this rich and prosperous duchy. However, such action would not go unchallenged."
+ flavor_burgundy.105.a:0 "Inherit [brabant_country.GetName]"
+ flavor_burgundy.105.historical_info:0 "The Brabant succession solidified Burgundian dominance in the Low Countries and brought great wealth and influence." 
+ # Event 106: Treaty of Delft (1433)
+ flavor_burgundy.106.t:0 "The Treaty of Delft"
+ flavor_burgundy.106.d:0 "Through skillful diplomacy and the demonstrated weight of our military power, Burgundy negotiates the absorption of [holland_country.GetName] and [hainault_country.GetName]. The Low Countries are finally unified under Burgundian rule, creating a powerful territorial bloc at the heart of Western Europe."
+ flavor_burgundy.106.a:0 "Accept the Treaty"
+ flavor_burgundy.106.a.tt:0 "#G Annexes [holland_country.GetName] and [hainault_country.GetName] #! and unifies the Low Countries"
+ flavor_burgundy.106.historical_info:0 "Through treaties and diplomacy, Burgundy extended its hegemony, uniting key Low Countries territories under ducal authority." 
+ # Event 107: Treaty of Arras (1435)
+ flavor_burgundy.107.t:0 "The Treaty of Arras"
+ flavor_burgundy.107.d:0 "[france_country.GetName], recognizing Burgundian dominance in the Low Countries and seeking to neutralize us as a threat, cedes the county of Picardy to our rule. This represents the apex of Burgundian power and marks a fundamental shift in the balance of power in Western Europe."
+ flavor_burgundy.107.a:0 "Ratify the Treaty"
+ flavor_burgundy.107.a.tt:0 "#G Annexes Picardy #!, #G improves relations #! with [france_country.GetName], but #R breaks #! alliance with [england_country.GetName]"
+ flavor_burgundy.107.historical_info:0 "The Treaty of Arras (1435) realigned Burgundian and French interests, strengthening Burgundian position in northern France." 
+ # Event 108: Luxembourg Succession (1450)
+ flavor_burgundy.108.t:0 "The [luxembourg_country.GetAdjective] Succession"
+ flavor_burgundy.108.d:0 "The county of [luxembourg_country.GetName], caught between the great powers, offers itself to Burgundy for protection and incorporation into our growing realm. Yet the Holy Roman Emperor, determined to maintain his influence in the region, may contest this acquisition."
+ flavor_burgundy.108.a:0 "Acquire [luxembourg_country.GetName]"
+ flavor_burgundy.108.a.tt:0 "#R Costs @gold! 300 ducats #! but #G annexes [luxembourg_country.GetName] #! and #R antagonizes #! HRE Emperor"
+ flavor_burgundy.108.historical_info:0 "Acquiring Luxembourg extended Burgundian reach into the contested borderlands between France and the Empire." 
+ # Event 109: The Crisis of Succession (1467-1477)
+ flavor_burgundy.109.t:0 "The Crisis of Succession"
+ flavor_burgundy.109.d:0 "Death claims our great Duke, and the succession hangs in perilous balance. The neighboring powers circle like wolves, sensing an opportunity to carve up our territory.\n\nCharles the Bold must navigate treacherous waters to maintain Burgundy's independence and greatness during this dangerous transition."
+ flavor_burgundy.109.a:0 "We Shall Endure"
+ flavor_burgundy.109.b:0 "Accept Our Limitations"
+ flavor_burgundy.109.b.tt:0 "#R Lose prestige #! and #R stability #!, but reduce immediate threat"
+ flavor_burgundy.109.historical_info:0 "The crisis of succession threatened Burgundy's continuity and drew the attention of neighboring powers seeking advantage." 
+ # Event 110: The Burgundian Circle (1500-1525)
+ flavor_burgundy.110.t:0 "The Burgundian Circle"
+ flavor_burgundy.110.d:0 "After decades of struggle and consolidation, Burgundy has established itself as a dominant power in the Low Countries. The Pragmatic Sanction has secured our succession rights and territorial integrity.\n\nThe Burgundian Circle stands as a formidable political and cultural entity, commanding respect from the great powers of Europe."
+ flavor_burgundy.110.a:0 "Apply the Pragmatic Sanction"
+ flavor_burgundy.110.a.tt:0 "#G Applies Pragmatic Sanction modifier #! for 15 years and #G improves government rank #!"
+ flavor_burgundy.110.b:0 "Focus on Prosperity"
+ flavor_burgundy.110.b.tt:0 "#G Gain stability #! and #G prestige #! at a modest rate"
+ flavor_burgundy.110.historical_info:0 "The Pragmatic Sanction codified Burgundian succession and institutionalized the Burgundian Circle's political structure." 
+ # Event 111: Religious Tensions (1550-1580)
+ flavor_burgundy.111.t:0 "Religious Tensions"
+ flavor_burgundy.111.d:0 "Reformation-era tensions in the Low Countries created deep religious and political cleavages, undermining Burgundian stability."
+ flavor_burgundy.111.a:0 "Accommodate [spain_country.GetName]"
+ flavor_burgundy.111.a.tt:0 "#G Gain stability #! but #R religious tensions persist #! in our Low Countries"
+ flavor_burgundy.111.b:0 "Support the Dutch Resistance"
+ flavor_burgundy.111.b.tt:0 "#R Lose stability #! with [spain_country.GetName] but #G support local rebels #!"
+ flavor_burgundy.111.historical_info:0 "Reformation-era tensions in the Low Countries created deep religious and political cleavages, undermining Burgundian stability." 
+ # ===== MODIFIERS & DESCRIPTIONS =====
+ loyal_appanage_desc:0 "Burgundy is granted as a royal appanage by the King of France. Though independent in governance, we remain loyal subjects of the Crown."
+ succession_crisis_modifier:0 "Succession Crisis"
+ succession_crisis_modifier_desc:0 "The death of our Duke has thrown the realm into chaos. Uncertainty and danger plague our lands."
+ flanders_marriage_alliance:0 "Flanders Marriage Alliance"
+ burgundian_golden_age:0 "Burgundian Golden Age"
+ burgundian_golden_age_desc:0 "Under our wise rule, Burgundy enters a period of exceptional cultural, economic, and military prosperity."
+ burgundy_pragmatic_sanction:0 "Pragmatic Sanction"
+ burgundy_pragmatic_sanction_desc:0 "The Pragmatic Sanction establishes our succession rights and integrates our diverse territories."
+ religious_tensions:0 "Religious Tensions"
+ religious_tensions_desc:0 "Religious fervor and sectarian conflicts create instability within our Low Countries territories."
+ burgundy_relations_positive:0 "Positive Relations with France"
+ burgundy_relations_positive_desc:0 "Our relationship with France has improved."
+ burgundy_relations_negative:0 "Negative Relations with France"
+ burgundy_relations_negative_desc:0 "Our relationship with France has deteriorated."
+ brabantian_privileges:0 "Brabantian Privileges"
+ brabantian_privileges_desc:0 "We have granted the Brabantine nobility special privileges in exchange for their acceptance of Burgundian rule."
+ treaty_of_arras_alliance:0 "Treaty of Arras Alliance"
+ treaty_of_arras_alliance_desc:0 "A strategic alliance sealed by the Treaty of Arras has strengthened our bonds with France."
+ luxembourg_succession_dispute:0 "Luxembourg Succession Dispute"
+ luxembourg_succession_dispute_desc:0 "The Holy Roman Emperor contests our acquisition of Luxembourg, creating diplomatic tensions." 

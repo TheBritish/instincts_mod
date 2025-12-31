@@ -1,0 +1,49 @@
+# EU5_ILLUSTRATION_TAGS_REFERENCE.txt
+# Complete reference for illustration_tags in Dynamic Historical Events (DHE)
+# Required for proper event art display in EU5
+# Format: illustration_tags = { 10 = mood 10 = setting }
+
+# VALID MOOD VALUES (first value in pair)
+# These represent the emotional tone/art style of the event illustration
+
+# angry - Used for conflict, tension, or negative events
+# regular - Neutral/default mood for standard events
+# happy - Positive, celebratory, or successful events
+# war - Military conflict, battles, or war-related events
+# prosperity - Wealth, trade, economic success, or positive developments
+# death - Mortality, plague, tragedy, or somber events
+# ages - Age of Discovery/Exploration themed events
+# armed - Military preparation, armed conflict, or defensive situations
+
+# VALID SETTING VALUES (second value in pair)
+# These represent the background/location context of the event illustration
+
+# interior - Indoor scenes (palaces, chambers, meeting rooms)
+# exterior - Outdoor scenes (battlefields, streets, landscapes)
+# battlefield - Specific military combat scenes
+
+# USAGE EXAMPLES
+# illustration_tags = { 10 = war 10 = battlefield }     # Battle/war event
+# illustration_tags = { 10 = prosperity 10 = interior } # Economic success in palace
+# illustration_tags = { 10 = death 10 = interior }      # Tragedy in throne room
+# illustration_tags = { 10 = happy 10 = exterior }      # Celebration outdoors
+# illustration_tags = { 10 = angry 10 = exterior }      # Conflict outside
+# illustration_tags = { 10 = regular 10 = interior }    # Standard diplomatic meeting
+# illustration_tags = { 10 = armed 10 = exterior }      # Military preparation outdoors
+# illustration_tags = { 10 = ages 10 = exterior }       # Exploration/colonial event
+
+# REQUIRED SYNTAX
+# - Must be placed in dynamic_historical_event block (not regular events)
+# - Always use weight 10 for both mood and setting
+# - Format is exactly: illustration_tags = { 10 = mood 10 = setting }
+# - Missing illustration_tags will cause events to display without art
+# - Invalid mood/setting values will cause art display failures
+
+# COMMON PATTERNS BY EVENT TYPE
+# Diplomatic events: regular + interior
+# War events: war + battlefield, angry + exterior
+# Economic events: prosperity + interior
+# Tragedy events: death + interior
+# Celebration events: happy + exterior
+# Exploration events: ages + exterior
+# Military events: armed + exterior, war + battlefield

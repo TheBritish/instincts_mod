@@ -1,0 +1,948 @@
+=== ACTIONS (INTERACTIONS) ===
+Source: https://eu5.paradoxwikis.com/Action_modding
+
+1. COMMON SYNTAX
+   - Fields: potential, allow, effect (receives scope:actor and interaction targets)
+   - Interaction Targets: Defined by 'select_trigger' with 'looking_for' (e.g., country, province).
+   - Selected scope saved to: 'target_flag' (accessed via scope:target_name).
+
+2. INTERACTION TARGET ATTRIBUTES
+   - looking_for: Scope type to select (country, province, character, etc.)
+   - source: Object to source targets from (e.g., actor).
+   - allow_null: (yes/no) If yes, allows selecting "None".
+   - allow_self: (yes/no) If yes, actor is included in the list.
+   - name: Localization key for selection window title.
+   - none_available_msg_key: Text if no targets found.
+   - visible: Trigger to filter the list of targets.
+   - enabled: Trigger to validate selection of a target.
+
+3. VISIBILITY & LOGIC
+   - visible: Conditions to show the action.
+   - enabled: Conditions to enable the action.
+   - show_if: Conditional visibility for the selection trigger itself.
+   - show_why_not_visible: (yes/no) Show missing requirements in tooltip.
+
+4. SOURCING OPTIMIZATION
+   - source_list: Fetch targets from specific lists (e.g., 'subjects', 'diplomatic_range').
+   - Source types examples: 
+     - country: subjects, diplomatic_range, neighbors.
+     - character: dynasty, court, religion.
+
+=== SCRIPTED GUI ===
+Source: https://eu5.paradoxwikis.com/Scripted_gui
+
+1. STRUCTURE
+   scripted_gui_key = {
+       scope = country             # Scope type: country, character, location, etc.
+       is_shown = { ... }          # Visibility trigger
+       is_valid = { ... }          # Clickability trigger
+       effect = { ... }            # Effect on click
+       saved_scopes = { ... }      # Scopes to save for reference
+       notification_key = ...      # Notification on activation
+       ai_is_valid = { ... }       # AI logic trigger
+       ai_chance = { ... }         # MTTH value (1-100) for AI usage
+       ai_frequency = 12           # Months between AI checks
+   }
+
+2. GUI INTEGRATION
+   - Use in .gui files: 
+     onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetScriptedGui('key')).End)]"
+     visible = "[ScriptedGui.IsShown(GuiScope.SetRoot(GetScriptedGui('key')).End)]"
+
+=== EVENTS ===
+Source: https://eu5.paradoxwikis.com/Event_modding
+
+1. STRUCTURE
+   namespace = event_namespace
+   event_namespace.1 = {
+       type = country_event          # Types: country_event, location_event, character_event
+       title = key
+       desc = key
+       trigger = { ... }
+       option = { ... }
+   }
+
+2. KEY ATTRIBUTES
+   - fire_only_once: (yes/no) Fires only once per campaign.
+   - hidden: (yes/no) No popup, executes option immediately.
+   - dynamic_historical_event: Railroads event to specific tags/dates.
+     dynamic_historical_event = {
+         tag = FRA
+         from = 1400.1.1
+         to = 1500.1.1
+         monthly_chance = 10
+     }
+   - major: (yes/no) Broadcasts to other nations via major_trigger.
+   - weight_multiplier: MTTH-style probability modification.
+
+3. OPTION STRUCTURE
+   option = {
+       name = key
+       trigger = { ... }
+       ai_will_select = { value = 100 }
+       historical_option = yes       # AI prefers this if Historical AI is on
+       effect = { ... }
+   }
+
+=== MISSIONS ===
+Source: https://eu5.paradoxwikis.com/Mission_modding
+
+1. MISSION PACK STRUCTURE
+   mission_pack_name = {
+       icon = mission_icon_name
+       repeatable = yes              # Can be done multiple times
+       player_playstyle = military   # Category: administrative, diplomatic, military
+       visible = { tag = ENG }       # When the tree appears
+       task_name = { ... }
+   }
+
+2. TASK ATTRIBUTES
+   task_name = {
+       icon = icon_name
+       requires = { task_1 task_2 }  # Prerequisite tasks
+       visible = { trigger }         # When task node is visible
+       enabled = { trigger }         # Conditions to complete
+       bypass = { trigger }          # Conditions to auto-complete/skip
+       duration = 365                # Days to complete
+       on_completion = { effect }    # Rewards
+   }
+
+=== SITUATIONS ===
+Source: https://eu5.paradoxwikis.com/Situation_modding
+
+1. STRUCTURE
+   situation_name = {
+       can_start = { trigger }       # Trigger to enable potential spawn
+       monthly_spawn_chance = {      # Probability to start once enabled
+           value = 0.1
+       }
+       visible = { trigger }         # Who can see the situation
+       on_start = { effect }         # Effect when situation becomes active
+       on_monthly = { effect }       # Monthly pulse effects
+       can_end = { trigger }         # Trigger to end situation
+       on_ended = { effect }         # Cleanup effects
+   }
+
+======================
+FULL ACTIONS LIST FROM WIKI (ALPHABETICAL)
+======================
+# This section contains the complete list of all actions from the official wiki
+# Format: name | description | scope | target
+
+abandon_colonial_charter | Abandons a colonial charter |   | colonial_charter
+abandon_location | Abandons the target location! |   | location
+activate_situation | activates a situation |   | situation
+add_accepted_culture | Adds an accepted culture to a country |   | culture
+add_additional_migration | adds a new migration source to a colonial charter. |   |   
+add_adm | Adds adm ability |   | character
+add_casus_belli | Adds a casus belli for the current country scope against the target country. |   |   
+add_character_modifier | add a modifier to a character |   | character
+add_colonial_claim | Add a colonial claim to the target province_definition. |   | province_definition
+add_cultural_influence | Add cultural influence to culture scope |   | culture
+add_cultural_tradition | gives (or takes) cultural_tradition to a culture |   | culture
+add_devotion | Adds devotion |   | country, international_organization
+add_dip | Adds dip ability |   | character
+add_diplomats | gives (or takes) diplomats for a country |   | country
+add_doom | Adds doom |   | country, international_organization
+add_enemy_to_international_organization | add a country to an international organization |   | country
+add_estate_satisfaction | Changes the satisfaction of an estate |   | estate
+add_extended_winter | Adds extended winter to target area |   | area
+add_location_modifier | add a modifier to a location |   | location
+add_manpower | Adds Manpower |   | country, international_organization
+add_mercenary_modifier | add a modifier to a mercenary |   | mercenary
+add_merchant_power | Adds temporary power to a merchant |   | market
+add_migration | sets up a migration |   |   
+add_mil | Adds mil ability |   | character
+add_pop | sets up a pop culture/religion/type/literacy/size possible to set. |   | location
+add_pop_satisfaction | change the Satisfaction of a pop |   | pop
+add_pop_size | change the size of a pop |   | pop
+add_prestige | Adds prestige |   | country, international_organization
+add_privateer_power | change the power of a privateer |   | privateer
+add_purity | Adds purity |   | country, international_organization
+add_random_trait_from_category | adds a random trait to a character from a category (admiral, artist, explorer, general, child, ruler) |   | character
+add_rebel_modifier | add a modifier to a rebel |   | rebels
+add_rebel_progress | change the progress of a rebel faction |   | rebels
+add_reform | adds a government reform. |   | country
+add_reform_desire | gives (or takes) reform desire for a religion |   | religion
+add_religion_modifier | add a modifier to a unit |   | religion
+add_religious_aspect | adds a religious_aspect to a country |   | country
+add_religious_focus | Add a completed religious focus to the country scope |   | country
+add_religious_focus_progress | Change the progress for the current religious focus to the country scope |   | country
+add_religious_influence | Adds religious influence |   | country, international_organization
+add_republican_tradition | Adds republican_tradition |   | country, international_organization
+add_research_progress | gives (or takes) research progress for a country |   | country
+add_rite_power | Adds rite power |   | country, international_organization
+add_righteousness | Adds Righteousness |   | country, international_organization
+add_rival | adds target country as a rival |   | country
+add_to_global_variable_list | Adds the event target to a variable list for the given duration |   |   
+add_to_list | Adds the current scope to an arbitrarily-named list (or creates the list if not already present) to be referenced later in the (unbroken) event chain |   |   
+add_to_local_variable_list | Adds the event target to a variable list for the given duration |   |   
+add_to_temporary_list | Adds the current scope to an arbitrarily-named list (or creates the list if not already present) to be referenced later in the same effect |   |   
+add_to_variable_list | Adds the event target to a variable list for the given duration |   |   
+add_tolerated_culture | Adds an Tolerated culture to a country |   | culture
+add_trait | adds a trait to a character |   | character
+add_tribal_cohesion | Adds tribal_cohesion |   | country, international_organization
+add_truce_with | Adds a truce with the target country. |   | country
+add_trust | Adds a trust modifier |   | country
+add_unit_modifier | add a modifier to a unit |   | unit
+add_vfx | Adds VFX effects on the map |   | location
+add_war_exhaustion | Adds WarExhaustion |   | country, international_organization
+add_yanantin | Adds yanantin |   | country, international_organization
+assert_if | Conditionally cause an assert during run time |   |   
+assert_read | Conditionally cause an assert during read time |   |   
+become_hired_by | mercenaries are hired by the supplied country |   | mercenary
+block_treaties | Block all possible treaties with the target country |   | country
+change_garrison_size | Changes the garrison size of the target location by the specified value. |   | location
+change_global_variable | Changes the value or a numeric variable |   |   
+change_heir_selection | Changes heir_selection for a country |   | country
+change_institution_progress | changes Institution progress in location |   | location
+change_local_variable | Changes the value or a numeric variable |   |   
+change_location_controller | change controller of Location to target country |   | location
+change_location_owner | change owner of Location to target country |   | location
+change_location_rank | changes the location_rank of the location (ie, makes it a city, town, rural_settlement etc |   | location
+change_maritime_presence_power | Add or remove maritime presence power for the specified country in the current location scope. |   | location
+change_max_raw_material_workers | increases rgo size |   | location
+change_mother | changes mother to target character |   | character
+change_parliament_issue_support | gives (or takes) support for the issue in parliament |   | country, international_organization
+change_player | Changes the player in the current country scope to play another country |   | country
+change_pop_allegiance | change rebel allegiance of pop to target Rebel |   | pop
+change_pop_culture | Changes culture for a pop |   | pop
+change_pop_owner | change owner of pop to target country |   | pop
+change_pop_religion | Changes religion for a pop |   | pop
+change_pop_type | changes pop type of the pop |   | pop
+change_privateer_owner | changes the owner of a privateer to the target country |   | privateer
+change_privateer_power | change the power of a privateer |   | privateer
+change_prosperity | changes prosperity |   | location
+change_province_food | changes the province food stockpile |   | province
+change_province_food_percentage | changes the province food stockpile by a percentage of the max |   | province
+change_province_integration | Changes integration_level of a province |   | province
+change_province_owner | change owner of Province to target country |   | province
+change_raw_material | changes the raw-material produced in a location |   | location
+change_religion | Changes religion for a country |   | country
+change_religion_view | Changes the religion view of target.. { target = x change = relation_change = true, } |   | religion
+change_societal_value | Changes societal value |   | country
+change_variable | Changes the value or a numeric variable |   |   
+clamp_global_variable | Clamps a variable the specified max and min |   |   
+clamp_local_variable | Clamps a variable the specified max and min |   |   
+clamp_variable | Clamps a variable the specified max and min |   |   
+clear_global_variable_list | Empties the list |   |   
+clear_local_variable_list | Empties the list |   |   
+clear_saved_scope | Clears a saved scope from the top scope |   |   
+clear_variable_list | Empties the list |   |   
+close_all_views | Closes all views. close_all_views = yes |   |   
+complete_mission_task | The country scope completes the specified mission task. Does not do anything if the mission task is not part of the currently active mission and if it is not visible. |   | mission_task
+conditional_effect | An effect which works similar to a simple if effect, but it will always display the effect and conditions for the effect to happen. Also has an else section in case the conditions are not met. |   |   
+construct_building | starts the construction of the specified building in the location. |   | location
+construct_estate_building | starts the construction of the specified building by an estate in the location |   | location
+create_character | Creates a character for a country |   | country
+create_colonial_charter | Creates a colonial charter in the target province_definition |   |   
+create_country_from_cores_in_our_locations | creates the country from its cores |   | country
+create_country_from_location | Creates a new country with the current location scope as capital and then scopes to the new country |   | location
+create_dynasty_from_location | Creates a new dynasty with the desired name |   | location
+create_estate_loan | scope country takes a specialized estate loan |   | country
+create_holy_site | Creates a holy site |   |   
+create_international_organization | Creates an empty international organization, changing the scope to the created IO. Make sure to use add_country_to_international_organization / set_leader_country to set up the leader if needed. |   | international_organization
+create_location_country_from_province | Creates a new country with the current Province scope as capital and then scopes to the new country |   | province
+create_market | creates a market. |   |   
+create_rebel | Creates a new rebel with in the current country |   | country
+create_relation | Creates a relation with the target country. |   |   
+create_route | Finds route between a select start and end location. |   |   
+create_sub_unit | creates the specified subunit |   | location
+create_sub_unit_of_category | creates the best subunit of the specified category |   | location
+create_sub_unit_with_owner | spawns a subunit in location |   | location
+create_trade | creates a trade. |   | country
+create_union | Current country scope creates a union with the target scope. Unions get merged if either country has a union already. |   | country
+custom_description | Wraps effects that get a custom description instead of the auto-generated one |   |   
+custom_description_no_bullet | Wraps effects that get a custom description instead of the auto-generated one. Also ensures no bullet point appears |   |   
+debug_log_date | Logs the current date to the debug.log |   |   
+debug_log_scopes | Log the current scope to the debug log when this effect executes |   |   
+declare_war | declares a war with the target country |   | country
+declare_war_with_cb | declares a war with a specific cb |   | country
+destroy_all_buildings_of_type | destroys the specified building in the location |   | location
+destroy_art | destroys the target art |   |   
+destroy_building | destroys the specified building in the location |   | location
+destroy_colonial_charter | destroys the target colonial_charter |   |   
+destroy_holy_site | destroys the target holy site |   |   
+destroy_international_organization | destroys the target international organization. |   |   
+destroy_international_organization_no_instigator | destroys the target international organization. |   |   
+destroy_market | destroys the market |   | market
+destroy_mercenary | Mercenary gets routed and scatters |   |   
+destroy_pop | destroys a pop |   |   
+destroy_rebel | Destroys the target rebel |   |   
+destroy_subunit | Destroys the unit from the current scope |   | sub_unit
+destroy_unit | Destroys the unit from the current scope |   | unit
+discover_area | country discovers the target_area |   | country
+discover_location | target country discoves this location |   | location
+dismiss_mercenary | dismisses a mercenary for the target country |   | country
+dismiss_privateer | dismisses a privateer for the target country |   | area
+divorce_character | Marries character to target character |   | character
+drop_antagonism_bomb | Drops an antagonism bomb at a location, causing antagonism with surrounding countries depending on how they feel about you and the target. |   | country
+else | Executes enclosed effects if limit criteria of preceding 'if' or 'else_if' is not met |   |   
+else_if | Executes enclosed effects if limit criteria of preceding 'if' or 'else_if' is not met, and its own limit is met |   |   
+enable_religion | enable/disable a religion |   | religion
+end_mission | The country scope ends its currently active mission. If set yes, it will complete it, otherwise it will abort the mission. |   |   
+end_parliament | End the current parliament session. If set 'yes', pass the issue, if set 'no' then fail the issue instead. |   | country, international_organization
+end_situation | End a situation |   | situation
+end_vote | Sets the final winning vote for a resolution. |   | international_organization, situation
+error_log | Log a string to the error log when this effect executes, error_log = message, the message can be a localization string with ROOT, SCOPE and PREV available |   |   
+estate_add_gold | Changes the gold of an estate |   | estate
+every_accepted_culture | Iterate through all accepted cultures in a country |   | country
+every_ancestor | Iterate through all ancestors (parents, grandparents etc) of a character |   | character
+every_area | Iterate through all existing areas |   |   
+every_area_in_region | Iterate through all areas in a region |   | region
+every_area_with_core | Iterate through all areas with cored locations in a country |   | country
+every_area_with_owned_province | Iterate through all areas with owned provinces in a country |   | country
+every_army | Iterate through all armies in a country |   | country
+every_artist | Iterate through all artists in a country |   | country
+every_attacker | Iterate through all attackers of a war |   | war
+every_avatar_for_god | Iterate through all Avatars of a God |   | god
+every_besieging_units | Iterate through all units participating in a siege |   | siege
+every_border_location | Iterate through all owned location in a country which border locations not owned by the current country scope. |   | country
+every_buildable_building_type | Iterate through all the building types a country can build |   | country
+every_building_type | Iterate through all the building types |   |   
+every_buildings_in_location | Iterate through all buildings in a location |   | location
+every_cabinet | Iterate through all actions in a country's cabinet |   | country
+every_cabinet_action | Iterate through all actions in a country's cabinet actions |   | country
+every_cabinet_character | Iterate through all characters in a country that is in the cabinet |   | country
+every_cardinal_in_country | Iterate through all Cardinals in a country |   | country
+every_cardinal_in_religion | Iterate through all Cardinals in a Religion |   | religion
+every_casus_belli_on_us | Iterate through all countries have a casus belli on us |   | country
+every_casus_belli_target | Iterate through all countries we have a casus belli on |   | country
+every_center | Iterate through all subunits on the center of a combat-side |   | combat_side
+every_character | Iterate through all characters in a country |   | country
+every_character_in_dynasty | Iterate through all living characters in a Dynasty |   | dynasty
+every_character_supporting_rebel | Iterate through all characters supporting a rebel |   | rebels
+every_child | Iterate through all children of a character |   | character
+every_close_relative | Iterate through all close relatives of a character |   | character
+every_coast_border_location | Iterate through all bordering, or across one seazone of a location |   | location
+every_colonial_charter | Iterate through all colonial charters in a country |   | country
+every_colonial_claim_province_definition | Iterate through all province definitions with colonial claims from the scope country. |   | country
+every_colonial_country | Iterate through all colonial countries in the world |   |   
+every_colonial_overlord | Iterate through all colonial overlord countries in the world |   |   
+every_continent | Iterate through all existing continents |   |   
+every_controlled_location | Iterate through all controlled location in a country |   | country
+every_core_in_location | Iterate through all cores in a location |   | location
+every_core_location | Iterate through all core locations in a country |   | country
+every_country | Iterate through all existing countries |   |   
+every_country_annexing_us | Iterate through all countries which are currently annexing the current country scope. |   | country
+every_country_at_war_with | Iterate through all countries at war with |   | country
+every_country_in_culture | Iterate through all countries with this primary culture |   | culture
+every_country_in_hierarchy | Iterate through every country in the entire overlord/subject hierarchy, from the independent top overlord to the deepest subjects |   | country
+every_country_in_religion | Iterate through all countries in a religion |   | religion
+every_country_in_religion_group | Iterate through all countries in a religion group. |   | group
+every_country_in_religious_school | Iterate through all countries within a school |   | religious_school
+every_country_lent_to | Iterate through all countries a country has lent to |   | country
+every_country_of_country_type | Iterate through all countries of the specified type. |   |   
+every_country_sub_unit | Iterate through all subunits in all units in a country |   | country
+every_country_together_in_war_with | Iterate through all countries which are an ally in any of the country scope's wars |   | country
+every_country_we_are_annexing | Iterate through all countries which are currently annexed by the current country scope. |   | country
+every_country_with_antagonism_against_us | Iterate through all countries who have antagonism against us |   | country
+every_current_gods | Iterate through all Gods a country worships |   | country
+every_current_law | Iterate through all laws of a country. |   | country
+every_current_law_in_international_organization | Iterate through all laws that are codified in the international organization |   | international_organization
+every_current_policy | Iterate through all policies that are codified in the country |   | country
+every_current_policy_in_international_organization | Iterate through all policies that are codified in the international organization |   | international_organization
+every_current_reforms | Iterate through all Government Reforms a country has |   | country
+every_current_war | Iterate through all wars of a country |   | country
+every_defender | Iterate through all defenders of a war |   | war
+every_descendant | Iterate through all descendants (children, grandchildren etc) of a character |   | character
+every_disloyal_subject | Iterate through all loyal subject countries |   | country
+every_dynasty | Iterate through all dynasties in a country |   | country
+every_east_of_province_definition | Iterate through all province-definitions east of a province-definition |   | province_definition
+every_estate | Iterate through all estates in a country |   | country
+every_estate_privilege | Iterate through all current estate privileges of a Country |   | country
+every_estate_type_preferring | Iterate through all estate types that a prefer a policy |   | policy
+every_exploration_from_country | Iterate through all Explorations a country has |   | country
+every_export | Iterate through all exports in a market |   | market
+every_export_from_location | Iterate through all exports from location |   | location
+every_foreign_building_countries_in_location | Iterate through all foreign building countries in a location |   | location
+every_friendly_to_friendly_country | Iterate through all friends of our friends |   | country
+every_friendly_to_hostile_country | Iterate through all friends of our enemies |   | country
+every_god_in_religion | Iterate through all Gods in a Religion |   | religion
+every_good_in_demand | Iterate through all goods in a goods demand |   | demand
+every_goods | Iterate through all types of goods |   |   
+every_graphical_culture_in_culture | Iterate through all graphical culture in a culture |   | culture
+every_great_power | Iterate through all great powers |   |   
+every_heathen_location | Iterate through all heathen locations in a country |   | country
+every_import | Iterate through all imports in a market |   | market
+every_import_from_location | Iterate through all Imports from location |   | location
+every_in_global_list | Iterate through all items in global list. |   |   
+every_in_list | Iterate through all items in list. |   |   
+every_in_local_list | Iterate through all items in local list. |   |   
+every_institutions_embraced | Iterate through all institutions a country has embraced |   | country
+every_international_organization | Iterate through all international organizations |   |   
+every_invited_religious_figure | Iterate through all invited religious figures in a Country |   | country
+every_known_country | Iterate through all known countries |   | country
+every_left_flank | Iterate through all subunits on the left-flank of a combat-side |   | combat_side
+every_lent_loan | Iterate through all loans that a country lent |   | country
+every_loan | Iterate through all loans in a country |   | country
+every_loan_lent_to_country | Iterate through all loans a country has lent to the supplied borrower country |   | country
+every_location_in_area | Iterate through all Locations in a area |   | area
+every_location_in_continent | Iterate through all Locations in a continent |   | continent
+every_location_in_market | Iterate through all locations in a market |   | market
+every_location_in_province | Iterate through all Locations in a province |   | province
+every_location_in_province_definition | Iterate through all Locations in a province definition |   | province_definition
+every_location_in_region | Iterate through all Locations in a region |   | region
+every_location_in_sub_continent | Iterate through all Locations in a sub-continent |   | sub_continent
+every_location_in_the_world | Iterate through all location |   |   
+every_loyal_subject | Iterate through all loyal subject countries |   | country
+every_maritime_area | Iterate through all maritime areas for a country |   | country
+every_market_center_in_country | Iterate through all markets in a country which market centers are owned by the country |   | country
+every_market_in_world | Iterate through all markets in the world |   |   
+every_market_present_in_country | Iterate through all markets in a country |   | country
+every_mercenary | Iterate through all mercenaries in the world |   |   
+every_mercenary_sub_unit | Iterate through all subunits in a Mercenary |   | mercenary
+every_merchant_in_market | Iterate through all merchants in a market |   | market
+every_other_core_country | Iterate through all other countries which have a core on the current country |   | country
+every_other_country | Iterate through all other countries |   | country
+every_other_great_power | Iterate through all other great powers |   | country
+every_other_religion_in_same_group | Iterate through all other religions that has the same group as Religion |   | religion
+every_other_revolutionary | Iterate through all other revolutionary countries |   | country
+every_overlord_or_above | Iterate through your overlord, your overlord's overlord, and so on |   | country
+every_ownable_location | Iterate through all ownable location |   |   
+every_ownable_location_in_area | Iterate through all ownable Locations in an area |   | area
+every_ownable_location_in_continent | Iterate through all ownable Locations in a continent |   | continent
+every_ownable_location_in_province_definition | Iterate through all ownable Locations in a province definition |   | province_definition
+every_ownable_location_in_region | Iterate through all ownable Locations in a region |   | region
+every_ownable_location_in_sub_continent | Iterate through all ownable Locations in a sub continent |   | sub_continent
+every_owned_non_rural_location | Iterate through all owned non-rural locations in a country |   | country
+every_owned_rural_location | Iterate through all owned rural locations in a country |   | country
+every_owner_in_region | Iterate through all the countries that own locations in a region |   | region
+every_parent | Iterate through parents (order: father, mother) of a character. |   | character
+every_participating_countries | Iterate through all Countrys participating in 1 side of a combat |   | combat_side
+every_participating_units | Iterate through all units participating in 1 side of a combat |   | combat_side
+every_past_liturgical_dialect | Iterate through all liturgical dialects a country has had before |   | country
+every_policy_in_law | Iterate through all policies that are part of the law scope |   | law
+every_political_border_location | Iterate through all owned location in a country which border locations not owned by the current country scope. |   | country
+every_pop | Iterate through all pops in a location or country |   | country, location
+every_pops_supporting_rebel | Iterate through all pops supporting a rebel |   | rebels
+every_port_in_country | Iterate through all Ports in a country |   | country
+every_possible_disaster | Iterate through all possible disasters for a country |   | country
+every_possible_parliament_issue | Iterate through all possible parliament issues in a country's or an international organization's parliament |   | country, international_organization
+every_possible_policy | Iterate through all possible policies of a Country that is not currently implemeted |   | country
+every_possible_privilege | Iterate through all possible & allowed estate privileges of a Country that is not currently implemeted |   | estate
+every_possible_recruit_location | Iterate through all possible recruit locations in a country |   | country
+every_privateer | Iterate through all privateers in the world |   |   
+every_privateer_from_country | Iterate through all privateers a country has |   | country
+every_privateer_in_area | Iterate through all privateers in a area |   | area
+every_production_method | Iterate through all types of production methods. |   |   
+every_production_method_of_building | Iterate through all available production methods of the building. |   | building
+every_province | Iterate through all provinces in a country |   | country
+every_province_definition | Iterate through all existing province_definition |   |   
+every_province_definition_in_area | Iterate through all province-definitions in an area |   | area
+every_province_in_area | Iterate through all provinces in an area |   | area
+every_province_in_province_definition | Iterate through all provinces in a province-definition |   | province_definition
+every_rebel | Iterate through all Rebels in a country |   | country
+every_region | Iterate through all existing regions |   |   
+every_region_in_continent | Iterate through all regions in a sub-continent |   | sub_continent
+every_related_country | Iterate through all related countries |   | country
+every_religion | Iterate through all religions |   |   
+every_religion_for_god | Iterate through all Religions of a God |   | god
+every_religion_in_religion_group | Iterate through all religions in a religion group. |   | group
+every_religion_international_organization | Iterate through all international organisations of a religion |   | religion
+every_religious_aspect | Iterate through all religious aspects of a Country |   | country
+every_religious_focus | Iterate through all completed religious focuses of a Country |   | country
+every_rented_out_mercenary | Iterate through mercenaries a country has rented out to the market |   | country
+every_required_goods | Iterate through all goods required by the scope production method. |   | production_method
+every_reserves | Iterate through all subunits on the reserve of a combat-side |   | combat_side
+every_retreated | Iterate through all subunits on the retreated of a combat-side |   | combat_side
+every_revolutionary | Iterate through all revolutionary states |   |   
+every_right_flank | Iterate through all subunits on the right-flank of a combat-side |   | combat_side
+every_rival | Iterate through all rival countries |   | country
+every_road_type | Iterate through all the road types |   |   
+every_royal_marriage | Iterate through all royal married countries |   | country
+every_ruler | Iterate through all characters that have ever been rulers in a country, including the dead |   | country
+every_ruling_countries | Iterate through countries a character rulers |   | character
+every_spouse | Iterate through all spouses of a character |   | character
+every_spy_network_built_in_us | Iterate through all countries building spy networks |   | country
+every_sub_continent | Iterate through all existing sub_continents |   |   
+every_sub_continent_in_continent | Iterate through all sub-continents in a continent |   | continent
+every_sub_unit | Iterate through all subunits in a unit |   | unit
+every_subject | Iterate through all subject countries |   | country
+every_subject_or_below | Iterate through all subject countries and their subject countries, and so on |   | country
+every_tolerated_culture | Iterate through all Tolerated cultures in a country |   | country
+every_trade | Iterate through all trades in a Country |   | country
+every_union_partner | Iterate through all countries which are in a personal union with the current country scope. |   | country
+every_unit | Iterate through all units in a country |   | country
+every_unit_in_location | Iterate through all units in a location |   | location
+every_valid_religion_for_aspect | Iterate through all religion that an aspect can be for |   | religious_aspect
+every_voter | Iterate through all voters in an active resolution |   | active_resolution
+every_war | Iterate through all wars going on globally |   | war
+every_war_participant | Iterate through all participants of a war |   | war
+every_weather_system_in_location | Iterate through all weather systems in a location |   | location
+every_west_of_province_definition | Iterate through all province-definitions west of a province-definition |   | province_definition
+every_work_of_art | Iterate through all WorkOfArts in the world |   |   
+every_work_of_art_by_creator | Iterate through all work_of_art by a particular artist |   | character
+every_work_of_art_in_country | Iterate through all work_of_art in a country |   | country
+every_work_of_art_in_location | Iterate through all work_of_art in a location |   | location
+execute_prisoners | Prisoners get executed |   | unit
+execute_propose_effect | Execute the popose_effect of any implementable object (policies, avatar, cabinet_action, estate_privilege, god, government_reform). |   |   
+extend_regency | extends the regency by X years |   | country
+finalize_resolution | End the target resolution for the current situation or international organization. |   | international_organization, situation
+find_route | Finds route between start location and closest eligible end location |   |   
+fire_generic_action | fires a generic action with the country as the actor and the supplied thing as the recipient |   |   
+floodfill_locations | Generates a list of floodfilled locations from adjacencies. Needs a limit specified to avoid floodfilling everything. |   | location
+force_city_gfx_rebuild | Rebuilds the city gfx |   |   
+force_recalc_country_active_status | Recalculates active country status |   |   
+if | Executes enclosed effects if limit criteria are met |   |   
+impregnate | Impregnates a target character |   | character
+international_organization_add_special_status | international organization bestows special status on a country |   | international_organization
+international_organization_chooses_new_leader | international organization chooses a new leader |   |   
+international_organization_remove_special_status | international organization removes special status from a country |   | international_organization
+join_war_against | joins the target war as an enemy of the target country. |   | country
+join_war_as_attacker | joins the target war as an attacker. |   | country
+join_war_as_defender | joins the target war as a defender. |   | country
+join_war_with | joins the target war as an ally of the target country. |   | country
+kill_character | Kills the target character. |   | character
+kill_character_silently | Kills the target character silently. |   |   
+move_art | Moves art to a target location |   | work_of_art
+move_country | Moves character to target country |   | character
+move_prisoners_to_safety | Prisoners are moved to a safe location |   | unit
+move_to_assist_on_adjacent_combat | Sets unit flag to join adjacent combat automatically. yes/no |   | unit
+ordered_accepted_culture | Iterate through all accepted cultures in a country |   | country
+ordered_active_disaster | Iterate through all active disasters for a country |   | country
+ordered_active_estate | Iterate through all active estates (non-crown) |   |   
+ordered_active_resolution | Iterate through all currently active resolutions in an international organization or situation |   | international_organization, situation
+ordered_adjacent_ports_to_area | Iterate through all adjacent ports of an seazone area |   | area
+ordered_allowed_estate_in_heir_selection | Iterate through all allowed estates a HeirSelection has |   | heir_selection
+ordered_ancestor | Iterate through all ancestors (parents, grandparents etc) of a character |   | character
+ordered_area | Iterate through all existing areas |   |   
+ordered_area_in_region | Iterate through all areas in a region |   | region
+ordered_border_location | Iterate through all owned location in a country which border locations not owned by the current country scope. |   | country
+ordered_buildable_building_type | Iterate through all the building types a country can build |   | country
+ordered_building_type | Iterate through all the building types |   |   
+ordered_buildings_in_location | Iterate through all buildings in a location |   | location
+ordered_cabinet | Iterate through all actions in a country's cabinet |   | country
+ordered_cabinet_action | Iterate through all actions in a country's cabinet actions |   | country
+ordered_cabinet_character | Iterate through all characters in a country that is in the cabinet |   | country
+ordered_character | Iterate through all characters in a country |   | country
+ordered_character_in_dynasty | Iterate through all living characters in a Dynasty |   | dynasty
+ordered_character_supporting_rebel | Iterate through all characters supporting a rebel |   | rebels
+ordered_child | Iterate through all children of a character |   | character
+ordered_close_relative | Iterate through all close relatives of a character |   | character
+ordered_coast_border_location | Iterate through all bordering, or across one seazone of a location |   | location
+ordered_connected_location | Iterate through all locations in the same country as the scope location that are connected by land or strait |   | location
+ordered_construction_material_for_building_type | Iterate through all goods required to construct a building type |   | building_type
+ordered_continent | Iterate through all existing continents |   |   
+ordered_controlled_location | Iterate through all controlled location in a country |   | country
+ordered_core_in_location | Iterate through all cores in a location |   | location
+ordered_country | Iterate through all existing countries |   |   
+ordered_country_annexing_us | Iterate through all countries which are currently annexing the current country scope. |   | country
+ordered_country_at_war_with | Iterate through all countries at war with |   | country
+ordered_country_in_culture | Iterate through all countries with this primary culture |   | culture
+ordered_country_in_hierarchy | Iterate through every country in the entire overlord/subject hierarchy, from the independent top overlord to the deepest subjects |   | country
+ordered_country_in_religion | Iterate through all countries in a religion |   | religion
+ordered_country_in_religion_group | Iterate through all countries in a religion group. |   | group
+ordered_country_in_religious_school | Iterate through all countries within a school |   | religious_school
+ordered_country_lent_to | Iterate through all countries a country has lent to |   | country
+ordered_country_of_country_type | Iterate through all countries of the specified type. |   |   
+ordered_country_sub_unit | Iterate through all subunits in all units in a country |   | country
+ordered_country_together_in_war_with | Iterate through all countries which are an ally in any of the country scope's wars |   | country
+ordered_country_we_are_annexing | Iterate through all countries which are currently annexed by the current country scope. |   | country
+ordered_country_with_antagonism_against_us | Iterate through all countries who have antagonism against us |   | country
+ordered_country_with_capital_in_geography | Iterate through all countries which have their capital in the specified geography |   | area, continent, location, province_definition, region, sub_continent
+ordered_country_with_cardinals | Iterate through all countries with cardinals in a religion |   | religion
+ordered_culture_in_culture_group | Iterate through all cultures in a culture group. |   | culture_group
+ordered_culture_in_group | Iterate through all cultures in a culture group |   | culture_group
+ordered_current_avatars | Iterate through all Avatars a country has |   | country
+ordered_current_gods | Iterate through all Gods a country worships |   | country
+ordered_current_law | Iterate through all laws of a country. |   | country
+ordered_current_law_in_international_organization | Iterate through all laws that are codified in the international organization |   | international_organization
+ordered_current_policy | Iterate through all policies that are codified in the country |   | country
+ordered_current_policy_in_international_organization | Iterate through all policies that are codified in the international organization |   | international_organization
+ordered_current_reforms | Iterate through all Government Reforms a country has |   | country
+ordered_current_war | Iterate through all wars of a country |   | country
+ordered_defender | Iterate through all defenders of a war |   | war
+ordered_descendant | Iterate through all descendants (children, grandchildren etc) of a character |   | character
+ordered_estate_privilege | Iterate through all current estate privileges of a Country |   | country
+ordered_estate_type_preferring | Iterate through all estate types that a prefer a policy |   | policy
+ordered_exploration_from_country | Iterate through all Explorations a country has |   | country
+ordered_export | Iterate through all exports in a market |   | market
+ordered_export_from_location | Iterate through all exports from location |   | location
+ordered_foreign_building_countries_in_location | Iterate through all foreign building countries in a location |   | location
+ordered_friendly_to_friendly_country | Iterate through all friends of our friends |   | country
+ordered_friendly_to_hostile_country | Iterate through all friends of our enemies |   | country
+ordered_god_in_religion | Iterate through all Gods in a Religion |   | religion
+ordered_good_in_demand | Iterate through all goods in a goods demand |   | demand
+ordered_goods | Iterate through all types of goods |   |   
+ordered_graphical_culture_in_culture | Iterate through all graphical culture in a culture |   | culture
+ordered_great_power | Iterate through all great powers |   |   
+ordered_import | Iterate through all imports in a market |   | market
+ordered_import_from_location | Iterate through all Imports from location |   | location
+ordered_in_global_list | Iterate through all items in global list. |   |   
+ordered_in_list | Iterate through all items in list. |   |   
+ordered_in_local_list | Iterate through all items in local list. |   |   
+ordered_institutions_embraced | Iterate through all institutions a country has embraced |   | country
+ordered_international_organization | Iterate through all international organizations |   |   
+ordered_invited_religious_figure | Iterate through all invited religious figures in a Country |   | country
+ordered_known_country | Iterate through all known countries |   | country
+ordered_left_flank | Iterate through all subunits on the left-flank of a combat-side |   | combat_side
+ordered_lent_loan | Iterate through all loans that a country lent |   | country
+ordered_list | Iterate through all items in list. |   |   
+ordered_loan | Iterate through all loans in a country |   | country
+ordered_loan_lent_to_country | Iterate through all loans a country has lent to the supplied borrower country |   | country
+ordered_location_in_area | Iterate through all Locations in a area |   | area
+ordered_location_in_continent | Iterate through all Locations in a continent |   | continent
+ordered_location_in_market | Iterate through all locations in a market |   | market
+ordered_location_in_province | Iterate through all Locations in a province |   | province
+ordered_location_in_province_definition | Iterate through all Locations in a province definition |   | province_definition
+ordered_location_in_region | Iterate through all Locations in a region |   | region
+ordered_owned_non_rural_location | Iterate through all owned non-rural locations in a country |   | country
+ordered_owned_rural_location | Iterate through all owned rural locations in a country |   | country
+ordered_owner_in_region | Iterate through all the countries that own locations in a region |   | region
+ordered_parent | Iterate through parents (order: father, mother) of a character. |   | character
+ordered_participating_countries | Iterate through all Countrys participating in 1 side of a combat |   | combat_side
+ordered_participating_units | Iterate through all units participating in 1 side of a combat |   | combat_side
+ordered_past_liturgical_dialect | Iterate through all liturgical dialects a country has had before |   | country
+ordered_policy_in_law | Iterate through all policies that are part of the law scope |   | law
+ordered_political_border_location | Iterate through all owned location in a country which border locations not owned by the current country scope. |   | country
+ordered_pop | Iterate through all pops in a location or country |   | country, location
+ordered_pops_supporting_rebel | Iterate through all pops supporting a rebel |   | rebels
+ordered_port_in_country | Iterate through all Ports in a country |   | country
+ordered_possible_disaster | Iterate through all possible disasters for a country |   | country
+ordered_possible_parliament_issue | Iterate through all possible parliament issues in a country's or an international organization's parliament |   | country, international_organization
+ordered_possible_policy | Iterate through all possible policies of a Country that is not currently implemeted |   | country
+ordered_possible_privilege | Iterate through all possible & allowed estate privileges of a Country that is not currently implemeted |   | estate
+ordered_possible_recruit_location | Iterate through all possible recruit locations in a country |   | country
+ordered_privateer_in_area | Iterate through all privateers in a area |   | area
+ordered_production_method | Iterate through all types of production methods. |   |   
+ordered_production_method_of_building | Iterate through all available production methods of the building. |   | building
+ordered_province | Iterate through all provinces in a country |   | country
+ordered_province_definition | Iterate through all existing province_definition |   |   
+ordered_province_definition_in_area | Iterate through all province-definitions in an area |   | area
+ordered_province_in_area | Iterate through all provinces in an area |   | area
+ordered_province_in_province_definition | Iterate through all provinces in a province-definition |   | province_definition
+ordered_rebel | Iterate through all Rebels in a country |   | country
+ordered_region | Iterate through all existing regions |   |   
+ordered_region_in_continent | Iterate through all regions in a sub-continent |   | sub_continent
+ordered_related_country | Iterate through all related countries |   | country
+ordered_religion | Iterate through all religions |   |   
+ordered_religion_for_god | Iterate through all Religions of a God |   | god
+ordered_religion_in_religion_group | Iterate through all religions in a religion group. |   | group
+ordered_religion_international_organization | Iterate through all international organisations of a religion |   | religion
+ordered_religious_aspect | Iterate through all religious aspects of a Country |   | country
+ordered_religious_focus | Iterate through all completed religious focuses of a Country |   | country
+ordered_rented_out_mercenary | Iterate through mercenaries a country has rented out to the market |   | country
+ordered_required_goods | Iterate through all goods required by the scope production method. |   | production_method
+ordered_royal_marriage | Iterate through all royal married countries |   | country
+ordered_ruler | Iterate through all characters that have ever been rulers in a country, including the dead |   | country
+ordered_ruling_countries | Iterate through countries a character rulers |   | character
+ordered_spouse | Iterate through all spouses of a character |   | character
+ordered_spy_network_built_in_us | Iterate through all countries building spy networks |   | country
+ordered_sub_continent | Iterate through all existing sub_continents |   |   
+ordered_sub_continent_in_continent | Iterate through all sub-continents in a continent |   | continent
+ordered_sub_unit | Iterate through all subunits in a unit |   | unit
+ordered_subject | Iterate through all subject countries |   | country
+ordered_subject_or_below | Iterate through all subject countries and their subject countries, and so on |   | country
+ordered_tolerated_culture | Iterate through all Tolerated cultures in a country |   | country
+ordered_trade | Iterate through all trades in a Country |   | country
+ordered_union_partner | Iterate through all countries which are in a personal union with the current country scope. |   | country
+ordered_unit | Iterate through all units in a country |   | country
+ordered_unit_in_location | Iterate through all units in a location |   | location
+ordered_valid_religion_for_aspect | Iterate through all religion that an aspect can be for |   | religious_aspect
+ordered_voter | Iterate through all voters in an active resolution |   | active_resolution
+ordered_war | Iterate through all wars going on globally |   |   
+ordered_war_participant | Iterate through all participants of a war |   | war
+ordered_weather_system_in_location | Iterate through all weather systems in a location |   | location
+ordered_west_of_province_definition | Iterate through all province-definitions west of a province-definition |   | province_definition
+ordered_work_of_art | Iterate through all WorkOfArts in the world |   |   
+ordered_work_of_art_by_creator | Iterate through all work_of_art by a particular artist |   | character
+ordered_work_of_art_in_country | Iterate through all work_of_art in a country |   | country
+ordered_work_of_art_in_location | Iterate through all work_of_art in a location |   | location
+pay_off_loans | pays off % of the current loans. |   | country
+pay_policy_price_effect | executes the policy price effect on the current scope |   | country, international_organization
+pay_price | Pays a Price from a country |   | country
+perform_diplomatic_action |   |   | country
+post_audio_event | Runs an audio even on a "persistent" audio object |   |   
+propose_resolution | proposes a new resolution. type = <resolution_key> actor = <proposer_country> recipient = <international organisation or situation> |   |   
+raise_all_levies | The country scope will raise all its levies of the specified type. |   | country
+raise_levies | The province scope will raise levies of the specified type for the owner. |   | province
+random | run an effect depending on a random chance, do nothing otherwise. |   |   
+random_accepted_culture | Iterate through all accepted cultures in a country |   | country
+random_active_disaster | Iterate through all active disasters for a country |   | country
+random_active_estate | Iterate through all active estates (non-crown) |   |   
+random_active_resolution | Iterate through all currently active resolutions in an international organization or situation |   | international_organization, situation
+random_ancestor | Iterate through all ancestors (parents, grandparents etc) of a character |   | character
+random_area | Iterate through all existing areas |   |   
+random_area_in_region | Iterate through all areas in a region |   | region
+random_area_with_core | Iterate through all areas with cored locations in a country |   | country
+random_area_with_owned_province | Iterate through all areas with owned provinces in a country |   | country
+random_army | Iterate through all armies in a country |   | country
+random_artist | Iterate through all artists in a country |   | country
+random_attacker | Iterate through all attackers of a war |   | war
+random_avatar_for_god | Iterate through all Avatars of a God |   | god
+random_besieging_units | Iterate through all units participating in a siege |   | siege
+random_border_location | Iterate through all owned location in a country which border locations not owned by the current country scope. |   | country
+random_buildable_building_type | Iterate through all the building types a country can build |   | country
+random_building_type | Iterate through all the building types |   |   
+random_buildings_in_location | Iterate through all buildings in a location |   | location
+random_cabinet | Iterate through all actions in a country's cabinet |   | country
+random_cabinet_action | Iterate through all actions in a country's cabinet actions |   | country
+random_cabinet_character | Iterate through all characters in a country that is in the cabinet |   | country
+random_cardinal_in_country | Iterate through all Cardinals in a country |   | country
+random_cardinal_in_religion | Iterate through all Cardinals in a Religion |   | religion
+random_casus_belli_on_us | Iterate through all countries have a casus belli on us |   | country
+random_casus_belli_target | Iterate through all countries we have a casus belli on |   | country
+random_center | Iterate through all subunits on the center of a combat-side |   | combat_side
+random_character | Iterate through all characters in a country |   | country
+random_character_in_dynasty | Iterate through all living characters in a Dynasty |   | dynasty
+random_character_supporting_rebel | Iterate through all characters supporting a rebel |   | rebels
+random_child | Iterate through all children of a character |   | character
+random_close_relative | Iterate through all close relatives of a character |   | character
+random_coast_border_location | Iterate through all bordering, or across one seazone of a location |   | location
+random_colonial_charter | Iterate through all colonial charters in a country |   | country
+random_colonial_claim_province_definition | Iterate through all province definitions with colonial claims from the scope country. |   | country
+random_colonial_country | Iterate through all colonial countries in the world |   |   
+random_colonial_overlord | Iterate through all colonial overlord countries in the world |   |   
+random_controlled_location | Iterate through all controlled location in a country |   | country
+random_core_in_location | Iterate through all cores in a location |   | location
+random_core_location | Iterate through all core locations in a country |   | country
+random_country | Iterate through all existing countries |   |   
+random_country_annexing_us | Iterate through all countries which are currently annexing the current country scope. |   | country
+random_country_at_war_with | Iterate through all countries at war with |   | country
+random_country_in_culture | Iterate through all countries with this primary culture |   | culture
+random_country_in_hierarchy | Iterate through every country in the entire overlord/subject hierarchy, from the independent top overlord to the deepest subjects |   | country
+random_country_in_religion | Iterate through all countries in a religion |   | religion
+random_country_in_religion_group | Iterate through all countries in a religion group. |   | culture_group
+random_country_supporting_rebel | Iterate through all countries supporting a rebel |   | rebels
+random_country_that_can_be_called_defensively | Iterate through all countries that may be called into a defensive war. |   | country
+random_country_we_are_annexing | Iterate through all countries which are currently annexed by the current country scope. |   | country
+random_country_with_antagonism_against_us | Iterate through all countries who have antagonism against us |   | country
+random_current_policy | Iterate through all policies that are codified in the country |   | country
+random_current_policy_in_international_organization | Iterate through all policies that are codified in the international organization |   | international_organization
+random_current_reforms | Iterate through all Government Reforms a country has |   | country
+random_current_war | Iterate through all wars of a country |   | country
+random_defender | Iterate through all defenders of a war |   | war
+random_descendant | Iterate through all descendants (children, grandchildren etc) of a character |   | character
+random_disloyal_subject | Iterate through all loyal subject countries |   | country
+random_dynasty | Iterate through all dynasties in a country |   | country
+random_east_of_province_definition | Iterate through all province-definitions east of a province-definition |   | province_definition
+random_estate | Iterate through all estates in a country |   | country
+random_estate_privilege | Iterate through all current estate privileges of a Country |   | country
+random_estate_type_preferring | Iterate through all estate types that a prefer a policy |   | policy
+random_exploration_from_country | Iterate through all Explorations a country has |   | country
+random_export | Iterate through all exports in a market |   | market
+random_export_from_location | Iterate through all exports from location |   | location
+random_in_global_list | Iterate through all items in global list. |   |   
+random_in_list | Iterate through all items in list. |   |   
+random_in_local_list | Iterate through all items in local list. |   |   
+random_invited_religious_figure | Iterate through all invited religious figures in a Country |   | country
+random_known_country | Iterate through all known countries |   | country
+random_left_flank | Iterate through all subunits on the left-flank of a combat-side |   | combat_side
+random_lent_loan | Iterate through all loans that a country lent |   | country
+random_list | randomly choose effects from a list |   |   
+random_loan | Iterate through all loans in a country |   | country
+random_location_in_region | Iterate through all Locations in a region |   | region
+random_location_in_sub_continent | Iterate through all Locations in a sub-continent |   | sub_continent
+random_location_in_the_world | Iterate through all location |   |   
+random_log_scopes | Log the current scope to the random log when this effect executes. |   |   
+random_loyal_subject | Iterate through all loyal subject countries |   | country
+random_maritime_area | Iterate through all maritime areas for a country |   | country
+random_market_center_in_country | Iterate through all markets in a country which market centers are owned by the country |   | country
+random_market_in_world | Iterate through all markets in the world |   |   
+random_market_present_in_country | Iterate through all markets in a country |   | country
+random_mercenary | Iterate through all mercenaries in the world |   |   
+random_mercenary_sub_unit | Iterate through all subunits in a Mercenary |   | mercenary
+random_merchant_in_market | Iterate through all merchants in a market |   | market
+random_other_core_country | Iterate through all other countries which have a core on the current country |   | country
+random_other_country | Iterate through all other countries |   | country
+random_other_great_power | Iterate through all other great powers |   | country
+random_other_religion_in_same_group | Iterate through all other religions that has the same group as Religion |   | religion
+random_other_revolutionary | Iterate through all other revolutionary countries |   | country
+random_overlord_or_above | Iterate through your overlord, your overlord's overlord, and so on |   | country
+random_ownable_location | Iterate through all ownable location |   |   
+random_ownable_location_in_area | Iterate through all ownable Locations in an area |   | area
+random_ownable_location_in_continent | Iterate through all ownable Locations in a continent |   | continent
+random_ownable_location_in_province_definition | Iterate through all ownable Locations in a province definition |   | province_definition
+random_ownable_location_in_region | Iterate through all ownable Locations in a region |   | region
+random_ownable_location_in_sub_continent | Iterate through all ownable Locations in a sub continent |   | sub_continent
+random_owned_non_rural_location | Iterate through all owned non-rural locations in a country |   | country
+random_owned_rural_location | Iterate through all owned rural locations in a country |   | country
+random_owner_in_region | Iterate through all the countries that own locations in a region |   | region
+random_parent | Iterate through parents (order: father, mother) of a character. |   | character
+random_participating_countries | Iterate through all Countrys participating in 1 side of a combat |   | combat_side
+random_participating_units | Iterate through all units participating in 1 side of a combat |   | combat_side
+random_past_liturgical_dialect | Iterate through all liturgical dialects a country has had before |   | country
+random_policy_in_law | Iterate through all policies that are part of the law scope |   | law
+random_political_border_location | Iterate through all owned location in a country which border locations not owned by the current country scope. |   | country
+random_pop | Iterate through all pops in a location or country |   | country, location
+random_pops_supporting_rebel | Iterate through all pops supporting a rebel |   | rebels
+random_possible_policy | Iterate through all possible policies of a Country that is not currently implemeted |   | country
+random_possible_privilege | Iterate through all possible & allowed estate privileges of a Country that is not currently implemeted |   | estate
+random_privateer_from_country | Iterate through all privateers a country has |   | country
+random_privateer_in_area | Iterate through all privateers in a area |   | area
+random_production_method | Iterate through all types of production methods. |   |   
+random_production_method_of_building | Iterate through all available production methods of the building. |   | building
+random_province | Iterate through all provinces in a country |   | country
+random_province_definition | Iterate through all existing province_definition |   |   
+random_province_definition_in_area | Iterate through all province-definitions in an area |   | area
+random_province_in_area | Iterate through all provinces in an area |   | area
+random_province_in_province_definition | Iterate through all provinces in a province-definition |   | province_definition
+random_rebel | Iterate through all Rebels in a country |   | country
+random_region | Iterate through all existing regions |   |   
+random_region_in_continent | Iterate through all regions in a sub-continent |   | sub_continent
+random_related_country | Iterate through all related countries |   | country
+random_religion | Iterate through all religions |   |   
+random_religion_for_god | Iterate through all Religions of a God |   | god
+random_religion_in_religion_group | Iterate through all religions in a religion group. |   | group
+random_religion_international_organization | Iterate through all international organisations of a religion |   | religion
+random_religious_aspect | Iterate through all religious aspects of a Country |   | country
+random_religious_focus | Iterate through all completed religious focuses of a Country |   | country
+random_rented_out_mercenary | Iterate through mercenaries a country has rented out to the market |   | country
+random_required_goods | Iterate through all goods required by the scope production method. |   | production_method
+random_reserves | Iterate through all subunits on the reserve of a combat-side |   | combat_side
+random_retreated | Iterate through all subunits on the retreated of a combat-side |   | combat_side
+random_revolutionary | Iterate through all revolutionary states |   |   
+random_right_flank | Iterate through all subunits on the right-flank of a combat-side |   | combat_side
+random_rival | Iterate through all rival countries |   | country
+random_road_type | Iterate through all the road types |   |   
+random_royal_marriage | Iterate through all royal married countries |   | country
+random_ruler | Iterate through all characters that have ever been rulers in a country, including the dead |   | country
+random_ruling_countries | Iterate through countries a character rulers |   | character
+random_spouse | Iterate through all spouses of a character |   | character
+random_spy_network_built_in_us | Iterate through all countries building spy networks |   | country
+random_sub_continent | Iterate through all existing sub_continents |   |   
+random_sub_continent_in_continent | Iterate through all sub-continents in a continent |   | continent
+random_sub_unit | Iterate through all subunits in a unit |   | unit
+random_subject | Iterate through all subject countries |   | country
+random_subject_or_below | Iterate through all subject countries and their subject countries, and so on |   | country
+random_tolerated_culture | Iterate through all Tolerated cultures in a country |   | country
+random_trade | Iterate through all trades in a Country |   | country
+random_union_partner | Iterate through all countries which are in a personal union with the current country scope. |   | country
+random_unit_in_location | Iterate through all units in a location |   | location
+random_valid_religion_for_aspect | Iterate through all religion that an aspect can be for |   | religious_aspect
+random_voter | Iterate through all voters in an active resolution |   | active_resolution
+random_war | Iterate through all wars going on globally |   |   
+random_war_participant | Iterate through all participants of a war |   | war
+random_weather_system_in_location | Iterate through all weather systems in a location |   | location
+random_west_of_province_definition | Iterate through all province-definitions west of a province-definition |   | province_definition
+random_work_of_art | Iterate through all WorkOfArts in the world |   |   
+random_work_of_art_by_creator | Iterate through all work_of_art by a particular artist |   | character
+random_work_of_art_in_country | Iterate through all work_of_art in a country |   | country
+random_work_of_art_in_location | Iterate through all work_of_art in a location |   | location
+remove_accepted_culture | Removes an accepted culture from a country |   | culture
+remove_all_casus_belli | removes all casus belli on the target country |   | country
+remove_antagonism | Removes an antagonism modifier |   | country
+remove_avatar | removed an avatar from a country |   | avatar
+remove_breach | removes a breach from the current siege |   | siege
+remove_casus_belli | Removes casus_belli |   | country
+remove_character_allegiance | Remove the character scope from the rebel group they are part of. |   | character
+remove_character_modifier | Remove a modifier from a character |   | character
+remove_colonial_claim | Removed the colonial claim in the target province_definition |   | province_definition
+remove_commander | removes the target character from his unit |   | character
+remove_cooldown | Removes a cooldown for a country or international organization. |   | country, international_organization
+remove_core | makes the location no longer a core of the target country |   | location
+remove_country_from_international_organization | removes a country from an international organization |   | country
+remove_country_modifier | Remove a modifier from a country |   | country
+remove_country_to_international_organization | removes a country from an international organization |   | country
+remove_enemy_from_international_organization | removes a country from an international organization |   | country
+remove_extended_winter | Removed extended winter to target area |   | area
+remove_from_cabinet | Removes the character from the cabinet |   | country
+remove_from_international_organization | remove a location from an international organization |   | location
+remove_location_modifier | Remove a modifier from a location |   | location
+remove_mercenary_modifier | Remove a modifier from a mercenary |   | mercenary
+remove_merchant_power | Removes temporary power to a merchant |   | market
+remove_migration | removes a migration |   |   
+remove_opinion | Removes an opinion modifier |   | country
+remove_policy | Remove a policy from a country. |   | country
+remove_religious_aspect | removed a religious_aspect from a country |   | country
+remove_religious_focus | Remove a completed religious focus from the country scope |   | country
+remove_rival | removes target country as a rival |   | country
+remove_ruler | Removes the character as ruler from the target country |   | character
+remove_temporary_demand | Remove a temporary demand in a market |   | market
+remove_tolerated_culture | Removes an Tolerated culture from a country |   | culture
+remove_trait | removes a trait to a character |   | character
+remove_traits_of_category | Removes all traits of a specified category. Supports the categories: ruler, general, admiral, artist, explorer, child, religious_figure |   | character
+remove_truce_with | Removes the truce with the target country |   | country
+remove_trust | Removes a trust modifier |   | country
+remove_unit_modifier | Remove a modifier from a unit |   | unit
+remove_variable | Removes a variable |   |   
+remove_vfx | Removes VFX effects on the map |   | location
+remove_war_exhaustion | Removes WarExhaustion |   | country, international_organization
+remove_yanantin | Removes yanantin |   | country, international_organization
+save_scope_as | Saves the current scope as an arbitrarily-named target to be referenced later in the (unbroken) event chain |   |   
+save_scope_value_as | Saves a numerical or bool value as an arbitrarily-named target to be referenced later in the (unbroken) event chain |   |   
+save_temporary_scope_as | Saves the current scope as an arbitrarily-named temporary target to be referenced later in the same effect |   |   
+set_automated_system | Activate or deactivate the automation of a system for one country. Will only have an effect if this country is played or will be played by a player. |   | country
+set_bankruptcy | Make the country either bankrupt if set to yes, or get it out of its current bankruptcy if set to no. |   | country
+set_capital | Sets the target location as capital of the country |   | country
+set_child_education | Set the education type of a child |   | character
+set_country_employment_system | Sets the country's employment system |   | country
+set_doom | Sets doom |   | country, international_organization
+set_dynasty_name_type | changes dynasty to have a specific dynasty_name_type (default, location, patronym, descendant) |   | dynasty
+set_ethnicity | Set the ethnicity of a character |   | character
+set_first_name | Set the first name of a character to the defined string or scoped character |   | character
+set_global_variable | Sets a variable |   |   
+set_gold | Sets gold |   | country, international_organization
+set_government_power | Sets government power |   | country, international_organization
+set_harmony | Sets Harmony |   | country, international_organization
+set_honor | Sets honor |   | country, international_organization
+set_horde_unity | Sets horde_unity |   | country, international_organization
+set_inflation | Sets inflation |   | country, international_organization
+set_karma | Sets karma |   | country, international_organization
+set_leader_country | set the leader country of an international organization |   | international_organization
+set_legitimacy | Sets legitimacy |   | country, international_organization
+set_participated_in_parliament | Mark the country as having participated in the parliament of the target international organization. Is automatically set when a country votes in a parliament which has the resolution. |   | country
+set_prestige | Sets prestige |   | country, international_organization
+set_purity | Sets purity |   | country, international_organization
+set_regent | Makes the target_character the acting regent |   | country
+set_religious_influence | Sets religious influence |   | country, international_organization
+set_religious_school | Sets the religious_school to the target school |   | country
+set_religious_view | Sets the Religious view of target. |   | religion
+set_republican_tradition | Sets republican_tradition |   | country, international_organization
+set_revolution | Make the country either revolutionary if set to yes, or get remove its revoutionary status if set to no. |   | country
+set_revolution_target | Make the country to the target of the revolution if set to yes, or remove it when set to no. |   | country
+set_righteousness | Sets Righteousness |   | country, international_organization
+set_rite_power | Sets rite power |   | country, international_organization
+set_sailors | Sets sailors |   | country, international_organization
+set_school_opinion | Sets the school_opinion of target. |   | religious_school
+set_self_control | Sets Self Control |   | country, international_organization
+set_societal_value | Sets societal value |   | country
+set_stability | Sets stability |   | country, international_organization
+set_subsidized | change whether a building is subsidised or not |   | building
+set_to_limited_random_stat | Sets the stats of the character scope to a random value between a min and max value. |   | character
+set_tribal_cohesion | Sets tribal_cohesion |   | country, international_organization
+set_unit_size | Sets the number of people in each subunit in the Unit to the given percentage of maximum |   | unit
+set_variable | Sets a variable |   |   
+set_vote | Sets the vote for a country on a resolution in an international organization or situation. |   | international_organization, situation
+set_war_exhaustion | Sets WarExhaustion |   | country, international_organization
+set_yanantin | Sets yanantin |   | country, international_organization
+show_as_tooltip | Enclosed effects are only shown in tooltips (but are not actually executed) |   |   
+sort_global_variable_list | Sorts a variable list |   |   
+sort_local_variable_list | Sorts a variable list |   |   
+sort_variable_list | Sorts a variable list |   |   
+spawn_army_levy_unit | Spawn an army levy unit for the target country in the current location scope |   | country
+spawn_disease | Spawns a disease in a location or on a subunit. |   | location
+spawn_navy_levy_unit | Spawn a navy levy unit for the target country in the current location scope |   | country
+split_pop | Splits a pop and makes changes to it. If both size and fraction are scripted, it will use the largest. |   | pop
+stall_exploration | enable/disable stall on exploration |   | exploration
+start_civil_war | Make the rebels rise up against the country, starting a civil war. Has no effect if the country is already in a civil war. Will scope immediately into the rebel country tag. |   | rebels
+start_conquistador | Creates a new conquistador in the current country |   | country
+start_exploration | Creates a new exploration in the current country |   | country
+start_mission | The country starts immediately the specified mission. Will not do anything if a mission is active already. |   | country
+start_periphora_towards | Starts a periphora towards the target location. Art will move towards the destination slowly in a procession. |   | work_of_art
+start_revolt | Make the rebels rise up against the country in the form of a revolt. |   | rebels
+start_trade | Starts a trade |   | country
+start_union | Starts a union |   | country
+start_vote | Starts a vote on a resolution in an international organization or situation. |   | international_organization, situation
+start_war | Starts a war |   | country
+start_work_of_art | Starts the creation of a work of art |   | country
+support_rebel | scope country starts supporting the target rebel |   | country
+switch | Executes effects based on a switch value |   |   
+take_loan | Takes a loan |   | country
+transfer_occupation | Transfers the occupation of the current location to the target country |   | location
+transfer_trade_power | Transfers trade power |   | country
+trigger_event | Triggers an event |   |   
+unite | Unites the current country with the target country |   | country
+update_market | Updates the market |   | market
+update_price | Updates the price of a good |   | market
+validate_government | Validates the government |   | country
+validate_laws | Validates the laws |   | country
+validate_policies | Validates the policies |   | country
+validate_religious_aspects | Validates the religious aspects |   | country
+validate_religious_focuses | Validates the religious focuses |   | country
+validate_societal_values | Validates the societal values |   | country
+
+======================
+END OF FILE
+======================

@@ -1,0 +1,264 @@
+# EU5 Culture Modding Reference
+
+**Source:** https://eu5.paradoxwikis.com/Culture_modding  
+**Verified for:** EU5 version 1.0
+
+## Overview
+
+Cultures in Europa Universalis V are highly customizable with extensive language, naming, and graphics options.
+
+Cultures are defined in the `in_game/common/cultures` folder.
+
+## Culture Definition
+
+```
+culture_name = {
+    language = dialect_name          # Language or dialect spoken
+    color = map_COLOR                # Map color (named or RGB/HSV)
+    tags = { gfx_tag_1 gfx_tag_2 }   # 3D graphics groups
+    
+    opinions = {
+        # Starting opinions of other cultures
+        culture_1 = kindred
+        culture_2 = negative
+        culture_3 = positive
+        culture_4 = enemy
+        culture_5 = neutral
+    }
+    
+    culture_groups = {
+        # Culture groups this culture belongs to
+        group_1
+        group_2
+    }
+}
+```
+
+**Example:**
+
+```
+welsh = {
+    language = welsh_dialect
+    color = map_WLS
+    tags = { welsh_gfx celtic_gfx british_gfx western_european_gfx european_gfx }
+    
+    opinions = {
+        cornish = kindred
+        english = negative
+        breton = positive
+    }
+    
+    culture_groups = {
+        celtic_group
+        british_group
+    }
+}
+```
+
+**Opinion values:**
+- `enemy` - Hostile relationship
+- `negative` - Unfavorable relationship
+- `neutral` - Neutral relationship
+- `positive` - Favorable relationship
+- `kindred` - Very close relationship
+
+## Culture Groups
+
+Culture groups are defined in the `in_game/common/culture_groups` folder.
+
+```
+culture_group_name = {
+}
+```
+
+**Example:**
+
+```
+celtic_group = {
+}
+```
+
+- A culture can belong to **multiple culture groups**
+- Culture groups only require a script name (empty definition)
+
+## Languages and Dialects
+
+Languages are defined in the `in_game/common/languages` folder.
+
+```
+language_name = {
+    color = map_COLOR               # Map color for language
+    family = language_family        # Language family group
+    
+    male_names = {
+        [Male First Names]
+    }
+    female_names = {
+        [Female First Names]
+    }
+    dynasty_names = {
+        [Dynasty Names]
+    }
+    ship_names = {
+        [Ship Names]
+    }
+    lowborn = {
+        [Lowborn Surnames]
+    }
+    
+    # Patronym properties
+    patronym_prefix_son = "prefix_loc_key"
+    patronym_prefix_son_vowel = "prefix_vowel_loc_key"
+    patronym_prefix_daughter = "prefix_loc_key"
+    patronym_prefix_daughter_vowel = "prefix_vowel_loc_key"
+    patronym_suffix_son = "suffix_loc_key"
+    patronym_suffix_daughter = "suffix_loc_key"
+    
+    # Location-based properties
+    location_prefix = "prefix_loc_key"
+    location_prefix_vowel = "prefix_vowel_loc_key"
+    location_suffix = "suffix_loc_key"
+    location_prefix_elision = { "al-" "de-" }
+    
+    dialects = {
+        dialect_name_1 = {
+            # Dialect-specific overrides
+        }
+        dialect_name_2 = {
+            # Dialect-specific overrides
+        }
+    }
+}
+```
+
+## Patronym Properties
+
+Patronyms are names based on a parent's name (e.g., "Johnson" = "son of John").
+
+| Property | Description | Example |
+|----------|-------------|---------|
+| `patronym_prefix_son` | Prefix for son's patronym | "mac" (Gaelic) |
+| `patronym_prefix_son_vowel` | Prefix for son when parent's name starts with vowel | "mág" (Gaelic) |
+| `patronym_prefix_daughter` | Prefix for daughter's patronym | "nic" (Gaelic) |
+| `patronym_prefix_daughter_vowel` | Prefix for daughter when parent's name starts with vowel | "nig" (Gaelic) |
+| `patronym_suffix_son` | Suffix for son's patronym | "sson" (Swedish) |
+| `patronym_suffix_daughter` | Suffix for daughter's patronym | "sdotter" (Swedish) |
+
+**Examples:**
+- **Scottish Gaelic:** "Domnall mac Ailpín" (Donald son of Alpin)
+- **Swedish:** "Erik Johansson" (Erik son of Johan)
+
+## Location-Based Name Properties
+
+Characters can be named after locations with prefixes/suffixes.
+
+| Property | Description | Example |
+|----------|-------------|---------|
+| `location_prefix` | Prefix for location-based surnames | "de" (French) |
+| `location_prefix_vowel` | Prefix when location starts with vowel | "d'" (French) |
+| `location_suffix` | Suffix for location-based surnames | "-ski" (Polish) |
+| `location_prefix_elision` | List of prefixes to check for elision | `{ "al-" }` prevents "al-Al-Basra" |
+
+**Examples:**
+- **French:** "Jean de Paris" (John of Paris)
+- **French (vowel):** "Marie d'Anjou" (Mary of Anjou)
+- **Arabic (with elision):** "Ahmad al-Basra" (not "al-Al-Basra")
+
+## Dialects
+
+Dialects can override any language property except nested dialects.
+
+```
+brythonic_language = {
+    color = map_WLS
+    family = celtic_language_family
+    
+    male_names = { [Base names] }
+    
+    patronym_prefix_son = "patronym_prefix_welsh_son"
+    
+    dialects = {
+        welsh_dialect = {
+            # Uses parent language properties
+        }
+        breton_dialect = {
+            # Can override specific properties
+            patronym_prefix_son = "patronym_prefix_breton_son"
+        }
+    }
+}
+```
+
+- Dialects inherit all parent language properties
+- Can override specific properties as needed
+- Cannot have nested dialects
+
+## Example: Complete Culture
+
+```
+french = {
+    language = langue_doil_dialect
+    color = map_FRA
+    tags = { french_gfx western_european_gfx european_gfx }
+    
+    opinions = {
+        norman = kindred
+        occitan = positive
+        breton = positive
+        english = negative
+    }
+    
+    culture_groups = {
+        latin_group
+        french_group
+    }
+}
+```
+
+**Corresponding language:**
+
+```
+french_language = {
+    color = map_FRA
+    family = romance_language_family
+    
+    male_names = {
+        Louis Jean Pierre Charles Philippe
+    }
+    female_names = {
+        Marie Anne Catherine Jeanne
+    }
+    dynasty_names = {
+        Valois Bourbon Capet
+    }
+    
+    location_prefix = "patronym_prefix_french_de"
+    location_prefix_vowel = "patronym_prefix_french_d"
+    
+    dialects = {
+        langue_doil_dialect = {}
+        langue_doc_dialect = {}
+    }
+}
+```
+
+## Best Practices
+
+1. **Multiple culture groups** - Use multiple groups for complex cultural relationships
+2. **Opinion diversity** - Set varied opinions (kindred/positive/negative/enemy) for historical accuracy
+3. **Graphics tags** - Order tags from specific to general (welsh_gfx → european_gfx)
+4. **Color consistency** - Use named colors from `named_colors` folder for consistency
+5. **Dialect hierarchy** - Use dialects for regional variations within a language
+6. **Patronym systems** - Implement appropriate naming systems (prefix vs suffix based on culture)
+7. **Location names** - Use `location_prefix_elision` to prevent awkward double prefixes
+8. **Name lists** - Provide adequate name pools (20+ first names, 10+ dynasty names)
+9. **Ship names** - Include culturally appropriate ship names for naval flavor
+10. **Lowborn surnames** - Provide common surnames for characters without dynasties
+
+## Related Files
+
+- `/game/in_game/common/cultures/` - Culture definitions
+- `/game/in_game/common/culture_groups/` - Culture group definitions
+- `/game/in_game/common/languages/` - Language definitions
+- `/game/gfx/` - Graphics assets referenced by tags
+- `/game/in_game/common/named_colors/` - Named color definitions

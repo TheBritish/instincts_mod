@@ -1,0 +1,351 @@
+# EU5 Action Modding - Official Wiki Reference
+
+**Source:** https://eu5.paradoxwikis.com/Action_modding
+
+## Overview
+
+Action modding creates interactions between countries and game objects. Actions share common syntax, especially the interaction target system.
+
+## Common Syntax
+
+### Potential, Allow, and Effect
+
+- `potential`: Trigger on `scope:actor` to determine if action is available
+- `allow`: Trigger on `scope:actor` for action requirements (shown if not fulfilled)
+- `effect`: Effects executed with `scope:actor` and all interaction target scopes
+
+### Interaction Targets (select_trigger)
+
+Central to action syntax - allows user/AI to select targets:
+
+```
+select_trigger = {
+    looking_for = country|location|character|value|province|area|etc.
+    target_flag = target_country
+    source = actor
+}
+```
+
+**Key Fields:**
+- `looking_for_a`: Scope type to select (country, location, character, value, etc.)
+- `target_flag`: Scope name for later reference (e.g., `scope:target_country`)
+- `source`: Optimize by sourcing from existing scope (e.g., `actor`)
+- `allow_null = yes`: Add "None" option
+- `allow_self = yes`: Include actor in country selection
+
+**Visibility:**
+- `show_if`: Control select_trigger visibility
+- `visible`: Control which targets are visible
+- `enabled`: Control which targets are selectable
+- `none_available_msg_key`: Message when no targets available
+
+**Optimization:**
+- `cache_targets = yes`: Target list doesn't depend on prior selections
+- `cache_order = yes`: Best choice doesn't depend on prior selections
+- `cache_interaction_source_list = yes`: Static source list
+- `max_targets_for_ui`: Limit UI targets delivered at once
+- `pre_evaluation_sort_value`: Script value for AI sorting
+- `pre_evaluation_number_to_evaluate_fully`: Top N entries to evaluate
+
+**Map Modes:**
+- `map_mode = raw_material`: Override current mapmode
+- `map_color`: Custom inline mapmode coloring
+- `secondary_map_color`: Secondary color for mapmode
+- `tooltip_msg_key`: Tooltip text for locations
+
+**UI & Sorting:**
+```
+column = {
+    data = name|population|development
+    widget = custom_widget_type
+    sort = {
+        sort_value = { value = population }
+        sort_text = { value = "SORT_KEY" }
+        sort_key = "HEADER_KEY"
+    }
+}
+```
+
+### Action AI
+
+- `ai_will_do`: Script value determining AI willingness (with interaction targets)
+- `ai_tick`: `daily`, `monthly`, or `never`
+- `ai_tick_frequency`: Script value for interval between checks
+- `ai_prerequisite`: Additional AI requirements
+
+### Automation AI
+
+- `player_automated_category`: Category for player automation
+  - Categories: finances, research, trade, productionmethods, laws, cabinet, etc.
+- `automation_tick_frequency`: Months between automation evaluations
+- `automation_tick`: Analogous to ai_tick
+
+### Price
+
+```
+price = price:control_the_food_market
+price_modifier = {
+    value = 1
+    add = scope:actor.country_rank_level
+}
+payer = scope:recipient  # Override default (actor)
+payee = scope:target_country  # Where payment goes
+should_execute_price = no  # Require price but don't enforce payment
+```
+
+### Cooldown
+
+```
+cooldown = {
+    type = "shared_cooldown_id"
+    years = 5
+    months = 6
+    days = 30
+}
+```
+
+### Other Common Fields
+
+- `sound`: Assign sound effect to action
+- `show_message = no`: Prevent messages from showing
+- `show_message_to_target = no`: Prevent target messages
+- `exclusive_group = "group_id"`: Mutually exclusive actions
+
+---
+
+## Generic Actions
+
+**Location:** `common/generic_actions/`
+
+### Generic Action Types
+
+| Type | Recipient | Scope | Info |
+|------|-----------|-------|------|
+| owncountry | Forbidden | N/A | Most basic interactions (default) |
+| parliament | Forbidden | N/A | Fetched with GovernmentView.GetParliamentActions |
+| religious | Required | religion | CountryReligionLateralView.GetReligiousActions |
+| religiousfaction | Required | religion | ReligiousFactionGlue.GetActions |
+| location | Required | location | Unused |
+| internationalorganization | Required | international_organization | InternationalOrganizationsView.GetActions |
+| internationalorganizationparliament | Required | international_organization | InternationalOrganizationsView.GetParliamentActions |
+| situation | Required | situation | SituationView.GetActionGroups |
+| disaster | Required | disaster | DisasterView.GetActions |
+
+### Other Aspects
+
+- `allow_multiple_targets`: AI can target multiple locations at once
+- `message = <message_type_key>`: Assign message type
+- `show_in_gui_list = no`: Turn off type-based GUI list behavior
+
+### Generic Action Lists
+
+**Location:** `common/generic_action_ai_lists/`
+
+AI optimization - evaluates `potential` before actions in `actions` list:
+
+```
+black_death_list = {
+    potential = {
+        can_see_situation = situation:black_death
+    }
+    actions = {
+        hide_from_black_death
+        stop_hide_from_black_death
+        # ... more actions
+    }
+}
+```
+
+### Localization
+
+Required keys:
+- `<key>`: Title
+- `<key>_desc`: Description
+- `WE_PERFORM_<key>_ACTION`: Message when performed
+- `OTHER_PERFORMS_<key>_ACTION`: Message when others perform (optional)
+- `PERFORM_<key>_ACTION`: Generic message type (alternative)
+
+---
+
+## Character Interactions
+
+**Location:** `common/character_interactions/`
+
+### Specification
+
+- `on_other_nation = yes`: Usable on characters not owned by actor
+- `on_own_nation = yes`: Usable on characters owned by actor
+- `is_consort_action = yes`: Usable on consort
+- `message = no`: Disable message about action usage
+- `context_menu_click_mode = click`: Disable confirmation dialogue (default: clickandconfirmorhold)
+
+Requires interaction target on character representing `scope:recipient` (looking for character).
+
+Array output: `CharacterLateralview.GetActions`
+
+### Localization
+
+Required keys:
+- `<key>`: Title
+- `<key>_desc`: Tooltip
+- `<key>_desc_specific`: Message when using action
+- `<key>_act`: Action name
+- `<key>_act_past`: Message when using action (past tense)
+- `<key>_past`: Title when already performed (for message)
+
+---
+
+## Country Interactions
+
+**Location:** `common/country_interactions/`
+
+### Interaction Type and Categories
+
+**Type:**
+- `diplomacy`: Diplomatic action (default)
+- `subject`: Subject action (auto-assigned to subject category, no acceptance required)
+
+**Category:** Custom categories (must be localized and have GUI icons added)
+
+### Target Country
+
+Requires one interaction target representing `scope:recipient` (target country).
+
+Effects execute with:
+- `scope:actor`: Caller
+- `scope:recipient`: Target country
+- Other parameters if applicable
+
+### Acceptance and Rejection
+
+Requires acceptance if `accept` (script value) or `diplo_chance` is present.
+
+- `diplo_chance`: Hard-coded fields with weights (see AI Modding)
+- `accept`: Script value with interaction target scopes
+- `reject_effect`: Executed if target refuses
+- `block_when_at_war = yes`: Block if actor/recipient at war
+- `ai_limit_per_check`: Max countries AI will use this on per month
+
+### Diplomat Usage and Costs
+
+- `use_enroute = no`: Override default diplomat requirement
+- Default: Requires 1 diplomat, 1 month global cooldown
+- `diplomatic_cost`: Additional cost (spy_network or favors)
+
+**Diplomatic Costs Location:** `common/diplomatic_costs/`
+
+```
+new_test_cost = {
+    spy_network = 30
+    favors = 5
+}
+```
+
+### Localization
+
+Required keys:
+- `<key>`: Title
+- `<key>_desc`: Description (bottom textbox on hover)
+- `<key>_act`: Action effect text (above description)
+- `PROPOSE_<key>`: Confirmation dialogue text
+- `INCOMING_OFFER_<key>`: Text target country gets for offers
+- `<key>_reject_effect_text`: If action can be denied
+- `<key>_reject_effect_text_past`: Past tense
+- `<key>_effect_text`: Effect text
+- `<key>_effect_text_past`: Past tense
+- `dip_<key>_CATEGORY`: Category name (superseded by `category` field)
+
+---
+
+## Cabinet Actions
+
+**Location:** `common/cabinet_actions/`
+
+### Cabinet Action Basics
+
+- `type`: `adm`, `dip`, or `mil` (determines which skill affects efficiency)
+- `icon`: Override default icon (default: [CABINET_ACTION_ICON_PATH]/key.dds)
+- `allow_multiple = yes`: Allow multiple cabinet slots to use simultaneously
+
+### Potential and Allow
+
+- `potential`: Trigger on country for availability
+- `allow`: Trigger for requirements (shown if not fulfilled)
+
+### Cabinet Effects and Modifiers
+
+- `country_modifier`: Applied to country
+- `location_modifier`: Applied to each location in last interaction target (geographical)
+- `province_modifier`: Applied to each province in last interaction target (geographical)
+- `monthly_effect`: Executed monthly (ROOT = country using cabinet)
+- `on_activate`: Effect when first set
+- `on_deactivate`: Effect when deactivated
+- `on_fully_activated`: Effect when implementation finishes
+- `societal_values = <float>`: Behaves like change_societal_values action
+
+### Cabinet AI
+
+- `ai_will_do`: Script value (interaction target scopes)
+- `forbid_for_automation = yes`: Prevent cabinet automation from considering
+
+### Action Progress and Tracking
+
+Duration:
+```
+days = { value = 30 }
+weeks = { value = 4 }
+months = { value = 6 }
+years = { value = 1 }
+```
+
+Map marker:
+```
+map_marker = {
+    show_for_owner = yes  # Default: no
+}
+```
+
+- `progress`: Script value tracking progress (fetched via Cabinet.GetActionNumProgress)
+- `is_finished`: Trigger to automatically cease action
+
+### Localization
+
+Required keys:
+- `<key>`: Name
+- `<key>_desc`: Description
+- `<key>_active`: Action verb (visible on map marker and in cabinet)
+- `<key>_action`: Action name with target (e.g., "Generate Actions in [target_location.GetName]")
+- `<key>_action_progress`
+- `<key>_action_progress_wordier`
+- `<key>_action_progress_tooltip`: Tooltip for map marker and cabinet progress
+
+---
+
+## Other Action Uses
+
+### Resolutions (International Organizations)
+
+Utilize interaction target syntax for customization. See International Organization modding.
+
+### Missions
+
+Utilize interaction target syntax for versatile task targeting. Scopes available in:
+- `on_start`
+- `on_completion`
+- `on_monthly`
+
+AI evaluates best targets when necessary.
+
+### Peace Treaties
+
+Scripted peace treaties use interaction target syntax. Each select_trigger match counts as a peace treaty entry (e.g., selecting locations in target country).
+
+---
+
+## References
+
+- Main article: [Action modding](https://eu5.paradoxwikis.com/Action_modding)
+- See also: [GUI script](https://eu5.paradoxwikis.com/GUI_script), [AI Modding](https://eu5.paradoxwikis.com/AI_Modding)
+- Location: `/Europa Universalis V/game/<top_folder>/in_game/common/`
+
+**Last verified:** Version 1.0

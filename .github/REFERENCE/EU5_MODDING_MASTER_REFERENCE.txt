@@ -1,0 +1,216 @@
+# EU5 Modding Reference Index
+## Master Index of All EU5 Modding Documentation
+
+This file serves as a comprehensive index to all EU5 modding reference materials. Use this to quickly locate specific documentation for any modding task.
+
+### 📋 **Core Reference Files** (Always consult these first)
+
+#### **EU5_Scripted_Content.txt**
+- **Location**: `.github/REFERENCE/EU5_Scripted_Content.txt`
+- **Purpose**: Actions, scripted GUI, events, missions, situations, Dynamic Historical Events (DHE) syntax
+- **Key Sections**:
+  - Event structure and option blocks
+  - DHE tag requirements and monthly_chance
+  - illustration_tags for event art
+  - historical_option for canonical paths
+
+#### **EU5_ILLUSTRATION_TAGS_REFERENCE.txt**
+- **Location**: `.github/REFERENCE/EU5_ILLUSTRATION_TAGS_REFERENCE.txt`
+- **Purpose**: Complete reference for illustration_tags in Dynamic Historical Events (DHE)
+- **Key Sections**:
+  - All valid mood values (angry, regular, happy, war, prosperity, death, ages, armed)
+  - All valid setting values (interior, exterior, battlefield)
+  - Usage examples and common patterns by event type
+  - Required syntax: illustration_tags = { 10 = mood 10 = setting }
+
+#### **EU5_Scripted_Types.txt**
+- **Location**: `.github/REFERENCE/EU5_Scripted_Types.txt`
+- **Purpose**: Buildings, goods, estates, laws, pops, advances, units, subject types, IOs
+- **Key Sections**:
+  - International Organization definitions
+  - Law categories and policy structures
+  - Building modifiers and requirements
+
+#### **EU5_Systems.txt**
+- **Location**: `.github/REFERENCE/EU5_Systems.txt`
+- **Purpose**: Characters, concepts, culture, modifiers, international organizations
+- **Key Sections**:
+  - IO modifier application
+  - Character scope handling
+  - Cultural group mechanics
+
+#### **EU5_EFFECTS_REFERENCE.txt**
+- **Location**: `.github/REFERENCE/EU5_EFFECTS_REFERENCE.txt`
+- **Purpose**: All valid effects (add_prestige, set_variable, trigger_event, etc.)
+- **Key Sections**:
+  - Country scope effects
+  - International organization effects
+  - Scope navigation and context
+
+#### **EU5_TRIGGERS_REFERENCE.txt**
+- **Location**: `.github/REFERENCE/EU5_TRIGGERS_REFERENCE.txt`
+- **Purpose**: All valid triggers (tag, current_date, is_subject_of, etc.)
+- **Key Sections**:
+  - Location-based triggers
+  - IO membership triggers
+  - Date and time triggers
+
+#### **EU5_LOCATIONS_REFERENCE.txt**
+- **Location**: `.github/REFERENCE/EU5_LOCATIONS_REFERENCE.txt`
+- **Purpose**: Complete list of all 22,995 valid location names for EU5
+- **Key Sections**:
+  - Sorted alphabetical list of all provinces, cities, and geographic locations
+  - Usage: `location:<name> = { owner ?= root }` in triggers/effects
+  - Province ID mapping: 54=magdeburg, 61=leipzig, 66=nuremberg, 67=augsburg
+
+#### **EU5_INVALID_SYNTAX_REFERENCE.txt**
+- **Location**: `.github/REFERENCE/EU5_INVALID_SYNTAX_REFERENCE.txt`
+- **Purpose**: Common mistakes, invalid effects/triggers, and EU4→EU5 migration traps
+- **Key Sections**:
+  - Effects that don't exist in EU5 (add_diplomatic_capacity, etc.)
+  - Invalid triggers (owns = <id>, scope access errors)
+  - Common validation errors and debugging checklist
+  - EU4 patterns that break in EU5
+
+#### **EU5_COMMON_PATTERNS_REFERENCE.txt**
+- **Location**: `.github/REFERENCE/EU5_COMMON_PATTERNS_REFERENCE.txt`
+- **Purpose**: Best practices, working code examples, and implementation patterns
+- **Key Sections**:
+  - Complete DHE event structure
+  - IO definition and setup patterns
+  - Proper modifier categories and usage
+  - Scope management and event chaining
+  - File organization and performance tips
+
+#### **EU5_MODIFIERS_REFERENCE.txt** & **EU5_MODIFIER_TYPES_REFERENCE.txt**
+- **Location**: `.github/REFERENCE/EU5_MODIFIERS_REFERENCE.txt` & `EU5_MODIFIER_TYPES_REFERENCE.txt`
+- **Purpose**: Valid modifier properties and types
+- **Key Sections**:
+  - Country modifiers
+  - Location modifiers
+  - IO modifiers
+
+#### **EU5_ON_ACTIONS_REFERENCE.txt**
+- **Location**: `.github/REFERENCE/EU5_ON_ACTIONS_REFERENCE.txt`
+- **Purpose**: Event hooks (monthly_pulse, yearly_country_pulse, on_game_start, etc.)
+- **Key Sections**:
+  - Timing and frequency
+  - Scope context for each hook
+
+#### **EU5_SCOPES_REFERENCE.txt** & **EU5_SCOPE_LINKS_REFERENCE.txt**
+- **Location**: `.github/REFERENCE/EU5_SCOPES_REFERENCE.txt` & `EU5_SCOPE_LINKS_REFERENCE.txt`
+- **Purpose**: Scope navigation and context
+- **Key Sections**:
+  - Scope chaining syntax
+  - Context preservation with save_scope_as
+
+### 📖 **Specialized Guides** (Use for specific features)
+
+#### **Event Modding**
+- **EU5_EVENT_MODDING.txt**: Event creation, triggers, effects, DHE patterns
+- **EU5_MISSION_MODDING.txt**: Mission trees and completion requirements
+- **EU5_SCRIPTED_GUI.txt**: GUI event integration
+- **EU5_MEAN_TIME_TO_HAPPEN_REFERENCE.txt**: MTTH calculations and event frequency
+
+#### **International Organizations**
+- **EU5_INTERNATIONAL_ORGANIZATION_MODDING.txt**: IO creation, laws, policies, modifiers, events
+- **Setup patterns**: Member assignment, area definition, law initialization
+- **Event patterns**: Regular events with IO membership triggers (not DHE)
+
+#### **Game Mechanics**
+- **EU5_BUILDING_MODDING.txt**: Building definitions and modifiers
+- **EU5_GOODS_MODDING.txt**: Trade good properties
+- **EU5_ESTATE_MODDING.txt**: Estate mechanics
+- **EU5_POP_MODDING.txt**: Population systems
+- **EU5_LAW_MODDING.txt**: Law categories and policies
+- **EU5_SUBJECT_TYPE_MODDING.txt**: Subject relationships
+- **EU5_ADVANCE_MODDING.txt**: Research and advancement system
+- **EU5_UNIT_MODDING.txt**: Military unit definitions
+
+#### **Character & Culture**
+- **EU5_CHARACTER_MODDING.txt**: Character creation and traits
+- **EU5_CONCEPT_MODDING.txt**: Game concepts and mechanics
+- **EU5_CULTURE_MODDING.txt**: Cultural groups and mechanics
+- **EU5_MODIFIER_MODDING.txt**: Custom modifier creation
+
+#### **Scripting & Technical**
+- **EU5_ACTION_MODDING.txt**: Action definitions and scripting
+- **EU5_DEFINES_REFERENCE.txt**: Game define values and constants
+- **EU5_GUI_SCRIPT_REFERENCE.txt**: GUI scripting syntax and elements
+- **EU5_LOCALIZATION_REFERENCE.txt**: Localization system and formatting
+- **EU5_MACROS_REFERENCE.txt**: Macro definitions and usage
+- **EU5_SCRIPT_VALUES_REFERENCE.txt**: Script value calculations
+- **EU5_VARIABLES_REFERENCE.txt**: Variable system and scoping
+
+#### **Reference Collections**
+- **EU5_ALL_MODIFIERS_SAMPLE.txt**: Complete list of all available modifiers
+- **INDEX.txt**: Master index of all reference files
+
+### 🔧 **Quick Reference Commands**
+
+#### **File Structure Patterns**
+```
+# IO Definition
+in_game/common/international_organizations/[name].txt
+
+# IO Laws
+in_game/common/laws/[number]_[name].txt
+
+# Events
+in_game/events/[name]_events.txt
+
+# Localization
+main_menu/localization/english/[category]/[name]_l_english.yml
+
+# Static Modifiers
+main_menu/common/static_modifiers/[category]_modifiers.txt
+
+# Setup
+main_menu/setup/start/[number]_[name].txt
+```
+
+#### **Common Patterns**
+- **DHE Events**: Require `tag = BARE_TAG`, `from = YYYY.M.D`, `to = YYYY.M.D`, `monthly_chance = N`
+- **IO Laws**: Use `international_organization_modifier` for global effects
+- **Custom Modifiers**: Place in `static_modifiers`, use `game_data = { category = country }`
+- **Multiple IO Membership**: Allowed by default, restrict with `can_join_trigger` conditions
+
+#### **Validation Checklist**
+- [ ] Effects validated against EU5_EFFECTS_REFERENCE.txt
+- [ ] Triggers validated against EU5_TRIGGERS_REFERENCE.txt
+- [ ] Modifiers validated against EU5_MODIFIERS_REFERENCE.txt
+- [ ] Scopes properly chained and preserved
+- [ ] UTF-8 with BOM encoding for all text files
+- [ ] YAML localization keys match code exactly
+
+### 🚨 **Critical Pitfalls to Avoid**
+
+1. **Invalid Direct Effects**: Don't use `add_tolerance_heretic` - use custom modifiers instead
+2. **Wrong Scope Access**: Use `root.GetPrimaryCulture`, not `root.primary_culture`
+3. **Geography Filters**: Use `area ?= area:name` and `region ?= region:name`
+4. **Government Ranks**: Use `set_government_rank_value = N`, not `set_government_rank = N`
+5. **Opinion Effects**: Use `add_opinion = { modifier = name }` with biases, not direct values
+6. **DHE Events**: Must have `illustration_tags` and proper date ranges
+7. **Multiple IOs**: Allowed by default, but check `can_join_trigger` restrictions
+
+### 📚 **Additional Resources**
+
+- **Official Modding Documentation**: `.github/REFERENCE/` folder
+- **Base Game Examples**: Study HRE, Swiss Confederation, and other IOs
+- **Validation Tools**: Check `error.log` for parsing errors
+- **Testing**: Launch game to verify IO creation and functionality
+
+### 🎯 **Implementation Examples**
+
+#### **Hanseatic League IO (Complete Implementation)**
+- **Reference**: instincts_mod implementation
+- **Features**: Multiple IO membership, custom modifiers, DHE events, comprehensive laws
+- **Files**: 8 core files implementing full IO with events, localization, and modifiers
+- **Patterns**: Conditional membership triggers, expanded leadership, validated effects
+
+---
+
+**Last Updated**: December 10, 2025
+**Purpose**: Centralized reference for all EU5 modding documentation
+**Usage**: Consult specific reference files for detailed syntax and examples</content>
+<parameter name="filePath">d:\SteamLibrary\steamapps\common\Europa Universalis V\.github\REFERENCE\EU5_MODDING_MASTER_REFERENCE.txt

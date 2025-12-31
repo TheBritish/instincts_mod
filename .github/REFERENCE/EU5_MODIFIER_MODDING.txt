@@ -1,0 +1,335 @@
+# EU5 Modifier Modding Reference
+
+**Source:** https://eu5.paradoxwikis.com/Modifier_modding  
+**Verified for:** EU5 version 1.0
+
+## Overview
+
+Modifier modding involves techniques that allow for application of modifier types to countries and other entities. Modifiers define what a nation can do and with what efficiency.
+
+This article focuses on **static modifiers** and **auto modifiers**.
+
+## Static Modifiers
+
+Static modifiers are the backbone mechanism for adding dynamic modifiers during gameplay. They are easily added and removed via effects and provide utility in terms of AI and UI support.
+
+**Location:** `common/static_modifiers`, usually in the `main_menu` top folder.
+
+### Basic Structure
+
+```
+modifier_name = {
+    modifier_type_1 = value
+    modifier_type_2 = value
+}
+```
+
+**Example:**
+
+```
+my_modifier = {
+    country_cabinet_efficiency = 0.1
+    auto_conquer_at_war = yes
+}
+```
+
+### Game Data
+
+Static modifiers accept a `game_data` field with category and decaying options:
+
+```
+modifier_name = {
+    game_data = {
+        category = country
+        decaying = yes
+    }
+    
+    modifier_type_1 = value
+    modifier_type_2 = value
+}
+```
+
+**Category values:**
+- `character`
+- `country`
+- `international_organization`
+- `location`
+- `mercenary`
+- `province`
+- `rebel`
+- `religion`
+- `unit`
+
+**Decaying:**
+- `decaying = yes` - Reduces effects linearly based on remaining time (50% time remaining = 50% strength)
+
+### Script Values in Modifiers
+
+Modifiers can use **static** script values (no dynamic calculations):
+
+```
+test_value_1 = 0.2  # ✓ Works - static value
+
+test_value_2 = {    # ✗ Does NOT work - dynamic calculation
+    value = 0.1
+    multiply = war_exhaustion
+}
+
+my_modifier = {
+    modifier_type_1 = test_value_1   # ✓ Works
+    modifier_type_2 = test_value_2   # ✗ Does NOT work
+}
+```
+
+### Applying Modifiers During Gameplay
+
+**Add modifier syntax:**
+
+```
+add_<type>_modifier = {
+    mode = add_and_replace
+    modifier = modifier_key
+    years = 25
+    days = -1         # -1 = permanent
+    size = 1.0        # Multiplier for modifier strength
+    desc = "CUSTOM_DESC_KEY"
+    recalculate_immediately = yes
+}
+```
+
+**Mode types:**
+
+| Mode | Behavior |
+|------|----------|
+| `replace` | Removes and reapplies for full duration |
+| `add` | Duration unchanged, modifiers stack |
+| `extend` | Duration extended by provided amount |
+| `add_and_extend` | Stacks modifiers and extends duration |
+| `add_and_replace` | Replaces modifier and sets to full duration |
+| `set_to_largest` | Sets to new size if stronger |
+| `set_to_largest_and_extend` | Sets to new size if stronger and extends duration |
+
+**Default mode:** `extend`
+
+**Duration parameters:**
+- `years` - Duration in years (accepts script values)
+- `months` - Duration in months
+- `weeks` - Duration in weeks
+- `days` - Duration in days (`-1` = permanent)
+
+**Additional parameters:**
+- `size` - Multiplier for modifier strength (script value)
+- `desc` - Custom localization key for modifier addition message
+- `recalculate_immediately = yes` - Forces immediate recalculation
+
+**Modifier effect types:**
+
+| Country | Character | Location | Other |
+|---------|-----------|----------|-------|
+| `add_country_modifier` | `add_character_modifier` | `add_location_modifier` | `add_province_modifier` |
+| `remove_country_modifier` | `remove_character_modifier` | `remove_location_modifier` | `remove_province_modifier` |
+
+### Applying Modifiers in Startup
+
+Use `timed_modifiers` in setup files (see [Setup modding](https://eu5.paradoxwikis.com/Setup_modding#Timed_modifiers)).
+
+### Localization
+
+**Required keys:**
+
+```yaml
+STATIC_MODIFIER_NAME_<key>: "Modifier Title"
+STATIC_MODIFIER_DESC_<key>: ""   # Can be empty
+```
+
+**GUI access:**
+
+```
+ShowModifier( 'modifier_name' )
+ShowModifierWithNoTooltip( 'modifier_name' )
+```
+
+### Triggers
+
+**Presence checks:**
+
+```
+has_country_modifier = modifier_key
+has_character_modifier = modifier_key
+has_location_modifier = modifier_key
+```
+
+**AI utility calculation:**
+
+```
+value = "add_static_modifier_utility(modifier_key)"
+value = "add_static_modifier_utility(modifier_key|0.5)"  # With size parameter
+
+value = "remove_static_modifier_utility(modifier_key)"
+```
+
+Returns numerical value representing AI's perceived value of adding/removing the modifier.
+
+**Scopes:** `country`, `character`, `location`
+
+## Auto Modifiers
+
+Auto modifiers are automatically applied to countries or international organizations when certain criteria are met and can be scaled dynamically.
+
+**Location:** `common/auto_modifiers`, usually in the `in_game` top folder.
+
+**⚠️ Performance Warning:** Use sparingly as they can have serious performance consequences.
+
+### Example
+
+```
+war_exhaustion_impact = {
+    scales_with = war_exhaustion
+    
+    land_morale_modifier = -0.02
+    naval_morale_modifier = -0.02
+    global_production_efficiency = scaled_production_efficiency_penalty
+    trade_efficiency = scaled_trade_efficiency_penalty
+    global_population_growth = -0.0003
+}
+```
+
+### Category and Scope
+
+Default: country modifiers based on country scope.
+
+**Override with:**
+
+```
+auto_modifier_name = {
+    type = international_organization
+    category = international_organization
+    ...
+}
+```
+
+**Supported types:**
+- `country` (default)
+- `international_organization`
+
+### Additional Parameters
+
+```
+auto_modifier_name = {
+    requires_real = no       # Apply to non-real countries (Pirates, Rebels, Mercenaries)
+    hide_effects = yes       # Make modifier hidden
+    ...
+}
+```
+
+### Triggers and Scaling
+
+```
+auto_modifier_name = {
+    potential_trigger = {
+        # Controls visibility
+    }
+    
+    limit = {
+        # Controls application (also affects visibility)
+    }
+    
+    scales_with = script_value_key
+    
+    modifier_type_1 = value
+}
+```
+
+- `potential_trigger` - Dictates visibility
+- `limit` - Dictates when to apply (also affects visibility)
+- `scales_with` - Script value that dynamically scales modifier strength
+
+### Localization and Datacontext
+
+**Localization keys:**
+
+```yaml
+AUTO_MODIFIER_NAME_<key>: "Auto Modifier Title"
+AUTO_MODIFIER_DESC_<key>: "Auto modifier description"
+```
+
+**GUI datacontext:**
+
+```
+StaticAutoModifier                           # Type
+ShowAutoModifierEffect( 'auto_modifier' )              # Function
+ShowAutoModifierEffectForCountry( 'auto_modifier' )    # Function
+ShowAutoModifierEffectForLocation( 'auto_modifier' )   # Function
+```
+
+## New Modifier Types
+
+Unlike EU4, new modifier types can be added in `common/modifier_type_definitions` (best placed in `main_menu` top folder).
+
+Values can be referenced using `modifier:` datalink.
+
+## Example: Complete Static Modifier
+
+```
+golden_age_prosperity = {
+    game_data = {
+        category = country
+        decaying = no
+    }
+    
+    tax_efficiency = 0.15
+    trade_efficiency = 0.10
+    production_efficiency = 0.10
+    prestige_gain = 0.05
+}
+```
+
+**Usage:**
+
+```
+add_country_modifier = {
+    modifier = golden_age_prosperity
+    years = 10
+    mode = replace
+    desc = "GOLDEN_AGE_PROSPERITY_DESC"
+}
+```
+
+## Example: Complete Auto Modifier
+
+```
+high_mercantilism_impact = {
+    scales_with = mercantilism
+    
+    potential_trigger = {
+        mercantilism > 0
+    }
+    
+    limit = {
+        mercantilism > 0.25
+    }
+    
+    trade_efficiency = 0.01
+    goods_produced_modifier = -0.005
+}
+```
+
+## Best Practices
+
+1. **Category matching** - Set `category` to match the scope where modifier will be applied
+2. **Use decaying sparingly** - Only for time-sensitive modifiers (event cooldowns, temporary buffs)
+3. **Static script values only** - Don't use dynamic calculations in static modifiers
+4. **Mode selection** - Use `replace` for single-instance modifiers, `add_and_extend` for stackable
+5. **Size parameter** - Scale modifiers dynamically with `size` for event-based variations
+6. **Auto modifier performance** - Minimize auto modifiers; prefer static modifiers with effects
+7. **Localization descriptions** - Provide clear `desc` keys for custom addition messages
+8. **AI utility** - Use `add_static_modifier_utility` triggers for AI decision-making
+9. **Recalculate immediately** - Use only when modifier must take effect before next tick
+10. **Permanent modifiers** - Use `days = -1` for permanent effects (avoid `years = 99999`)
+
+## Related Files
+
+- `/main_menu/common/static_modifiers/` - Static modifier definitions
+- `/in_game/common/auto_modifiers/` - Auto modifier definitions
+- `/main_menu/common/modifier_type_definitions/` - Custom modifier type definitions
+- `/main_menu/localization/` - Modifier localization

@@ -1,0 +1,197 @@
+## EU5 Valid Triggers Reference
+## Source: https://eu5.paradoxwikis.com/Trigger
+## Last Updated: December 4, 2025
+
+======================
+INTERNATIONAL ORGANIZATION TRIGGERS
+======================
+is_member_of_international_organization = <io_type>
+is_leader_of_international_organization_of_type = { type = <io_type> }
+international_organization_has_leader = yes/no
+international_organization_has_policy = <policy>
+any_international_organization_member = { <conditions> }
+any_current_law_in_international_organization = { <conditions> }
+
+======================
+COUNTRY SCOPE TRIGGERS
+======================
+tag = <TAG>                                # Three-letter country tag
+is_subject = yes/no
+is_subject_of = <country>
+capital ?= { <location conditions> }       # Safe accessor with ?=
+has_law = <law>
+diplomatic_range = <country>               # Can reach diplomatically
+has_diplomacy_with = <country>
+rank = <rank_type>                         # duchy/kingdom/empire
+
+======================
+CAPITAL/REGION CHECKS
+======================
+capital ?= { region = region:<region_name> }
+capital ?= { area = area:<area_name> }
+capital ?= { province = <province_id> }
+
+Example regions:
+- region:low_countries_region
+- region:north_german_region
+- region:south_german_region
+- region:scandinavia_region
+- region:baltic_region
+- region:russia_region
+- region:britain_region
+
+======================
+TRADE TRIGGERS
+======================
+any_trade = { <conditions> }
+any_merchant_capacity = { <conditions> }
+trade_efficiency > <value>
+
+======================
+NAVAL TRIGGERS
+======================
+any_ship_type = { <conditions> }
+navy_size > <value>
+sailors > <value>
+
+======================
+DIPLOMATIC TRIGGERS
+======================
+diplomatic_capacity > <value>
+opinion = { who = <country> value > <number> }
+has_opinion_modifier = { who = <country> modifier = <modifier> }
+alliance_with = <country>
+truce_with = <country>
+war_with = <country>
+
+======================
+ECONOMIC TRIGGERS
+======================
+gold > <value>
+treasury > <value>
+monthly_income > <value>
+any_owned_province = { <conditions> }
+num_of_owned_provinces > <value>
+
+======================
+MILITARY TRIGGERS
+======================
+army_size > <value>
+manpower > <value>
+has_army = yes/no
+has_navy = yes/no
+war = yes/no
+at_war_with = <country>
+
+======================
+CHARACTER SCOPE TRIGGERS
+======================
+age > <value>
+has_trait = <trait>
+is_ruler = yes/no
+diplomacy > <value>
+administrative > <value>
+military > <value>
+
+======================
+LOCATION SCOPE TRIGGERS
+======================
+province_id = <id>
+area = area:<area_name>
+region = region:<region_name>
+owner = <country>
+controller = <country>
+is_capital = yes/no
+
+======================
+BOOLEAN LOGIC
+======================
+OR = { <trigger1> <trigger2> }
+AND = { <trigger1> <trigger2> }
+NOT = { <trigger> }
+always = yes/no
+if = { limit = { <trigger> } <effect> }
+
+======================
+SCOPE ITERATIONS
+======================
+any_country = { <conditions> }
+any_neighbor_country = { <conditions> }
+any_subject = { <conditions> }
+any_owned_province = { <conditions> }
+any_international_organization_member = { <conditions> }
+
+======================
+SAFE SCOPE ACCESSORS
+======================
+Use ?= for safe access to potentially null scopes:
+
+capital ?= { region = region:baltic_region }
+leader_country ?= { tag = HSA }
+scope:recipient ?= { has_law = some_law }
+
+Do NOT use = for scope checks, always use ?=
+
+======================
+SCOPE REFERENCES
+======================
+scope:actor          # The country performing the action
+scope:recipient      # The target of the action
+scope:target_country # Custom saved scope
+this                 # Current scope
+root                 # Root scope
+prev                 # Previous scope
+
+======================
+VALUE COMPARISONS
+======================
+> (greater than)
+< (less than)
+>= (greater than or equal)
+<= (less than or equal)
+= (equal to, for values)
+?= (safe equal check for scopes)
+
+======================
+COMMON PATTERNS
+======================
+
+# Check if country can join IO
+is_member_of_international_organization = scope:recipient
+tag = HSA
+is_subject = no
+capital ?= { region = region:baltic_region }
+
+# Check if IO has specific law
+scope:recipient = {
+    any_current_law_in_international_organization = {
+        law = some_specific_law
+    }
+}
+
+# Check leader wants policy
+if = {
+    limit = {
+        scope:recipient.leader_country ?= {
+            this = scope:actor
+        }
+    }
+    value = 50
+}
+
+# Geographic restriction
+OR = {
+    capital ?= { region = region:low_countries_region }
+    capital ?= { region = region:north_german_region }
+}
+
+======================
+USAGE NOTES
+======================
+- Always use ?= for scope comparisons (not =)
+- Use = only for value comparisons (numbers, strings)
+- Triggers return true/false
+- Nest triggers with AND/OR/NOT for complex logic
+- any_* iterators check if ANY instance matches
+- all_* iterators check if ALL instances match
+- Scope safety: use ?= to avoid crashes on null scopes

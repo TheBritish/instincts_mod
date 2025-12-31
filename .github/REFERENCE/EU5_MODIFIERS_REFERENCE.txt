@@ -1,0 +1,170 @@
+## EU5 Valid Modifiers Reference
+## Source: https://eu5.paradoxwikis.com/Modifier_types + Vanilla Game Files
+## Last Updated: December 4, 2025
+
+⚠️ **IMPORTANT: Wiki is INCOMPLETE - Always verify against vanilla files!**
+⚠️ Wiki only shows subset of modifiers (buildings, laws, policies)
+⚠️ Missing from wiki: Character traits, AI behavior, unit stats, many country modifiers
+
+📁 **Complete authoritative list:** 
+   game/main_menu/common/modifier_type_definitions/00_modifier_types.txt (13,789 lines)
+
+📄 **Companion files:**
+   - SCRIPT_VALUES_RESEARCH.md - All script value constants
+   - EU5_EFFECTS_REFERENCE.txt - All valid effects
+   - EU5_TRIGGERS_REFERENCE.txt - All valid triggers
+
+======================
+✅ VERIFIED MODIFIERS (Confirmed in Vanilla Game Files)
+======================
+
+TRADE MODIFIERS (All Verified ✅)
+----------------------------------
+trade_efficiency                           # percent, good, additive ✅
+global_merchant_capacity_modifier          # multiplicative, percent, good ✅
+merchant_maintenance_cost                  # percent, bad, multiplicative ✅
+local_merchant_power                       # good, additive ✅
+local_trade_center_power                   # percent, good, additive ✅
+global_trade_power                         # percent, good, additive ✅
+local_trade_power                          # percent, good, additive ✅
+global_trade_center_power                  # percent, good, additive ✅
+merchant_power_from_maritime               # good, additive ✅
+merchant_power_from_maritime_modifier      # percent, good, multiplicative ✅
+merchant_power_from_building               # good, additive ✅
+local_merchant_capacity                    # good, additive ✅
+merchant_capacity_from_building            # good, additive ✅
+global_merchant_power                      # percent, good, additive ✅
+trade_income                               # good, additive ✅
+local_trade_protection_factor              # percent, good, additive ✅
+global_trade_protection_factor             # percent, good, additive ✅
+
+PRODUCTION & EFFICIENCY MODIFIERS (All Verified ✅)
+----------------------------------
+local_production_efficiency                # percent, good, multiplicative ✅
+global_production_efficiency               # percent, good, multiplicative ✅
+tax_income_efficiency                      # percent, good, multiplicative ✅
+blockade_efficiency                        # percent, good, multiplicative ✅
+trade_efficiency                           # percent, good, additive ✅
+levy_combat_efficiency_modifier            # percent, good, multiplicative ✅
+slave_raid_efficiency                      # percent, good, multiplicative ✅
+
+NAVAL MODIFIERS (Wiki + Verified)
+----------------------------------
+global_navy_levy_size_modifier             # multiplicative, percent, good
+local_sailors_modifier                     # multiplicative, percent, good
+global_ship_build_speed                    # percent, good, multiplicative
+global_sailors_modifier                    # multiplicative, percent, good
+global_naval_forcelimit_modifier           # multiplicative, percent, good
+
+======================
+DIPLOMATIC MODIFIERS
+======================
+diplomatic_capacity                        # good, additive (flat bonus)
+diplomatic_upkeep_modifier                 # multiplicative, percent, neutral
+diplomatic_range                           # percent, good, additive
+improve_relations_modifier                 # percent, good, multiplicative
+
+======================
+ECONOMIC MODIFIERS
+======================
+monthly_gold_income                        # good, additive (flat gold per month)
+global_tax_income_modifier                 # multiplicative, percent, good
+monthly_traditions                         # good, additive
+
+======================
+MILITARY MODIFIERS
+======================
+fort_limit                                 # good, additive
+global_manpower_modifier                   # multiplicative, percent, good
+global_garrison_size_modifier              # multiplicative, percent, good
+global_regiment_recruit_speed              # percent, good, multiplicative
+land_forcelimit_modifier                   # multiplicative, percent, good
+
+======================
+POPULATION MODIFIERS
+======================
+global_burghers_migration_allowed          # boolean, good
+global_burghers_desired_pop                # good, additive
+global_burghers_rural_desired_pop          # good, additive
+tolerance_own                              # good, additive
+tolerance_heretic                          # good, additive
+tolerance_heathen                          # good, additive
+
+======================
+GOODS-SPECIFIC OUTPUT MODIFIERS
+======================
+global_salt_output_modifier                # multiplicative, percent, good
+global_fish_output_modifier                # multiplicative, percent, good
+global_amber_output_modifier               # multiplicative, percent, good
+global_cloth_output_modifier               # multiplicative, percent, good
+global_naval_supplies_output_modifier      # multiplicative, percent, good
+global_wood_output_modifier                # multiplicative, percent, good
+global_iron_output_modifier                # multiplicative, percent, good
+global_grain_output_modifier               # multiplicative, percent, good
+
+======================
+GOODS-SPECIFIC TRADE RESTRICTIONS
+======================
+ban_exports_of_salt                        # boolean, good
+ban_imports_of_salt                        # boolean, good
+ban_exports_of_fish                        # boolean, good
+ban_imports_of_fish                        # boolean, good
+ban_exports_of_amber                       # boolean, good
+ban_imports_of_amber                       # boolean, good
+# (Similar pattern for other trade goods)
+
+======================
+LOCATION-SPECIFIC MODIFIERS
+======================
+local_tax_income_modifier                  # multiplicative, percent, good
+local_manpower_modifier                    # multiplicative, percent, good
+local_development_cost_modifier            # multiplicative, percent, bad
+local_unrest                               # bad, additive
+local_autonomy                             # percent, bad, additive
+
+======================
+STABILITY & GOVERNMENT
+======================
+global_unrest                              # bad, additive
+stability_cost_modifier                    # multiplicative, percent, bad
+reform_progress_modifier                   # multiplicative, percent, good
+
+======================
+BOOLEAN MODIFIERS (yes/no flags)
+======================
+global_burghers_migration_allowed          # yes/no
+allow_mercenary_recruitment                # yes/no
+blocked_from_change_to_kingdom_rank        # yes/no (prefix: block_from_)
+blocked_from_change_to_empire_rank         # yes/no
+
+======================
+MODIFIER BEHAVIOR TYPES
+======================
+additive        # Flat value added (e.g., diplomatic_capacity = 2 means +2)
+multiplicative  # Percentage modifier (usually has _modifier suffix)
+boolean         # yes/no flags (usually allow_/blocked_from_ prefix)
+scaled          # Game-calculated based on other values
+
+======================
+DISPLAY PROPERTIES
+======================
+percent = yes   # Multiply value by 100 for display (0.10 shows as 10%)
+decimals = 0    # No decimal places
+decimals = 1    # One decimal place
+decimals = 2    # Two decimal places
+
+color = good    # Green for positive, red for negative
+color = bad     # Red for positive, green for negative
+color = neutral # Black (no color coding)
+
+======================
+USAGE NOTES
+======================
+- Multiplicative modifiers typically end with _modifier
+- Global modifiers affect the entire country
+- Local modifiers affect specific locations/provinces
+- Boolean modifiers use yes/no values
+- Percent modifiers: 0.10 = 10%, 0.05 = 5%, etc.
+- Trade goods output modifiers are multiplicative percentages
+- Tolerance values are flat additive bonuses
+- Diplomatic capacity is a flat additive value

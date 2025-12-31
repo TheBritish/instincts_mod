@@ -1,0 +1,793 @@
+## EU5 Scope Links Reference
+## Source: https://eu5.paradoxwikis.com/Scope_links
+## Last Updated: December 5, 2025
+
+======================
+WHAT ARE SCOPE LINKS?
+======================
+Scope links (also called "event targets") are references used to navigate between different 
+scopes in EU5 scripting. They allow you to traverse relationships between game objects.
+
+Think of them as pointers or references that let you move from one scope to another:
+- From a country to its capital
+- From a character to their employer
+- From a location to its owner
+- And many more...
+
+======================
+SCOPE LINK SYNTAX
+======================
+
+BASIC SYNTAX
+----------------------------------
+scope_link_name                    # Simple scope link
+scope_link_name:key               # Scope link with database key
+scope_link_name(<parameter>)      # Scope link with parameter
+scope_link_name = { ... }         # Scope link with conditions block
+
+DOT CHAINING
+----------------------------------
+ROOT.capital.owner.ruler          # Chain multiple scope links
+# Reads as: "Root's capital's owner's ruler"
+
+SAFE ACCESSOR
+----------------------------------
+capital ?= { ... }                # Only execute if capital exists
+# Use ?= when scope might not exist to prevent errors
+
+======================
+SCOPE LINK CATEGORIES
+======================
+
+1. DATA SCOPE LINKS - Return another scope
+2. VALUE SCOPE LINKS - Return a number/boolean
+3. WILDCARD SCOPE LINKS - Meta-references
+
+======================
+DATA SCOPE LINKS
+(Return another scope)
+======================
+
+COUNTRY SCOPE LINKS
+----------------------------------
+overlord                          # Country's overlord
+top_overlord                      # Top-level overlord
+ruler                             # Country's current ruler
+heir                              # Country's heir
+regent                            # Country's regent (if in regency)
+consort                           # Ruler's consort/spouse
+capital                           # Country's capital location
+autocephalous_patriarchate        # Country's religious organization
+union                             # Country's personal union IO
+marriage_union                    # Country's marriage union IO
+civil_war                         # Country's current civil war
+civil_war_opponent                # Civil war opponent country
+
+CHARACTER SCOPE LINKS
+----------------------------------
+father                            # Character's father
+mother                            # Character's mother
+employer                          # Character's employer country
+location                          # Character's current location
+unit                              # Unit commanded by character
+first_spouse                      # Character's first spouse
+dynasty                           # Character's dynasty
+culture                           # Character's culture
+religion                          # Character's religion
+ethnicity                         # Character's ethnicity
+
+LOCATION SCOPE LINKS
+----------------------------------
+owner                             # Location's owner country
+controller                        # Location's controller (may differ in war)
+top_owner                         # Top-level owner (through vassalage)
+previous_owner                    # Previous owner country
+province                          # Province containing this location
+area                              # Area containing this location
+region                            # Region containing this area
+market                            # Market this location trades in
+sea_zone                          # Adjacent sea zone
+
+PROVINCE SCOPE LINKS
+----------------------------------
+province_capital                  # Province's capital location
+owner                             # Province owner
+capital                           # Synonym for province_capital
+
+AREA SCOPE LINKS
+----------------------------------
+region                            # Region containing this area
+
+BUILDING SCOPE LINKS
+----------------------------------
+location                          # Location containing this building
+owner                             # Owner of the building's location
+building_type                     # Type of this building
+
+INTERNATIONAL ORGANIZATION SCOPE LINKS
+----------------------------------
+leader_country                    # Current leader of the IO
+last_leader_country               # Previous leader
+international_organization_target # Target country of IO action
+
+WAR SCOPE LINKS
+----------------------------------
+attacker_leader                   # War leader of attacking side
+defender_leader                   # War leader of defending side
+
+UNIT SCOPE LINKS
+----------------------------------
+owner                             # Country owning this unit
+leader                            # Character commanding this unit
+unit_location                     # Current location of unit
+unit_destination                  # Ultimate destination
+unit_next_location                # Immediate next location
+
+MARKET SCOPE LINKS
+----------------------------------
+most_powerful_merchant            # Dominant merchant country
+
+TRADE SCOPE LINKS
+----------------------------------
+from_market                       # Source market
+to_market                         # Destination market
+traded_goods                      # Goods being traded
+owner                             # Country conducting trade
+
+======================
+VALUE SCOPE LINKS
+(Return numbers/booleans)
+======================
+
+COUNTRY VALUES
+----------------------------------
+gold                              # Country's treasury
+manpower                          # Available manpower
+stability                         # Stability value
+prestige                          # Prestige value
+num_of_provinces                  # Number of owned provinces
+rank                              # Country rank (numerical)
+
+LOCATION VALUES
+----------------------------------
+development                       # Location development
+prosperity                        # Prosperity value
+institution_progress              # Institution progress (0-1)
+
+CHARACTER VALUES
+----------------------------------
+age                               # Character's age
+administrative                    # Administrative ability
+diplomatic                        # Diplomatic ability
+military                          # Military ability
+
+ESTATE VALUES
+----------------------------------
+estate_power                      # Power of estate
+estate_satisfaction               # Estate satisfaction
+estate_target_satisfaction        # Target satisfaction
+num_estate_privileges             # Number of privileges granted
+
+MARKET VALUES
+----------------------------------
+market_price                      # Price of goods in market
+target_price                      # Target price of goods
+stockpile_in_market               # Stockpiled amount
+produced_in_market                # Amount produced
+traded_in_market                  # Amount traded
+
+======================
+WILDCARD SCOPE LINKS
+======================
+
+compare_value                     # Any numerical comparison trigger
+named_script_value                # Reference to script value calculation
+var:<name>                        # Previously saved variable
+scope:<name>                      # Previously saved scope
+global_var:<name>                 # Global variable
+local_var:<name>                  # Local variable
+
+======================
+SPECIAL SCOPE LINKS
+======================
+
+ROOT
+----------------------------------
+# The primary scope (event receiver, decision taker, etc.)
+ROOT.capital                      # Root country's capital
+
+THIS
+----------------------------------
+# Current scope in context
+# Changes as you navigate scope chains
+
+PREV
+----------------------------------
+# Previous scope before entering current scope
+every_owned_location = {
+    PREV = {                      # Refers back to country scope
+        add_prestige = 1
+    }
+}
+
+======================
+DATABASE KEY SCOPE LINKS
+======================
+
+COUNTRY BY TAG
+----------------------------------
+c:TAG                             # Direct country reference
+c:FRA                             # France
+c:ENG                             # England
+c:HAN                             # Hansa
+
+CULTURE BY KEY
+----------------------------------
+culture:culture_key
+culture:lombard
+culture:frankish
+
+RELIGION BY KEY
+----------------------------------
+religion:religion_key
+religion:catholic
+religion:orthodox
+
+TRAIT BY KEY
+----------------------------------
+trait:trait_key
+trait:ambitious
+trait:incompetent_fool
+
+BUILDING BY KEY
+----------------------------------
+building:building_key             # Only valid in location scope
+building:temple
+building:marketplace
+
+GOODS BY KEY
+----------------------------------
+goods:goods_key
+goods:grain
+goods:cloth
+
+LAW BY KEY
+----------------------------------
+law:law_key
+law:free_trade
+law:serfdom
+
+REGION BY KEY
+----------------------------------
+region:region_key
+region:low_countries_region
+region:italy_region
+
+======================
+PARAMETRIC SCOPE LINKS
+======================
+
+ESTATE LINKS
+----------------------------------
+estate(<estate_type>)             # Link to specific estate
+estate(estate:burghers)
+estate(estate:nobility)
+
+ACTIVE RESOLUTION
+----------------------------------
+active_resolution(<resolution>)   # Get active resolution in IO
+active_resolution:resolution_key
+
+LAW POLICY
+----------------------------------
+law_policy(<law>)                # Get chosen policy for law
+law_policy(law:trade_policy)
+
+ACTIVE OUTBREAK
+----------------------------------
+active_outbreak(<disease>)        # Get disease outbreak
+active_outbreak(disease:plague)
+
+======================
+SCOPE LINK CHAINING EXAMPLES
+======================
+
+SIMPLE CHAIN
+----------------------------------
+ROOT.capital.owner.ruler
+# Current country's capital's owner's ruler
+
+COMPLEX CHAIN
+----------------------------------
+ROOT.ruler.father.employer.capital.province.region
+# Ruler's father's employer's capital province's region
+
+WITH PARAMETERS
+----------------------------------
+ROOT.estate(estate:burghers).estate_power
+# Country's burgher estate's power value
+
+MIXED TYPES
+----------------------------------
+scope:target_country.capital.development
+# Saved scope's capital's development value
+
+======================
+SCOPE LINK VALIDATION
+======================
+
+SAFE ACCESSOR (?=)
+----------------------------------
+capital ?= {                      # Only execute if capital exists
+    add_development = 1
+}
+
+EXISTS CHECK
+----------------------------------
+if = {
+    limit = { exists = capital }
+    capital = {
+        add_development = 1
+    }
+}
+
+TYPE CHECKING
+----------------------------------
+if = {
+    limit = { 
+        capital = { 
+            is_location = yes     # Verify scope type
+        }
+    }
+}
+
+======================
+COMMON SCOPE LINK PATTERNS
+======================
+
+NAVIGATE TO OWNER
+----------------------------------
+# From location to owner
+ROOT.owner = { ... }
+
+# From building to owner
+ROOT.location.owner = { ... }
+
+# From character to employer
+ROOT.employer = { ... }
+
+NAVIGATE TO CAPITAL
+----------------------------------
+# From country to capital location
+ROOT.capital = { ... }
+
+# From country to capital province
+ROOT.capital.province = { ... }
+
+NAVIGATE TO RULER
+----------------------------------
+# From country to ruler
+ROOT.ruler = { ... }
+
+# From country to ruler's culture
+ROOT.ruler.culture = { ... }
+
+NAVIGATE TO OVERLORD
+----------------------------------
+# Direct overlord
+ROOT.overlord = { ... }
+
+# Top-level overlord
+ROOT.top_overlord = { ... }
+
+NAVIGATE TO MARKET
+----------------------------------
+# From location to market
+ROOT.market = { ... }
+
+# From country to capital's market
+ROOT.capital.market = { ... }
+
+======================
+SCOPE LINK USAGE IN TRIGGERS
+======================
+
+COUNTRY COMPARISONS
+----------------------------------
+overlord = ROOT                   # Check if overlord is ROOT
+capital.owner = c:FRA            # Check if capital owner is France
+
+NUMERIC COMPARISONS
+----------------------------------
+gold >= 100                       # Direct value comparison
+capital.development >= 10         # Chained value comparison
+
+EXISTENCE CHECKS
+----------------------------------
+has_heir = yes                    # Same as: exists = heir
+has_capital = yes                 # Same as: exists = capital
+
+SCOPE EQUIVALENCE
+----------------------------------
+employer = THIS.overlord          # Check if employer equals overlord
+owner = scope:target_country      # Check if owner is saved scope
+
+======================
+SCOPE LINK USAGE IN EFFECTS
+======================
+
+DIRECT EFFECTS
+----------------------------------
+capital = {
+    add_development = 5
+}
+
+SAVE SCOPE
+----------------------------------
+ruler = {
+    save_scope_as = current_ruler
+}
+# Later: scope:current_ruler = { ... }
+
+SET SCOPE VALUE
+----------------------------------
+capital = {
+    change_owner = ROOT.overlord
+}
+
+CONDITIONAL EFFECTS
+----------------------------------
+if = {
+    limit = { exists = heir }
+    heir = {
+        add_trait = trait:ambitious
+    }
+}
+
+======================
+ITERATIVE SCOPE LINKS
+======================
+
+EVERY ITERATION
+----------------------------------
+every_owned_location = {          # Iterate all owned locations
+    limit = { development >= 10 }
+    add_building = building:temple
+}
+
+every_subject_country = {         # Iterate all subjects
+    add_liberty_desire = -10
+}
+
+RANDOM SELECTION
+----------------------------------
+random_owned_location = {         # Pick one random location
+    limit = { has_building = building:temple }
+    add_development = 5
+}
+
+ORDERED ITERATION
+----------------------------------
+ordered_owned_location = {        # Ordered by criterion
+    order_by = development
+    max = 3                       # Only top 3
+    add_building_level = 1
+}
+
+ANY CHECK
+----------------------------------
+any_owned_location = {            # Check if any location matches
+    development >= 20
+}
+
+======================
+SCOPE LINK DEBUGGING
+======================
+
+LOG SCOPE LINKS
+----------------------------------
+log = "Capital: [ROOT.capital.GetName]"
+log = "Owner: [ROOT.owner.GetName]"
+log = "Ruler: [ROOT.ruler.GetName]"
+
+TRACE SCOPE CHAIN
+----------------------------------
+ROOT = {
+    log = "Country: [This.GetName]"
+    capital = {
+        log = "Capital: [This.GetName]"
+        log = "Development: [This.GetDevelopment]"
+    }
+}
+
+VALIDATE SCOPE TYPE
+----------------------------------
+if = {
+    limit = { 
+        capital = {
+            log = "Capital exists and is: [This.GetName]"
+        }
+    }
+}
+else = {
+    log = "Capital does not exist!"
+}
+
+======================
+COMMON ERRORS & FIXES
+======================
+
+❌ ERROR: Invalid scope link chain
+ROOT.capital.tag                  # tag is country scope, capital is location
+
+✅ FIX: Add proper scope transition
+ROOT.capital.owner.tag            # Now accessing country scope
+
+❌ ERROR: Using scope link in wrong scope
+ROOT = {                          # Country scope
+    ruler                         # OK
+    father                        # ERROR: father is character scope link
+}
+
+✅ FIX: Navigate to correct scope first
+ROOT.ruler = {                    # Character scope
+    father = { ... }              # OK
+}
+
+❌ ERROR: Accessing non-existent scope
+heir = {                          # ERROR if no heir exists
+    add_trait = trait:ambitious
+}
+
+✅ FIX: Use safe accessor or exists check
+if = {
+    limit = { exists = heir }
+    heir = {
+        add_trait = trait:ambitious
+    }
+}
+
+======================
+BEST PRACTICES
+======================
+
+1. Use descriptive saved scope names
+   ✅ save_scope_as = target_country
+   ❌ save_scope_as = t
+
+2. Validate scope existence before accessing
+   ✅ capital ?= { add_development = 1 }
+   ❌ capital = { add_development = 1 }  # May error
+
+3. Keep scope chains readable
+   ✅ ROOT.capital.owner = { save_scope_as = capital_owner }
+      scope:capital_owner.ruler = { ... }
+   ❌ ROOT.capital.owner.ruler.father.employer.capital.owner = { ... }
+
+4. Document complex scope navigation
+   # Navigate from country to ruler's father's employer
+   ROOT.ruler.father.employer = { ... }
+
+5. Use local scopes for temporary references
+   save_temporary_scope_as = temp_location
+   # Only valid in current block
+
+6. Prefer direct scope links over saved scopes when possible
+   ✅ ROOT.capital.owner
+   ❌ ROOT.capital = { save_scope_as = cap }
+      scope:cap.owner = { save_scope_as = own }
+
+7. Test scope navigation incrementally
+   Add log statements at each step to verify scope chain
+
+8. Use compare_value for complex numerical comparisons
+   scope:country.gold >= scope:other_country.gold
+
+9. Remember that THIS changes in nested scopes
+   Document which scope THIS refers to
+
+10. Use ?= accessor for optional scope links
+    heir ?= { add_prestige = 10 }  # Safe if no heir
+
+======================
+ALL SCOPE LINKS REFERENCE
+(Alphabetical)
+======================
+
+active_mission                    # → mission
+active_outbreak(<disease>)        # → disease_outbreak
+active_resolution(<resolution>)   # → active_resolution
+advance_type                      # → advance_type
+age                               # → age (value)
+area                              # → area
+area_exploration(<country>)       # → exploration
+artist_type                       # → artist_type
+attacker_leader                   # → country (war leader)
+autocephalous_patriarchate        # → international_organization
+avatar                            # → avatar
+birth_location                    # → location
+borrower                          # → country
+building:<key>                    # → building (in location scope)
+building_type                     # → building_type
+c:<TAG>                           # → country
+cabinet_action                    # → cabinet_action
+cabinet_member                    # → character
+capital                           # → location
+cardinal                          # → cardinal
+casus_belli                       # → casus_belli
+character:<key>                   # → character
+child_education                   # → child_education
+civil_war                         # → war
+civil_war_opponent                # → country
+climate                           # → climate
+combat                            # → combat
+combat_attacker                   # → combat_side
+combat_defender                   # → combat_side
+commander                         # → country
+commanding_country                # → country
+compare_value                     # → value (wildcard)
+consort                           # → character
+continent                         # → continent
+controller                        # → country
+country_rank                      # → country_rank
+court_dialect                     # → dialect
+court_language                    # → language
+creator                           # → character (work of art)
+culture                           # → culture
+culture_group                     # → culture_group
+current_mission_task              # → mission_task
+customer                          # → country (mercenary)
+defender_leader                   # → country (war)
+demand                            # → demand
+dialect                           # → dialect
+disaster_type                     # → disaster_type
+disease                           # → disease
+dominant_country                  # → country (culture)
+dominant_culture                  # → culture
+dominant_dialect                  # → dialect
+dominant_language                 # → language
+dominant_religion                 # → religion
+dynasty                           # → dynasty
+dynasty_head                      # → character
+dynasty_home                      # → location
+employer                          # → country
+employment_system                 # → employment_system
+enemy_side                        # → combat_side
+estate(<estate_type>)             # → estate
+estate_power                      # → value
+estate_satisfaction               # → value
+estate_target_satisfaction        # → value
+estate_type                       # → estate_type
+ethnicity                         # → ethnicity
+exploration                       # → exploration
+father                            # → character
+first_spouse                      # → character
+formable_country                  # → formable_country
+from_market                       # → market
+global_var:<name>                 # → varies
+god                               # → god
+goods                             # → goods
+government_type                   # → government
+group                             # → group (religion)
+heir                              # → character
+heir_selection                    # → heir_selection
+holy_site                         # → holy_site
+institution                       # → institution
+institution_progress              # → value
+international_organization        # → international_organization
+international_organization_target # → country
+international_organization_type   # → international_organization_type
+known_in_country                  # → value
+language                          # → language
+language_family                   # → language_family
+last_leader_country               # → country
+last_valid_ruler                  # → character
+law                               # → law
+law_policy(<law>)                 # → policy
+leader                            # → character
+leader_at_index(<int>)            # → character
+leader_country                    # → country
+leading_unit                      # → unit
+levy_setup                        # → levy_setup
+liturgical_dialect                # → dialect
+liturgical_language               # → language
+local_var:<name>                  # → varies
+location                          # → location
+location_rank                     # → location_rank
+market                            # → market
+market_price                      # → value
+marriage_union                    # → international_organization
+mercenary_home                    # → location
+mission                           # → mission
+mission_task                      # → mission_task
+modifier                          # → modifier value
+most_powerful_merchant            # → country
+mother                            # → character
+named_script_value                # → value (wildcard)
+num_estate_privileges             # → value
+num_location_rank                 # → value
+num_pop_type                      # → value
+origin                            # → location
+original_outbreak                 # → disease_outbreak
+overlord                          # → country
+owner                             # → country
+owning_unit                       # → unit
+parliament_issue                  # → parliament_issue
+parliament_seat                   # → location
+parliament_type                   # → parliament_type
+policy                            # → policy
+pop_type                          # → pop_type
+PREV                              # → varies (previous scope)
+previous_owner                    # → country
+previous_ruler                    # → character
+produced_goods                    # → goods
+produced_in_country               # → value
+produced_in_market                # → value
+production_method                 # → production_method
+province                          # → province
+province_capital                  # → location
+province_definition               # → province_definition
+raw_material                      # → goods
+rebel                             # → rebels
+recruitment_method                # → recruitment_method
+regent                            # → character
+region                            # → region
+relation_type                     # → relation_type
+religion                          # → religion
+religion_group                    # → group
+religious_aspect                  # → religious_aspect
+religious_head                    # → country
+religious_school                  # → religious_school
+resolution                        # → resolution
+resolution_proposer               # → country
+revolutionary_target              # → country
+road_type                         # → road_type
+ROOT                              # → varies (root scope)
+rule_end_date                     # → date
+ruler                             # → character
+ruler_or_heir_if_regent           # → character
+ruler_or_regent                   # → character
+scope:<name>                      # → varies (saved scope)
+sea_zone                          # → location
+second_best_market                # → market
+secondary_culture                 # → culture
+siege                             # → siege
+siege_defender                    # → country
+siege_main_attacker               # → country
+situation                         # → situation
+societal_value                    # → value
+societal_value_type               # → societal_value_type
+special_status                    # → special_status
+stockpile_in_market               # → value
+sub_continent                     # → sub_continent
+sub_unit_category                 # → sub_unit_category
+subject_type                      # → subject_type
+succession_law                    # → heir_selection
+target_price                      # → value
+THIS                              # → varies (current scope)
+to_market                         # → market
+top_overlord                      # → country
+top_owner                         # → country
+topography                        # → topography
+traded_goods                      # → goods
+traded_in_market                  # → value
+trait                             # → trait
+union                             # → international_organization
+unit                              # → unit
+unit_destination                  # → location
+unit_location                     # → location
+unit_next_location                # → location
+unit_type                         # → unit_type
+var:<name>                        # → varies (saved variable)
+vegetation                        # → vegetation
+work_of_art                       # → work_of_art
+work_of_art_type                  # → work_of_art_type
+
+======================
+CROSS-REFERENCES
+======================
+📄 Related Files:
+- EU5_SCOPES_REFERENCE.txt - Scope system overview
+- EU5_EFFECTS_REFERENCE.txt - Valid effects by scope
+- EU5_TRIGGERS_REFERENCE.txt - Valid triggers by scope
+- EU5_MODIFIERS_REFERENCE.txt - Modifiers and their scopes
