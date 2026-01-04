@@ -558,8 +558,8 @@
   boh_revolutions_civic_armies_desc: "Adds bonuses related to Civic Armies."
 
   # Brandenburg / Prussia (BRA)
-  bra_traditions_space_marine_legend: "Martial Legend"
-  bra_traditions_space_marine_legend_desc: "Adds bonuses related to Martial Legend."
+  bra_traditions_martial_discipline: "Martial Discipline"
+  bra_traditions_martial_discipline_desc: "Adds bonuses related to Martial Discipline."
   bra_traditions_prussian_drill: "Prussian Drill"
   bra_traditions_prussian_drill_desc: "Adds bonuses related to Prussian Drill."
   bra_traditions_fortified_borders: "Fortified Borders"

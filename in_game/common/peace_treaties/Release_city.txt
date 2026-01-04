@@ -8,14 +8,9 @@
 			multiply = 6
 		}
 		add = {
-			desc = "population of target country"
-			value = scope:loser.total_population
-			multiply = -0.01
-		}
-		add = {
 			desc = "population of target city"
 			value = scope:target.population
-			multiply = 0.5
+			multiply = 0.3
 		}
 	}
 	base_antagonism = {

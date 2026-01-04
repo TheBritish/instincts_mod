@@ -31,6 +31,7 @@
 			firearms = 0.5
 			leather = 0.5
 			cloth = 0.10
+			fine_cloth = 0.05
 			paper = 0.20
 			weaponry = 0.5
 			category = building_maintenance
@@ -52,7 +53,11 @@ hanseatic_recruiting_office_dummy = {
 	increase_per_level_cost = 0.5
 	category = military_category
 	country_potential = {
-		modifier:allows_hanseatic_federation_buildings = no
+		modifier:allows_hanseatic_federation_buildings = yes
+		always = no
+	}
+	location_potential = {
+		always = no
 	}
 	employment_size = 0.25
 	pop_size_created = 0.25
@@ -66,6 +71,7 @@ hanseatic_recruiting_office_dummy = {
 			firearms = 0.5
 			leather = 0.5
 			cloth = 0.10
+			fine_cloth = 0.05
 			paper = 0.20
 			weaponry = 0.5
 			category = building_maintenance

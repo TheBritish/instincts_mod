@@ -6,3 +6,9 @@
 #dummy entry to make the building show up as an unlock in the advance, since unlocked buildings are bugged when building in vassals
  hanseatic_recruiting_office_dummy: "Hanseatic Recruiting Office"
  hanseatic_recruiting_office_dummy_desc: "The local recruiting office of the Hansa, recruiting and training private security which shall enforce the interests of the league."
+
+ burgher_volunteer_recruitment_maintenance: "Burgher Volunteer Recruitment Maintenance"
+ burgher_volunteer_recruitment_maintenance_desc: "The maintenance cost for the Burgher Volunteer Recruitment building."
+
+ burgher_volunteer_recruitment_maintenance_dummy: "Burgher Volunteer Recruitment Maintenance"
+ burgher_volunteer_recruitment_maintenance_dummy_desc: "The maintenance cost for the Burgher Volunteer Recruitment building."

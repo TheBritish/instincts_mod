@@ -12,9 +12,6 @@ hanseatic_private_security_advance = {
 }
 
 
-
-
-
 #Age of Reformation
 hanseatic_recruiting_drive_advance = {
 	age = age_4_reformation
@@ -22,7 +19,29 @@ hanseatic_recruiting_drive_advance = {
 		has_or_had_tag = HSA
 	}
 	icon = barracks_advance
-	#unlock_building = hanseatic_recruiting_office
-	hanseatic_recruiting_office_max_level = 2
+	hanseatic_recruiting_office_max_level = 1
 	requires = trade_companies_advance
+}
+
+#Age of absolutism
+hanseatic_colonial_security_advance = {
+	age = age_5_absolutism
+    potential = {
+		has_or_had_tag = HSA
+	}
+	icon = barracks_advance
+	hanseatic_recruiting_office_max_level = 2
+	requires = increase_control_area_advance
+}
+
+
+#Age of revolutions
+hanseatic_professional_army_advance = {
+	age = age_6_revolutions
+    potential = {
+		has_or_had_tag = HSA
+	}
+	icon = barracks_advance
+	hanseatic_recruiting_office_max_level = 4
+	requires = long_rifle
 }
