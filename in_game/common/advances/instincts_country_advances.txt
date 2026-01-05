@@ -1,4 +1,4 @@
-###########################################################
+﻿###########################################################
 # Instincts Mod - Country-specific Advances
 # Generated: 2025-12-26
 # Contains 4 advances per Age (Traditions, Renaissance,
@@ -17,8 +17,8 @@ eng_traditions_longbow_mastery = {
     age = age_1_traditions
     requires = written_alphabet
     # Historical Context: Institutionalized longbowmen gave England battlefield dominance.
-    land_morale = 0.08
-    infantry_power = 0.06
+    land_morale_modifier = 0.08
+    army_infantry_power = 0.06
     global_regiment_recruit_speed = 0.05
 }
 
@@ -41,7 +41,7 @@ eng_traditions_shire_levies = {
     age = age_1_traditions
     requires = written_alphabet
     # Historical Context: Local militia organization provided manpower resilience.
-    manpower = 0.10
+    global_manpower_modifier = 0.10
     global_regiment_recruit_speed = 0.05
 }
 
@@ -53,7 +53,7 @@ eng_traditions_coastal_defences = {
     requires = written_alphabet
     # Historical Context: Early coastal works defended against raids and supported fleets.
     naval_forcelimit_modifier = 0.05
-    naval_morale = 0.05
+    navy_morale_modifier = 0.05
 }
 
 eng_renaissance_maritime_cartography = {
@@ -64,7 +64,7 @@ eng_renaissance_maritime_cartography = {
     requires = renaissance_advance
     # Historical Context: Improved charts aided navigation and seamanship.
     navy_movement_speed = 0.10
-    global_trade_power = 0.05
+    global_merchant_power = 0.05
 }
 
 eng_renaissance_gunpowder_adoption = {
@@ -75,7 +75,7 @@ eng_renaissance_gunpowder_adoption = {
     requires = renaissance_advance
     # Historical Context: Early adoption of firearms improved battlefield firepower.
     discipline = 0.05
-    infantry_power = 0.07
+    army_infantry_power = 0.07
 }
 
 eng_renaissance_naval_doctrine = {
@@ -96,7 +96,7 @@ eng_renaissance_royal_administration = {
     age = age_2_renaissance
     requires = renaissance_advance
     # Historical Context: Centralized revenue systems improved crown capacity.
-    tax_income = 0.07
+    tax_income_efficiency = 0.07
     admin_power = 0.05
 }
 
@@ -108,7 +108,7 @@ eng_discovery_privateering = {
     requires = new_world_advance
     # Historical Context: Privateers expanded English maritime reach and prize income.
     trade_income = 0.10
-    global_trade_power = 0.05
+    global_merchant_power = 0.05
 }
 
 eng_discovery_naval_consolidation = {
@@ -119,7 +119,7 @@ eng_discovery_naval_consolidation = {
     requires = new_world_advance
     # Historical Context: Consolidation of fleet logistics boosted overseas operations.
     naval_forcelimit_modifier = 0.08
-    naval_morale = 0.04
+    navy_morale_modifier = 0.04
 }
 
 eng_discovery_colonial_administration = {
@@ -129,7 +129,7 @@ eng_discovery_colonial_administration = {
     age = age_3_discovery
     requires = new_world_advance
     # Historical Context: Efficient colonial governance increased settler throughput.
-    global_trade_power = 0.05
+    global_merchant_power = 0.05
     colonial_migration_size = 1
     colonial_migration_size_modifier = 0.10
 }
@@ -141,7 +141,7 @@ eng_discovery_seaborne_trade_networks = {
     age = age_3_discovery
     requires = new_world_advance
     # Historical Context: Merchant networks established England's global commerce.
-    global_trade_power = 0.20
+    global_merchant_power = 0.20
 }
 
 eng_reformation_act_of_supremacy = {
@@ -173,7 +173,7 @@ eng_reformation_line_infantry = {
     age = age_4_reformation
     requires = confessionalism_advance
     # Historical Context: Formation of disciplined infantry formations improved survivability.
-    infantry_power = 0.08
+    army_infantry_power = 0.08
     discipline = 0.04
 }
 
@@ -206,7 +206,7 @@ eng_absolutism_professional_army = {
     age = age_5_absolutism
     requires = manufactories_advance
     # Historical Context: Standing professional forces improved campaign endurance.
-    manpower = 0.12
+    global_manpower_modifier = 0.12
     discipline = 0.06
 }
 
@@ -217,8 +217,8 @@ eng_absolutism_industrial_foundations = {
     age = age_5_absolutism
     requires = manufactories_advance
     # Historical Context: Early industrial growth fueled economic expansion.
-    production_efficiency = 0.08
-    tax_income = 0.05
+    global_production_efficiency = 0.08
+    tax_income_efficiency = 0.05
 }
 
 eng_absolutism_naval_infantry = {
@@ -229,7 +229,7 @@ eng_absolutism_naval_infantry = {
     requires = manufactories_advance
     # Historical Context: Marines professionalized amphibious and boarding actions.
     global_naval_forcelimit_modifier = 0.05
-    infantry_power = 0.04
+    army_infantry_power = 0.04
 }
 
 eng_revolutions_mechanised_plate = {
@@ -239,7 +239,7 @@ eng_revolutions_mechanised_plate = {
     age = age_6_revolutions
     requires = enlightenment_advance
     # Historical Context: Industrial technologies transformed mass production and logistics.
-    production_efficiency = 0.12
+    global_production_efficiency = 0.12
     global_regiment_recruit_speed = 0.08
 }
 
@@ -250,7 +250,7 @@ eng_revolutions_naval_global_hegemony = {
     age = age_6_revolutions
     requires = enlightenment_advance
     # Historical Context: Global reach established enduring maritime hegemony.
-    global_trade_power = 0.12
+    global_merchant_power = 0.12
     naval_forcelimit_modifier = 0.10
 }
 
@@ -261,7 +261,7 @@ eng_revolutions_mass_army_reforms = {
     age = age_6_revolutions
     requires = enlightenment_advance
     # Historical Context: Conscription and organization supported large-scale modern warfare.
-    manpower = 0.15
+    global_manpower_modifier = 0.15
     discipline = 0.06
 }
 
@@ -287,8 +287,8 @@ fra_traditions_knightly_elan = {
     age = age_1_traditions
     requires = written_alphabet
     # Historical Context: Chivalric culture fostered aggressive cavalry tactics.
-    cavalry_power = 0.08
-    morale = 0.06
+    army_cavalry_power = 0.08
+    land_morale_modifier = 0.06
 }
 
 fra_traditions_manorial_revenue = {
@@ -298,8 +298,8 @@ fra_traditions_manorial_revenue = {
     age = age_1_traditions
     requires = written_alphabet
     # Historical Context: Seigneurial revenues sustained aristocratic armies.
-    tax_income = 0.06
-    manpower = 0.06
+    tax_income_efficiency = 0.06
+    global_manpower_modifier = 0.06
 }
 
 fra_traditions_castle_engineering = {
@@ -321,7 +321,7 @@ fra_traditions_courtly_scholarship = {
     requires = written_alphabet
     # Historical Context: Court patronage supported arts and administrative skill.
     admin_power = 0.05
-    prestige = 0.05
+    monthly_prestige = 0.05
 }
 
 fra_renaissance_musket_integration = {
@@ -331,7 +331,7 @@ fra_renaissance_musket_integration = {
     age = age_2_renaissance
     requires = renaissance_advance
     # Historical Context: Integration of firearms with pike tactics modernized infantry.
-    infantry_power = 0.09
+    army_infantry_power = 0.09
     discipline = 0.04
 }
 
@@ -343,7 +343,7 @@ fra_renaissance_palace_centralisation = {
     requires = renaissance_advance
     # Historical Context: Central court strengthened royal authority and finance.
     admin_power = 0.06
-    tax_income = 0.05
+    tax_income_efficiency = 0.05
 }
 
 fra_renaissance_armoured_cavalry = {
@@ -353,7 +353,7 @@ fra_renaissance_armoured_cavalry = {
     age = age_2_renaissance
     requires = renaissance_advance
     # Historical Context: Heavy cavalry adapted to new battlefield realities.
-    cavalry_power = 0.07
+    army_cavalry_power = 0.07
 }
 
 fra_renaissance_artistic_patronage = {
@@ -363,7 +363,7 @@ fra_renaissance_artistic_patronage = {
     age = age_2_renaissance
     requires = renaissance_advance
     # Historical Context: Royal patronage promoted culture and legitimacy.
-    prestige = 0.08
+    monthly_prestige = 0.08
     stability_cost = -0.04
 }
 
@@ -374,7 +374,7 @@ fra_discovery_italian_mercantile_methods = {
     age = age_3_discovery
     requires = new_world_advance
     # Historical Context: Adoption of mercantile finance improved trade returns.
-    global_trade_power = 0.08
+    global_merchant_power = 0.08
     trade_efficiency = 0.05
 }
 
@@ -385,7 +385,7 @@ fra_discovery_tertiary_recruitment = {
     age = age_3_discovery
     requires = new_world_advance
     # Historical Context: Recruitment reforms improved manpower pools.
-    manpower = 0.10
+    global_manpower_modifier = 0.10
     global_regiment_recruit_speed = 0.05
 }
 
@@ -396,7 +396,7 @@ fra_discovery_colonial_enterprises = {
     age = age_3_discovery
     requires = new_world_advance
     # Historical Context: Trading companies extended French commercial reach.
-    global_trade_power = 0.06
+    global_merchant_power = 0.06
     colonial_range = 1
     colonial_range_modifier = 0.10
 }
@@ -441,7 +441,7 @@ fra_reformation_royal_guard = {
     age = age_4_reformation
     requires = confessionalism_advance
     # Historical Context: Elite guards protected the monarch and led reforms.
-    cavalry_power = 0.05
+    army_cavalry_power = 0.05
     discipline = 0.05
 }
 
@@ -452,7 +452,7 @@ fra_reformation_provincial_mobilisation = {
     age = age_4_reformation
     requires = confessionalism_advance
     # Historical Context: Improved levies supported longer wars of religion.
-    manpower = 0.12
+    global_manpower_modifier = 0.12
     global_regiment_recruit_speed = 0.06
 }
 
@@ -474,7 +474,7 @@ fra_absolutism_standing_regiment = {
     age = age_5_absolutism
     requires = manufactories_advance
     # Historical Context: Professional regiments improved army reliability.
-    manpower = 0.15
+    global_manpower_modifier = 0.15
     global_regiment_recruit_speed = 0.07
 }
 
@@ -486,7 +486,7 @@ fra_absolutism_cadre_officer_corp = {
     requires = manufactories_advance
     # Historical Context: Officer corps enhanced battlefield command and cohesion.
     discipline = 0.08
-    leadership = 0.05
+    monthly_army_tradition = 0.05
 }
 
 fra_absolutism_financial_centralisation = {
@@ -496,7 +496,7 @@ fra_absolutism_financial_centralisation = {
     age = age_5_absolutism
     requires = manufactories_advance
     # Historical Context: Improved fiscal systems funded sustained military effort.
-    tax_income = 0.10
+    tax_income_efficiency = 0.10
     inflation = -0.03
 }
 
@@ -507,7 +507,7 @@ fra_revolutions_national_army = {
     age = age_6_revolutions
     requires = enlightenment_advance
     # Historical Context: Revolutionary levies transformed mass mobilization.
-    manpower = 0.20
+    global_manpower_modifier = 0.20
     discipline = 0.06
 }
 
@@ -518,8 +518,8 @@ fra_revolutions_revolutionary_guard = {
     age = age_6_revolutions
     requires = enlightenment_advance
     # Historical Context: Elite revolutionary units enforced changes and fought effectively.
-    infantry_power = 0.10
-    morale = 0.06
+    army_infantry_power = 0.10
+    land_morale_modifier = 0.06
 }
 
 fra_revolutions_civic_culture = {
@@ -540,7 +540,7 @@ fra_revolutions_industrial_mobilisation = {
     age = age_6_revolutions
     requires = enlightenment_advance
     # Historical Context: Industrial capacity converted into military and economic power.
-    production_efficiency = 0.12
+    global_production_efficiency = 0.12
     global_regiment_recruit_speed = 0.08
 }
 
@@ -555,8 +555,8 @@ cas_traditions_knightly_retinue = {
     age = age_1_traditions
     requires = written_alphabet
     # Historical Context: Feudal retinues underpinned medieval Castilian warfare.
-    cavalry_power = 0.07
-    manpower = 0.06
+    army_cavalry_power = 0.07
+    global_manpower_modifier = 0.06
 }
 
 cas_traditions_royal_fief_management = {
@@ -566,7 +566,7 @@ cas_traditions_royal_fief_management = {
     age = age_1_traditions
     requires = written_alphabet
     # Historical Context: Improved manorial oversight increased revenues.
-    tax_income = 0.06
+    tax_income_efficiency = 0.06
     admin_power = 0.04
 }
 
@@ -577,7 +577,7 @@ cas_traditions_frontier_huscarl = {
     age = age_1_traditions
     requires = written_alphabet
     # Historical Context: Frontier warfare created hardy light cavalry and militia.
-    cavalry_power = 0.05
+    army_cavalry_power = 0.05
     global_regiment_recruit_speed = 0.04
 }
 
@@ -588,8 +588,8 @@ cas_traditions_coastal_watch = {
     age = age_1_traditions
     requires = written_alphabet
     # Historical Context: Coastal vigilance reduced raiding impact.
-    naval_morale = 0.04
-    global_trade_power = 0.05
+    navy_morale_modifier = 0.04
+    global_merchant_power = 0.05
 }
 
 cas_renaissance_maritime_trade_hubs = {
@@ -599,7 +599,7 @@ cas_renaissance_maritime_trade_hubs = {
     age = age_2_renaissance
     requires = renaissance_advance
     # Historical Context: Iberian ports became trade centers linking Atlantic routes.
-    global_trade_power = 0.09
+    global_merchant_power = 0.09
     trade_efficiency = 0.04
 }
 
@@ -610,7 +610,7 @@ cas_renaissance_gunpowder_reform = {
     age = age_2_renaissance
     requires = renaissance_advance
     # Historical Context: Reorganization around firearms modernized Castilian forces.
-    infantry_power = 0.08
+    army_infantry_power = 0.08
     discipline = 0.04
 }
 
@@ -633,7 +633,7 @@ cas_renaissance_state_chancery = {
     requires = renaissance_advance
     # Historical Context: Central chancery improved administration and diplomacy.
     admin_power = 0.06
-    prestige = 0.04
+    monthly_prestige = 0.04
 }
 
 cas_discovery_colonial_companies = {
@@ -643,7 +643,7 @@ cas_discovery_colonial_companies = {
     age = age_3_discovery
     requires = new_world_advance
     # Historical Context: Chartered companies organized colonial extraction and trade.
-    global_trade_power = 0.07
+    global_merchant_power = 0.07
     colonial_maintenance_cost = -0.10
     colonial_migration_size = 1
 }
@@ -666,8 +666,8 @@ cas_discovery_new_world_administration = {
     age = age_3_discovery
     requires = new_world_advance
     # Historical Context: Early colonial governance increased extractive efficiency.
-    tax_income = 0.06
-    production_efficiency = 0.04
+    tax_income_efficiency = 0.06
+    global_production_efficiency = 0.04
 }
 
 cas_discovery_naval_tactics = {
@@ -710,7 +710,7 @@ cas_reformation_infantry_drill = {
     age = age_4_reformation
     requires = confessionalism_advance
     # Historical Context: Drill and discipline increased battlefield effectiveness.
-    infantry_power = 0.07
+    army_infantry_power = 0.07
     global_regiment_recruit_speed = 0.05
 }
 
@@ -722,7 +722,7 @@ cas_reformation_coastal_project = {
     requires = confessionalism_advance
     # Historical Context: Fortified harbors secured trade and naval bases.
     fort_level = 1
-    naval_morale = 0.04
+    navy_morale_modifier = 0.04
 }
 
 cas_absolutism_bureaucratic_reform = {
@@ -733,7 +733,7 @@ cas_absolutism_bureaucratic_reform = {
     requires = manufactories_advance
     # Historical Context: Professional bureaucracy improved tax collection and oversight.
     admin_power = 0.10
-    tax_income = 0.07
+    tax_income_efficiency = 0.07
 }
 
 cas_absolutism_permanent_regiment = {
@@ -743,7 +743,7 @@ cas_absolutism_permanent_regiment = {
     age = age_5_absolutism
     requires = manufactories_advance
     # Historical Context: Standing regiments increased campaign readiness.
-    manpower = 0.13
+    global_manpower_modifier = 0.13
     global_regiment_recruit_speed = 0.06
 }
 
@@ -766,7 +766,7 @@ cas_absolutism_crown_armories = {
     requires = manufactories_advance
     # Historical Context: Centralized armories improved supply and quality of equipment.
     global_regiment_recruit_speed = 0.07
-    infantry_power = 0.05
+    army_infantry_power = 0.05
 }
 
 cas_revolutions_empire_reforms = {
@@ -798,7 +798,7 @@ cas_revolutions_mass_recruitment = {
     age = age_6_revolutions
     requires = enlightenment_advance
     # Historical Context: Mass recruitment systems produced large modern armies.
-    manpower = 0.18
+    global_manpower_modifier = 0.18
     global_regiment_recruit_speed = 0.09
 }
 
@@ -809,8 +809,8 @@ cas_revolutions_trade_corporations = {
     age = age_6_revolutions
     requires = enlightenment_advance
     # Historical Context: Large trading corporations integrated industry and commerce.
-    global_trade_power = 0.10
-    production_efficiency = 0.08
+    global_merchant_power = 0.10
+    global_production_efficiency = 0.08
 }
 
 ########################
@@ -831,14 +831,14 @@ por_traditions_coastal_resilience = {
     age = age_1_traditions
     requires = written_alphabet
     naval_forcelimit_modifier = 0.04
-    naval_morale = 0.04
+    navy_morale_modifier = 0.04
 }
 
 por_traditions_mariner_hands = {
     potential = { has_or_had_tag = POR }
     age = age_1_traditions
     requires = written_alphabet
-    manpower = 0.06
+    global_manpower_modifier = 0.06
     global_regiment_recruit_speed = 0.03
 }
 
@@ -846,7 +846,7 @@ por_traditions_merchant_legacy = {
     potential = { has_or_had_tag = POR }
     age = age_1_traditions
     requires = written_alphabet
-    global_trade_power = 0.06
+    global_merchant_power = 0.06
     trade_efficiency = 0.03
 }
 
@@ -879,8 +879,8 @@ por_renaissance_rural_improvement = {
     potential = { has_or_had_tag = POR }
     age = age_2_renaissance
     requires = renaissance_advance
-    production_efficiency = 0.03
-    tax_income = 0.03
+    global_production_efficiency = 0.03
+    tax_income_efficiency = 0.03
 }
 
 # Discovery (Age 3) — empire & overseas tradition
@@ -939,7 +939,7 @@ por_reformation_maritime_code = {
     age = age_4_reformation
     requires = confessionalism_advance
     trade_efficiency = 0.05
-    naval_morale = 0.03
+    navy_morale_modifier = 0.03
 }
 
 por_reformation_coastal_watch = {
@@ -956,7 +956,7 @@ por_absolutism_crown_administration = {
     age = age_5_absolutism
     requires = manufactories_advance
     admin_power = 0.07
-    tax_income = 0.05
+    tax_income_efficiency = 0.05
 }
 
 por_absolutism_colonial_governors = {
@@ -977,7 +977,7 @@ por_absolutism_commercial_code = {
     potential = { has_or_had_tag = POR }
     age = age_5_absolutism
     requires = manufactories_advance
-    global_trade_power = 0.08
+    global_merchant_power = 0.08
 }
 
 # Revolutions (Age 6) — modernization and trade network
@@ -993,14 +993,14 @@ por_revolutions_industrial_foundations = {
     potential = { has_or_had_tag = POR }
     age = age_6_revolutions
     requires = enlightenment_advance
-    production_efficiency = 0.10
+    global_production_efficiency = 0.10
 }
 
 por_revolutions_global_merchants = {
     potential = { has_or_had_tag = POR }
     age = age_6_revolutions
     requires = enlightenment_advance
-    global_trade_power = 0.10
+    global_merchant_power = 0.10
     trade_efficiency = 0.06
 }
 
@@ -1021,8 +1021,8 @@ bur_traditions_feudal_lordship = {
     age = age_1_traditions
     requires = written_alphabet
     # Historical Context: Burgundian estates supported a wealthy feudal order.
-    tax_income = 0.06
-    prestige = 0.04
+    tax_income_efficiency = 0.06
+    monthly_prestige = 0.04
 }
 
 bur_traditions_cavalier_banner = {
@@ -1032,8 +1032,8 @@ bur_traditions_cavalier_banner = {
     age = age_1_traditions
     requires = written_alphabet
     # Historical Context: Noble cavalry formed the backbone of Burgundian forces.
-    cavalry_power = 0.07
-    morale = 0.04
+    army_cavalry_power = 0.07
+    land_morale_modifier = 0.04
 }
 
 bur_traditions_vineyard_economy = {
@@ -1043,8 +1043,8 @@ bur_traditions_vineyard_economy = {
     age = age_1_traditions
     requires = written_alphabet
     # Historical Context: Productive lands produced wealth for court and commerce.
-    tax_income = 0.05
-    production_efficiency = 0.04
+    tax_income_efficiency = 0.05
+    global_production_efficiency = 0.04
 }
 
 bur_traditions_international_merchants = {
@@ -1054,7 +1054,7 @@ bur_traditions_international_merchants = {
     age = age_1_traditions
     requires = written_alphabet
     # Historical Context: Merchant communities connected Burgundian cities to trade.
-    global_trade_power = 0.06
+    global_merchant_power = 0.06
     trade_efficiency = 0.04
 }
 
@@ -1065,8 +1065,8 @@ bur_renaissance_artisan_centres = {
     age = age_2_renaissance
     requires = renaissance_advance
     # Historical Context: Urban artisan centres fueled manufacturing and exports.
-    production_efficiency = 0.07
-    tax_income = 0.04
+    global_production_efficiency = 0.07
+    tax_income_efficiency = 0.04
 }
 
 bur_renaissance_urban_militia = {
@@ -1077,7 +1077,7 @@ bur_renaissance_urban_militia = {
     requires = renaissance_advance
     # Historical Context: City militias aided in regional defence and order.
     global_regiment_recruit_speed = 0.05
-    manpower = 0.08
+    global_manpower_modifier = 0.08
 }
 
 bur_renaissance_financial_houses = {
@@ -1087,7 +1087,7 @@ bur_renaissance_financial_houses = {
     age = age_2_renaissance
     requires = renaissance_advance
     # Historical Context: Banks and financiers supported large-scale commerce.
-    global_trade_power = 0.08
+    global_merchant_power = 0.08
     stability_cost = -0.03
 }
 
@@ -1099,7 +1099,7 @@ bur_renaissance_courtly_reforms = {
     requires = renaissance_advance
     # Historical Context: Administrative refinement enhanced governance capacity.
     admin_power = 0.06
-    prestige = 0.05
+    monthly_prestige = 0.05
 }
 
 bur_discovery_trade_hubs = {
@@ -1109,7 +1109,7 @@ bur_discovery_trade_hubs = {
     age = age_3_discovery
     requires = new_world_advance
     # Historical Context: Strategic trade hubs increased regional commerce influence.
-    global_trade_power = 0.09
+    global_merchant_power = 0.09
     trade_efficiency = 0.05
 }
 
@@ -1121,7 +1121,7 @@ bur_discovery_field_barracks = {
     requires = new_world_advance
     # Historical Context: Improved barracks increased army readiness and endurance.
     global_regiment_recruit_speed = 0.06
-    manpower = 0.08
+    global_manpower_modifier = 0.08
 }
 
 bur_discovery_infrastructure_investment = {
@@ -1131,8 +1131,8 @@ bur_discovery_infrastructure_investment = {
     age = age_3_discovery
     requires = new_world_advance
     # Historical Context: Investments in roads and ports enhanced logistics.
-    global_trade_power = 0.06
-    production_efficiency = 0.05
+    global_merchant_power = 0.06
+    global_production_efficiency = 0.05
 }
 
 bur_discovery_artisan_colleges = {
@@ -1142,7 +1142,7 @@ bur_discovery_artisan_colleges = {
     age = age_3_discovery
     requires = new_world_advance
     # Historical Context: Technical knowledge spread through guild-backed colleges.
-    production_efficiency = 0.07
+    global_production_efficiency = 0.07
     admin_power = 0.04
 }
 
@@ -1186,8 +1186,8 @@ bur_reformation_economic_consortia = {
     age = age_4_reformation
     requires = confessionalism_advance
     # Historical Context: Economic consortia stabilized trade during confessional crises.
-    global_trade_power = 0.06
-    tax_income = 0.04
+    global_merchant_power = 0.06
+    tax_income_efficiency = 0.04
 }
 
 bur_absolutism_court_finance = {
@@ -1197,7 +1197,7 @@ bur_absolutism_court_finance = {
     age = age_5_absolutism
     requires = manufactories_advance
     # Historical Context: Centralised finances funded military and diplomatic efforts.
-    tax_income = 0.10
+    tax_income_efficiency = 0.10
     admin_power = 0.06
 }
 
@@ -1208,8 +1208,8 @@ bur_absolutism_professional_artisans = {
     age = age_5_absolutism
     requires = manufactories_advance
     # Historical Context: Skilled artisans increased manufactured output and exports.
-    production_efficiency = 0.09
-    global_trade_power = 0.05
+    global_production_efficiency = 0.09
+    global_merchant_power = 0.05
 }
 
 bur_absolutism_garrison_reforms = {
@@ -1220,7 +1220,7 @@ bur_absolutism_garrison_reforms = {
     requires = manufactories_advance
     # Historical Context: Garrison reforms solidified control over towns and trade routes.
     fort_level = 1
-    manpower = 0.08
+    global_manpower_modifier = 0.08
 }
 
 bur_absolutism_diplomatic_networks = {
@@ -1241,7 +1241,7 @@ bur_revolutions_industrial_network = {
     age = age_6_revolutions
     requires = enlightenment_advance
     # Historical Context: Industrial networks converted artisanal production into factories.
-    production_efficiency = 0.12
+    global_production_efficiency = 0.12
     trade_efficiency = 0.06
 }
 
@@ -1252,7 +1252,7 @@ bur_revolutions_civic_mobilisation = {
     age = age_6_revolutions
     requires = enlightenment_advance
     # Historical Context: Civic mobilization provided large manpower pools for modern wars.
-    manpower = 0.16
+    global_manpower_modifier = 0.16
     global_regiment_recruit_speed = 0.08
 }
 
@@ -1263,7 +1263,7 @@ bur_revolutions_maritime_integration = {
     age = age_6_revolutions
     requires = enlightenment_advance
     # Historical Context: Integrated maritime industries supported global trade competitiveness.
-    global_trade_power = 0.10
+    global_merchant_power = 0.10
     naval_forcelimit_modifier = 0.08
 }
 
@@ -1290,7 +1290,7 @@ swe_traditions_northern_shield = {
     requires = written_alphabet
     # Historical Context: Rugged terrain and levies favoured resilient defenders.
     fort_level = 1
-    manpower = 0.07
+    global_manpower_modifier = 0.07
 }
 
 swe_traditions_viking_heritage = {
@@ -1300,7 +1300,7 @@ swe_traditions_viking_heritage = {
     age = age_1_traditions
     requires = written_alphabet
     # Historical Context: Maritime raiding traditions aided coastal operations.
-    naval_morale = 0.05
+    navy_morale_modifier = 0.05
     trade_income = 0.04
 }
 
@@ -1311,7 +1311,7 @@ swe_traditions_forestry_resources = {
     age = age_1_traditions
     requires = written_alphabet
     # Historical Context: Timber and resources supported shipbuilding and trade.
-    production_efficiency = 0.05
+    global_production_efficiency = 0.05
     global_ship_build_speed = 0.04
 }
 
@@ -1323,7 +1323,7 @@ swe_traditions_border_watch = {
     requires = written_alphabet
     # Historical Context: Border watch systems improved early warning and defence.
     global_regiment_recruit_speed = 0.04
-    morale = 0.03
+    land_morale_modifier = 0.03
 }
 
 swe_renaissance_carolean_reform = {
@@ -1334,7 +1334,7 @@ swe_renaissance_carolean_reform = {
     requires = renaissance_advance
     # Historical Context: Professional regimental reforms created effective forces.
     discipline = 0.07
-    infantry_power = 0.06
+    army_infantry_power = 0.06
 }
 
 swe_renaissance_military_drill = {
@@ -1345,7 +1345,7 @@ swe_renaissance_military_drill = {
     requires = renaissance_advance
     # Historical Context: Drill and training improved operational efficiency.
     global_regiment_recruit_speed = 0.06
-    leadership = 0.04
+    monthly_army_tradition = 0.04
 }
 
 swe_renaissance_garrison_network = {
@@ -1356,7 +1356,7 @@ swe_renaissance_garrison_network = {
     requires = renaissance_advance
     # Historical Context: Garrison networks secured newly conquered territories.
     fort_level = 1
-    manpower = 0.06
+    global_manpower_modifier = 0.06
 }
 
 swe_renaissance_mining_expansion = {
@@ -1366,8 +1366,8 @@ swe_renaissance_mining_expansion = {
     age = age_2_renaissance
     requires = renaissance_advance
     # Historical Context: Mining expansions supplied metals for arms and trade.
-    production_efficiency = 0.08
-    tax_income = 0.04
+    global_production_efficiency = 0.08
+    tax_income_efficiency = 0.04
 }
 
 swe_discovery_baltic_dominance = {
@@ -1409,7 +1409,7 @@ swe_discovery_military_academies = {
     age = age_3_discovery
     requires = new_world_advance
     # Historical Context: Academies professionalized command and tactics.
-    leadership = 0.06
+    monthly_army_tradition = 0.06
     discipline = 0.05
 }
 
@@ -1431,7 +1431,7 @@ swe_reformation_army_recruitment = {
     age = age_4_reformation
     requires = confessionalism_advance
     # Historical Context: Recruitment reforms widened manpower sources.
-    manpower = 0.10
+    global_manpower_modifier = 0.10
     global_regiment_recruit_speed = 0.05
 }
 
@@ -1442,8 +1442,8 @@ swe_reformation_cavalry_reform = {
     age = age_4_reformation
     requires = confessionalism_advance
     # Historical Context: Cavalry organization increases battlefield mobility.
-    cavalry_power = 0.07
-    leadership = 0.04
+    army_cavalry_power = 0.07
+    monthly_army_tradition = 0.04
 }
 
 swe_reformation_economic_promotion = {
@@ -1453,8 +1453,8 @@ swe_reformation_economic_promotion = {
     age = age_4_reformation
     requires = confessionalism_advance
     # Historical Context: Economic incentives spurred resource development.
-    tax_income = 0.06
-    production_efficiency = 0.04
+    tax_income_efficiency = 0.06
+    global_production_efficiency = 0.04
 }
 
 swe_absolutism_militarised_state = {
@@ -1464,7 +1464,7 @@ swe_absolutism_militarised_state = {
     age = age_5_absolutism
     requires = manufactories_advance
     # Historical Context: A strong centralized state maintained expeditionary forces.
-    manpower = 0.14
+    global_manpower_modifier = 0.14
     discipline = 0.06
 }
 
@@ -1486,8 +1486,8 @@ swe_absolutism_state_mines = {
     age = age_5_absolutism
     requires = manufactories_advance
     # Historical Context: State-run mines boosted resource output for industry.
-    production_efficiency = 0.10
-    tax_income = 0.05
+    global_production_efficiency = 0.10
+    tax_income_efficiency = 0.05
 }
 
 swe_absolutism_bureaucracy_hubs = {
@@ -1509,7 +1509,7 @@ swe_revolutions_modern_army = {
     requires = enlightenment_advance
     # Historical Context: Modern reforms created a professionally equipped army.
     discipline = 0.08
-    manpower = 0.16
+    global_manpower_modifier = 0.16
 }
 
 swe_revolutions_industrial_shipyards = {
@@ -1531,7 +1531,7 @@ swe_revolutions_rail_networks = {
     requires = enlightenment_advance
     # Historical Context: Rail networks transformed mobilization and internal trade.
     global_regiment_recruit_speed = 0.08
-    global_trade_power = 0.06
+    global_merchant_power = 0.06
 }
 
 swe_revolutions_state_industry = {
@@ -1541,8 +1541,8 @@ swe_revolutions_state_industry = {
     age = age_6_revolutions
     requires = enlightenment_advance
     # Historical Context: State-backed industry anchored economic modernization.
-    production_efficiency = 0.12
-    tax_income = 0.06
+    global_production_efficiency = 0.12
+    tax_income_efficiency = 0.06
 }
 
 ########################
@@ -1556,8 +1556,8 @@ mos_traditions_frontier_warband = {
     age = age_1_traditions
     requires = written_alphabet
     # Historical Context: Frontier warbands defended and expanded early Muscovy.
-    cavalry_power = 0.06
-    manpower = 0.07
+    army_cavalry_power = 0.06
+    global_manpower_modifier = 0.07
 }
 
 mos_traditions_princely_administration = {
@@ -1568,7 +1568,7 @@ mos_traditions_princely_administration = {
     requires = written_alphabet
     # Historical Context: Princely courts developed administration across vast lands.
     admin_power = 0.05
-    tax_income = 0.05
+    tax_income_efficiency = 0.05
 }
 
 mos_traditions_woodcraft = {
@@ -1578,7 +1578,7 @@ mos_traditions_woodcraft = {
     age = age_1_traditions
     requires = written_alphabet
     # Historical Context: Timber supplied construction and naval stores.
-    production_efficiency = 0.05
+    global_production_efficiency = 0.05
     global_ship_build_speed = 0.04
 }
 
@@ -1600,8 +1600,8 @@ mos_renaissance_cossack_recruitment = {
     age = age_2_renaissance
     requires = renaissance_advance
     # Historical Context: Cossack levies provided mobile cavalry for campaigns.
-    cavalry_power = 0.08
-    manpower = 0.08
+    army_cavalry_power = 0.08
+    global_manpower_modifier = 0.08
 }
 
 mos_renaissance_central_treasury = {
@@ -1611,7 +1611,7 @@ mos_renaissance_central_treasury = {
     age = age_2_renaissance
     requires = renaissance_advance
     # Historical Context: Central treasuries enabled sustained state expansion.
-    tax_income = 0.08
+    tax_income_efficiency = 0.08
     admin_power = 0.06
 }
 
@@ -1622,7 +1622,7 @@ mos_renaissance_infantry_drill = {
     age = age_2_renaissance
     requires = renaissance_advance
     # Historical Context: Infantry organization increased battlefield reliability.
-    infantry_power = 0.07
+    army_infantry_power = 0.07
     global_regiment_recruit_speed = 0.05
 }
 
@@ -1633,8 +1633,8 @@ mos_renaissance_frontier_colonisation = {
     age = age_2_renaissance
     requires = renaissance_advance
     # Historical Context: Colonization of hinterlands expanded resource access.
-    production_efficiency = 0.06
-    manpower = 0.06
+    global_production_efficiency = 0.06
+    global_manpower_modifier = 0.06
 }
 
 mos_discovery_riverine_logistics = {
@@ -1645,7 +1645,7 @@ mos_discovery_riverine_logistics = {
     requires = new_world_advance
     # Historical Context: River transport boosted internal movement and supply.
     global_regiment_recruit_speed = 0.06
-    global_trade_power = 0.05
+    global_merchant_power = 0.05
 }
 
 mos_discovery_zhupan_administration = {
@@ -1655,7 +1655,7 @@ mos_discovery_zhupan_administration = {
     age = age_3_discovery
     requires = new_world_advance
     # Historical Context: Local administrators improved fiscal reach in provinces.
-    tax_income = 0.06
+    tax_income_efficiency = 0.06
     admin_power = 0.05
 }
 
@@ -1667,7 +1667,7 @@ mos_discovery_wheeled_transport = {
     requires = new_world_advance
     # Historical Context: Transport improvements sped troop and supply movement.
     global_regiment_recruit_speed = 0.07
-    production_efficiency = 0.04
+    global_production_efficiency = 0.04
 }
 
 mos_discovery_siberian_outposts = {
@@ -1677,8 +1677,8 @@ mos_discovery_siberian_outposts = {
     age = age_3_discovery
     requires = new_world_advance
     # Historical Context: Outposts opened vast fur and resource frontiers.
-    tax_income = 0.05
-    global_trade_power = 1
+    tax_income_efficiency = 0.05
+    global_merchant_power = 1
 }
 
 mos_reformation_orthodox_church_reform = {
@@ -1699,7 +1699,7 @@ mos_reformation_state_militia = {
     age = age_4_reformation
     requires = confessionalism_advance
     # Historical Context: Militia reforms improved defence across vast territories.
-    manpower = 0.12
+    global_manpower_modifier = 0.12
     global_regiment_recruit_speed = 0.06
 }
 
@@ -1710,8 +1710,8 @@ mos_reformation_cavalry_light = {
     age = age_4_reformation
     requires = confessionalism_advance
     # Historical Context: Light cavalry excelled in frontier skirmishes.
-    cavalry_power = 0.07
-    morale = 0.02
+    army_cavalry_power = 0.07
+    land_morale_modifier = 0.02
 }
 
 mos_reformation_border_administration = {
@@ -1732,7 +1732,7 @@ mos_absolutism_reformed_treasury = {
     age = age_5_absolutism
     requires = manufactories_advance
     # Historical Context: Fiscal centralisation funded sustained military growth.
-    tax_income = 0.10
+    tax_income_efficiency = 0.10
     admin_power = 0.08
 }
 
@@ -1743,7 +1743,7 @@ mos_absolutism_conscript_system = {
     age = age_5_absolutism
     requires = manufactories_advance
     # Historical Context: Conscription systems produced reliable large-scale forces.
-    manpower = 0.15
+    global_manpower_modifier = 0.15
     global_regiment_recruit_speed = 0.08
 }
 
@@ -1755,7 +1755,7 @@ mos_absolutism_transport_infrastructure = {
     requires = manufactories_advance
     # Historical Context: Road and river works eased movement and administration.
     global_regiment_recruit_speed = 0.07
-    global_trade_power = 0.05
+    global_merchant_power = 0.05
 }
 
 mos_absolutism_industrial_mills = {
@@ -1765,8 +1765,8 @@ mos_absolutism_industrial_mills = {
     age = age_5_absolutism
     requires = manufactories_advance
     # Historical Context: Early mills improved local production capabilities.
-    production_efficiency = 0.09
-    tax_income = 0.05
+    global_production_efficiency = 0.09
+    tax_income_efficiency = 0.05
 }
 
 mos_revolutions_rail_and_repair = {
@@ -1777,7 +1777,7 @@ mos_revolutions_rail_and_repair = {
     requires = enlightenment_advance
     # Historical Context: Rail and repair yards modernised logistics and mobilization.
     global_regiment_recruit_speed = 0.09
-    production_efficiency = 0.06
+    global_production_efficiency = 0.06
 }
 
 mos_revolutions_modernised_army = {
@@ -1788,7 +1788,7 @@ mos_revolutions_modernised_army = {
     requires = enlightenment_advance
     # Historical Context: Modern arms and training transformed military effectiveness.
     discipline = 0.08
-    manpower = 0.16
+    global_manpower_modifier = 0.16
 }
 
 mos_revolutions_industrial_development = {
@@ -1798,8 +1798,8 @@ mos_revolutions_industrial_development = {
     age = age_6_revolutions
     requires = enlightenment_advance
     # Historical Context: Industrialisation increased output for domestic and military needs.
-    production_efficiency = 0.14
-    tax_income = 0.07
+    global_production_efficiency = 0.14
+    tax_income_efficiency = 0.07
 }
 
 mos_revolutions_state_railways = {
@@ -1809,7 +1809,7 @@ mos_revolutions_state_railways = {
     age = age_6_revolutions
     requires = enlightenment_advance
     # Historical Context: State railways accelerated integration and mobilization.
-    global_trade_power = 0.08
+    global_merchant_power = 0.08
     global_regiment_recruit_speed = 0.08
 }
 
@@ -1824,7 +1824,7 @@ tur_traditions_janissary_origins = {
     age = age_1_traditions
     requires = written_alphabet
     # Historical Context: Early elite troops increased battlefield reliability.
-    infantry_power = 0.07
+    army_infantry_power = 0.07
     discipline = 0.04
 }
 
@@ -1835,7 +1835,7 @@ tur_traditions_feudal_levies = {
     age = age_1_traditions
     requires = written_alphabet
     # Historical Context: Timely levies provided manpower for expansion.
-    manpower = 0.10
+    global_manpower_modifier = 0.10
     global_regiment_recruit_speed = 0.05
 }
 
@@ -1858,7 +1858,7 @@ tur_traditions_maritime_raiding = {
     requires = written_alphabet
     # Historical Context: Naval raiding traditions projected power across the Mediterranean.
     trade_income = 0.06
-    naval_morale = 0.04
+    navy_morale_modifier = 0.04
 }
 
 tur_renaissance_central_recruits = {
@@ -1868,7 +1868,7 @@ tur_renaissance_central_recruits = {
     age = age_2_renaissance
     requires = renaissance_advance
     # Historical Context: Centralized recruitment increased military effectiveness.
-    manpower = 0.12
+    global_manpower_modifier = 0.12
     global_regiment_recruit_speed = 0.06
 }
 
@@ -1902,7 +1902,7 @@ tur_renaissance_provincial_administration = {
     requires = renaissance_advance
     # Historical Context: Provincial administration improved tax and order in diverse lands.
     admin_power = 0.07
-    tax_income = 0.05
+    tax_income_efficiency = 0.05
 }
 
 tur_discovery_trade_routes = {
@@ -1912,8 +1912,8 @@ tur_discovery_trade_routes = {
     age = age_3_discovery
     requires = new_world_advance
     # Historical Context: Control of trade arteries increased revenue and influence.
-    global_trade_power = 0.09
-    tax_income = 0.05
+    global_merchant_power = 0.09
+    tax_income_efficiency = 0.05
 }
 
 tur_discovery_naval_arsenals = {
@@ -1934,8 +1934,8 @@ tur_discovery_elite_cavalry = {
     age = age_3_discovery
     requires = new_world_advance
     # Historical Context: Elite cavalry preserved shock capability in open campaigns.
-    cavalry_power = 0.09
-    morale = 0.05
+    army_cavalry_power = 0.09
+    land_morale_modifier = 0.05
 }
 
 tur_discovery_state_religious_integration = {
@@ -1956,7 +1956,7 @@ tur_reformation_elite_armies = {
     age = age_4_reformation
     requires = confessionalism_advance
     # Historical Context: Professional elite forces sustained prolonged campaigns.
-    infantry_power = 0.09
+    army_infantry_power = 0.09
     discipline = 0.05
 }
 
@@ -1967,7 +1967,7 @@ tur_reformation_revenue_reforms = {
     age = age_4_reformation
     requires = confessionalism_advance
     # Historical Context: Revenue reforms funded larger standing forces.
-    tax_income = 0.10
+    tax_income_efficiency = 0.10
     admin_power = 0.06
 }
 
@@ -1978,7 +1978,7 @@ tur_reformation_coastal_bases = {
     age = age_4_reformation
     requires = confessionalism_advance
     # Historical Context: Coastal bases secured supply and repair for fleets.
-    naval_morale = 0.05
+    navy_morale_modifier = 0.05
     global_ship_build_speed = 0.05
 }
 
@@ -2001,7 +2001,7 @@ tur_absolutism_central_armories = {
     requires = manufactories_advance
     # Historical Context: Central armories standardized equipment and supply.
     global_regiment_recruit_speed = 0.08
-    infantry_power = 0.06
+    army_infantry_power = 0.06
 }
 
 tur_absolutism_state_arsenal = {
@@ -2023,7 +2023,7 @@ tur_absolutism_bureaucratic_reach = {
     requires = manufactories_advance
     # Historical Context: Bureaucratic reforms enabled more effective governance.
     admin_power = 0.10
-    tax_income = 0.06
+    tax_income_efficiency = 0.06
 }
 
 tur_absolutism_mobilisation_centres = {
@@ -2034,7 +2034,7 @@ tur_absolutism_mobilisation_centres = {
     requires = manufactories_advance
     # Historical Context: Mobilisation centres improved rapid troop deployment.
     global_regiment_recruit_speed = 0.09
-    manpower = 0.12
+    global_manpower_modifier = 0.12
 }
 
 tur_revolutions_industrial_shipyards = {
@@ -2066,7 +2066,7 @@ tur_revolutions_mass_mobilisation = {
     age = age_6_revolutions
     requires = enlightenment_advance
     # Historical Context: Mass mobilisation reforms created larger modern armies.
-    manpower = 0.18
+    global_manpower_modifier = 0.18
     discipline = 0.06
 }
 
@@ -2077,8 +2077,8 @@ tur_revolutions_infrastructure_investment = {
     age = age_6_revolutions
     requires = enlightenment_advance
     # Historical Context: Infrastructure investment supported industrial and military needs.
-    production_efficiency = 0.12
-    global_trade_power = 0.08
+    global_production_efficiency = 0.12
+    global_merchant_power = 0.08
 }
 
 ########################
@@ -2092,7 +2092,7 @@ pol_traditions_levée_en_masse = {
     age = age_1_traditions
     requires = written_alphabet
     # Historical Context: Noble levies and regional mobilization supplied early armies.
-    manpower = 0.10
+    global_manpower_modifier = 0.10
     global_regiment_recruit_speed = 0.05
 }
 
@@ -2103,7 +2103,7 @@ pol_traditions_hussar_culture = {
     age = age_1_traditions
     requires = written_alphabet
     # Historical Context: Light cavalry traditions produced highly mobile wings.
-    cavalry_power = 0.08
+    army_cavalry_power = 0.08
 }
 
 pol_traditions_border_palankas = {
@@ -2124,8 +2124,8 @@ pol_traditions_trade_routes = {
     age = age_1_traditions
     requires = written_alphabet
     # Historical Context: Internal trade routes connected grain and resource flows.
-    global_trade_power = 0.05
-    tax_income = 0.04
+    global_merchant_power = 0.05
+    tax_income_efficiency = 0.04
 }
 
 pol_renaissance_commonwealth_administration = {
@@ -2146,8 +2146,8 @@ pol_renaissance_hussar_reform = {
     age = age_2_renaissance
     requires = renaissance_advance
     # Historical Context: Hussar units refined cavalry tactics for mobile warfare.
-    cavalry_power = 0.09
-    morale = 0.04
+    army_cavalry_power = 0.09
+    land_morale_modifier = 0.04
 }
 
 pol_renaissance_granary_system = {
@@ -2158,7 +2158,7 @@ pol_renaissance_granary_system = {
     requires = renaissance_advance
     # Historical Context: Grain storage and distribution supported army logistics.
     global_regiment_recruit_speed = 0.06
-    tax_income = 0.04
+    tax_income_efficiency = 0.04
 }
 
 pol_renaissance_border_regiments = {
@@ -2169,7 +2169,7 @@ pol_renaissance_border_regiments = {
     requires = renaissance_advance
     # Historical Context: Border regiments protected against steppe incursions.
     fort_level = 1
-    manpower = 0.08
+    global_manpower_modifier = 0.08
 }
 
 pol_discovery_trade_colonies = {
@@ -2179,7 +2179,7 @@ pol_discovery_trade_colonies = {
     age = age_3_discovery
     requires = new_world_advance
     # Historical Context: Outposts and trading posts expanded external commerce.
-    global_trade_power = 0.07
+    global_merchant_power = 0.07
 }
 
 pol_discovery_royal_stables = {
@@ -2189,7 +2189,7 @@ pol_discovery_royal_stables = {
     age = age_3_discovery
     requires = new_world_advance
     # Historical Context: Stables and remount systems improved cavalry sustainability.
-    cavalry_power = 0.07
+    army_cavalry_power = 0.07
     global_regiment_recruit_speed = 0.05
 }
 
@@ -2200,8 +2200,8 @@ pol_discovery_cossack_alliances = {
     age = age_3_discovery
     requires = new_world_advance
     # Historical Context: Alliances with steppe hordes influenced frontier warfare.
-    cavalry_power = 0.06
-    manpower = 0.06
+    army_cavalry_power = 0.06
+    global_manpower_modifier = 0.06
 }
 
 pol_discovery_northern_ports = {
@@ -2211,8 +2211,8 @@ pol_discovery_northern_ports = {
     age = age_3_discovery
     requires = new_world_advance
     # Historical Context: Improved port infrastructure opened Baltic trade opportunities.
-    global_trade_power = 0.06
-    naval_morale = 0.04
+    global_merchant_power = 0.06
+    navy_morale_modifier = 0.04
 }
 
 pol_reformation_sejm_reforms = {
@@ -2233,8 +2233,8 @@ pol_reformation_army_cavalry_brigades = {
     age = age_4_reformation
     requires = confessionalism_advance
     # Historical Context: Cavalry brigades improved coordination in the field.
-    cavalry_power = 0.08
-    leadership = 0.04
+    army_cavalry_power = 0.08
+    monthly_army_tradition = 0.04
 }
 
 pol_reformation_border_fort_upgrade = {
@@ -2256,7 +2256,7 @@ pol_reformation_grain_reserves = {
     requires = confessionalism_advance
     # Historical Context: Grain reserves buffered the economy and armies.
     global_regiment_recruit_speed = 0.06
-    tax_income = 0.04
+    tax_income_efficiency = 0.04
 }
 
 pol_absolutism_commonwealth_centres = {
@@ -2267,7 +2267,7 @@ pol_absolutism_commonwealth_centres = {
     requires = manufactories_advance
     # Historical Context: Administrative centres improved fiscal extraction and law.
     admin_power = 0.10
-    tax_income = 0.06
+    tax_income_efficiency = 0.06
 }
 
 pol_absolutism_modern_cavalry = {
@@ -2277,8 +2277,8 @@ pol_absolutism_modern_cavalry = {
     age = age_5_absolutism
     requires = manufactories_advance
     # Historical Context: Cavalry modernization enhanced shock and pursuit capabilities.
-    cavalry_power = 0.10
-    morale = 0.05
+    army_cavalry_power = 0.10
+    land_morale_modifier = 0.05
 }
 
 pol_absolutism_infrastructure_program = {
@@ -2288,8 +2288,8 @@ pol_absolutism_infrastructure_program = {
     age = age_5_absolutism
     requires = manufactories_advance
     # Historical Context: Infrastructure programs improved internal cohesion and trade.
-    global_trade_power = 0.06
-    production_efficiency = 0.05
+    global_merchant_power = 0.06
+    global_production_efficiency = 0.05
 }
 
 pol_absolutism_state_mint = {
@@ -2299,7 +2299,7 @@ pol_absolutism_state_mint = {
     age = age_5_absolutism
     requires = manufactories_advance
     # Historical Context: A reliable mint stabilized currency and commerce.
-    tax_income = 0.08
+    tax_income_efficiency = 0.08
     inflation = -0.03
 }
 
@@ -2321,8 +2321,8 @@ pol_revolutions_industrial_agriculture = {
     age = age_6_revolutions
     requires = enlightenment_advance
     # Historical Context: Agricultural improvements increased yields and trade.
-    production_efficiency = 0.12
-    tax_income = 0.06
+    global_production_efficiency = 0.12
+    tax_income_efficiency = 0.06
 }
 
 pol_revolutions_modern_army = {
@@ -2333,7 +2333,7 @@ pol_revolutions_modern_army = {
     requires = enlightenment_advance
     # Historical Context: Modernized armies improved mobilization and firepower.
     discipline = 0.08
-    manpower = 0.16
+    global_manpower_modifier = 0.16
 }
 
 pol_revolutions_international_trade = {
@@ -2343,7 +2343,7 @@ pol_revolutions_international_trade = {
     age = age_6_revolutions
     requires = enlightenment_advance
     # Historical Context: Integration into international markets boosted national income.
-    global_trade_power = 0.12
+    global_merchant_power = 0.12
     trade_efficiency = 0.08
 }
 
@@ -2359,7 +2359,7 @@ aus_traditions_habsburg_levies = {
     age = age_1_traditions
     requires = written_alphabet
     # Historical Context: Habsburg levy systems provided reliable manpower for continental wars.
-    manpower = 0.12
+    global_manpower_modifier = 0.12
     global_regiment_recruit_speed = 0.06
 }
 
@@ -2393,7 +2393,7 @@ aus_traditions_feudal_administration = {
     requires = written_alphabet
     # Historical Context: Administrative reforms improved tax collection and governance.
     admin_power = 0.06
-    tax_income = 0.05
+    tax_income_efficiency = 0.05
 }
 
 aus_renaissance_habsburg_patronage = {
@@ -2403,8 +2403,8 @@ aus_renaissance_habsburg_patronage = {
     age = age_2_renaissance
     requires = renaissance_advance
     # Historical Context: Court patronage increased prestige and cultural influence.
-    prestige = 0.08
-    production_efficiency = 0.04
+    monthly_prestige = 0.08
+    global_production_efficiency = 0.04
 }
 
 aus_renaissance_reorganized_army = {
@@ -2415,7 +2415,7 @@ aus_renaissance_reorganized_army = {
     requires = renaissance_advance
     # Historical Context: Reorganization improved battlefield performance and cohesion.
     discipline = 0.05
-    infantry_power = 0.06
+    army_infantry_power = 0.06
 }
 
 aus_renaissance_imperial_bureaucracy = {
@@ -2436,7 +2436,7 @@ aus_renaissance_vassal_management = {
     age = age_2_renaissance
     requires = renaissance_advance
     # Historical Context: Systems to manage vassals increased cohesion and manpower.
-    manpower = 0.06
+    global_manpower_modifier = 0.06
     improve_relations_modifier = 0.04
 }
 
@@ -2448,7 +2448,7 @@ aus_discovery_diplomatic_marriage_networks = {
     requires = new_world_advance
     # Historical Context: Dynastic marriages extended Habsburg influence across Europe.
     diplomatic_capacity = 1
-    prestige = 0.05
+    monthly_prestige = 0.05
 }
 
 aus_discovery_frontier_colonies = {
@@ -2470,7 +2470,7 @@ aus_discovery_logistics_reforms = {
     requires = new_world_advance
     # Historical Context: Improved logistics sustained campaigns across the continent.
     global_regiment_recruit_speed = 0.05
-    manpower = 0.08
+    global_manpower_modifier = 0.08
 }
 
 aus_discovery_habsburg_trade_firms = {
@@ -2480,7 +2480,7 @@ aus_discovery_habsburg_trade_firms = {
     age = age_3_discovery
     requires = new_world_advance
     # Historical Context: Chartered firms expanded Austrian commercial reach.
-    global_trade_power = 0.06
+    global_merchant_power = 0.06
     trade_efficiency = 0.04
 }
 
@@ -2535,7 +2535,7 @@ aus_absolutism_habsburg_streamlined_finance = {
     age = age_5_absolutism
     requires = manufactories_advance
     # Historical Context: Financial centralization funded larger standing forces.
-    tax_income = 0.10
+    tax_income_efficiency = 0.10
     monthly_gold_income = 1
 }
 
@@ -2546,7 +2546,7 @@ aus_absolutism_grand_army_reforms = {
     age = age_5_absolutism
     requires = manufactories_advance
     # Historical Context: Reforms increased army size and operational efficiency.
-    manpower = 0.14
+    global_manpower_modifier = 0.14
     discipline = 0.07
 }
 
@@ -2557,8 +2557,8 @@ aus_absolutism_infrastructure_investment = {
     age = age_5_absolutism
     requires = manufactories_advance
     # Historical Context: Investment in roads and institutions improved internal trade.
-    production_efficiency = 0.07
-    global_trade_power = 0.05
+    global_production_efficiency = 0.07
+    global_merchant_power = 0.05
 }
 
 aus_absolutism_habsburg_heritage = {
@@ -2568,7 +2568,7 @@ aus_absolutism_habsburg_heritage = {
     age = age_5_absolutism
     requires = manufactories_advance
     # Historical Context: Dynastic prestige bolstered international standing.
-    prestige = 0.10
+    monthly_prestige = 0.10
     stability_cost = -0.06
 }
 
@@ -2580,7 +2580,7 @@ aus_revolutions_national_consortium = {
     requires = enlightenment_advance
     # Historical Context: Modern institutions reorganized state power for the industrial era.
     admin_power = 0.12
-    production_efficiency = 0.10
+    global_production_efficiency = 0.10
 }
 
 aus_revolutions_mass_reforms = {
@@ -2590,8 +2590,8 @@ aus_revolutions_mass_reforms = {
     age = age_6_revolutions
     requires = enlightenment_advance
     # Historical Context: Broad reforms expanded the manpower and fiscal base.
-    manpower = 0.18
-    tax_income = 0.07
+    global_manpower_modifier = 0.18
+    tax_income_efficiency = 0.07
 }
 
 aus_revolutions_modern_diplomacy = {
@@ -2630,7 +2630,7 @@ boh_traditions_hussite_wagons = {
     age = age_1_traditions
     requires = written_alphabet
     # Hussite wagenburg tactics increased defensive firepower.
-    infantry_power = 0.06
+    army_infantry_power = 0.06
     fort_level = 1
 }
 boh_traditions_glassmaking = {
@@ -2640,8 +2640,8 @@ boh_traditions_glassmaking = {
     age = age_1_traditions
     requires = written_alphabet
     # Early glass and luxury crafts boosted regional income.
-    production_efficiency = 0.05
-    tax_income = 0.04
+    global_production_efficiency = 0.05
+    tax_income_efficiency = 0.04
 }
 boh_traditions_local_militias = {
     potential = {
@@ -2649,7 +2649,7 @@ boh_traditions_local_militias = {
     }
     age = age_1_traditions
     requires = written_alphabet
-    manpower = 0.10
+    global_manpower_modifier = 0.10
     global_regiment_recruit_speed = 0.04
 }
 boh_traditions_estate_compacts = {
@@ -2669,7 +2669,7 @@ boh_renaissance_hussite_reforms = {
     age = age_2_renaissance
     requires = renaissance_advance
     discipline = 0.04
-    infantry_power = 0.05
+    army_infantry_power = 0.05
 }
 boh_renaissance_glass_trade = {
     potential = {
@@ -2678,7 +2678,7 @@ boh_renaissance_glass_trade = {
     age = age_2_renaissance
     requires = renaissance_advance
     trade_income = 0.05
-    global_trade_power = 0.04
+    global_merchant_power = 0.04
 }
 boh_renaissance_city_guilds = {
     potential = {
@@ -2686,8 +2686,8 @@ boh_renaissance_city_guilds = {
     }
     age = age_2_renaissance
     requires = renaissance_advance
-    production_efficiency = 0.06
-    tax_income = 0.03
+    global_production_efficiency = 0.06
+    tax_income_efficiency = 0.03
 }
 boh_renaissance_reformed_intendance = {
     potential = {
@@ -2714,7 +2714,7 @@ boh_discovery_trade_hubs = {
     }
     age = age_3_discovery
     requires = new_world_advance
-    global_trade_power = 0.06
+    global_merchant_power = 0.06
     trade_efficiency = 0.04
 }
 boh_discovery_field_reforms = {
@@ -2723,7 +2723,7 @@ boh_discovery_field_reforms = {
     }
     age = age_3_discovery
     requires = new_world_advance
-    manpower = 0.08
+    global_manpower_modifier = 0.08
     global_regiment_recruit_speed = 0.05
 }
 boh_discovery_silk_contacts = {
@@ -2733,7 +2733,7 @@ boh_discovery_silk_contacts = {
     age = age_3_discovery
     requires = new_world_advance
     trade_income = 0.04
-    prestige = 0.03
+    monthly_prestige = 0.03
 }
 
 boh_reformation_hre_elector_influence = {
@@ -2762,7 +2762,7 @@ boh_reformation_mobilised_veterans = {
     age = age_4_reformation
     requires = confessionalism_advance
     discipline = 0.05
-    manpower = 0.10
+    global_manpower_modifier = 0.10
 }
 boh_reformation_fortified_cities = {
     potential = {
@@ -2781,7 +2781,7 @@ boh_absolutism_electoral_pretensions = {
     age = age_5_absolutism
     requires = manufactories_advance
     admin_power = 0.06
-    prestige = 0.05
+    monthly_prestige = 0.05
 }
 boh_absolutism_industrial_glassworks = {
     potential = {
@@ -2789,8 +2789,8 @@ boh_absolutism_industrial_glassworks = {
     }
     age = age_5_absolutism
     requires = manufactories_advance
-    production_efficiency = 0.08
-    tax_income = 0.04
+    global_production_efficiency = 0.08
+    tax_income_efficiency = 0.04
 }
 boh_absolutism_standardised_regiments = {
     potential = {
@@ -2799,7 +2799,7 @@ boh_absolutism_standardised_regiments = {
     age = age_5_absolutism
     requires = manufactories_advance
     global_regiment_recruit_speed = 0.07
-    manpower = 0.12
+    global_manpower_modifier = 0.12
 }
 boh_absolutism_civic_reconstruction = {
     potential = {
@@ -2818,7 +2818,7 @@ boh_revolutions_national_schools = {
     age = age_6_revolutions
     requires = enlightenment_advance
     admin_power = 0.10
-    production_efficiency = 0.06
+    global_production_efficiency = 0.06
 }
 boh_revolutions_militia_modernisation = {
     potential = {
@@ -2835,7 +2835,7 @@ boh_revolutions_commercial_networks = {
     }
     age = age_6_revolutions
     requires = enlightenment_advance
-    global_trade_power = 0.08
+    global_merchant_power = 0.08
     trade_efficiency = 0.06
 }
 boh_revolutions_civic_armies = {
@@ -2844,7 +2844,7 @@ boh_revolutions_civic_armies = {
     }
     age = age_6_revolutions
     requires = enlightenment_advance
-    manpower = 0.16
+    global_manpower_modifier = 0.16
     discipline = 0.06
 }
 
@@ -2859,7 +2859,7 @@ bra_traditions_martial_discipline = {
     requires = written_alphabet
     # Legendary martial ethos; represents heavy discipline tradition.
     discipline = 0.06
-    infantry_power = 0.05
+    army_infantry_power = 0.05
 }
 bra_traditions_prussian_drill = {
     potential = {
@@ -2877,7 +2877,7 @@ bra_traditions_fortified_borders = {
     age = age_1_traditions
     requires = written_alphabet
     fort_level = 1
-    manpower = 0.08
+    global_manpower_modifier = 0.08
 }
 bra_traditions_council_of_nobles = {
     potential = {
@@ -2905,7 +2905,7 @@ bra_renaissance_efficient_staff = {
     age = age_2_renaissance
     requires = renaissance_advance
     discipline = 0.05
-    leadership = 0.03
+    monthly_army_tradition = 0.03
 }
 bra_renaissance_drill_houses = {
     potential = {
@@ -2914,7 +2914,7 @@ bra_renaissance_drill_houses = {
     age = age_2_renaissance
     requires = renaissance_advance
     global_regiment_recruit_speed = 0.06
-    manpower = 0.06
+    global_manpower_modifier = 0.06
 }
 bra_renaissance_trade_regulation = {
     potential = {
@@ -2923,7 +2923,7 @@ bra_renaissance_trade_regulation = {
     age = age_2_renaissance
     requires = renaissance_advance
     trade_efficiency = 0.04
-    tax_income = 0.03
+    tax_income_efficiency = 0.03
 }
 
 bra_discovery_prussian_reforms = {
@@ -2933,7 +2933,7 @@ bra_discovery_prussian_reforms = {
     age = age_3_discovery
     requires = new_world_advance
     discipline = 0.06
-    infantry_power = 0.06
+    army_infantry_power = 0.06
 }
 bra_discovery_military_academy = {
     potential = {
@@ -2941,7 +2941,7 @@ bra_discovery_military_academy = {
     }
     age = age_3_discovery
     requires = new_world_advance
-    leadership = 0.05
+    monthly_army_tradition = 0.05
     global_regiment_recruit_speed = 0.05
 }
 bra_discovery_bureaucratic_cadre = {
@@ -2951,7 +2951,7 @@ bra_discovery_bureaucratic_cadre = {
     age = age_3_discovery
     requires = new_world_advance
     admin_power = 0.08
-    production_efficiency = 0.04
+    global_production_efficiency = 0.04
 }
 bra_discovery_fortified_recruitment = {
     potential = {
@@ -2960,7 +2960,7 @@ bra_discovery_fortified_recruitment = {
     age = age_3_discovery
     requires = new_world_advance
     fort_level = 1
-    manpower = 0.10
+    global_manpower_modifier = 0.10
 }
 
 bra_reformation_prussian_code = {
@@ -2979,7 +2979,7 @@ bra_reformation_elite_corps = {
     age = age_4_reformation
     requires = confessionalism_advance
     discipline = 0.07
-    infantry_power = 0.06
+    army_infantry_power = 0.06
 }
 bra_reformation_bureaucratic_reform = {
     potential = {
@@ -2997,7 +2997,7 @@ bra_reformation_mobilisation_centres = {
     age = age_4_reformation
     requires = confessionalism_advance
     global_regiment_recruit_speed = 0.07
-    manpower = 0.12
+    global_manpower_modifier = 0.12
 }
 
 bra_absolutism_professional_staff = {
@@ -3007,7 +3007,7 @@ bra_absolutism_professional_staff = {
     age = age_5_absolutism
     requires = manufactories_advance
     discipline = 0.08
-    leadership = 0.05
+    monthly_army_tradition = 0.05
 }
 bra_absolutism_regimental_standard = {
     potential = {
@@ -3016,7 +3016,7 @@ bra_absolutism_regimental_standard = {
     age = age_5_absolutism
     requires = manufactories_advance
     global_regiment_recruit_speed = 0.08
-    manpower = 0.14
+    global_manpower_modifier = 0.14
 }
 bra_absolutism_state_bureaucracy = {
     potential = {
@@ -3025,7 +3025,7 @@ bra_absolutism_state_bureaucracy = {
     age = age_5_absolutism
     requires = manufactories_advance
     admin_power = 0.12
-    tax_income = 0.05
+    tax_income_efficiency = 0.05
 }
 bra_absolutism_march_systems = {
     potential = {
@@ -3044,7 +3044,7 @@ bra_revolutions_modern_bureau = {
     age = age_6_revolutions
     requires = enlightenment_advance
     admin_power = 0.12
-    production_efficiency = 0.08
+    global_production_efficiency = 0.08
 }
 bra_revolutions_mass_conscription = {
     potential = {
@@ -3052,7 +3052,7 @@ bra_revolutions_mass_conscription = {
     }
     age = age_6_revolutions
     requires = enlightenment_advance
-    manpower = 0.20
+    global_manpower_modifier = 0.20
     discipline = 0.06
 }
 bra_revolutions_elite_school = {
@@ -3061,8 +3061,8 @@ bra_revolutions_elite_school = {
     }
     age = age_6_revolutions
     requires = enlightenment_advance
-    leadership = 0.06
-    infantry_power = 0.08
+    monthly_army_tradition = 0.06
+    army_infantry_power = 0.08
 }
 bra_revolutions_national_industry = {
     potential = {
@@ -3070,8 +3070,8 @@ bra_revolutions_national_industry = {
     }
     age = age_6_revolutions
     requires = enlightenment_advance
-    production_efficiency = 0.12
-    tax_income = 0.06
+    global_production_efficiency = 0.12
+    tax_income_efficiency = 0.06
 }
 
 ########################
@@ -3083,8 +3083,8 @@ hol_traditions_polder_works = {
     }
     age = age_1_traditions
     requires = written_alphabet
-    production_efficiency = 0.05
-    tax_income = 0.04
+    global_production_efficiency = 0.05
+    tax_income_efficiency = 0.04
 }
 hol_traditions_hanseatic_links = {
     potential = {
@@ -3093,7 +3093,7 @@ hol_traditions_hanseatic_links = {
     age = age_1_traditions
     requires = written_alphabet
     trade_income = 0.04
-    global_trade_power = 0.03
+    global_merchant_power = 0.03
 }
 hol_traditions_canal_infrastructure = {
     potential = {
@@ -3102,7 +3102,7 @@ hol_traditions_canal_infrastructure = {
     age = age_1_traditions
     requires = written_alphabet
     global_regiment_recruit_speed = 0.04
-    production_efficiency = 0.03
+    global_production_efficiency = 0.03
 }
 hol_traditions_shipwright_houses = {
     potential = {
@@ -3121,7 +3121,7 @@ hol_renaissance_spice_trade_links = {
     age = age_2_renaissance
     requires = renaissance_advance
     trade_income = 0.08
-    global_trade_power = 0.06
+    global_merchant_power = 0.06
 }
 hol_renaissance_banking_houses = {
     potential = {
@@ -3129,8 +3129,8 @@ hol_renaissance_banking_houses = {
     }
     age = age_2_renaissance
     requires = renaissance_advance
-    tax_income = 0.06
-    production_efficiency = 0.04
+    tax_income_efficiency = 0.06
+    global_production_efficiency = 0.04
 }
 hol_renaissance_polder_engineering = {
     potential = {
@@ -3138,7 +3138,7 @@ hol_renaissance_polder_engineering = {
     }
     age = age_2_renaissance
     requires = renaissance_advance
-    production_efficiency = 0.07
+    global_production_efficiency = 0.07
     global_ship_build_speed = 0.03
 }
 hol_renaissance_naval_capacity = {
@@ -3157,7 +3157,7 @@ hol_discovery_merchant_networks = {
     }
     age = age_3_discovery
     requires = new_world_advance
-    global_trade_power = 0.09
+    global_merchant_power = 0.09
     trade_income = 0.06
 }
 hol_discovery_financial_instruments = {
@@ -3166,8 +3166,8 @@ hol_discovery_financial_instruments = {
     }
     age = age_3_discovery
     requires = new_world_advance
-    tax_income = 0.05
-    production_efficiency = 0.04
+    tax_income_efficiency = 0.05
+    global_production_efficiency = 0.04
 }
 hol_discovery_dockyard_expansion = {
     potential = {
@@ -3184,7 +3184,7 @@ hol_discovery_trade_leagues = {
     }
     age = age_3_discovery
     requires = new_world_advance
-    global_trade_power = 0.07
+    global_merchant_power = 0.07
     trade_efficiency = 0.05
 }
 
@@ -3194,7 +3194,7 @@ hol_reformation_bank_charters = {
     }
     age = age_4_reformation
     requires = confessionalism_advance
-    tax_income = 0.07
+    tax_income_efficiency = 0.07
     monthly_gold_income = 1
 }
 hol_reformation_merchant_armadas = {
@@ -3203,7 +3203,7 @@ hol_reformation_merchant_armadas = {
     }
     age = age_4_reformation
     requires = confessionalism_advance
-    naval_morale = 0.05
+    navy_morale_modifier = 0.05
     trade_income = 0.05
 }
 hol_reformation_civic_investment = {
@@ -3212,7 +3212,7 @@ hol_reformation_civic_investment = {
     }
     age = age_4_reformation
     requires = confessionalism_advance
-    production_efficiency = 0.06
+    global_production_efficiency = 0.06
     improve_relations_modifier = 0.04
 }
 hol_reformation_fleet_regulation = {
@@ -3231,8 +3231,8 @@ hol_absolutism_financial_centralisation = {
     }
     age = age_5_absolutism
     requires = manufactories_advance
-    tax_income = 0.10
-    production_efficiency = 0.06
+    tax_income_efficiency = 0.10
+    global_production_efficiency = 0.06
 }
 hol_absolutism_naval_investments = {
     potential = {
@@ -3249,7 +3249,7 @@ hol_absolutism_trade_directorate = {
     }
     age = age_5_absolutism
     requires = manufactories_advance
-    global_trade_power = 0.10
+    global_merchant_power = 0.10
     trade_efficiency = 0.06
 }
 hol_absolutism_marine_corps = {
@@ -3258,8 +3258,8 @@ hol_absolutism_marine_corps = {
     }
     age = age_5_absolutism
     requires = manufactories_advance
-    infantry_power = 0.06
-    naval_morale = 0.04
+    army_infantry_power = 0.06
+    navy_morale_modifier = 0.04
 }
 
 hol_revolutions_global_merchants = {
@@ -3268,7 +3268,7 @@ hol_revolutions_global_merchants = {
     }
     age = age_6_revolutions
     requires = enlightenment_advance
-    global_trade_power = 0.12
+    global_merchant_power = 0.12
     trade_income = 0.08
 }
 hol_revolutions_central_bank = {
@@ -3277,8 +3277,8 @@ hol_revolutions_central_bank = {
     }
     age = age_6_revolutions
     requires = enlightenment_advance
-    tax_income = 0.08
-    production_efficiency = 0.08
+    tax_income_efficiency = 0.08
+    global_production_efficiency = 0.08
 }
 hol_revolutions_modern_shipyards = {
     potential = {
@@ -3309,7 +3309,7 @@ ven_traditions_galley_fleet = {
     age = age_1_traditions
     requires = written_alphabet
     naval_forcelimit_modifier = 0.06
-    naval_morale = 0.04
+    navy_morale_modifier = 0.04
 }
 ven_traditions_arsenal_practices = {
     potential = {
@@ -3318,7 +3318,7 @@ ven_traditions_arsenal_practices = {
     age = age_1_traditions
     requires = written_alphabet
     global_ship_build_speed = 0.06
-    production_efficiency = 0.03
+    global_production_efficiency = 0.03
 }
 ven_traditions_republican_consuls = {
     potential = {
@@ -3327,7 +3327,7 @@ ven_traditions_republican_consuls = {
     age = age_1_traditions
     requires = written_alphabet
     improve_relations_modifier = 0.04
-    prestige = 0.03
+    monthly_prestige = 0.03
 }
 ven_traditions_silk_routes_contact = {
     potential = {
@@ -3336,7 +3336,7 @@ ven_traditions_silk_routes_contact = {
     age = age_1_traditions
     requires = written_alphabet
     trade_income = 0.05
-    global_trade_power = 0.04
+    global_merchant_power = 0.04
 }
 
 ven_renaissance_arsenal_expansion = {
@@ -3354,7 +3354,7 @@ ven_renaissance_galley_doctrine = {
     }
     age = age_2_renaissance
     requires = renaissance_advance
-    naval_morale = 0.05
+    navy_morale_modifier = 0.05
     discipline = 0.03
 }
 ven_renaissance_republic_traditions = {
@@ -3373,7 +3373,7 @@ ven_renaissance_silk_merchant_houses = {
     age = age_2_renaissance
     requires = renaissance_advance
     trade_income = 0.06
-    global_trade_power = 0.05
+    global_merchant_power = 0.05
 }
 
 ven_discovery_maritime_consortia = {
@@ -3382,7 +3382,7 @@ ven_discovery_maritime_consortia = {
     }
     age = age_3_discovery
     requires = new_world_advance
-    global_trade_power = 0.08
+    global_merchant_power = 0.08
     trade_efficiency = 0.05
 }
 ven_discovery_arsenal_mechanics = {
@@ -3392,7 +3392,7 @@ ven_discovery_arsenal_mechanics = {
     age = age_3_discovery
     requires = new_world_advance
     global_ship_build_speed = 0.08
-    production_efficiency = 0.04
+    global_production_efficiency = 0.04
 }
 ven_discovery_republican_bureau = {
     potential = {
@@ -3401,7 +3401,7 @@ ven_discovery_republican_bureau = {
     age = age_3_discovery
     requires = new_world_advance
     admin_power = 0.06
-    tax_income = 0.04
+    tax_income_efficiency = 0.04
 }
 ven_discovery_silk_road_ties = {
     potential = {
@@ -3410,7 +3410,7 @@ ven_discovery_silk_road_ties = {
     age = age_3_discovery
     requires = new_world_advance
     trade_income = 0.07
-    prestige = 0.04
+    monthly_prestige = 0.04
 }
 
 ven_reformation_maritime_defences = {
@@ -3420,7 +3420,7 @@ ven_reformation_maritime_defences = {
     age = age_4_reformation
     requires = confessionalism_advance
     fort_level = 1
-    naval_morale = 0.05
+    navy_morale_modifier = 0.05
 }
 ven_reformation_diplomatic_networks = {
     potential = {
@@ -3437,7 +3437,7 @@ ven_reformation_civic_institutions = {
     }
     age = age_4_reformation
     requires = confessionalism_advance
-    production_efficiency = 0.05
+    global_production_efficiency = 0.05
     stability_cost = -0.04
 }
 ven_reformation_arsenal_standardisation = {
@@ -3456,7 +3456,7 @@ ven_absolutism_trade_hegemony = {
     }
     age = age_5_absolutism
     requires = manufactories_advance
-    global_trade_power = 0.10
+    global_merchant_power = 0.10
     trade_income = 0.07
 }
 ven_absolutism_arsenal_industry = {
@@ -3466,7 +3466,7 @@ ven_absolutism_arsenal_industry = {
     age = age_5_absolutism
     requires = manufactories_advance
     global_ship_build_speed = 0.10
-    production_efficiency = 0.06
+    global_production_efficiency = 0.06
 }
 ven_absolutism_republican_council = {
     potential = {
@@ -3484,7 +3484,7 @@ ven_absolutism_marine_expeditions = {
     age = age_5_absolutism
     requires = manufactories_advance
     naval_forcelimit_modifier = 0.12
-    global_trade_power = 0.06
+    global_merchant_power = 0.06
 }
 
 ven_revolutions_global_merchant_fleets = {
@@ -3493,7 +3493,7 @@ ven_revolutions_global_merchant_fleets = {
     }
     age = age_6_revolutions
     requires = enlightenment_advance
-    global_trade_power = 0.12
+    global_merchant_power = 0.12
     global_ship_build_speed = 0.12
 }
 ven_revolutions_civic_reforms = {
@@ -3503,7 +3503,7 @@ ven_revolutions_civic_reforms = {
     age = age_6_revolutions
     requires = enlightenment_advance
     admin_power = 0.12
-    production_efficiency = 0.08
+    global_production_efficiency = 0.08
 }
 ven_revolutions_naval_modernisation = {
     potential = {
@@ -3520,7 +3520,7 @@ ven_revolutions_cultural_patrons = {
     }
     age = age_6_revolutions
     requires = enlightenment_advance
-    prestige = 0.08
+    monthly_prestige = 0.08
     improve_relations_modifier = 0.05
 }
 
@@ -3533,7 +3533,7 @@ flr_traditions_medici_bank = {
     }
     age = age_1_traditions
     requires = written_alphabet
-    tax_income = 0.06
+    tax_income_efficiency = 0.06
     trade_income = 0.04
 }
 flr_traditions_condottieri_levies = {
@@ -3542,7 +3542,7 @@ flr_traditions_condottieri_levies = {
     }
     age = age_1_traditions
     requires = written_alphabet
-    manpower = 0.08
+    global_manpower_modifier = 0.08
     global_regiment_recruit_speed = 0.04
 }
 flr_traditions_patrons_of_art = {
@@ -3551,8 +3551,8 @@ flr_traditions_patrons_of_art = {
     }
     age = age_1_traditions
     requires = written_alphabet
-    prestige = 0.06
-    production_efficiency = 0.03
+    monthly_prestige = 0.06
+    global_production_efficiency = 0.03
 }
 flr_traditions_florentine_crafts = {
     potential = {
@@ -3560,8 +3560,8 @@ flr_traditions_florentine_crafts = {
     }
     age = age_1_traditions
     requires = written_alphabet
-    production_efficiency = 0.05
-    tax_income = 0.03
+    global_production_efficiency = 0.05
+    tax_income_efficiency = 0.03
 }
 
 flr_renaissance_banking_innovations = {
@@ -3570,7 +3570,7 @@ flr_renaissance_banking_innovations = {
     }
     age = age_2_renaissance
     requires = renaissance_advance
-    tax_income = 0.08
+    tax_income_efficiency = 0.08
     trade_income = 0.05
 }
 flr_renaissance_renaissance_art = {
@@ -3579,7 +3579,7 @@ flr_renaissance_renaissance_art = {
     }
     age = age_2_renaissance
     requires = renaissance_advance
-    prestige = 0.08
+    monthly_prestige = 0.08
     stability_cost = -0.03
 }
 flr_renaissance_condottieri_contracts = {
@@ -3588,8 +3588,8 @@ flr_renaissance_condottieri_contracts = {
     }
     age = age_2_renaissance
     requires = renaissance_advance
-    manpower = 0.06
-    infantry_power = 0.04
+    global_manpower_modifier = 0.06
+    army_infantry_power = 0.04
 }
 flr_renaissance_civic_academies = {
     potential = {
@@ -3607,8 +3607,8 @@ flr_discovery_international_banking = {
     }
     age = age_3_discovery
     requires = new_world_advance
-    tax_income = 0.07
-    global_trade_power = 0.05
+    tax_income_efficiency = 0.07
+    global_merchant_power = 0.05
 }
 flr_discovery_mercantile_outposts = {
     potential = {
@@ -3617,7 +3617,7 @@ flr_discovery_mercantile_outposts = {
     age = age_3_discovery
     requires = new_world_advance
     trade_income = 0.06
-    global_trade_power = 0.04
+    global_merchant_power = 0.04
 }
 flr_discovery_condottieri_professionals = {
     potential = {
@@ -3626,7 +3626,7 @@ flr_discovery_condottieri_professionals = {
     age = age_3_discovery
     requires = new_world_advance
     global_regiment_recruit_speed = 0.05
-    manpower = 0.08
+    global_manpower_modifier = 0.08
 }
 flr_discovery_tuscan_trade_routes = {
     potential = {
@@ -3635,7 +3635,7 @@ flr_discovery_tuscan_trade_routes = {
     age = age_3_discovery
     requires = new_world_advance
     trade_income = 0.05
-    prestige = 0.04
+    monthly_prestige = 0.04
 }
 
 flr_reformation_political_patronage = {
@@ -3654,7 +3654,7 @@ flr_reformation_academy_reforms = {
     age = age_4_reformation
     requires = confessionalism_advance
     admin_power = 0.06
-    production_efficiency = 0.04
+    global_production_efficiency = 0.04
 }
 flr_reformation_condottieri_modernisation = {
     potential = {
@@ -3663,7 +3663,7 @@ flr_reformation_condottieri_modernisation = {
     age = age_4_reformation
     requires = confessionalism_advance
     discipline = 0.05
-    infantry_power = 0.06
+    army_infantry_power = 0.06
 }
 flr_reformation_bank_regulation = {
     potential = {
@@ -3671,7 +3671,7 @@ flr_reformation_bank_regulation = {
     }
     age = age_4_reformation
     requires = confessionalism_advance
-    tax_income = 0.06
+    tax_income_efficiency = 0.06
     monthly_gold_income = 1
 }
 
@@ -3681,8 +3681,8 @@ flr_absolutism_medici_finance = {
     }
     age = age_5_absolutism
     requires = manufactories_advance
-    tax_income = 0.10
-    production_efficiency = 0.06
+    tax_income_efficiency = 0.10
+    global_production_efficiency = 0.06
 }
 flr_absolutism_cultural_patronage = {
     potential = {
@@ -3690,7 +3690,7 @@ flr_absolutism_cultural_patronage = {
     }
     age = age_5_absolutism
     requires = manufactories_advance
-    prestige = 0.10
+    monthly_prestige = 0.10
     improve_relations_modifier = 0.05
 }
 flr_absolutism_standing_condottieri = {
@@ -3699,7 +3699,7 @@ flr_absolutism_standing_condottieri = {
     }
     age = age_5_absolutism
     requires = manufactories_advance
-    manpower = 0.14
+    global_manpower_modifier = 0.14
     global_regiment_recruit_speed = 0.06
 }
 flr_absolutism_banking_network = {
@@ -3709,7 +3709,7 @@ flr_absolutism_banking_network = {
     age = age_5_absolutism
     requires = manufactories_advance
     trade_income = 0.08
-    tax_income = 0.05
+    tax_income_efficiency = 0.05
 }
 
 flr_revolutions_civic_revival = {
@@ -3718,7 +3718,7 @@ flr_revolutions_civic_revival = {
     }
     age = age_6_revolutions
     requires = enlightenment_advance
-    production_efficiency = 0.12
+    global_production_efficiency = 0.12
     admin_power = 0.10
 }
 flr_revolutions_modern_banks = {
@@ -3727,7 +3727,7 @@ flr_revolutions_modern_banks = {
     }
     age = age_6_revolutions
     requires = enlightenment_advance
-    tax_income = 0.08
+    tax_income_efficiency = 0.08
     trade_income = 0.06
 }
 flr_revolutions_national_guard = {
@@ -3736,7 +3736,7 @@ flr_revolutions_national_guard = {
     }
     age = age_6_revolutions
     requires = enlightenment_advance
-    manpower = 0.18
+    global_manpower_modifier = 0.18
     discipline = 0.06
 }
 flr_revolutions_cultural_institutes = {
@@ -3745,7 +3745,7 @@ flr_revolutions_cultural_institutes = {
     }
     age = age_6_revolutions
     requires = enlightenment_advance
-    prestige = 0.08
+    monthly_prestige = 0.08
     improve_relations_modifier = 0.05
 }
 
@@ -3758,8 +3758,8 @@ mln_traditions_plate_infantry = {
     }
     age = age_1_traditions
     requires = written_alphabet
-    infantry_power = 0.07
-    morale = 0.03
+    army_infantry_power = 0.07
+    land_morale_modifier = 0.03
 }
 mln_traditions_sforza_fortress = {
     potential = {
@@ -3777,7 +3777,7 @@ mln_traditions_mercenary_contracts = {
     age = age_1_traditions
     requires = written_alphabet
     global_regiment_recruit_speed = 0.05
-    manpower = 0.06
+    global_manpower_modifier = 0.06
 }
 mln_traditions_city_crafts = {
     potential = {
@@ -3785,8 +3785,8 @@ mln_traditions_city_crafts = {
     }
     age = age_1_traditions
     requires = written_alphabet
-    production_efficiency = 0.05
-    tax_income = 0.04
+    global_production_efficiency = 0.05
+    tax_income_efficiency = 0.04
 }
 
 mln_renaissance_mercenary_markets = {
@@ -3813,7 +3813,7 @@ mln_renaissance_sforza_patronage = {
     }
     age = age_2_renaissance
     requires = renaissance_advance
-    prestige = 0.06
+    monthly_prestige = 0.06
     stability_cost = -0.03
 }
 mln_renaissance_armour_refinement = {
@@ -3822,7 +3822,7 @@ mln_renaissance_armour_refinement = {
     }
     age = age_2_renaissance
     requires = renaissance_advance
-    infantry_power = 0.05
+    army_infantry_power = 0.05
     discipline = 0.03
 }
 
@@ -3833,7 +3833,7 @@ mln_discovery_mercenary_professionals = {
     age = age_3_discovery
     requires = new_world_advance
     global_regiment_recruit_speed = 0.07
-    manpower = 0.08
+    global_manpower_modifier = 0.08
 }
 mln_discovery_trade_manufactories = {
     potential = {
@@ -3841,7 +3841,7 @@ mln_discovery_trade_manufactories = {
     }
     age = age_3_discovery
     requires = new_world_advance
-    production_efficiency = 0.06
+    global_production_efficiency = 0.06
     trade_income = 0.04
 }
 mln_discovery_sforza_citadel = {
@@ -3851,7 +3851,7 @@ mln_discovery_sforza_citadel = {
     age = age_3_discovery
     requires = new_world_advance
     fort_level = 1
-    manpower = 0.08
+    global_manpower_modifier = 0.08
 }
 mln_discovery_armour_influence = {
     potential = {
@@ -3859,7 +3859,7 @@ mln_discovery_armour_influence = {
     }
     age = age_3_discovery
     requires = new_world_advance
-    infantry_power = 0.06
+    army_infantry_power = 0.06
     trade_income = 0.03
 }
 
@@ -3878,8 +3878,8 @@ mln_reformation_sforza_guard = {
     }
     age = age_4_reformation
     requires = confessionalism_advance
-    infantry_power = 0.07
-    morale = 0.04
+    army_infantry_power = 0.07
+    land_morale_modifier = 0.04
 }
 mln_reformation_civic_fortification = {
     potential = {
@@ -3897,7 +3897,7 @@ mln_reformation_military_contracts = {
     age = age_4_reformation
     requires = confessionalism_advance
     global_regiment_recruit_speed = 0.07
-    tax_income = 0.03
+    tax_income_efficiency = 0.03
 }
 
 mln_absolutism_industry_and_arms = {
@@ -3906,8 +3906,8 @@ mln_absolutism_industry_and_arms = {
     }
     age = age_5_absolutism
     requires = manufactories_advance
-    production_efficiency = 0.09
-    infantry_power = 0.06
+    global_production_efficiency = 0.09
+    army_infantry_power = 0.06
 }
 mln_absolutism_standing_mercenary_corps = {
     potential = {
@@ -3915,7 +3915,7 @@ mln_absolutism_standing_mercenary_corps = {
     }
     age = age_5_absolutism
     requires = manufactories_advance
-    manpower = 0.14
+    global_manpower_modifier = 0.14
     global_regiment_recruit_speed = 0.06
 }
 mln_absolutism_civic_investment = {
@@ -3924,8 +3924,8 @@ mln_absolutism_civic_investment = {
     }
     age = age_5_absolutism
     requires = manufactories_advance
-    tax_income = 0.07
-    production_efficiency = 0.05
+    tax_income_efficiency = 0.07
+    global_production_efficiency = 0.05
 }
 mln_absolutism_castle_network = {
     potential = {
@@ -3943,7 +3943,7 @@ mln_revolutions_national_armies = {
     }
     age = age_6_revolutions
     requires = enlightenment_advance
-    manpower = 0.18
+    global_manpower_modifier = 0.18
     discipline = 0.06
 }
 mln_revolutions_industrial_hubs = {
@@ -3952,8 +3952,8 @@ mln_revolutions_industrial_hubs = {
     }
     age = age_6_revolutions
     requires = enlightenment_advance
-    production_efficiency = 0.12
-    tax_income = 0.06
+    global_production_efficiency = 0.12
+    tax_income_efficiency = 0.06
 }
 mln_revolutions_military_engineers = {
     potential = {
@@ -3983,7 +3983,7 @@ nap_traditions_coastal_fleets = {
     }
     age = age_1_traditions
     requires = written_alphabet
-    naval_morale = 0.04
+    navy_morale_modifier = 0.04
     trade_income = 0.03
 }
 nap_traditions_maritime_trade = {
@@ -3992,8 +3992,8 @@ nap_traditions_maritime_trade = {
     }
     age = age_1_traditions
     requires = written_alphabet
-    global_trade_power = 0.04
-    tax_income = 0.03
+    global_merchant_power = 0.04
+    tax_income_efficiency = 0.03
 }
 nap_traditions_littoral_forts = {
     potential = {
@@ -4011,7 +4011,7 @@ nap_traditions_portcraft = {
     age = age_1_traditions
     requires = written_alphabet
     global_ship_build_speed = 0.03
-    production_efficiency = 0.03
+    global_production_efficiency = 0.03
 }
 
 nap_renaissance_mediterranean_links = {
@@ -4021,7 +4021,7 @@ nap_renaissance_mediterranean_links = {
     age = age_2_renaissance
     requires = renaissance_advance
     trade_income = 0.06
-    global_trade_power = 0.05
+    global_merchant_power = 0.05
 }
 nap_renaissance_galley_doctrine = {
     potential = {
@@ -4039,7 +4039,7 @@ nap_renaissance_merchants_guilds = {
     age = age_2_renaissance
     requires = renaissance_advance
     trade_efficiency = 0.04
-    tax_income = 0.03
+    tax_income_efficiency = 0.03
 }
 nap_renaissance_naval_stores = {
     potential = {
@@ -4048,7 +4048,7 @@ nap_renaissance_naval_stores = {
     age = age_2_renaissance
     requires = renaissance_advance
     global_ship_build_speed = 0.05
-    naval_morale = 0.03
+    navy_morale_modifier = 0.03
 }
 
 nap_discovery_mediterranean_hegemony = {
@@ -4057,7 +4057,7 @@ nap_discovery_mediterranean_hegemony = {
     }
     age = age_3_discovery
     requires = new_world_advance
-    global_trade_power = 0.08
+    global_merchant_power = 0.08
     naval_forcelimit_modifier = 0.06
 }
 nap_discovery_trade_fleets = {
@@ -4075,8 +4075,8 @@ nap_discovery_coastal_infrastructure = {
     }
     age = age_3_discovery
     requires = new_world_advance
-    production_efficiency = 0.05
-    tax_income = 0.04
+    global_production_efficiency = 0.05
+    tax_income_efficiency = 0.04
 }
 nap_discovery_marine_traditions = {
     potential = {
@@ -4084,8 +4084,8 @@ nap_discovery_marine_traditions = {
     }
     age = age_3_discovery
     requires = new_world_advance
-    naval_morale = 0.05
-    global_trade_power = 0.04
+    navy_morale_modifier = 0.05
+    global_merchant_power = 0.04
 }
 
 nap_reformation_port_defences = {
@@ -4112,8 +4112,8 @@ nap_reformation_coastal_marines = {
     }
     age = age_4_reformation
     requires = confessionalism_advance
-    infantry_power = 0.05
-    naval_morale = 0.04
+    army_infantry_power = 0.05
+    navy_morale_modifier = 0.04
 }
 nap_reformation_trade_camaraderie = {
     potential = {
@@ -4121,7 +4121,7 @@ nap_reformation_trade_camaraderie = {
     }
     age = age_4_reformation
     requires = confessionalism_advance
-    global_trade_power = 0.05
+    global_merchant_power = 0.05
     trade_efficiency = 0.04
 }
 
@@ -4141,7 +4141,7 @@ nap_absolutism_state_shipping = {
     age = age_5_absolutism
     requires = manufactories_advance
     trade_income = 0.08
-    tax_income = 0.04
+    tax_income_efficiency = 0.04
 }
 nap_absolutism_coastal_muster = {
     potential = {
@@ -4149,7 +4149,7 @@ nap_absolutism_coastal_muster = {
     }
     age = age_5_absolutism
     requires = manufactories_advance
-    manpower = 0.14
+    global_manpower_modifier = 0.14
     global_regiment_recruit_speed = 0.06
 }
 nap_absolutism_sea_roads = {
@@ -4158,8 +4158,8 @@ nap_absolutism_sea_roads = {
     }
     age = age_5_absolutism
     requires = manufactories_advance
-    global_trade_power = 0.10
-    production_efficiency = 0.05
+    global_merchant_power = 0.10
+    global_production_efficiency = 0.05
 }
 
 nap_revolutions_marine_innovation = {
@@ -4169,7 +4169,7 @@ nap_revolutions_marine_innovation = {
     age = age_6_revolutions
     requires = enlightenment_advance
     global_ship_build_speed = 0.14
-    global_trade_power = 0.10
+    global_merchant_power = 0.10
 }
 nap_revolutions_modern_shipping = {
     potential = {
@@ -4178,7 +4178,7 @@ nap_revolutions_modern_shipping = {
     age = age_6_revolutions
     requires = enlightenment_advance
     trade_income = 0.08
-    production_efficiency = 0.08
+    global_production_efficiency = 0.08
 }
 nap_revolutions_coastal_defence_network = {
     potential = {
@@ -4195,7 +4195,7 @@ nap_revolutions_marine_education = {
     }
     age = age_6_revolutions
     requires = enlightenment_advance
-    leadership = 0.06
+    monthly_army_tradition = 0.06
     naval_forcelimit_modifier = 0.08
 }
 
@@ -4210,7 +4210,7 @@ pap_traditions_papal_interdict = {
     requires = written_alphabet
     # Spiritual leverage: excommunication/interdict as a political tool.
     improve_relations_modifier = 0.03
-    prestige = 0.04
+    monthly_prestige = 0.04
 }
 pap_traditions_vatican_scribes = {
     potential = {
@@ -4227,7 +4227,7 @@ pap_traditions_swiss_guards_origin = {
     }
     age = age_1_traditions
     requires = written_alphabet
-    infantry_power = 0.05
+    army_infantry_power = 0.05
     subject_loyalty = 0.03
 }
 pap_traditions_church_endowments = {
@@ -4236,8 +4236,8 @@ pap_traditions_church_endowments = {
     }
     age = age_1_traditions
     requires = written_alphabet
-    tax_income = 0.05
-    prestige = 0.03
+    tax_income_efficiency = 0.05
+    monthly_prestige = 0.03
 }
 
 pap_renaissance_vatican_library = {
@@ -4255,7 +4255,7 @@ pap_renaissance_excommunication_doctrine = {
     }
     age = age_2_renaissance
     requires = renaissance_advance
-    prestige = 0.06
+    monthly_prestige = 0.06
     stability_cost = -0.04
 }
 pap_renaissance_swiss_guard_training = {
@@ -4264,7 +4264,7 @@ pap_renaissance_swiss_guard_training = {
     }
     age = age_2_renaissance
     requires = renaissance_advance
-    infantry_power = 0.07
+    army_infantry_power = 0.07
     discipline = 0.03
 }
 pap_renaissance_papal_finance = {
@@ -4273,7 +4273,7 @@ pap_renaissance_papal_finance = {
     }
     age = age_2_renaissance
     requires = renaissance_advance
-    tax_income = 0.06
+    tax_income_efficiency = 0.06
     trade_income = 0.03
 }
 
@@ -4283,8 +4283,8 @@ pap_discovery_papal_missions = {
     }
     age = age_3_discovery
     requires = new_world_advance
-    prestige = 0.06
-    global_trade_power = 0.03
+    monthly_prestige = 0.06
+    global_merchant_power = 0.03
 }
 pap_discovery_vatican_archives = {
     potential = {
@@ -4301,7 +4301,7 @@ pap_discovery_swiss_guard_regiments = {
     }
     age = age_3_discovery
     requires = new_world_advance
-    infantry_power = 0.08
+    army_infantry_power = 0.08
     global_regiment_recruit_speed = 0.05
 }
 pap_discovery_papal_diplomacy = {
@@ -4321,7 +4321,7 @@ pap_reformation_papal_resilience = {
     age = age_4_reformation
     requires = confessionalism_advance
     stability_cost = -0.06
-    prestige = 0.05
+    monthly_prestige = 0.05
 }
 pap_reformation_cultural_patrons = {
     potential = {
@@ -4329,7 +4329,7 @@ pap_reformation_cultural_patrons = {
     }
     age = age_4_reformation
     requires = confessionalism_advance
-    production_efficiency = 0.04
+    global_production_efficiency = 0.04
     improve_relations_modifier = 0.04
 }
 pap_reformation_swift_guards = {
@@ -4338,8 +4338,8 @@ pap_reformation_swift_guards = {
     }
     age = age_4_reformation
     requires = confessionalism_advance
-    infantry_power = 0.06
-    naval_morale = 0.02
+    army_infantry_power = 0.06
+    navy_morale_modifier = 0.02
 }
 pap_reformation_papal_reforms = {
     potential = {
@@ -4348,7 +4348,7 @@ pap_reformation_papal_reforms = {
     age = age_4_reformation
     requires = confessionalism_advance
     admin_power = 0.06
-    tax_income = 0.04
+    tax_income_efficiency = 0.04
 }
 
 pap_absolutism_vatican_influence = {
@@ -4357,7 +4357,7 @@ pap_absolutism_vatican_influence = {
     }
     age = age_5_absolutism
     requires = manufactories_advance
-    prestige = 0.10
+    monthly_prestige = 0.10
     improve_relations_modifier = 0.06
 }
 pap_absolutism_princely_mandates = {
@@ -4376,7 +4376,7 @@ pap_absolutism_guard_reorganisation = {
     age = age_5_absolutism
     requires = manufactories_advance
     global_regiment_recruit_speed = 0.08
-    manpower = 0.10
+    global_manpower_modifier = 0.10
 }
 pap_absolutism_papal_treasury = {
     potential = {
@@ -4384,7 +4384,7 @@ pap_absolutism_papal_treasury = {
     }
     age = age_5_absolutism
     requires = manufactories_advance
-    tax_income = 0.10
+    tax_income_efficiency = 0.10
     monthly_gold_income = 1
 }
 
@@ -4403,7 +4403,7 @@ pap_revolutions_guardian_army = {
     }
     age = age_6_revolutions
     requires = enlightenment_advance
-    manpower = 0.18
+    global_manpower_modifier = 0.18
     discipline = 0.06
 }
 pap_revolutions_cultural_renewal = {
@@ -4412,8 +4412,8 @@ pap_revolutions_cultural_renewal = {
     }
     age = age_6_revolutions
     requires = enlightenment_advance
-    prestige = 0.08
-    production_efficiency = 0.06
+    monthly_prestige = 0.08
+    global_production_efficiency = 0.06
 }
 pap_revolutions_diplomatic_outreach = {
     potential = {
@@ -4434,8 +4434,8 @@ hun_traditions_black_army_origins = {
     }
     age = age_1_traditions
     requires = written_alphabet
-    manpower = 0.10
-    infantry_power = 0.06
+    global_manpower_modifier = 0.10
+    army_infantry_power = 0.06
 }
 hun_traditions_border_forts = {
     potential = {
@@ -4452,7 +4452,7 @@ hun_traditions_cavalry_ridings = {
     }
     age = age_1_traditions
     requires = written_alphabet
-    cavalry_power = 0.08
+    army_cavalry_power = 0.08
     mobility = 0.10
 }
 hun_traditions_steppe_contacts = {
@@ -4461,8 +4461,8 @@ hun_traditions_steppe_contacts = {
     }
     age = age_1_traditions
     requires = written_alphabet
-    cavalry_power = 0.06
-    manpower = 0.05
+    army_cavalry_power = 0.06
+    global_manpower_modifier = 0.05
 }
 
 hun_renaissance_black_army_reforms = {
@@ -4472,7 +4472,7 @@ hun_renaissance_black_army_reforms = {
     age = age_2_renaissance
     requires = renaissance_advance
     discipline = 0.06
-    infantry_power = 0.06
+    army_infantry_power = 0.06
 }
 hun_renaissance_border_command = {
     potential = {
@@ -4489,8 +4489,8 @@ hun_renaissance_cavalry_reform = {
     }
     age = age_2_renaissance
     requires = renaissance_advance
-    cavalry_power = 0.09
-    leadership = 0.03
+    army_cavalry_power = 0.09
+    monthly_army_tradition = 0.03
 }
 hun_renaissance_ironworks = {
     potential = {
@@ -4498,8 +4498,8 @@ hun_renaissance_ironworks = {
     }
     age = age_2_renaissance
     requires = renaissance_advance
-    production_efficiency = 0.06
-    tax_income = 0.03
+    global_production_efficiency = 0.06
+    tax_income_efficiency = 0.03
 }
 
 hun_discovery_military_cadres = {
@@ -4509,7 +4509,7 @@ hun_discovery_military_cadres = {
     age = age_3_discovery
     requires = new_world_advance
     global_regiment_recruit_speed = 0.07
-    manpower = 0.10
+    global_manpower_modifier = 0.10
 }
 hun_discovery_border_colonisation = {
     potential = {
@@ -4517,8 +4517,8 @@ hun_discovery_border_colonisation = {
     }
     age = age_3_discovery
     requires = new_world_advance
-    production_efficiency = 0.05
-    global_trade_power = 0.03
+    global_production_efficiency = 0.05
+    global_merchant_power = 0.03
 }
 hun_discovery_cavalry_brigades = {
     potential = {
@@ -4526,8 +4526,8 @@ hun_discovery_cavalry_brigades = {
     }
     age = age_3_discovery
     requires = new_world_advance
-    cavalry_power = 0.07
-    morale = 0.03
+    army_cavalry_power = 0.07
+    land_morale_modifier = 0.03
 }
 hun_discovery_fortified_hubs = {
     potential = {
@@ -4563,8 +4563,8 @@ hun_reformation_cavalry_elites = {
     }
     age = age_4_reformation
     requires = confessionalism_advance
-    cavalry_power = 0.09
-    leadership = 0.04
+    army_cavalry_power = 0.09
+    monthly_army_tradition = 0.04
 }
 hun_reformation_mobilisation_works = {
     potential = {
@@ -4572,7 +4572,7 @@ hun_reformation_mobilisation_works = {
     }
     age = age_4_reformation
     requires = confessionalism_advance
-    manpower = 0.12
+    global_manpower_modifier = 0.12
     global_regiment_recruit_speed = 0.06
 }
 
@@ -4582,7 +4582,7 @@ hun_absolutism_black_army_cadre = {
     }
     age = age_5_absolutism
     requires = manufactories_advance
-    infantry_power = 0.08
+    army_infantry_power = 0.08
     global_regiment_recruit_speed = 0.07
 }
 hun_absolutism_border_fortifications = {
@@ -4600,8 +4600,8 @@ hun_absolutism_cavalry_rearmament = {
     }
     age = age_5_absolutism
     requires = manufactories_advance
-    cavalry_power = 0.10
-    manpower = 0.06
+    army_cavalry_power = 0.10
+    global_manpower_modifier = 0.06
 }
 hun_absolutism_state_infantry = {
     potential = {
@@ -4609,8 +4609,8 @@ hun_absolutism_state_infantry = {
     }
     age = age_5_absolutism
     requires = manufactories_advance
-    manpower = 0.14
-    infantry_power = 0.06
+    global_manpower_modifier = 0.14
+    army_infantry_power = 0.06
 }
 
 hun_revolutions_modern_cavalry = {
@@ -4619,7 +4619,7 @@ hun_revolutions_modern_cavalry = {
     }
     age = age_6_revolutions
     requires = enlightenment_advance
-    cavalry_power = 0.12
+    army_cavalry_power = 0.12
     discipline = 0.06
 }
 hun_revolutions_national_defence = {
@@ -4629,7 +4629,7 @@ hun_revolutions_national_defence = {
     age = age_6_revolutions
     requires = enlightenment_advance
     fort_level = 1
-    production_efficiency = 0.08
+    global_production_efficiency = 0.08
 }
 hun_revolutions_conscript_system = {
     potential = {
@@ -4637,7 +4637,7 @@ hun_revolutions_conscript_system = {
     }
     age = age_6_revolutions
     requires = enlightenment_advance
-    manpower = 0.20
+    global_manpower_modifier = 0.20
     global_regiment_recruit_speed = 0.08
 }
 hun_revolutions_cavalry_regiments = {
@@ -4646,8 +4646,8 @@ hun_revolutions_cavalry_regiments = {
     }
     age = age_6_revolutions
     requires = enlightenment_advance
-    cavalry_power = 0.10
-    leadership = 0.06
+    army_cavalry_power = 0.10
+    monthly_army_tradition = 0.06
 }
 
 ########################
@@ -4660,7 +4660,7 @@ swi_traditions_mercenary_discipline = {
     age = age_1_traditions
     requires = written_alphabet
     discipline = 0.06
-    infantry_power = 0.05
+    army_infantry_power = 0.05
 }
 swi_traditions_fort_defence = {
     potential = {
@@ -4677,7 +4677,7 @@ swi_traditions_local_militias = {
     }
     age = age_1_traditions
     requires = written_alphabet
-    manpower = 0.08
+    global_manpower_modifier = 0.08
     global_regiment_recruit_speed = 0.04
 }
 swi_traditions_neutral_trade = {
@@ -4714,7 +4714,7 @@ swi_renaissance_arms_markets = {
     }
     age = age_2_renaissance
     requires = renaissance_advance
-    production_efficiency = 0.05
+    global_production_efficiency = 0.05
     trade_income = 0.03
 }
 swi_renaissance_neutrality_doctrine = {
@@ -4724,7 +4724,7 @@ swi_renaissance_neutrality_doctrine = {
     age = age_2_renaissance
     requires = renaissance_advance
     improve_relations_modifier = 0.05
-    prestige = 0.03
+    monthly_prestige = 0.03
 }
 
 swi_discovery_mercenary_contracts = {
@@ -4761,7 +4761,7 @@ swi_discovery_neutral_merchants = {
     age = age_3_discovery
     requires = new_world_advance
     trade_income = 0.06
-    global_trade_power = 0.04
+    global_merchant_power = 0.04
 }
 
 swi_reformation_sworn_reforms = {
@@ -4780,7 +4780,7 @@ swi_reformation_mercenary_excellence = {
     age = age_4_reformation
     requires = confessionalism_advance
     discipline = 0.07
-    infantry_power = 0.06
+    army_infantry_power = 0.06
 }
 swi_reformation_civic_defence = {
     potential = {
@@ -4798,7 +4798,7 @@ swi_reformation_neutral_guarantees = {
     age = age_4_reformation
     requires = confessionalism_advance
     diplomatic_capacity = 1
-    prestige = 0.04
+    monthly_prestige = 0.04
 }
 
 swi_absolutism_mercenary_regiment_system = {
@@ -4808,7 +4808,7 @@ swi_absolutism_mercenary_regiment_system = {
     age = age_5_absolutism
     requires = manufactories_advance
     global_regiment_recruit_speed = 0.08
-    manpower = 0.14
+    global_manpower_modifier = 0.14
 }
 swi_absolutism_fortified_canton = {
     potential = {
@@ -4825,8 +4825,8 @@ swi_absolutism_neutral_infrastructure = {
     }
     age = age_5_absolutism
     requires = manufactories_advance
-    production_efficiency = 0.08
-    tax_income = 0.05
+    global_production_efficiency = 0.08
+    tax_income_efficiency = 0.05
 }
 swi_absolutism_canton_council = {
     potential = {
@@ -4854,7 +4854,7 @@ swi_revolutions_national_defences = {
     age = age_6_revolutions
     requires = enlightenment_advance
     fort_level = 1
-    production_efficiency = 0.10
+    global_production_efficiency = 0.10
 }
 swi_revolutions_neutrality_pacts = {
     potential = {
@@ -4871,7 +4871,7 @@ swi_revolutions_cantonal_industry = {
     }
     age = age_6_revolutions
     requires = enlightenment_advance
-    production_efficiency = 0.12
-    tax_income = 0.06
+    global_production_efficiency = 0.12
+    tax_income_efficiency = 0.06
 }
 
