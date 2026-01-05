@@ -4361,7 +4361,8 @@ pap_revolutions_modern_papacy = {
         has_or_had_tag = PAP
     }
     age = age_6_revolutions
-    requires = enlightenment_advance    improve_relations_modifier = 0.06
+    requires = enlightenment_advance    
+    improve_relations_modifier = 0.06
 }
 pap_revolutions_guardian_army = {
     potential = {
@@ -4798,7 +4799,8 @@ swi_absolutism_canton_council = {
         has_or_had_tag = SWI
     }
     age = age_5_absolutism
-    requires = manufactories_advance    improve_relations_modifier = 0.05
+    requires = manufactories_advance    
+    improve_relations_modifier = 0.05
 }
 
 swi_revolutions_mercenary_professionalism = {
@@ -4838,3 +4840,2698 @@ swi_revolutions_cantonal_industry = {
     tax_income_efficiency = 0.06
 }
 
+########################
+# Teutonic Order (TEU)
+########################
+
+teu_traditions_crusader_discipline = {
+    potential = {
+        has_or_had_tag = TEU
+    }
+    age = age_1_traditions
+    requires = written_alphabet
+    # Historical Context: Military monastic order forged through crusading zeal and iron discipline.
+    discipline = 0.08
+    land_morale_modifier = 0.06
+}
+
+teu_traditions_ordensburg_castles = {
+    potential = {
+        has_or_had_tag = TEU
+    }
+    age = age_1_traditions
+    requires = written_alphabet
+    # Historical Context: Network of fortified castles secured Baltic territories.
+    fort_level = 1
+    siege_defense = 0.06
+}
+
+teu_traditions_baltic_settlement = {
+    potential = {
+        has_or_had_tag = TEU
+    }
+    age = age_1_traditions
+    requires = written_alphabet
+    # Historical Context: Organized colonization of conquered Baltic lands.
+    global_manpower_modifier = 0.08
+    tax_income_efficiency = 0.04
+}
+
+teu_traditions_hanseatic_trade = {
+    potential = {
+        has_or_had_tag = TEU
+    }
+    age = age_1_traditions
+    requires = written_alphabet
+    # Historical Context: Trade connections with Hanseatic League enriched the Order.
+    trade_income = 0.06
+    global_merchant_power = 0.05
+}
+
+teu_renaissance_military_reformation = {
+    potential = {
+        has_or_had_tag = TEU
+    }
+    age = age_2_renaissance
+    requires = renaissance_advance
+    # Historical Context: Adoption of gunpowder weapons modernized crusader armies.
+    army_infantry_power = 0.08
+    discipline = 0.05
+}
+
+teu_renaissance_secular_administration = {
+    potential = {
+        has_or_had_tag = TEU
+    }
+    age = age_2_renaissance
+    requires = renaissance_advance
+    # Historical Context: Administrative reforms balanced religious and secular governance.
+    stability_cost = -0.05
+    tax_income_efficiency = 0.06
+}
+
+teu_renaissance_prussian_estates = {
+    potential = {
+        has_or_had_tag = TEU
+    }
+    age = age_2_renaissance
+    requires = renaissance_advance
+    # Historical Context: Integration of local estates strengthened territorial control.
+    global_manpower_modifier = 0.10
+    monthly_prestige = 0.05
+}
+
+teu_renaissance_amber_monopoly = {
+    potential = {
+        has_or_had_tag = TEU
+    }
+    age = age_2_renaissance
+    requires = renaissance_advance
+    # Historical Context: Control of Baltic amber trade generated significant revenue.
+    global_amber_output_modifier = 0.25
+    trade_income = 0.07
+}
+
+teu_discovery_protestant_conversion = {
+    potential = {
+        has_or_had_tag = TEU
+    }
+    age = age_3_discovery
+    requires = new_world_advance
+    # Historical Context: Secularization and conversion to Protestantism transformed the state.
+    religious_unity = 0.08
+    stability_cost = -0.06
+}
+
+teu_discovery_ducal_authority = {
+    potential = {
+        has_or_had_tag = TEU
+    }
+    age = age_3_discovery
+    requires = new_world_advance
+    # Historical Context: Ducal power consolidated under secular rule.
+    discipline = 0.06
+    monthly_prestige = 0.06
+}
+
+teu_discovery_grain_exports = {
+    potential = {
+        has_or_had_tag = TEU
+    }
+    age = age_3_discovery
+    requires = new_world_advance
+    # Historical Context: Prussian grain exports fueled economic growth.
+    global_wheat_output_modifier = 0.20
+    trade_income = 0.06
+}
+
+teu_discovery_junker_military_culture = {
+    potential = {
+        has_or_had_tag = TEU
+    }
+    age = age_3_discovery
+    requires = new_world_advance
+    # Historical Context: Junker nobility formed military backbone of the state.
+    army_cavalry_power = 0.07
+    global_manpower_modifier = 0.08
+}
+
+teu_reformation_prussian_efficiency = {
+    potential = {
+        has_or_had_tag = TEU
+    }
+    age = age_4_reformation
+    requires = confessionalism_advance
+    # Historical Context: Bureaucratic efficiency became hallmark of Prussian governance.
+    tax_income_efficiency = 0.08
+    inflation = -0.04
+}
+
+teu_reformation_standing_army = {
+    potential = {
+        has_or_had_tag = TEU
+    }
+    age = age_4_reformation
+    requires = confessionalism_advance
+    # Historical Context: Early standing army provided military reliability.
+    global_manpower_modifier = 0.12
+    discipline = 0.06
+}
+
+teu_reformation_protestant_identity = {
+    potential = {
+        has_or_had_tag = TEU
+    }
+    age = age_4_reformation
+    requires = confessionalism_advance
+    # Historical Context: Protestant identity solidified after conversion.
+    religious_unity = 0.08
+    monthly_religious_rebel_growth = -0.12
+}
+
+teu_reformation_officer_training = {
+    potential = {
+        has_or_had_tag = TEU
+    }
+    age = age_4_reformation
+    requires = confessionalism_advance
+    # Historical Context: Professional officer training enhanced military effectiveness.
+    discipline = 0.07
+    monthly_army_tradition = 0.05
+}
+
+teu_absolutism_brandenburg_militarism = {
+    potential = {
+        has_or_had_tag = TEU
+    }
+    age = age_5_absolutism
+    requires = manufactories_advance
+    # Historical Context: Militaristic culture became central to state identity.
+    discipline = 0.10
+    army_infantry_power = 0.06
+}
+
+teu_absolutism_centralized_recruitment = {
+    potential = {
+        has_or_had_tag = TEU
+    }
+    age = age_5_absolutism
+    requires = manufactories_advance
+    # Historical Context: Centralized recruitment systems maximized manpower.
+    global_manpower_modifier = 0.15
+    regiment_recruit_speed = 0.08
+}
+
+teu_absolutism_royal_manufactures = {
+    potential = {
+        has_or_had_tag = TEU
+    }
+    age = age_5_absolutism
+    requires = manufactories_advance
+    # Historical Context: State-sponsored manufactures boosted production.
+    global_production_efficiency = 0.10
+    tax_income_efficiency = 0.06
+}
+
+teu_absolutism_drill_perfection = {
+    potential = {
+        has_or_had_tag = TEU
+    }
+    age = age_5_absolutism
+    requires = manufactories_advance
+    # Historical Context: Relentless drill created the most disciplined army in Europe.
+    discipline = 0.08
+    land_morale_modifier = 0.06
+}
+
+teu_revolutions_prussian_general_staff = {
+    potential = {
+        has_or_had_tag = TEU
+    }
+    age = age_6_revolutions
+    requires = enlightenment_advance
+    # Historical Context: Professional general staff revolutionized military planning.
+    discipline = 0.10
+    monthly_army_tradition = 0.08
+}
+
+teu_revolutions_mass_conscription = {
+    potential = {
+        has_or_had_tag = TEU
+    }
+    age = age_6_revolutions
+    requires = enlightenment_advance
+    # Historical Context: Universal conscription created massive citizen armies.
+    global_manpower_modifier = 0.20
+    regiment_recruit_speed = 0.10
+}
+
+teu_revolutions_industrial_arms = {
+    potential = {
+        has_or_had_tag = TEU
+    }
+    age = age_6_revolutions
+    requires = enlightenment_advance
+    # Historical Context: Industrial arms production equipped modern armies.
+    global_weaponry_output_modifier = 0.25
+    global_firearms_output_modifier = 0.20
+}
+
+teu_revolutions_military_innovations = {
+    potential = {
+        has_or_had_tag = TEU
+    }
+    age = age_6_revolutions
+    requires = enlightenment_advance
+    # Historical Context: Tactical innovations maintained Prussian military supremacy.
+    discipline = 0.08
+    army_infantry_power = 0.08
+}
+
+########################
+# Livonian Order (LIV)
+########################
+
+liv_traditions_crusader_zeal = {
+    potential = {
+        has_or_had_tag = LIV
+    }
+    age = age_1_traditions
+    requires = written_alphabet
+    # Historical Context: Baltic crusades against pagans defined the Order's mission.
+    land_morale_modifier = 0.08
+    discipline = 0.06
+}
+
+liv_traditions_riga_trade = {
+    potential = {
+        has_or_had_tag = LIV
+    }
+    age = age_1_traditions
+    requires = written_alphabet
+    # Historical Context: Control of Riga provided vital trade revenues.
+    trade_income = 0.08
+    global_merchant_power = 0.06
+}
+
+liv_traditions_fortress_network = {
+    potential = {
+        has_or_had_tag = LIV
+    }
+    age = age_1_traditions
+    requires = written_alphabet
+    # Historical Context: Chain of fortresses secured Livonian territories.
+    fort_level = 1
+    siege_defense = 0.05
+}
+
+liv_traditions_baltic_settlement_policy = {
+    potential = {
+        has_or_had_tag = LIV
+    }
+    age = age_1_traditions
+    requires = written_alphabet
+    # Historical Context: German settlement colonized Baltic coastlands.
+    global_manpower_modifier = 0.07
+    tax_income_efficiency = 0.04
+}
+
+liv_renaissance_hanseatic_commerce = {
+    potential = {
+        has_or_had_tag = LIV
+    }
+    age = age_2_renaissance
+    requires = renaissance_advance
+    # Historical Context: Deep integration with Hanseatic trade networks.
+    global_merchant_power = 0.08
+    trade_efficiency = 0.06
+}
+
+liv_renaissance_military_modernization = {
+    potential = {
+        has_or_had_tag = LIV
+    }
+    age = age_2_renaissance
+    requires = renaissance_advance
+    # Historical Context: Adoption of pike and shot tactics.
+    army_infantry_power = 0.07
+    discipline = 0.05
+}
+
+liv_renaissance_timber_exports = {
+    potential = {
+        has_or_had_tag = LIV
+    }
+    age = age_2_renaissance
+    requires = renaissance_advance
+    # Historical Context: Baltic timber supplied European shipyards.
+    global_lumber_output_modifier = 0.20
+    trade_income = 0.06
+}
+
+liv_renaissance_administrative_reforms = {
+    potential = {
+        has_or_had_tag = LIV
+    }
+    age = age_2_renaissance
+    requires = renaissance_advance
+    # Historical Context: Reformed administration balanced religious and secular power.
+    stability_cost = -0.05
+    tax_income_efficiency = 0.05
+}
+
+liv_discovery_protestant_reformation = {
+    potential = {
+        has_or_had_tag = LIV
+    }
+    age = age_3_discovery
+    requires = new_world_advance
+    # Historical Context: Reformation spread rapidly through Livonian territories.
+    religious_unity = 0.08
+    stability_cost = -0.06
+}
+
+liv_discovery_riga_prosperity = {
+    potential = {
+        has_or_had_tag = LIV
+    }
+    age = age_3_discovery
+    requires = new_world_advance
+    # Historical Context: Riga's golden age as major Baltic trade hub.
+    trade_income = 0.10
+    global_merchant_power = 0.08
+}
+
+liv_discovery_grain_trade = {
+    potential = {
+        has_or_had_tag = LIV
+    }
+    age = age_3_discovery
+    requires = new_world_advance
+    # Historical Context: Baltic grain trade enriched Livonian ports.
+    global_wheat_output_modifier = 0.18
+    trade_efficiency = 0.06
+}
+
+liv_discovery_defensive_alliances = {
+    potential = {
+        has_or_had_tag = LIV
+    }
+    age = age_3_discovery
+    requires = new_world_advance
+    # Historical Context: Diplomatic maneuvering between great powers.
+    diplomatic_capacity = 1
+    improve_relations_modifier = 0.06
+}
+
+liv_reformation_confessional_politics = {
+    potential = {
+        has_or_had_tag = LIV
+    }
+    age = age_4_reformation
+    requires = confessionalism_advance
+    # Historical Context: Religious politics dominated Baltic affairs.
+    religious_unity = 0.08
+    monthly_religious_rebel_growth = -0.10
+}
+
+liv_reformation_mercenary_tradition = {
+    potential = {
+        has_or_had_tag = LIV
+    }
+    age = age_4_reformation
+    requires = confessionalism_advance
+    # Historical Context: Livonian nobles served as mercenaries across Europe.
+    mercenary_maintenance_cost = -0.15
+    discipline = 0.05
+}
+
+liv_reformation_tar_production = {
+    potential = {
+        has_or_had_tag = LIV
+    }
+    age = age_4_reformation
+    requires = confessionalism_advance
+    # Historical Context: Naval stores production for European fleets.
+    global_tar_output_modifier = 0.25
+    trade_income = 0.06
+}
+
+liv_reformation_fortified_ports = {
+    potential = {
+        has_or_had_tag = LIV
+    }
+    age = age_4_reformation
+    requires = confessionalism_advance
+    # Historical Context: Coastal fortifications protected vital harbors.
+    fort_level = 1
+    naval_morale = 0.05
+}
+
+liv_absolutism_swedish_integration = {
+    potential = {
+        has_or_had_tag = LIV
+    }
+    age = age_5_absolutism
+    requires = manufactories_advance
+    # Historical Context: Integration under Swedish crown brought stability.
+    stability_cost = -0.06
+    tax_income_efficiency = 0.07
+}
+
+liv_absolutism_baltic_fleet = {
+    potential = {
+        has_or_had_tag = LIV
+    }
+    age = age_5_absolutism
+    requires = manufactories_advance
+    # Historical Context: Naval forces secured Baltic trade routes.
+    naval_morale = 0.08
+    navy_movement_speed = 0.06
+}
+
+liv_absolutism_garrison_state = {
+    potential = {
+        has_or_had_tag = LIV
+    }
+    age = age_5_absolutism
+    requires = manufactories_advance
+    # Historical Context: Permanent garrisons maintained frontier security.
+    global_manpower_modifier = 0.12
+    fort_level = 1
+}
+
+liv_absolutism_naval_supplies_industry = {
+    potential = {
+        has_or_had_tag = LIV
+    }
+    age = age_5_absolutism
+    requires = manufactories_advance
+    # Historical Context: Baltic naval supplies industry expanded.
+    global_naval_supplies_output_modifier = 0.20
+    global_production_efficiency = 0.06
+}
+
+liv_revolutions_baltic_nationalism = {
+    potential = {
+        has_or_had_tag = LIV
+    }
+    age = age_6_revolutions
+    requires = enlightenment_advance
+    # Historical Context: Baltic German nationalism emerged.
+    stability_cost = -0.06
+    monthly_prestige = 0.06
+}
+
+liv_revolutions_modern_defenses = {
+    potential = {
+        has_or_had_tag = LIV
+    }
+    age = age_6_revolutions
+    requires = enlightenment_advance
+    # Historical Context: Modern fortifications adapted to industrial warfare.
+    fort_level = 1
+    siege_defense = 0.10
+}
+
+liv_revolutions_timber_industry = {
+    potential = {
+        has_or_had_tag = LIV
+    }
+    age = age_6_revolutions
+    requires = enlightenment_advance
+    # Historical Context: Industrial timber processing for construction.
+    global_lumber_output_modifier = 0.30
+    global_production_efficiency = 0.08
+}
+
+liv_revolutions_trade_networks = {
+    potential = {
+        has_or_had_tag = LIV
+    }
+    age = age_6_revolutions
+    requires = enlightenment_advance
+    # Historical Context: Modern trade networks linked Baltic to global commerce.
+    global_merchant_power = 0.12
+    trade_efficiency = 0.08
+}
+
+########################
+# Savoy (SAV)
+########################
+
+sav_traditions_alpine_fortresses = {
+    potential = {
+        has_or_had_tag = SAV
+    }
+    age = age_1_traditions
+    requires = written_alphabet
+    # Historical Context: Mountain passes fortified against invasion.
+    fort_level = 1
+    siege_defense = 0.08
+}
+
+sav_traditions_diplomatic_marriages = {
+    potential = {
+        has_or_had_tag = SAV
+    }
+    age = age_1_traditions
+    requires = written_alphabet
+    # Historical Context: Strategic marriages elevated Savoyard influence.
+    diplomatic_capacity = 1
+    improve_relations_modifier = 0.08
+}
+
+sav_traditions_mountain_warfare = {
+    potential = {
+        has_or_had_tag = SAV
+    }
+    age = age_1_traditions
+    requires = written_alphabet
+    # Historical Context: Alpine troops excelled in mountain terrain.
+    land_morale_modifier = 0.06
+    army_infantry_power = 0.05
+}
+
+sav_traditions_transalpine_trade = {
+    potential = {
+        has_or_had_tag = SAV
+    }
+    age = age_1_traditions
+    requires = written_alphabet
+    # Historical Context: Control of Alpine passes generated toll revenues.
+    trade_income = 0.07
+    global_merchant_power = 0.05
+}
+
+sav_renaissance_courtly_refinement = {
+    potential = {
+        has_or_had_tag = SAV
+    }
+    age = age_2_renaissance
+    requires = renaissance_advance
+    # Historical Context: Savoyard court became center of culture and diplomacy.
+    cultural_tradition_modifier = 0.08
+    monthly_prestige = 0.06
+}
+
+sav_renaissance_italian_connections = {
+    potential = {
+        has_or_had_tag = SAV
+    }
+    age = age_2_renaissance
+    requires = renaissance_advance
+    # Historical Context: Deep ties to Italian politics and commerce.
+    diplomatic_capacity = 1
+    global_merchant_power = 0.06
+}
+
+sav_renaissance_territorial_expansion = {
+    potential = {
+        has_or_had_tag = SAV
+    }
+    age = age_2_renaissance
+    requires = renaissance_advance
+    # Historical Context: Strategic acquisitions expanded Savoyard domains.
+    global_manpower_modifier = 0.08
+    tax_income_efficiency = 0.05
+}
+
+sav_renaissance_pass_fortifications = {
+    potential = {
+        has_or_had_tag = SAV
+    }
+    age = age_2_renaissance
+    requires = renaissance_advance
+    # Historical Context: Enhanced fortifications secured mountain routes.
+    fort_level = 1
+    siege_defense = 0.06
+}
+
+sav_discovery_balance_of_power = {
+    potential = {
+        has_or_had_tag = SAV
+    }
+    age = age_3_discovery
+    requires = new_world_advance
+    # Historical Context: Diplomatic balancing between France and Habsburgs.
+    diplomatic_capacity = 2
+    improve_relations_modifier = 0.10
+}
+
+sav_discovery_military_modernization = {
+    potential = {
+        has_or_had_tag = SAV
+    }
+    age = age_3_discovery
+    requires = new_world_advance
+    # Historical Context: Army reforms adopted modern tactics.
+    discipline = 0.06
+    army_infantry_power = 0.06
+}
+
+sav_discovery_piedmont_agriculture = {
+    potential = {
+        has_or_had_tag = SAV
+    }
+    age = age_3_discovery
+    requires = new_world_advance
+    # Historical Context: Fertile Piedmont plains provided grain surplus.
+    global_wheat_output_modifier = 0.15
+    tax_income_efficiency = 0.05
+}
+
+sav_discovery_turin_capital = {
+    potential = {
+        has_or_had_tag = SAV
+    }
+    age = age_3_discovery
+    requires = new_world_advance
+    # Historical Context: Turin established as magnificent ducal capital.
+    cultural_tradition_modifier = 0.08
+    monthly_prestige = 0.06
+}
+
+sav_reformation_catholic_bastion = {
+    potential = {
+        has_or_had_tag = SAV
+    }
+    age = age_4_reformation
+    requires = confessionalism_advance
+    # Historical Context: Staunch Catholic defense against Protestant expansion.
+    religious_unity = 0.08
+    monthly_religious_rebel_growth = -0.12
+}
+
+sav_reformation_royal_elevation = {
+    potential = {
+        has_or_had_tag = SAV
+    }
+    age = age_4_reformation
+    requires = confessionalism_advance
+    # Historical Context: Elevation to royal dignity enhanced prestige.
+    monthly_prestige = 0.08
+    diplomatic_capacity = 1
+}
+
+sav_reformation_professional_army = {
+    potential = {
+        has_or_had_tag = SAV
+    }
+    age = age_4_reformation
+    requires = confessionalism_advance
+    # Historical Context: Standing army professionalized under ducal authority.
+    global_manpower_modifier = 0.10
+    discipline = 0.06
+}
+
+sav_reformation_fortified_borders = {
+    potential = {
+        has_or_had_tag = SAV
+    }
+    age = age_4_reformation
+    requires = confessionalism_advance
+    # Historical Context: Border fortresses defended against French incursions.
+    fort_level = 1
+    siege_defense = 0.07
+}
+
+sav_absolutism_administrative_centralization = {
+    potential = {
+        has_or_had_tag = SAV
+    }
+    age = age_5_absolutism
+    requires = manufactories_advance
+    # Historical Context: Centralized administration strengthened ducal power.
+    stability_cost = -0.06
+    tax_income_efficiency = 0.08
+}
+
+sav_absolutism_silk_industry = {
+    potential = {
+        has_or_had_tag = SAV
+    }
+    age = age_5_absolutism
+    requires = manufactories_advance
+    # Historical Context: Piedmont silk industry flourished under ducal patronage.
+    global_silk_output_modifier = 0.25
+    global_production_efficiency = 0.06
+}
+
+sav_absolutism_alpine_defenses = {
+    potential = {
+        has_or_had_tag = SAV
+    }
+    age = age_5_absolutism
+    requires = manufactories_advance
+    # Historical Context: Mountain fortifications became impregnable.
+    fort_level = 2
+    siege_defense = 0.10
+}
+
+sav_absolutism_diplomatic_mastery = {
+    potential = {
+        has_or_had_tag = SAV
+    }
+    age = age_5_absolutism
+    requires = manufactories_advance
+    # Historical Context: Diplomatic skill navigated great power rivalries.
+    diplomatic_capacity = 2
+    improve_relations_modifier = 0.12
+}
+
+sav_revolutions_italian_unification_ambitions = {
+    potential = {
+        has_or_had_tag = SAV
+    }
+    age = age_6_revolutions
+    requires = enlightenment_advance
+    # Historical Context: Savoyard ambitions for Italian unification emerged.
+    monthly_prestige = 0.10
+    diplomatic_capacity = 2
+}
+
+sav_revolutions_modern_army_reforms = {
+    potential = {
+        has_or_had_tag = SAV
+    }
+    age = age_6_revolutions
+    requires = enlightenment_advance
+    # Historical Context: Military reforms created effective modern army.
+    global_manpower_modifier = 0.15
+    discipline = 0.08
+}
+
+sav_revolutions_industrial_piedmont = {
+    potential = {
+        has_or_had_tag = SAV
+    }
+    age = age_6_revolutions
+    requires = enlightenment_advance
+    # Historical Context: Industrialization transformed Piedmont economy.
+    global_production_efficiency = 0.12
+    tax_income_efficiency = 0.08
+}
+
+sav_revolutions_constitutional_monarchy = {
+    potential = {
+        has_or_had_tag = SAV
+    }
+    age = age_6_revolutions
+    requires = enlightenment_advance
+    # Historical Context: Constitutional reforms balanced monarchy and liberalism.
+    stability_cost = -0.08
+    monthly_rebel_growth = -0.15
+}
+
+########################
+# Bavaria (BAV)
+########################
+
+bav_traditions_wittelsbach_legacy = {
+    potential = {
+        has_or_had_tag = BAV
+    }
+    age = age_1_traditions
+    requires = written_alphabet
+    # Historical Context: Ancient Wittelsbach dynasty commanded prestige and loyalty.
+    monthly_prestige = 0.06
+    diplomatic_capacity = 1
+}
+
+bav_traditions_alpine_defenses = {
+    potential = {
+        has_or_had_tag = BAV
+    }
+    age = age_1_traditions
+    requires = written_alphabet
+    # Historical Context: Southern mountain borders fortified against invasion.
+    fort_level = 1
+    siege_defense = 0.05
+}
+
+bav_traditions_brewing_heritage = {
+    potential = {
+        has_or_had_tag = BAV
+    }
+    age = age_1_traditions
+    requires = written_alphabet
+    # Historical Context: Bavarian brewing traditions produced renowned beer.
+    global_beer_output_modifier = 0.20
+    tax_income_efficiency = 0.04
+}
+
+bav_traditions_ducal_authority = {
+    potential = {
+        has_or_had_tag = BAV
+    }
+    age = age_1_traditions
+    requires = written_alphabet
+    # Historical Context: Strong ducal governance unified Bavarian territories.
+    stability_cost = -0.05
+    tax_income_efficiency = 0.05
+}
+
+bav_renaissance_munich_splendor = {
+    potential = {
+        has_or_had_tag = BAV
+    }
+    age = age_2_renaissance
+    requires = renaissance_advance
+    # Historical Context: Munich became glittering center of art and learning.
+    cultural_tradition_modifier = 0.10
+    monthly_prestige = 0.06
+}
+
+bav_renaissance_electoral_dignity = {
+    potential = {
+        has_or_had_tag = BAV
+    }
+    age = age_2_renaissance
+    requires = renaissance_advance
+    # Historical Context: Electoral status elevated Bavaria within the Empire.
+    monthly_prestige = 0.08
+    diplomatic_capacity = 1
+}
+
+bav_renaissance_beer_purity_law = {
+    potential = {
+        has_or_had_tag = BAV
+    }
+    age = age_2_renaissance
+    requires = renaissance_advance
+    # Historical Context: Reinheitsgebot standardized beer quality and reputation.
+    global_beer_output_modifier = 0.25
+    trade_income = 0.06
+}
+
+bav_renaissance_territorial_consolidation = {
+    potential = {
+        has_or_had_tag = BAV
+    }
+    age = age_2_renaissance
+    requires = renaissance_advance
+    # Historical Context: Acquisition of territories strengthened ducal power.
+    global_manpower_modifier = 0.08
+    tax_income_efficiency = 0.05
+}
+
+bav_discovery_catholic_champion = {
+    potential = {
+        has_or_had_tag = BAV
+    }
+    age = age_3_discovery
+    requires = new_world_advance
+    # Historical Context: Bavaria emerged as Catholic champion in the Empire.
+    religious_unity = 0.08
+    monthly_prestige = 0.06
+}
+
+bav_discovery_imperial_politics = {
+    potential = {
+        has_or_had_tag = BAV
+    }
+    age = age_3_discovery
+    requires = new_world_advance
+    # Historical Context: Deep engagement in imperial electoral politics.
+    diplomatic_capacity = 2
+    monthly_imperial_authority = 0.05
+}
+
+bav_discovery_agricultural_prosperity = {
+    potential = {
+        has_or_had_tag = BAV
+    }
+    age = age_3_discovery
+    requires = new_world_advance
+    # Historical Context: Rich farmlands provided economic foundation.
+    global_wheat_output_modifier = 0.15
+    global_livestock_output_modifier = 0.12
+}
+
+bav_discovery_military_reforms = {
+    potential = {
+        has_or_had_tag = BAV
+    }
+    age = age_3_discovery
+    requires = new_world_advance
+    # Historical Context: Army modernization enhanced defensive capability.
+    discipline = 0.05
+    global_manpower_modifier = 0.08
+}
+
+bav_reformation_counter_reformation_leadership = {
+    potential = {
+        has_or_had_tag = BAV
+    }
+    age = age_4_reformation
+    requires = confessionalism_advance
+    # Historical Context: Bavaria led Counter-Reformation in southern Germany.
+    religious_unity = 0.10
+    monthly_religious_rebel_growth = -0.15
+}
+
+bav_reformation_jesuit_education = {
+    potential = {
+        has_or_had_tag = BAV
+    }
+    age = age_4_reformation
+    requires = confessionalism_advance
+    # Historical Context: Jesuit schools strengthened Catholic identity.
+    cultural_tradition_modifier = 0.08
+    stability_cost = -0.05
+}
+
+bav_reformation_standing_regiments = {
+    potential = {
+        has_or_had_tag = BAV
+    }
+    age = age_4_reformation
+    requires = confessionalism_advance
+    # Historical Context: Professional regiments defended Catholic territories.
+    global_manpower_modifier = 0.10
+    discipline = 0.06
+}
+
+bav_reformation_brewing_guilds = {
+    potential = {
+        has_or_had_tag = BAV
+    }
+    age = age_4_reformation
+    requires = confessionalism_advance
+    # Historical Context: Guild regulation maintained beer quality standards.
+    global_beer_output_modifier = 0.30
+    global_production_efficiency = 0.05
+}
+
+bav_absolutism_baroque_magnificence = {
+    potential = {
+        has_or_had_tag = BAV
+    }
+    age = age_5_absolutism
+    requires = manufactories_advance
+    # Historical Context: Baroque palaces and churches proclaimed ducal glory.
+    cultural_tradition_modifier = 0.12
+    monthly_prestige = 0.08
+}
+
+bav_absolutism_absolutist_governance = {
+    potential = {
+        has_or_had_tag = BAV
+    }
+    age = age_5_absolutism
+    requires = manufactories_advance
+    # Historical Context: Centralized absolutist state consolidated ducal authority.
+    stability_cost = -0.07
+    tax_income_efficiency = 0.08
+}
+
+bav_absolutism_professional_army = {
+    potential = {
+        has_or_had_tag = BAV
+    }
+    age = age_5_absolutism
+    requires = manufactories_advance
+    # Historical Context: Well-drilled army served ducal ambitions.
+    discipline = 0.08
+    global_manpower_modifier = 0.12
+}
+
+bav_absolutism_salt_monopoly = {
+    potential = {
+        has_or_had_tag = BAV
+    }
+    age = age_5_absolutism
+    requires = manufactories_advance
+    # Historical Context: State salt monopoly generated substantial revenue.
+    global_salt_output_modifier = 0.30
+    tax_income_efficiency = 0.06
+}
+
+bav_revolutions_electoral_ambitions = {
+    potential = {
+        has_or_had_tag = BAV
+    }
+    age = age_6_revolutions
+    requires = enlightenment_advance
+    # Historical Context: Bavarian ambitions for imperial crown persisted.
+    monthly_prestige = 0.10
+    diplomatic_capacity = 2
+}
+
+bav_revolutions_enlightened_reforms = {
+    potential = {
+        has_or_had_tag = BAV
+    }
+    age = age_6_revolutions
+    requires = enlightenment_advance
+    # Historical Context: Enlightened reforms modernized administration.
+    stability_cost = -0.08
+    tax_income_efficiency = 0.10
+}
+
+bav_revolutions_industrial_brewing = {
+    potential = {
+        has_or_had_tag = BAV
+    }
+    age = age_6_revolutions
+    requires = enlightenment_advance
+    # Historical Context: Industrial methods revolutionized beer production.
+    global_beer_output_modifier = 0.40
+    global_production_efficiency = 0.08
+}
+
+bav_revolutions_modern_conscription = {
+    potential = {
+        has_or_had_tag = BAV
+    }
+    age = age_6_revolutions
+    requires = enlightenment_advance
+    # Historical Context: Mass conscription created large citizen army.
+    global_manpower_modifier = 0.18
+    regiment_recruit_speed = 0.10
+}
+
+########################
+# Saxony (SAX)
+########################
+
+sax_traditions_silver_mines = {
+    potential = {
+        has_or_had_tag = SAX
+    }
+    age = age_1_traditions
+    requires = written_alphabet
+    # Historical Context: Rich silver deposits made Saxony wealthy.
+    global_silver_output_modifier = 0.25
+    tax_income_efficiency = 0.06
+}
+
+sax_traditions_electoral_prestige = {
+    potential = {
+        has_or_had_tag = SAX
+    }
+    age = age_1_traditions
+    requires = written_alphabet
+    # Historical Context: Electoral dignity elevated Saxon status in Empire.
+    monthly_prestige = 0.06
+    diplomatic_capacity = 1
+}
+
+sax_traditions_wettin_dynasty = {
+    potential = {
+        has_or_had_tag = SAX
+    }
+    age = age_1_traditions
+    requires = written_alphabet
+    # Historical Context: Ancient Wettin lineage commanded loyalty and respect.
+    stability_cost = -0.05
+    monthly_prestige = 0.05
+}
+
+sax_traditions_trade_routes = {
+    potential = {
+        has_or_had_tag = SAX
+    }
+    age = age_1_traditions
+    requires = written_alphabet
+    # Historical Context: Location on major trade routes enriched Saxon cities.
+    trade_income = 0.07
+    global_merchant_power = 0.05
+}
+
+sax_renaissance_erzgebirge_mining = {
+    potential = {
+        has_or_had_tag = SAX
+    }
+    age = age_2_renaissance
+    requires = renaissance_advance
+    # Historical Context: Ore Mountains mining boom generated immense wealth.
+    global_silver_output_modifier = 0.30
+    global_copper_output_modifier = 0.20
+}
+
+sax_renaissance_dresden_court = {
+    potential = {
+        has_or_had_tag = SAX
+    }
+    age = age_2_renaissance
+    requires = renaissance_advance
+    # Historical Context: Dresden became magnificent center of Renaissance culture.
+    cultural_tradition_modifier = 0.10
+    monthly_prestige = 0.08
+}
+
+sax_renaissance_protestant_reformation = {
+    potential = {
+        has_or_had_tag = SAX
+    }
+    age = age_2_renaissance
+    requires = renaissance_advance
+    # Historical Context: Saxony became heartland of Protestant Reformation.
+    religious_unity = 0.08
+    stability_cost = -0.06
+}
+
+sax_renaissance_leipzig_fairs = {
+    potential = {
+        has_or_had_tag = SAX
+    }
+    age = age_2_renaissance
+    requires = renaissance_advance
+    # Historical Context: Leipzig trade fairs attracted merchants from across Europe.
+    trade_income = 0.10
+    global_merchant_power = 0.08
+}
+
+sax_discovery_confessional_politics = {
+    potential = {
+        has_or_had_tag = SAX
+    }
+    age = age_3_discovery
+    requires = new_world_advance
+    # Historical Context: Leadership of Protestant cause in imperial politics.
+    religious_unity = 0.08
+    diplomatic_capacity = 1
+}
+
+sax_discovery_meissen_porcelain = {
+    potential = {
+        has_or_had_tag = SAX
+    }
+    age = age_3_discovery
+    requires = new_world_advance
+    # Historical Context: Discovery of porcelain formula created luxury monopoly.
+    global_porcelain_output_modifier = 0.40
+    trade_income = 0.08
+}
+
+sax_discovery_mining_innovations = {
+    potential = {
+        has_or_had_tag = SAX
+    }
+    age = age_3_discovery
+    requires = new_world_advance
+    # Historical Context: Advanced mining techniques increased ore extraction.
+    global_silver_output_modifier = 0.25
+    global_production_efficiency = 0.06
+}
+
+sax_discovery_imperial_influence = {
+    potential = {
+        has_or_had_tag = SAX
+    }
+    age = age_3_discovery
+    requires = new_world_advance
+    # Historical Context: Electoral vote gave Saxony pivotal imperial role.
+    diplomatic_capacity = 2
+    monthly_imperial_authority = 0.05
+}
+
+sax_reformation_lutheran_orthodoxy = {
+    potential = {
+        has_or_had_tag = SAX
+    }
+    age = age_4_reformation
+    requires = confessionalism_advance
+    # Historical Context: Lutheran orthodoxy defined Saxon religious identity.
+    religious_unity = 0.10
+    monthly_religious_rebel_growth = -0.12
+}
+
+sax_reformation_fortified_cities = {
+    potential = {
+        has_or_had_tag = SAX
+    }
+    age = age_4_reformation
+    requires = confessionalism_advance
+    # Historical Context: Cities fortified against Catholic imperial forces.
+    fort_level = 1
+    siege_defense = 0.06
+}
+
+sax_reformation_professional_regiments = {
+    potential = {
+        has_or_had_tag = SAX
+    }
+    age = age_4_reformation
+    requires = confessionalism_advance
+    # Historical Context: Standing regiments defended Protestant territories.
+    global_manpower_modifier = 0.10
+    discipline = 0.06
+}
+
+sax_reformation_university_traditions = {
+    potential = {
+        has_or_had_tag = SAX
+    }
+    age = age_4_reformation
+    requires = confessionalism_advance
+    # Historical Context: Universities at Leipzig and Wittenberg promoted learning.
+    cultural_tradition_modifier = 0.08
+    stability_cost = -0.05
+}
+
+sax_absolutism_absolutist_state = {
+    potential = {
+        has_or_had_tag = SAX
+    }
+    age = age_5_absolutism
+    requires = manufactories_advance
+    # Historical Context: Centralized absolutist governance strengthened electoral authority.
+    stability_cost = -0.07
+    tax_income_efficiency = 0.08
+}
+
+sax_absolutism_porcelain_manufactory = {
+    potential = {
+        has_or_had_tag = SAX
+    }
+    age = age_5_absolutism
+    requires = manufactories_advance
+    # Historical Context: Royal porcelain manufactory at Meissen produced finest wares.
+    global_porcelain_output_modifier = 0.50
+    global_production_efficiency = 0.08
+}
+
+sax_absolutism_baroque_splendor = {
+    potential = {
+        has_or_had_tag = SAX
+    }
+    age = age_5_absolutism
+    requires = manufactories_advance
+    # Historical Context: Augustus the Strong's baroque magnificence dazzled Europe.
+    cultural_tradition_modifier = 0.12
+    monthly_prestige = 0.10
+}
+
+sax_absolutism_polish_connection = {
+    potential = {
+        has_or_had_tag = SAX
+    }
+    age = age_5_absolutism
+    requires = manufactories_advance
+    # Historical Context: Personal union with Poland elevated Saxon prestige.
+    diplomatic_capacity = 2
+    monthly_prestige = 0.08
+}
+
+sax_revolutions_enlightened_monarchy = {
+    potential = {
+        has_or_had_tag = SAX
+    }
+    age = age_6_revolutions
+    requires = enlightenment_advance
+    # Historical Context: Enlightened reforms modernized Saxon state.
+    stability_cost = -0.08
+    tax_income_efficiency = 0.10
+}
+
+sax_revolutions_industrial_mining = {
+    potential = {
+        has_or_had_tag = SAX
+    }
+    age = age_6_revolutions
+    requires = enlightenment_advance
+    # Historical Context: Industrial methods revolutionized mining operations.
+    global_silver_output_modifier = 0.35
+    global_coal_output_modifier = 0.25
+}
+
+sax_revolutions_porcelain_exports = {
+    potential = {
+        has_or_had_tag = SAX
+    }
+    age = age_6_revolutions
+    requires = enlightenment_advance
+    # Historical Context: Porcelain exports reached global markets.
+    global_porcelain_output_modifier = 0.60
+    trade_income = 0.12
+}
+
+sax_revolutions_confederation_politics = {
+    potential = {
+        has_or_had_tag = SAX
+    }
+    age = age_6_revolutions
+    requires = enlightenment_advance
+    # Historical Context: Saxony navigated German Confederation politics.
+    diplomatic_capacity = 2
+    improve_relations_modifier = 0.10
+}
+
+
+########################
+# Palatinate (PAL)
+########################
+
+pal_traditions_electoral_power = {
+    potential = {
+        has_or_had_tag = PAL
+    }
+    age = age_1_traditions
+    requires = written_alphabet
+    # Historical Context: Electoral dignity gave Palatinate pivotal role in Empire.
+    monthly_prestige = 0.06
+    diplomatic_capacity = 1
+}
+
+pal_traditions_rhine_trade = {
+    potential = {
+        has_or_had_tag = PAL
+    }
+    age = age_1_traditions
+    requires = written_alphabet
+    # Historical Context: Rhine River trade enriched Palatine territories.
+    trade_income = 0.07
+    global_merchant_power = 0.05
+}
+
+pal_traditions_heidelberg_university = {
+    potential = {
+        has_or_had_tag = PAL
+    }
+    age = age_1_traditions
+    requires = written_alphabet
+    # Historical Context: Heidelberg University promoted learning and culture.
+    cultural_tradition_modifier = 0.08
+    monthly_prestige = 0.05
+}
+
+pal_traditions_fortified_castles = {
+    potential = {
+        has_or_had_tag = PAL
+    }
+    age = age_1_traditions
+    requires = written_alphabet
+    # Historical Context: Rhine castles defended Palatine domains.
+    fort_level = 1
+    siege_defense = 0.05
+}
+
+pal_renaissance_wittelbach_connections = {
+    potential = {
+        has_or_had_tag = PAL
+    }
+    age = age_2_renaissance
+    requires = renaissance_advance
+    # Historical Context: Wittelsbach family ties elevated Palatine influence.
+    diplomatic_capacity = 1
+    improve_relations_modifier = 0.06
+}
+
+pal_renaissance_wine_production = {
+    potential = {
+        has_or_had_tag = PAL
+    }
+    age = age_2_renaissance
+    requires = renaissance_advance
+    # Historical Context: Palatine wines gained European renown.
+    global_wine_output_modifier = 0.25
+    trade_income = 0.06
+}
+
+pal_renaissance_cultural_patronage = {
+    potential = {
+        has_or_had_tag = PAL
+    }
+    age = age_2_renaissance
+    requires = renaissance_advance
+    # Historical Context: Court patronage promoted arts and humanism.
+    cultural_tradition_modifier = 0.10
+    monthly_prestige = 0.06
+}
+
+pal_renaissance_imperial_influence = {
+    potential = {
+        has_or_had_tag = PAL
+    }
+    age = age_2_renaissance
+    requires = renaissance_advance
+    # Historical Context: Electoral vote gave Palatinate kingmaking power.
+    diplomatic_capacity = 2
+    monthly_imperial_authority = 0.05
+}
+
+pal_discovery_calvinist_conversion = {
+    potential = {
+        has_or_had_tag = PAL
+    }
+    age = age_3_discovery
+    requires = new_world_advance
+    # Historical Context: Conversion to Calvinism reshaped Palatine identity.
+    religious_unity = 0.08
+    stability_cost = -0.06
+}
+
+pal_discovery_protestant_union_leadership = {
+    potential = {
+        has_or_had_tag = PAL
+    }
+    age = age_3_discovery
+    requires = new_world_advance
+    # Historical Context: Leadership of Protestant Union against Catholics.
+    diplomatic_capacity = 2
+    monthly_prestige = 0.06
+}
+
+pal_discovery_rhine_fortifications = {
+    potential = {
+        has_or_had_tag = PAL
+    }
+    age = age_3_discovery
+    requires = new_world_advance
+    # Historical Context: Fortifications secured strategic Rhine positions.
+    fort_level = 1
+    siege_defense = 0.06
+}
+
+pal_discovery_mercenary_recruitment = {
+    potential = {
+        has_or_had_tag = PAL
+    }
+    age = age_3_discovery
+    requires = new_world_advance
+    # Historical Context: Mercenary forces augmented Palatine armies.
+    mercenary_maintenance_cost = -0.12
+    global_manpower_modifier = 0.08
+}
+
+pal_reformation_winter_king_ambitions = {
+    potential = {
+        has_or_had_tag = PAL
+    }
+    age = age_4_reformation
+    requires = confessionalism_advance
+    # Historical Context: Bohemian crown ambitions elevated then devastated Palatinate.
+    monthly_prestige = 0.08
+    diplomatic_capacity = 1
+}
+
+pal_reformation_reformed_orthodoxy = {
+    potential = {
+        has_or_had_tag = PAL
+    }
+    age = age_4_reformation
+    requires = confessionalism_advance
+    # Historical Context: Calvinist orthodoxy defined Palatine religious culture.
+    religious_unity = 0.08
+    monthly_religious_rebel_growth = -0.10
+}
+
+pal_reformation_reconstruction_efforts = {
+    potential = {
+        has_or_had_tag = PAL
+    }
+    age = age_4_reformation
+    requires = confessionalism_advance
+    # Historical Context: Recovery from war devastation required immense effort.
+    global_production_efficiency = 0.08
+    tax_income_efficiency = 0.05
+}
+
+pal_reformation_diplomatic_survival = {
+    potential = {
+        has_or_had_tag = PAL
+    }
+    age = age_4_reformation
+    requires = confessionalism_advance
+    # Historical Context: Diplomatic skill ensured survival amid great powers.
+    diplomatic_capacity = 2
+    improve_relations_modifier = 0.08
+}
+
+pal_absolutism_french_alliance = {
+    potential = {
+        has_or_had_tag = PAL
+    }
+    age = age_5_absolutism
+    requires = manufactories_advance
+    # Historical Context: French protection preserved Palatine independence.
+    diplomatic_capacity = 2
+    improve_relations_modifier = 0.10
+}
+
+pal_absolutism_wine_industry = {
+    potential = {
+        has_or_had_tag = PAL
+    }
+    age = age_5_absolutism
+    requires = manufactories_advance
+    # Historical Context: Wine industry became economic foundation.
+    global_wine_output_modifier = 0.35
+    global_production_efficiency = 0.06
+}
+
+pal_absolutism_heidelberg_restoration = {
+    potential = {
+        has_or_had_tag = PAL
+    }
+    age = age_5_absolutism
+    requires = manufactories_advance
+    # Historical Context: Restoration of Heidelberg's cultural prominence.
+    cultural_tradition_modifier = 0.10
+    stability_cost = -0.06
+}
+
+pal_absolutism_professional_guard = {
+    potential = {
+        has_or_had_tag = PAL
+    }
+    age = age_5_absolutism
+    requires = manufactories_advance
+    # Historical Context: Professional guard defended electoral territories.
+    discipline = 0.07
+    global_manpower_modifier = 0.10
+}
+
+pal_revolutions_enlightened_governance = {
+    potential = {
+        has_or_had_tag = PAL
+    }
+    age = age_6_revolutions
+    requires = enlightenment_advance
+    # Historical Context: Enlightened reforms modernized Palatine state.
+    stability_cost = -0.08
+    tax_income_efficiency = 0.08
+}
+
+pal_revolutions_industrial_rhine = {
+    potential = {
+        has_or_had_tag = PAL
+    }
+    age = age_6_revolutions
+    requires = enlightenment_advance
+    # Historical Context: Industrialization transformed Rhine economy.
+    global_production_efficiency = 0.12
+    trade_income = 0.08
+}
+
+pal_revolutions_constitutional_reforms = {
+    potential = {
+        has_or_had_tag = PAL
+    }
+    age = age_6_revolutions
+    requires = enlightenment_advance
+    # Historical Context: Liberal constitutional reforms balanced monarchy and representation.
+    stability_cost = -0.07
+    monthly_rebel_growth = -0.12
+}
+
+pal_revolutions_german_unification_debates = {
+    potential = {
+        has_or_had_tag = PAL
+    }
+    age = age_6_revolutions
+    requires = enlightenment_advance
+    # Historical Context: Palatinate engaged in debates over German unity.
+    diplomatic_capacity = 2
+    monthly_prestige = 0.06
+}
+
+########################
+# Hesse (HES)
+########################
+
+hes_traditions_mercenary_reputation = {
+    potential = {
+        has_or_had_tag = HES
+    }
+    age = age_1_traditions
+    requires = written_alphabet
+    # Historical Context: Hessian soldiers renowned as elite mercenaries across Europe.
+    mercenary_maintenance_cost = -0.15
+    discipline = 0.06
+}
+
+hes_traditions_landgraviate_authority = {
+    potential = {
+        has_or_had_tag = HES
+    }
+    age = age_1_traditions
+    requires = written_alphabet
+    # Historical Context: Strong landgrave governance unified Hessian territories.
+    stability_cost = -0.05
+    tax_income_efficiency = 0.05
+}
+
+hes_traditions_central_location = {
+    potential = {
+        has_or_had_tag = HES
+    }
+    age = age_1_traditions
+    requires = written_alphabet
+    # Historical Context: Central German position facilitated trade connections.
+    trade_income = 0.06
+    global_merchant_power = 0.04
+}
+
+hes_traditions_fortified_towns = {
+    potential = {
+        has_or_had_tag = HES
+    }
+    age = age_1_traditions
+    requires = written_alphabet
+    # Historical Context: Fortified towns defended Hessian domains.
+    fort_level = 1
+    siege_defense = 0.04
+}
+
+hes_renaissance_marburg_university = {
+    potential = {
+        has_or_had_tag = HES
+    }
+    age = age_2_renaissance
+    requires = renaissance_advance
+    # Historical Context: First Protestant university promoted reformed learning.
+    cultural_tradition_modifier = 0.08
+    monthly_prestige = 0.05
+}
+
+hes_renaissance_military_reforms = {
+    potential = {
+        has_or_had_tag = HES
+    }
+    age = age_2_renaissance
+    requires = renaissance_advance
+    # Historical Context: Army reforms enhanced mercenary military reputation.
+    discipline = 0.07
+    army_infantry_power = 0.05
+}
+
+hes_renaissance_protestant_conversion = {
+    potential = {
+        has_or_had_tag = HES
+    }
+    age = age_2_renaissance
+    requires = renaissance_advance
+    # Historical Context: Early Protestant conversion shaped Hessian identity.
+    religious_unity = 0.08
+    stability_cost = -0.05
+}
+
+hes_renaissance_agricultural_base = {
+    potential = {
+        has_or_had_tag = HES
+    }
+    age = age_2_renaissance
+    requires = renaissance_advance
+    # Historical Context: Rich farmlands provided economic foundation.
+    global_wheat_output_modifier = 0.15
+    tax_income_efficiency = 0.04
+}
+
+hes_discovery_soldier_export = {
+    potential = {
+        has_or_had_tag = HES
+    }
+    age = age_3_discovery
+    requires = new_world_advance
+    # Historical Context: Systematic export of soldiers generated substantial revenue.
+    mercenary_maintenance_cost = -0.20
+    monthly_gold_income = 2
+}
+
+hes_discovery_reformed_orthodoxy = {
+    potential = {
+        has_or_had_tag = HES
+    }
+    age = age_3_discovery
+    requires = new_world_advance
+    # Historical Context: Calvinist orthodoxy strengthened religious identity.
+    religious_unity = 0.08
+    monthly_religious_rebel_growth = -0.10
+}
+
+hes_discovery_military_professionalism = {
+    potential = {
+        has_or_had_tag = HES
+    }
+    age = age_3_discovery
+    requires = new_world_advance
+    # Historical Context: Professional military training became hallmark.
+    discipline = 0.08
+    monthly_army_tradition = 0.05
+}
+
+hes_discovery_diplomatic_balancing = {
+    potential = {
+        has_or_had_tag = HES
+    }
+    age = age_3_discovery
+    requires = new_world_advance
+    # Historical Context: Skillful diplomacy balanced between great powers.
+    diplomatic_capacity = 1
+    improve_relations_modifier = 0.06
+}
+
+hes_reformation_thirty_years_survival = {
+    potential = {
+        has_or_had_tag = HES
+    }
+    age = age_4_reformation
+    requires = confessionalism_advance
+    # Historical Context: Survival through devastating Thirty Years War.
+    stability_cost = -0.06
+    global_manpower_modifier = 0.08
+}
+
+hes_reformation_mercenary_contracts = {
+    potential = {
+        has_or_had_tag = HES
+    }
+    age = age_4_reformation
+    requires = confessionalism_advance
+    # Historical Context: Lucrative contracts with foreign powers enriched landgrave.
+    mercenary_maintenance_cost = -0.18
+    monthly_gold_income = 3
+}
+
+hes_reformation_protestant_solidarity = {
+    potential = {
+        has_or_had_tag = HES
+    }
+    age = age_4_reformation
+    requires = confessionalism_advance
+    # Historical Context: Alliance with Protestant states for mutual defense.
+    diplomatic_capacity = 1
+    improve_relations_modifier = 0.07
+}
+
+hes_reformation_officer_training_schools = {
+    potential = {
+        has_or_had_tag = HES
+    }
+    age = age_4_reformation
+    requires = confessionalism_advance
+    # Historical Context: Training schools produced professional officers for export.
+    discipline = 0.07
+    monthly_army_tradition = 0.06
+}
+
+hes_absolutism_enlightened_despotism = {
+    potential = {
+        has_or_had_tag = HES
+    }
+    age = age_5_absolutism
+    requires = manufactories_advance
+    # Historical Context: Enlightened landgraves modernized governance.
+    stability_cost = -0.07
+    tax_income_efficiency = 0.07
+}
+
+hes_absolutism_american_contracts = {
+    potential = {
+        has_or_had_tag = HES
+    }
+    age = age_5_absolutism
+    requires = manufactories_advance
+    # Historical Context: Contracts with Britain for American war generated wealth.
+    mercenary_maintenance_cost = -0.20
+    monthly_gold_income = 4
+}
+
+hes_absolutism_standing_army = {
+    potential = {
+        has_or_had_tag = HES
+    }
+    age = age_5_absolutism
+    requires = manufactories_advance
+    # Historical Context: Professional standing army maintained military tradition.
+    global_manpower_modifier = 0.12
+    discipline = 0.08
+}
+
+hes_absolutism_kassel_museums = {
+    potential = {
+        has_or_had_tag = HES
+    }
+    age = age_5_absolutism
+    requires = manufactories_advance
+    # Historical Context: Cultural patronage elevated Kassel's prestige.
+    cultural_tradition_modifier = 0.10
+    monthly_prestige = 0.06
+}
+
+hes_revolutions_constitutional_monarchy = {
+    potential = {
+        has_or_had_tag = HES
+    }
+    age = age_6_revolutions
+    requires = enlightenment_advance
+    # Historical Context: Constitutional reforms balanced traditional and modern governance.
+    stability_cost = -0.08
+    monthly_rebel_growth = -0.12
+}
+
+hes_revolutions_military_modernization = {
+    potential = {
+        has_or_had_tag = HES
+    }
+    age = age_6_revolutions
+    requires = enlightenment_advance
+    # Historical Context: Modern army reforms maintained Hessian military reputation.
+    discipline = 0.10
+    army_infantry_power = 0.07
+}
+
+hes_revolutions_industrial_development = {
+    potential = {
+        has_or_had_tag = HES
+    }
+    age = age_6_revolutions
+    requires = enlightenment_advance
+    # Historical Context: Industrial development diversified Hessian economy.
+    global_production_efficiency = 0.12
+    tax_income_efficiency = 0.08
+}
+
+hes_revolutions_confederation_politics = {
+    potential = {
+        has_or_had_tag = HES
+    }
+    age = age_6_revolutions
+    requires = enlightenment_advance
+    # Historical Context: Active role in German Confederation affairs.
+    diplomatic_capacity = 2
+    improve_relations_modifier = 0.08
+}
+
+########################
+# Lorraine (LOR)
+########################
+
+lor_traditions_buffer_diplomacy = {
+    potential = {
+        has_or_had_tag = LOR
+    }
+    age = age_1_traditions
+    requires = written_alphabet
+    # Historical Context: Location between France and Empire required diplomatic skill.
+    diplomatic_capacity = 1
+    improve_relations_modifier = 0.08
+    diplomatic_reputation = 1
+}
+
+lor_traditions_ducal_authority = {
+    potential = {
+        has_or_had_tag = LOR
+    }
+    age = age_1_traditions
+    requires = written_alphabet
+    # Historical Context: Strong ducal rule unified Lorraine territories.
+    stability_cost = -0.05
+    monthly_prestige = 0.05
+}
+
+lor_traditions_salt_mines = {
+    potential = {
+        has_or_had_tag = LOR
+    }
+    age = age_1_traditions
+    requires = written_alphabet
+    # Historical Context: Rich salt deposits generated substantial revenue.
+    global_salt_output_modifier = 0.25
+    tax_income_efficiency = 0.05
+}
+
+lor_traditions_fortified_borders = {
+    potential = {
+        has_or_had_tag = LOR
+    }
+    age = age_1_traditions
+    requires = written_alphabet
+    # Historical Context: Border fortresses defended against invasions.
+    fort_level = 1
+    siege_defense = 0.05
+}
+
+lor_renaissance_nancy_court = {
+    potential = {
+        has_or_had_tag = LOR
+    }
+    age = age_2_renaissance
+    requires = renaissance_advance
+    # Historical Context: Ducal court at Nancy promoted Renaissance culture.
+    cultural_tradition_modifier = 0.08
+    monthly_prestige = 0.06
+}
+
+lor_renaissance_imperial_ties = {
+    potential = {
+        has_or_had_tag = LOR
+    }
+    age = age_2_renaissance
+    requires = renaissance_advance
+    # Historical Context: Ties to Holy Roman Empire balanced French pressure.
+    diplomatic_capacity = 1
+    monthly_imperial_authority = 0.04
+    aggressiveness_modifier = -0.10
+}
+
+lor_renaissance_iron_production = {
+    potential = {
+        has_or_had_tag = LOR
+    }
+    age = age_2_renaissance
+    requires = renaissance_advance
+    # Historical Context: Iron ore deposits supported metallurgy industry.
+    global_iron_output_modifier = 0.20
+    global_production_efficiency = 0.05
+}
+
+lor_renaissance_territorial_consolidation = {
+    potential = {
+        has_or_had_tag = LOR
+    }
+    age = age_2_renaissance
+    requires = renaissance_advance
+    # Historical Context: Acquisition of territories strengthened duchy.
+    global_manpower_modifier = 0.08
+    tax_income_efficiency = 0.04
+}
+
+lor_discovery_french_pressure = {
+    potential = {
+        has_or_had_tag = LOR
+    }
+    age = age_3_discovery
+    requires = new_world_advance
+    # Historical Context: Constant French pressure threatened independence.
+    diplomatic_capacity = 2
+    improve_relations_modifier = 0.10
+    diplomatic_reputation = 1
+}
+
+lor_discovery_habsburg_alliance = {
+    potential = {
+        has_or_had_tag = LOR
+    }
+    age = age_3_discovery
+    requires = new_world_advance
+    # Historical Context: Alliance with Habsburgs countered French ambitions.
+    diplomatic_capacity = 1
+    monthly_prestige = 0.05
+    aggressiveness_modifier = -0.08
+    diplomatic_reputation = 1
+}
+
+lor_discovery_agricultural_prosperity = {
+    potential = {
+        has_or_had_tag = LOR
+    }
+    age = age_3_discovery
+    requires = new_world_advance
+    # Historical Context: Fertile lands provided economic stability.
+    global_wheat_output_modifier = 0.15
+    tax_income_efficiency = 0.05
+}
+
+lor_discovery_military_reforms = {
+    potential = {
+        has_or_had_tag = LOR
+    }
+    age = age_3_discovery
+    requires = new_world_advance
+    # Historical Context: Army modernization enhanced defensive capability.
+    discipline = 0.06
+    global_manpower_modifier = 0.08
+}
+
+lor_reformation_catholic_loyalty = {
+    potential = {
+        has_or_had_tag = LOR
+    }
+    age = age_4_reformation
+    requires = confessionalism_advance
+    # Historical Context: Staunch Catholic loyalty in face of Protestantism.
+    religious_unity = 0.08
+    monthly_religious_rebel_growth = -0.10
+}
+
+lor_reformation_thirty_years_devastation = {
+    potential = {
+        has_or_had_tag = LOR
+    }
+    age = age_4_reformation
+    requires = confessionalism_advance
+    # Historical Context: Terrible devastation from Thirty Years War.
+    stability_cost = -0.06
+    global_production_efficiency = 0.06
+}
+
+lor_reformation_fortification_network = {
+    potential = {
+        has_or_had_tag = LOR
+    }
+    age = age_4_reformation
+    requires = confessionalism_advance
+    # Historical Context: Extensive fortifications defended duchy.
+    fort_level = 1
+    siege_defense = 0.07
+}
+
+lor_reformation_diplomatic_survival = {
+    potential = {
+        has_or_had_tag = LOR
+    }
+    age = age_4_reformation
+    requires = confessionalism_advance
+    # Historical Context: Diplomatic skill preserved independence amid chaos.
+    diplomatic_capacity = 2
+    improve_relations_modifier = 0.08
+    diplomatic_reputation = 2
+    aggressiveness_modifier = -0.15
+}
+
+lor_absolutism_french_annexation_resistance = {
+    potential = {
+        has_or_had_tag = LOR
+    }
+    age = age_5_absolutism
+    requires = manufactories_advance
+    # Historical Context: Resistance to French annexation attempts.
+    stability_cost = -0.07
+    monthly_prestige = 0.06
+}
+
+lor_absolutism_salt_industry = {
+    potential = {
+        has_or_had_tag = LOR
+    }
+    age = age_5_absolutism
+    requires = manufactories_advance
+    # Historical Context: Expanded salt production enriched duchy.
+    global_salt_output_modifier = 0.35
+    tax_income_efficiency = 0.06
+}
+
+lor_absolutism_iron_manufactures = {
+    potential = {
+        has_or_had_tag = LOR
+    }
+    age = age_5_absolutism
+    requires = manufactories_advance
+    # Historical Context: Iron industry produced weapons and tools.
+    global_iron_output_modifier = 0.30
+    global_weaponry_output_modifier = 0.15
+}
+
+lor_absolutism_stanislas_legacy = {
+    potential = {
+        has_or_had_tag = LOR
+    }
+    age = age_5_absolutism
+    requires = manufactories_advance
+    # Historical Context: Stanislas Leszczynski's enlightened rule beautified Nancy.
+    cultural_tradition_modifier = 0.12
+    monthly_prestige = 0.08
+}
+
+lor_revolutions_french_integration = {
+    potential = {
+        has_or_had_tag = LOR
+    }
+    age = age_6_revolutions
+    requires = enlightenment_advance
+    # Historical Context: Integration into France ended independence.
+    stability_cost = -0.08
+    tax_income_efficiency = 0.08
+    loyalty_to_overlord = 0.10
+}
+
+lor_revolutions_industrial_iron = {
+    potential = {
+        has_or_had_tag = LOR
+    }
+    age = age_6_revolutions
+    requires = enlightenment_advance
+    # Historical Context: Industrial revolution transformed iron production.
+    global_iron_output_modifier = 0.40
+    global_steel_output_modifier = 0.25
+}
+
+lor_revolutions_military_industry = {
+    potential = {
+        has_or_had_tag = LOR
+    }
+    age = age_6_revolutions
+    requires = enlightenment_advance
+    # Historical Context: Arms production for French military.
+    global_weaponry_output_modifier = 0.25
+    global_firearms_output_modifier = 0.20
+}
+
+lor_revolutions_regional_identity = {
+    potential = {
+        has_or_had_tag = LOR
+    }
+    age = age_6_revolutions
+    requires = enlightenment_advance
+    # Historical Context: Distinct Lorraine identity persisted within France.
+    cultural_tradition_modifier = 0.10
+    stability_cost = -0.06
+}
+
+########################
+# Brittany (BRI)
+########################
+
+bri_traditions_ducal_independence = {
+    potential = {
+        has_or_had_tag = BRI
+    }
+    age = age_1_traditions
+    requires = written_alphabet
+    # Historical Context: Fierce independence from French crown.
+    stability_cost = -0.06
+    monthly_prestige = 0.06
+    loyalty_to_overlord = -0.15
+}
+
+bri_traditions_maritime_culture = {
+    potential = {
+        has_or_had_tag = BRI
+    }
+    age = age_1_traditions
+    requires = written_alphabet
+    # Historical Context: Deep maritime traditions shaped Breton identity.
+    naval_morale = 0.06
+    navy_movement_speed = 0.05
+}
+
+bri_traditions_celtic_heritage = {
+    potential = {
+        has_or_had_tag = BRI
+    }
+    age = age_1_traditions
+    requires = written_alphabet
+    # Historical Context: Celtic cultural heritage distinct from France.
+    cultural_tradition_modifier = 0.08
+    monthly_prestige = 0.05
+}
+
+bri_traditions_coastal_fortresses = {
+    potential = {
+        has_or_had_tag = BRI
+    }
+    age = age_1_traditions
+    requires = written_alphabet
+    # Historical Context: Coastal fortifications defended against invasions.
+    fort_level = 1
+    naval_morale = 0.04
+}
+
+bri_renaissance_ducal_court = {
+    potential = {
+        has_or_had_tag = BRI
+    }
+    age = age_2_renaissance
+    requires = renaissance_advance
+    # Historical Context: Rennes court promoted Breton culture and governance.
+    cultural_tradition_modifier = 0.10
+    monthly_prestige = 0.06
+}
+
+bri_renaissance_fishing_industry = {
+    potential = {
+        has_or_had_tag = BRI
+    }
+    age = age_2_renaissance
+    requires = renaissance_advance
+    # Historical Context: Atlantic fishing grounds enriched Breton ports.
+    global_fish_output_modifier = 0.25
+    trade_income = 0.06
+}
+
+bri_renaissance_french_resistance = {
+    potential = {
+        has_or_had_tag = BRI
+    }
+    age = age_2_renaissance
+    requires = renaissance_advance
+    # Historical Context: Resistance to French centralization attempts.
+    stability_cost = -0.06
+    diplomatic_capacity = 1
+    loyalty_to_overlord = -0.10
+}
+
+bri_renaissance_naval_tradition = {
+    potential = {
+        has_or_had_tag = BRI
+    }
+    age = age_2_renaissance
+    requires = renaissance_advance
+    # Historical Context: Strong naval traditions for defense and commerce.
+    naval_morale = 0.07
+    monthly_navy_tradition = 0.04
+}
+
+bri_discovery_atlantic_exploration = {
+    potential = {
+        has_or_had_tag = BRI
+    }
+    age = age_3_discovery
+    requires = new_world_advance
+    # Historical Context: Breton sailors joined Atlantic exploration ventures.
+    navy_movement_speed = 0.08
+    global_merchant_power = 0.06
+}
+
+bri_discovery_cod_fisheries = {
+    potential = {
+        has_or_had_tag = BRI
+    }
+    age = age_3_discovery
+    requires = new_world_advance
+    # Historical Context: Newfoundland cod fisheries generated wealth.
+    global_fish_output_modifier = 0.30
+    trade_income = 0.08
+}
+
+bri_discovery_estates_general = {
+    potential = {
+        has_or_had_tag = BRI
+    }
+    age = age_3_discovery
+    requires = new_world_advance
+    # Historical Context: Estates-General preserved Breton privileges.
+    stability_cost = -0.06
+    monthly_rebel_growth = -0.10
+}
+
+bri_discovery_port_expansion = {
+    potential = {
+        has_or_had_tag = BRI
+    }
+    age = age_3_discovery
+    requires = new_world_advance
+    # Historical Context: Major port facilities at Brest and Saint-Malo.
+    naval_morale = 0.06
+    trade_income = 0.06
+}
+
+bri_reformation_catholic_stronghold = {
+    potential = {
+        has_or_had_tag = BRI
+    }
+    age = age_4_reformation
+    requires = confessionalism_advance
+    # Historical Context: Brittany remained staunchly Catholic.
+    religious_unity = 0.10
+    monthly_religious_rebel_growth = -0.12
+}
+
+bri_reformation_autonomy_preservation = {
+    potential = {
+        has_or_had_tag = BRI
+    }
+    age = age_4_reformation
+    requires = confessionalism_advance
+    # Historical Context: Struggle to preserve autonomy within France.
+    stability_cost = -0.07
+    monthly_prestige = 0.06
+    loyalty_to_overlord = -0.08
+}
+
+bri_reformation_naval_arsenals = {
+    potential = {
+        has_or_had_tag = BRI
+    }
+    age = age_4_reformation
+    requires = confessionalism_advance
+    # Historical Context: Naval arsenals supported French Atlantic fleet.
+    naval_morale = 0.08
+    global_naval_supplies_output_modifier = 0.15
+    loyalty_to_overlord = 0.10
+}
+
+bri_reformation_linen_industry = {
+    potential = {
+        has_or_had_tag = BRI
+    }
+    age = age_4_reformation
+    requires = confessionalism_advance
+    # Historical Context: Linen production became major industry.
+    global_fiber_crops_output_modifier = 0.20
+    global_cloth_output_modifier = 0.15
+}
+
+bri_absolutism_french_integration = {
+    potential = {
+        has_or_had_tag = BRI
+    }
+    age = age_5_absolutism
+    requires = manufactories_advance
+    # Historical Context: Gradual integration into French kingdom.
+    stability_cost = -0.07
+    tax_income_efficiency = 0.06
+    loyalty_to_overlord = 0.12
+}
+
+bri_absolutism_atlantic_trade = {
+    potential = {
+        has_or_had_tag = BRI
+    }
+    age = age_5_absolutism
+    requires = manufactories_advance
+    # Historical Context: Participation in lucrative Atlantic trade networks.
+    trade_income = 0.10
+    global_merchant_power = 0.08
+}
+
+bri_absolutism_royal_navy_contribution = {
+    potential = {
+        has_or_had_tag = BRI
+    }
+    age = age_5_absolutism
+    requires = manufactories_advance
+    # Historical Context: Breton sailors crewed French Atlantic fleet.
+    naval_morale = 0.08
+    monthly_navy_tradition = 0.06
+    loyalty_to_overlord = 0.15
+}
+
+bri_absolutism_sardine_fisheries = {
+    potential = {
+        has_or_had_tag = BRI
+    }
+    age = age_5_absolutism
+    requires = manufactories_advance
+    # Historical Context: Sardine canning industry emerged.
+    global_fish_output_modifier = 0.35
+    global_production_efficiency = 0.06
+}
+
+bri_revolutions_regional_identity = {
+    potential = {
+        has_or_had_tag = BRI
+    }
+    age = age_6_revolutions
+    requires = enlightenment_advance
+    # Historical Context: Strong Breton regional identity within France.
+    cultural_tradition_modifier = 0.12
+    monthly_prestige = 0.06
+    loyalty_to_overlord = -0.05
+}
+
+bri_revolutions_naval_modernization = {
+    potential = {
+        has_or_had_tag = BRI
+    }
+    age = age_6_revolutions
+    requires = enlightenment_advance
+    # Historical Context: Modern naval facilities at Brest.
+    naval_morale = 0.10
+    global_naval_supplies_output_modifier = 0.25
+}
+
+bri_revolutions_industrial_fishing = {
+    potential = {
+        has_or_had_tag = BRI
+    }
+    age = age_6_revolutions
+    requires = enlightenment_advance
+    # Historical Context: Industrial fishing methods increased catches.
+    global_fish_output_modifier = 0.45
+    trade_income = 0.10
+}
+
+bri_revolutions_celtic_revival = {
+    potential = {
+        has_or_had_tag = BRI
+    }
+    age = age_6_revolutions
+    requires = enlightenment_advance
+    # Historical Context: Romantic Celtic cultural revival movement.
+    cultural_tradition_modifier = 0.10
+    stability_cost = -0.06
+}
+
+########################
+# Provence (PRO)
+########################
+
+pro_traditions_good_king_rene = {
+    potential = {
+        has_or_had_tag = PRO
+    }
+    age = age_1_traditions
+    requires = written_alphabet
+    # Historical Context: Good King René's enlightened rule promoted culture and prosperity.
+    cultural_tradition_modifier = 0.10
+    monthly_prestige = 0.06
+}
+
+pro_traditions_mediterranean_trade = {
+    potential = {
+        has_or_had_tag = PRO
+    }
+    age = age_1_traditions
+    requires = written_alphabet
+    # Historical Context: Marseille and other ports dominated Mediterranean commerce.
+    trade_income = 0.08
+    global_merchant_power = 0.06
+}
+
+pro_traditions_papal_connections = {
+    potential = {
+        has_or_had_tag = PRO
+    }
+    age = age_1_traditions
+    requires = written_alphabet
+    # Historical Context: Avignon papal legacy provided prestige and connections.
+    monthly_prestige = 0.06
+    diplomatic_capacity = 1
+}
+
+pro_traditions_lavender_agriculture = {
+    potential = {
+        has_or_had_tag = PRO
+    }
+    age = age_1_traditions
+    requires = written_alphabet
+    # Historical Context: Provençal lavender and herbs enriched agriculture.
+    global_medicaments_output_modifier = 0.20
+    tax_income_efficiency = 0.04
+}
+
+pro_renaissance_angevin_claims = {
+    potential = {
+        has_or_had_tag = PRO
+    }
+    age = age_2_renaissance
+    requires = renaissance_advance
+    # Historical Context: Angevin dynasty's Italian claims elevated prestige.
+    monthly_prestige = 0.08
+    diplomatic_capacity = 1
+}
+
+pro_renaissance_cultural_flowering = {
+    potential = {
+        has_or_had_tag = PRO
+    }
+    age = age_2_renaissance
+    requires = renaissance_advance
+    # Historical Context: Renaissance culture flourished in Provençal courts.
+    cultural_tradition_modifier = 0.12
+    monthly_prestige = 0.06
+}
+
+pro_renaissance_olive_production = {
+    potential = {
+        has_or_had_tag = PRO
+    }
+    age = age_2_renaissance
+    requires = renaissance_advance
+    # Historical Context: Olive groves produced renowned oil.
+    global_olives_output_modifier = 0.25
+    trade_income = 0.05
+}
+
+pro_renaissance_maritime_commerce = {
+    potential = {
+        has_or_had_tag = PRO
+    }
+    age = age_2_renaissance
+    requires = renaissance_advance
+    # Historical Context: Marseille became major Mediterranean trading hub.
+    global_merchant_power = 0.08
+    trade_efficiency = 0.06
+}
+
+pro_discovery_french_integration = {
+    potential = {
+        has_or_had_tag = PRO
+    }
+    age = age_3_discovery
+    requires = new_world_advance
+    # Historical Context: Integration into French kingdom ended independence.
+    stability_cost = -0.06
+    tax_income_efficiency = 0.05
+}
+
+pro_discovery_galley_fleet = {
+    potential = {
+        has_or_had_tag = PRO
+    }
+    age = age_3_discovery
+    requires = new_world_advance
+    # Historical Context: Galley fleet dominated western Mediterranean.
+    naval_morale = 0.07
+    trade_income = 0.06
+}
+
+pro_discovery_silk_industry = {
+    potential = {
+        has_or_had_tag = PRO
+    }
+    age = age_3_discovery
+    requires = new_world_advance
+    # Historical Context: Silk production established in Provence.
+    global_silk_output_modifier = 0.20
+    global_production_efficiency = 0.05
+}
+
+pro_discovery_levantine_trade = {
+    potential = {
+        has_or_had_tag = PRO
+    }
+    age = age_3_discovery
+    requires = new_world_advance
+    # Historical Context: Trade connections to Levantine ports.
+    trade_income = 0.08
+    global_merchant_power = 0.06
+}
+
+pro_reformation_catholic_devotion = {
+    potential = {
+        has_or_had_tag = PRO
+    }
+    age = age_4_reformation
+    requires = confessionalism_advance
+    # Historical Context: Strong Catholic devotion resisted Protestantism.
+    religious_unity = 0.10
+    monthly_religious_rebel_growth = -0.12
+}
+
+pro_reformation_marseille_expansion = {
+    potential = {
+        has_or_had_tag = PRO
+    }
+    age = age_4_reformation
+    requires = confessionalism_advance
+    # Historical Context: Marseille port facilities expanded dramatically.
+    trade_income = 0.10
+    naval_morale = 0.05
+}
+
+pro_reformation_wine_production = {
+    potential = {
+        has_or_had_tag = PRO
+    }
+    age = age_4_reformation
+    requires = confessionalism_advance
+    # Historical Context: Provençal wines gained widespread renown.
+    global_wine_output_modifier = 0.30
+    trade_income = 0.06
+}
+
+pro_reformation_fortified_coast = {
+    potential = {
+        has_or_had_tag = PRO
+    }
+    age = age_4_reformation
+    requires = confessionalism_advance
+    # Historical Context: Coastal fortifications defended against raids.
+    fort_level = 1
+    naval_morale = 0.05
+}
+
+pro_absolutism_royal_province = {
+    potential = {
+        has_or_had_tag = PRO
+    }
+    age = age_5_absolutism
+    requires = manufactories_advance
+    # Historical Context: Status as royal province under French crown.
+    stability_cost = -0.07
+    tax_income_efficiency = 0.07
+}
+
+pro_absolutism_toulon_naval_base = {
+    potential = {
+        has_or_had_tag = PRO
+    }
+    age = age_5_absolutism
+    requires = manufactories_advance
+    # Historical Context: Toulon became France's primary Mediterranean naval base.
+    naval_morale = 0.10
+    global_naval_supplies_output_modifier = 0.20
+}
+
+pro_absolutism_silk_manufacture = {
+    potential = {
+        has_or_had_tag = PRO
+    }
+    age = age_5_absolutism
+    requires = manufactories_advance
+    # Historical Context: Silk manufacturing expanded under royal patronage.
+    global_silk_output_modifier = 0.30
+    global_cloth_output_modifier = 0.15
+}
+
+pro_absolutism_perfume_industry = {
+    potential = {
+        has_or_had_tag = PRO
+    }
+    age = age_5_absolutism
+    requires = manufactories_advance
+    # Historical Context: Grasse became world center of perfume production.
+    global_medicaments_output_modifier = 0.35
+    trade_income = 0.08
+}
+
+pro_revolutions_revolutionary_fervor = {
+    potential = {
+        has_or_had_tag = PRO
+    }
+    age = age_6_revolutions
+    requires = enlightenment_advance
+    # Historical Context: Marseille became revolutionary stronghold.
+    stability_cost = -0.08
+    monthly_rebel_growth = -0.15
+}
+
+pro_revolutions_mediterranean_navy = {
+    potential = {
+        has_or_had_tag = PRO
+    }
+    age = age_6_revolutions
+    requires = enlightenment_advance
+    # Historical Context: Modernized Mediterranean fleet based at Toulon.
+    naval_morale = 0.12
+    navy_movement_speed = 0.08
+}
+
+pro_revolutions_industrial_ports = {
+    potential = {
+        has_or_had_tag = PRO
+    }
+    age = age_6_revolutions
+    requires = enlightenment_advance
+    # Historical Context: Industrial development transformed port cities.
+    global_production_efficiency = 0.12
+    trade_income = 0.10
+}
+
+pro_revolutions_cultural_renaissance = {
+    potential = {
+        has_or_had_tag = PRO
+    }
+    age = age_6_revolutions
+    requires = enlightenment_advance
+    # Historical Context: Romantic rediscovery of Provençal culture and language.
+    cultural_tradition_modifier = 0.12
+    monthly_prestige = 0.08
+}
