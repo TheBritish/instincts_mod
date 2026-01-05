@@ -3,7 +3,61 @@
 
 This file serves as a comprehensive index to all EU5 modding reference materials. Use this to quickly locate specific documentation for any modding task.
 
-### 📋 **Core Reference Files** (Always consult these first)
+### 🎯 **AUTO-GENERATED GAME DOCUMENTATION** (Primary Source - Always Check First!)
+
+#### **00_AUTO_GENERATED_DOCS_README.txt**
+- **Location**: `.github/REFERENCE/00_AUTO_GENERATED_DOCS_README.txt`
+- **Purpose**: Complete guide to auto-generated documentation files and how to use them
+- **When to Use**: First resource to consult before any modding work
+
+#### **modifiers.log** ⭐ NEW!
+- **Location**: `.github/REFERENCE/modifiers.log`
+- **Size**: 139 KB, 3000+ modifiers
+- **Purpose**: COMPLETE authoritative list of all modifiers with categories
+- **Key Features**:
+  - 73 resource-specific output modifiers (wine, copper, wheat, livestock, etc.)
+  - Building cap modifiers (chancery_cap_level, etc.)
+  - Scope category information (Country, Location, Character, Unit)
+- **How to Use**: `Select-String -Path "modifiers.log" -Pattern "wine"`
+
+#### **effects.log** ⭐ NEW!
+- **Location**: `.github/REFERENCE/effects.log`
+- **Size**: 320 KB, 7,819 lines
+- **Purpose**: COMPLETE authoritative list of all effects with scope/target information
+- **Key Features**:
+  - Parameter syntax for each effect
+  - Supported scopes (country, character, location, etc.)
+  - Supported targets
+- **How to Use**: `Select-String -Path "effects.log" -Pattern "research_advance"`
+
+#### **triggers.log** ⭐ NEW!
+- **Location**: `.github/REFERENCE/triggers.log`
+- **Size**: 319 KB, 7,700+ lines
+- **Purpose**: COMPLETE authoritative list of all triggers with operators
+- **Key Features**:
+  - Operator support (<, <=, =, !=, >, >=)
+  - Scope requirements
+  - Target types
+- **How to Use**: `Select-String -Path "triggers.log" -Pattern "is_subject"`
+
+#### **on_actions.log** ⭐ NEW!
+- **Location**: `.github/REFERENCE/on_actions.log`
+- **Size**: 18 KB
+- **Purpose**: Complete list of all on_action event hooks
+
+#### **event_targets.log** ⭐ NEW!
+- **Location**: `.github/REFERENCE/event_targets.log`
+- **Size**: 38 KB
+- **Purpose**: Complete list of all event target types
+
+#### **custom_localization.log** ⭐ NEW!
+- **Location**: `.github/REFERENCE/custom_localization.log`
+- **Size**: 916 KB
+- **Purpose**: Complete custom localization reference
+
+---
+
+### 📋 **Core Reference Files** (Curated summaries - use with auto-generated logs)
 
 #### **EU5_Scripted_Content.txt**
 - **Location**: `.github/REFERENCE/EU5_Scripted_Content.txt`
@@ -41,19 +95,21 @@ This file serves as a comprehensive index to all EU5 modding reference materials
 
 #### **EU5_EFFECTS_REFERENCE.txt**
 - **Location**: `.github/REFERENCE/EU5_EFFECTS_REFERENCE.txt`
-- **Purpose**: All valid effects (add_prestige, set_variable, trigger_event, etc.)
+- **Purpose**: Curated guide to common effects with examples (companion to effects.log)
 - **Key Sections**:
   - Country scope effects
   - International organization effects
   - Scope navigation and context
+  - ⚠️ Note: See effects.log for complete authoritative list
 
 #### **EU5_TRIGGERS_REFERENCE.txt**
 - **Location**: `.github/REFERENCE/EU5_TRIGGERS_REFERENCE.txt`
-- **Purpose**: All valid triggers (tag, current_date, is_subject_of, etc.)
+- **Purpose**: Curated guide to common triggers with examples (companion to triggers.log)
 - **Key Sections**:
   - Location-based triggers
   - IO membership triggers
   - Date and time triggers
+  - ⚠️ Note: See triggers.log for complete authoritative list
 
 #### **EU5_LOCATIONS_REFERENCE.txt**
 - **Location**: `.github/REFERENCE/EU5_LOCATIONS_REFERENCE.txt`
@@ -84,18 +140,22 @@ This file serves as a comprehensive index to all EU5 modding reference materials
 
 #### **EU5_MODIFIERS_REFERENCE.txt** & **EU5_MODIFIER_TYPES_REFERENCE.txt**
 - **Location**: `.github/REFERENCE/EU5_MODIFIERS_REFERENCE.txt` & `EU5_MODIFIER_TYPES_REFERENCE.txt`
-- **Purpose**: Valid modifier properties and types
+- **Purpose**: Curated guide to common modifiers with categorization (companion to modifiers.log)
 - **Key Sections**:
   - Country modifiers
   - Location modifiers
   - IO modifiers
+  - 73 resource-specific output modifiers (NOW COMPLETE!)
+  - Building cap modifiers
+  - ⚠️ Note: See modifiers.log for complete authoritative list
 
 #### **EU5_ON_ACTIONS_REFERENCE.txt**
 - **Location**: `.github/REFERENCE/EU5_ON_ACTIONS_REFERENCE.txt`
-- **Purpose**: Event hooks (monthly_pulse, yearly_country_pulse, on_game_start, etc.)
+- **Purpose**: Curated guide to on_action hooks with examples (companion to on_actions.log)
 - **Key Sections**:
   - Timing and frequency
   - Scope context for each hook
+  - ⚠️ Note: See on_actions.log for complete authoritative list
 
 #### **EU5_SCOPES_REFERENCE.txt** & **EU5_SCOPE_LINKS_REFERENCE.txt**
 - **Location**: `.github/REFERENCE/EU5_SCOPES_REFERENCE.txt` & `EU5_SCOPE_LINKS_REFERENCE.txt`

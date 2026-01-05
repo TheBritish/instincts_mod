@@ -1,6 +1,24 @@
 ## EU5 Valid Triggers Reference
-## Source: https://eu5.paradoxwikis.com/Trigger
-## Last Updated: December 4, 2025
+## Source: triggers.log (Auto-generated game documentation) + Vanilla Game Files
+## Last Updated: January 5, 2026
+
+⚠️ **COMPLETE AUTHORITATIVE SOURCE NOW AVAILABLE!**
+⚠️ See triggers.log in this folder for complete auto-generated documentation (7,700+ lines)
+
+📁 **Auto-generated documentation files (AUTHORITATIVE):**
+   - triggers.log (319 KB, 7,700+ lines) - Complete trigger list with scope/operator info
+   - effects.log (320 KB) - Complete effect list
+   - modifiers.log (139 KB) - Complete modifier list
+   - on_actions.log (18 KB) - Complete on_action hooks
+   
+📖 **How to search triggers.log:**
+   PowerShell: Select-String -Path "triggers.log" -Pattern "owns|is_subject"
+   Example output shows: scope support, operators (<, <=, =, etc.), target types
+
+📄 **Companion files:**
+   - EU5_EFFECTS_REFERENCE.txt - All valid effects
+   - EU5_MODIFIERS_REFERENCE.txt - All valid modifiers
+   - 00_AUTO_GENERATED_DOCS_README.txt - How to use and regenerate documentation
 
 ======================
 INTERNATIONAL ORGANIZATION TRIGGERS
@@ -15,7 +33,7 @@ any_current_law_in_international_organization = { <conditions> }
 ======================
 COUNTRY SCOPE TRIGGERS
 ======================
-tag = <TAG>                                # Three-letter country tag
+tag = <TAG>                                # Three-letter country tag (NOT c:TAG in triggers)
 is_subject = yes/no
 is_subject_of = <country>
 capital ?= { <location conditions> }       # Safe accessor with ?=
@@ -25,11 +43,28 @@ has_diplomacy_with = <country>
 rank = <rank_type>                         # duchy/kingdom/empire
 
 ======================
+LOCATION OWNERSHIP (CRITICAL - Common Errors)
+======================
+❌ WRONG: owns = 54                        # Province ID syntax does NOT exist in EU5!
+✅ CORRECT: location:magdeburg = { owner ?= root }  # Use location names with safe owner checks
+
+Common province name mappings:
+- 54 = magdeburg
+- 61 = leipzig  
+- 66 = nuremberg
+- 67 = augsburg
+
+Always use location:<name> syntax, never raw province IDs!
+
+======================
 CAPITAL/REGION CHECKS
 ======================
-capital ?= { region = region:<region_name> }
-capital ?= { area = area:<area_name> }
+capital ?= { region ?= region:<region_name> }   # Use ?= safe accessor
+capital ?= { area ?= area:<area_name> }          # Use ?= safe accessor  
 capital ?= { province = <province_id> }
+
+❌ WRONG: region = region:brabant_region        # Unsupported syntax
+✅ CORRECT: region ?= region:brabant_region     # Use ?= safe accessor
 
 Example regions:
 - region:low_countries_region

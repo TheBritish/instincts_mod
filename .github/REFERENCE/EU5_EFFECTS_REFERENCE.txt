@@ -1,18 +1,29 @@
 ## EU5 Valid Effects Reference
-## Source: https://eu5.paradoxwikis.com/Effect + Vanilla Game Files
-## Last Updated: December 4, 2025
+## Source: effects.log (Auto-generated game documentation) + Vanilla Game Files
+## Last Updated: January 5, 2026
 
-⚠️ **IMPORTANT: Wiki is INCOMPLETE - Always verify against vanilla files!**
+⚠️ **COMPLETE AUTHORITATIVE SOURCE NOW AVAILABLE!**
+⚠️ See effects.log in this folder for complete auto-generated documentation (7,819 lines)
 
+📁 **Auto-generated documentation files (AUTHORITATIVE):**
+   - effects.log (320 KB, 7,819 lines) - Complete effect list with scope/target info
+   - triggers.log (319 KB) - Complete trigger list
+   - modifiers.log (139 KB) - Complete modifier list
+   - on_actions.log (18 KB) - Complete on_action hooks
+   
 📁 **Key vanilla reference files:**
    - game/in_game/events/**/*.txt - All vanilla events with effect examples
    - game/in_game/common/scripted_effects/**/*.txt - Reusable effect blocks
    - game/main_menu/common/script_values/default_values.txt - All script value constants
 
 📄 **Companion files:**
-   - EU5_MODIFIERS_REFERENCE.txt - All valid modifiers
+   - EU5_MODIFIERS_REFERENCE.txt - All valid modifiers (now with complete 73 resource modifiers)
    - EU5_TRIGGERS_REFERENCE.txt - All valid triggers
-   - SCRIPT_VALUES_RESEARCH.md - Complete script values documentation
+   - 00_AUTO_GENERATED_DOCS_README.txt - How to use and regenerate documentation
+
+📖 **How to search effects.log:**
+   PowerShell: Select-String -Path "effects.log" -Pattern "research_advance"
+   Example output shows: scope support, target support, parameter syntax
 
 ======================
 ✅ CRITICAL FINDINGS (Effects that exist but wiki doesn't document)
@@ -20,6 +31,11 @@
 
 RESEARCH & TECHNOLOGY ✅
 ----------------------------------
+research_advance = <advance_key>           # Grant advance directly (country scope) ✅ CONFIRMED IN VANILLA
+                                          # Bypasses normal research requirements
+                                          # Usage: research_advance = cas_renaissance_state_chancery
+                                          # Found in: advances unlock events, scenario setup
+                                          
 add_research_progress = <value>            # Add research points (uses script values) ✅ CONFIRMED IN VANILLA
                                           # Values: research_progress_weak_bonus = 5, research_progress_moderate_bonus = 10, etc.
                                           # Found in: random_event.txt, laws.txt, flavor_*.txt

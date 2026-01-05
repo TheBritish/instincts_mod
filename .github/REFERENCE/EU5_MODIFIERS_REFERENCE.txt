@@ -1,18 +1,21 @@
 ## EU5 Valid Modifiers Reference
-## Source: https://eu5.paradoxwikis.com/Modifier_types + Vanilla Game Files
-## Last Updated: December 4, 2025
+## Source: modifiers.log (Auto-generated game documentation) + Vanilla Game Files
+## Last Updated: January 5, 2026
 
-⚠️ **IMPORTANT: Wiki is INCOMPLETE - Always verify against vanilla files!**
-⚠️ Wiki only shows subset of modifiers (buildings, laws, policies)
-⚠️ Missing from wiki: Character traits, AI behavior, unit stats, many country modifiers
+⚠️ **COMPLETE AUTHORITATIVE SOURCES NOW AVAILABLE!**
+⚠️ See .github/REFERENCE/*.log files for complete auto-generated game documentation
 
-📁 **Complete authoritative list:** 
-   game/main_menu/common/modifier_type_definitions/00_modifier_types.txt (13,789 lines)
+📁 **Auto-generated documentation files (AUTHORITATIVE):**
+   - modifiers.log - Complete list of all 3000+ modifiers
+   - effects.log - Complete list of all effects
+   - triggers.log - Complete list of all triggers
+   - on_actions.log - Complete list of all on_action hooks
+   - event_targets.log - Complete list of all event targets
+   - custom_localization.log - Complete custom localization reference
 
-📄 **Companion files:**
-   - SCRIPT_VALUES_RESEARCH.md - All script value constants
-   - EU5_EFFECTS_REFERENCE.txt - All valid effects
-   - EU5_TRIGGERS_REFERENCE.txt - All valid triggers
+📁 **Source game files:** 
+   game/main_menu/common/modifier_type_definitions/00_modifier_types.txt (13,904 lines)
+   Documents/Paradox Interactive/Europa Universalis V/docs/ (auto-generated on game launch)
 
 ======================
 ✅ VERIFIED MODIFIERS (Confirmed in Vanilla Game Files)
@@ -48,59 +51,161 @@ trade_efficiency                           # percent, good, additive ✅
 levy_combat_efficiency_modifier            # percent, good, multiplicative ✅
 slave_raid_efficiency                      # percent, good, multiplicative ✅
 
-NAVAL MODIFIERS (Wiki + Verified)
+NAVAL MODIFIERS (All Verified ✅)
 ----------------------------------
-global_navy_levy_size_modifier             # multiplicative, percent, good
-local_sailors_modifier                     # multiplicative, percent, good
-global_ship_build_speed                    # percent, good, multiplicative
-global_sailors_modifier                    # multiplicative, percent, good
-global_naval_forcelimit_modifier           # multiplicative, percent, good
+naval_morale                               # percent, good, multiplicative ✅
+navy_movement_speed                        # percent, good, multiplicative ✅
+global_navy_levy_size_modifier             # multiplicative, percent, good ✅
+local_sailors_modifier                     # multiplicative, percent, good ✅
+global_sailors_modifier                    # multiplicative, percent, good ✅
 
 ======================
 DIPLOMATIC MODIFIERS
 ======================
-diplomatic_capacity                        # good, additive (flat bonus)
-diplomatic_upkeep_modifier                 # multiplicative, percent, neutral
-diplomatic_range                           # percent, good, additive
-improve_relations_modifier                 # percent, good, multiplicative
+diplomatic_capacity                        # good, additive (flat bonus) ✅
+diplomatic_upkeep_modifier                 # multiplicative, percent, neutral ✅
+diplomatic_range                           # percent, good, additive ✅
+improve_relations_modifier                 # percent, good, multiplicative ✅
 
 ======================
 ECONOMIC MODIFIERS
 ======================
-monthly_gold_income                        # good, additive (flat gold per month)
-global_tax_income_modifier                 # multiplicative, percent, good
-monthly_traditions                         # good, additive
+monthly_gold_income                        # good, additive (flat gold per month) ✅
+global_tax_income_modifier                 # multiplicative, percent, good ✅
+monthly_traditions                         # good, additive ✅
+inflation                                  # bad, additive ✅
+global_monthly_food_modifier               # multiplicative, percent, good ✅
+
+======================
+CULTURAL MODIFIERS
+======================
+cultural_tradition_modifier                # multiplicative, percent, good ✅
+cultural_influence_modifier                # multiplicative, percent, good ✅
 
 ======================
 MILITARY MODIFIERS
 ======================
-fort_limit                                 # good, additive
-global_manpower_modifier                   # multiplicative, percent, good
-global_garrison_size_modifier              # multiplicative, percent, good
-global_regiment_recruit_speed              # percent, good, multiplicative
-land_forcelimit_modifier                   # multiplicative, percent, good
+fort_limit                                 # good, additive ✅
+global_manpower_modifier                   # multiplicative, percent, good ✅
+global_garrison_size_modifier              # multiplicative, percent, good ✅
+regiment_recruit_speed                     # percent, good, multiplicative ✅
+land_forcelimit_modifier                   # multiplicative, percent, good ✅
+discipline                                 # percent, good, multiplicative ✅
+land_morale_modifier                       # percent, good, multiplicative ✅
 
 ======================
 POPULATION MODIFIERS
 ======================
-global_burghers_migration_allowed          # boolean, good
-global_burghers_desired_pop                # good, additive
-global_burghers_rural_desired_pop          # good, additive
-tolerance_own                              # good, additive
-tolerance_heretic                          # good, additive
-tolerance_heathen                          # good, additive
+global_burghers_migration_allowed          # boolean, good ✅
+global_burghers_desired_pop                # good, additive ✅
+global_burghers_rural_desired_pop          # good, additive ✅
+tolerance_own                              # good, additive ✅
+tolerance_heretic                          # good, additive ✅
+tolerance_heathen                          # good, additive ✅
 
 ======================
-GOODS-SPECIFIC OUTPUT MODIFIERS
+BUILDING CAP MODIFIERS (✅ Complete List)
 ======================
-global_salt_output_modifier                # multiplicative, percent, good
-global_fish_output_modifier                # multiplicative, percent, good
-global_amber_output_modifier               # multiplicative, percent, good
-global_cloth_output_modifier               # multiplicative, percent, good
-global_naval_supplies_output_modifier      # multiplicative, percent, good
-global_wood_output_modifier                # multiplicative, percent, good
-global_iron_output_modifier                # multiplicative, percent, good
-global_grain_output_modifier               # multiplicative, percent, good
+chancery_cap_level                         # additive, good ✅
+hanseatic_recruiting_office_max_level      # additive, good ✅
+soldier_estates_cap_level                  # additive, good ✅
+logothete_office_cap_level                 # additive, good ✅
+varangian_barracks_cap_level               # additive, good ✅
+tagmata_building_cap_level                 # additive, good ✅
+guard_building_cap_level                   # additive, good ✅
+
+======================
+GOODS-SPECIFIC OUTPUT MODIFIERS (✅ COMPLETE - 73 Total)
+======================
+Raw Materials (Mining):
+  global_coal_output_modifier              # multiplicative, percent, good ✅
+  global_iron_output_modifier              # multiplicative, percent, good ✅
+  global_copper_output_modifier            # multiplicative, percent, good ✅
+  global_goods_gold_output_modifier        # multiplicative, percent, good ✅
+  global_silver_output_modifier            # multiplicative, percent, good ✅
+  global_tin_output_modifier               # multiplicative, percent, good ✅
+  global_lead_output_modifier              # multiplicative, percent, good ✅
+  global_stone_output_modifier             # multiplicative, percent, good ✅
+  global_marble_output_modifier            # multiplicative, percent, good ✅
+  global_clay_output_modifier              # multiplicative, percent, good ✅
+  global_sand_output_modifier              # multiplicative, percent, good ✅
+  global_salt_output_modifier              # multiplicative, percent, good ✅
+  global_saltpeter_output_modifier         # multiplicative, percent, good ✅
+  global_alum_output_modifier              # multiplicative, percent, good ✅
+  global_mercury_output_modifier           # multiplicative, percent, good ✅
+  global_gems_output_modifier              # multiplicative, percent, good ✅
+  global_pearls_output_modifier            # multiplicative, percent, good ✅
+  global_amber_output_modifier             # multiplicative, percent, good ✅
+
+Raw Materials (Other):
+  global_horses_output_modifier            # multiplicative, percent, good ✅
+  global_elephants_output_modifier         # multiplicative, percent, good ✅
+  global_lumber_output_modifier            # multiplicative, percent, good ✅
+  global_tar_output_modifier               # multiplicative, percent, good ✅
+  global_wool_output_modifier              # multiplicative, percent, good ✅
+  global_silk_output_modifier              # multiplicative, percent, good ✅
+  global_fiber_crops_output_modifier       # multiplicative, percent, good ✅
+  global_cotton_output_modifier            # multiplicative, percent, good ✅
+  global_dyes_output_modifier              # multiplicative, percent, good ✅
+  global_ivory_output_modifier             # multiplicative, percent, good ✅
+  global_fur_output_modifier               # multiplicative, percent, good ✅
+  global_medicaments_output_modifier       # multiplicative, percent, good ✅
+  global_beeswax_output_modifier           # multiplicative, percent, good ✅
+
+Plantation Goods:
+  global_sugar_output_modifier             # multiplicative, percent, good ✅
+  global_tobacco_output_modifier           # multiplicative, percent, good ✅
+  global_coffee_output_modifier            # multiplicative, percent, good ✅
+  global_cocoa_output_modifier             # multiplicative, percent, good ✅
+  global_tea_output_modifier               # multiplicative, percent, good ✅
+
+Spices & Aromatics:
+  global_incense_output_modifier           # multiplicative, percent, good ✅
+  global_pepper_output_modifier            # multiplicative, percent, good ✅
+  global_cloves_output_modifier            # multiplicative, percent, good ✅
+  global_saffron_output_modifier           # multiplicative, percent, good ✅
+  global_chili_output_modifier             # multiplicative, percent, good ✅
+
+Food Goods:
+  global_fish_output_modifier              # multiplicative, percent, good ✅
+  global_wheat_output_modifier             # multiplicative, percent, good ✅
+  global_maize_output_modifier             # multiplicative, percent, good ✅
+  global_rice_output_modifier              # multiplicative, percent, good ✅
+  global_millet_output_modifier            # multiplicative, percent, good ✅
+  global_legumes_output_modifier           # multiplicative, percent, good ✅
+  global_potato_output_modifier            # multiplicative, percent, good ✅
+  global_livestock_output_modifier         # multiplicative, percent, good ✅
+  global_olives_output_modifier            # multiplicative, percent, good ✅
+  global_fruit_output_modifier             # multiplicative, percent, good ✅
+  global_wild_game_output_modifier         # multiplicative, percent, good ✅
+
+Luxury/Alcohol:
+  global_wine_output_modifier              # multiplicative, percent, good ✅
+  global_liquor_output_modifier            # multiplicative, percent, good ✅
+  global_beer_output_modifier              # multiplicative, percent, good ✅
+
+Produced Goods:
+  global_porcelain_output_modifier         # multiplicative, percent, good ✅
+  global_naval_supplies_output_modifier    # multiplicative, percent, good ✅
+  global_weaponry_output_modifier          # multiplicative, percent, good ✅
+  global_glass_output_modifier             # multiplicative, percent, good ✅
+  global_steel_output_modifier             # multiplicative, percent, good ✅
+  global_cloth_output_modifier             # multiplicative, percent, good ✅
+  global_fine_cloth_output_modifier        # multiplicative, percent, good ✅
+  global_paper_output_modifier             # multiplicative, percent, good ✅
+  global_books_output_modifier             # multiplicative, percent, good ✅
+  global_jewelry_output_modifier           # multiplicative, percent, good ✅
+  global_leather_output_modifier           # multiplicative, percent, good ✅
+  global_pottery_output_modifier           # multiplicative, percent, good ✅
+  global_masonry_output_modifier           # multiplicative, percent, good ✅
+  global_furniture_output_modifier         # multiplicative, percent, good ✅
+  global_lacquerware_output_modifier       # multiplicative, percent, good ✅
+  global_tools_output_modifier             # multiplicative, percent, good ✅
+  global_firearms_output_modifier          # multiplicative, percent, good ✅
+  global_cannons_output_modifier           # multiplicative, percent, good ✅
+
+Special:
+  global_slaves_goods_output_modifier      # multiplicative, percent, good ✅
 
 ======================
 GOODS-SPECIFIC TRADE RESTRICTIONS
