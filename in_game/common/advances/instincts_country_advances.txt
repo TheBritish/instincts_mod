@@ -20,7 +20,7 @@ eng_traditions_longbow_mastery = {
     land_morale_modifier = 0.08
     army_infantry_power = 0.06
     regiment_recruit_speed = 0.05
-    unlock_levy = levy_a_early_longbowmen
+    unlock_levy = levy_a_longbowmen
 }
 
 eng_traditions_feudal_parliament = {
